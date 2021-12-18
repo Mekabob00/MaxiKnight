@@ -26,7 +26,6 @@ public class PlayerDefencePos : MonoBehaviour
         {
             //攻撃力増加
             _SwordControll.AttakUPFlag = true;
-            GlobalData.Instance.isPlayerInSecondLine = true;　//追加 (ジョ)
             Debug.Log("範囲内");
         }
     }
@@ -37,7 +36,7 @@ public class PlayerDefencePos : MonoBehaviour
         {
             //範囲外に出たら攻撃力を低下
             _SwordControll.AttakUPFlag = false;
-            GlobalData.Instance.isPlayerInSecondLine = false;　//追加 (ジョ)
+
         }
     }
 
