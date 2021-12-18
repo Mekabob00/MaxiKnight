@@ -6,6 +6,15 @@ public class GlobalData : MonoBehaviour
 {
     public static GlobalData Instance;
 
+    [Header("砲弾出現")]
+    public bool isCanonAppear;
+    [Header("援護射撃起動")]
+    public bool isPlayerInSecondLine;
+    [Header("プレイヤ死亡/消滅")]
+    public bool isPlayerDead;
+    [Header("ゲームオーバー")]
+    public bool isGameOver;
+
     private void Awake()
     {
         if (Instance != null)
@@ -17,17 +26,8 @@ public class GlobalData : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    [Header("砲弾出現")]
-    public bool isCanonAppear;
-    [Header("援護射撃起動")]
-    public bool isPlayerInSecondLine;
-    [Header("プレイヤ死亡/消滅")]
-    public bool isPlayerDead;
-    [Header("ゲームオーバー")]
-    public bool isGameOver;
-    
     //初期化
-    public GlobalData()
+    private void Start()
     {
         isCanonAppear = false;
         isPlayerInSecondLine = false;

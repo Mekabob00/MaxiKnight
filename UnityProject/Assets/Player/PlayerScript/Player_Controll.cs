@@ -38,6 +38,16 @@ public class Player_Controll : MonoBehaviour
         PlayerWalk();//プレイヤー移動関数呼び出し
         PlayerAttackAnimation();//Zキーを押した時にアニメーションをさせる
 
+
+        //-----------------------------------------------
+        //プレイヤー死亡（テスト用）
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            GlobalData.Instance.isPlayerDead = true;
+            GlobalData.Instance.isPlayerInSecondLine = false;
+            Destroy(gameObject);
+        }
+        //-----------------------------------------------
     }
 
     

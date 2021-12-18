@@ -92,7 +92,13 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
 
     private void OnTriggerEnter(Collider other)
     {
-
+        //------------------------------------------------------
+        if (other.CompareTag("Castle"))
+        {
+            other.GetComponent<CastleBehavior>()._AddDamage(1);
+            Destroy(gameObject);
+        }
+        //------------------------------------------------------
 
         
     }

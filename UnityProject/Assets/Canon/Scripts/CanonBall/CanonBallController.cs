@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class CanonBallController : MonoBehaviour
 {
-    private Rigidbody rb;
-
+    [Header("ランダム生成位置範囲")]
     public float randomStartPosition;
+    [Header("通常速度")]
     public int normalSpeed;
+    [Header("スローモーション速度")]
     public int slowSpeed;
 
-    private int speed;
-    private bool isHit;
+    private int speed; //現在速度
+    private bool isHit; //プレイヤーの攻撃を受ける
    
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
         //ランダム初期位置
         transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + Random.Range(-randomStartPosition, randomStartPosition));
     }
@@ -57,17 +57,22 @@ public class CanonBallController : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-        //最終防衛ラインとの接触
+        //最終防衛ラインとの接触、スローモーション解除
         if (other.gameObject.CompareTag("First Defense"))
         {
             GlobalData.Instance.isCanonAppear = false;
+        }
 
-            //TODO: 拠点にダメージを与える
-            Destroy(gameObject, 1);
+
+        //TODO: 拠点にダメージを与える
+        if (other.gameObject.CompareTag("Castle"))
+        {
+            other.GetComponent<CastleBehavior>()._AddDamage(1);
+            Destroy(gameObject, 0.5f);
         }
     }
 
-    //カメラ範囲に入ったら、敵と砲弾共に減速する
+    //カメラ範囲に入り、スローモーション起動
     private void OnBecameVisible()
     {
         GlobalData.Instance.isCanonAppear = true;

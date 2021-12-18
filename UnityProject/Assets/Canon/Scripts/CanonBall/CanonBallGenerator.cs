@@ -11,14 +11,16 @@ public class CanonBallGenerator : MonoBehaviour
 
     public float createCT; //砲弾生成クールタイム
 
-    private float remainCreateCT; //計算用生成クールタイム
+    private float timer; //計算用生成クールタイム
 
     void Update()
     {
-        remainCreateCT -= Time.deltaTime;
-        if(remainCreateCT < 0)
+        if (GlobalData.Instance.isGameOver) { return; }
+
+        timer -= Time.deltaTime;
+        if(timer < 0)
         {
-            remainCreateCT = createCT;
+            timer = createCT;
             CreateCanonBall();
         }
     }
