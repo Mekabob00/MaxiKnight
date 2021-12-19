@@ -27,7 +27,7 @@ public class PlayerDefencePos : MonoBehaviour
             //UŒ‚—Í‘‰Á
             _SwordControll.AttakUPFlag = true;
             GlobalData.Instance.isPlayerInSecondLine = true;@//’Ç‰Á (ƒWƒ‡)
-            Debug.Log("”ÍˆÍ“à");
+            //Debug.Log("”ÍˆÍ“à");
         }
     }
 

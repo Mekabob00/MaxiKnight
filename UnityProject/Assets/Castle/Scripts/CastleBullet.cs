@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class CastleBullet : MonoBehaviour
 {
-    private Vector3 attackTarget;
-    private float moveTime;
+    [SerializeField]private Vector3 attackTarget;
+    [SerializeField] private float moveTime;
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        attackTarget = Vector3.zero;
+        moveTime = 0;
+    }
+
     void Start()
     {
         StartCoroutine(MoveTo());
@@ -16,17 +21,14 @@ public class CastleBullet : MonoBehaviour
     IEnumerator MoveTo()
     {
         float t = 0;
-        float dis = Time.deltaTime / moveTime;
+        //float dis = Time.deltaTime / moveTime;
         while (true)
         {
             t += Time.deltaTime;
-            //float dis = t / moveTime;
-            transform.position = Vector3.Lerp(transform.position, attackTarget, dis);
-            if (t >= moveTime)
-            {
-                Destroy(gameObject);
+            float a = t / moveTime;
+            transform.position = Vector3.Lerp(transform.position, attackTarget, a);
+            if (a >= 1.0f)
                 break;
-            }
             yield return null;
         }
     }
@@ -39,7 +41,10 @@ public class CastleBullet : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-       // if (other.CompareTag("Enemy"))
-            //Destroy(gameObject);
+        if (other.CompareTag("Enemy"))
+        {
+            other.GetComponent<IPlayerDamege>()._AddDamege(1);
+            Destroy(gameObject);
+        }
     }
 }

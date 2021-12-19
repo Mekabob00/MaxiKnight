@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum CastleState { MOVE, TAKEDAMAGE, ATTACK, PLAYERREVIVAL, DEAD}
+public enum CastleState { MOVE, TAKEDAMAGE, ATTACK, PLAYERREVIVAL, DEAD }
 
 public class CastleBehavior : MonoBehaviour
 {
-    //TODO
-    //移動
-    //被ダメージ --　未完成（エネミーからのダメージ）
-    //プレイヤー生成 -- 未完成
-    //援護射撃 -- 未完成（エネミーにダメージを与える）
-    //ゲームオーバー
-
     #region 変数
     [Header("生命値")]
     public int _Life;
@@ -21,7 +14,7 @@ public class CastleBehavior : MonoBehaviour
     public int _AttackRange;
 
     [Header("攻撃中心")]
-    [SerializeField]private GameObject attackPoint;
+    [SerializeField] private GameObject attackPoint;
 
     [Header("攻撃クールターム")]
     public float _AttackCT;
@@ -38,12 +31,13 @@ public class CastleBehavior : MonoBehaviour
 
     private bool isAttack;
     private bool isDead;
+    [SerializeField] private bool skipDamageAnim;
 
     [Header("城状態")]
     [SerializeField] private CastleState castleState;
 
     [Header("攻撃対象")]
-    [SerializeField]private GameObject attackTarget; //援護射撃対象
+    [SerializeField] private GameObject attackTarget; //援護射撃対象
 
     #endregion
 
@@ -58,55 +52,116 @@ public class CastleBehavior : MonoBehaviour
     {
         SwitchState();
         SwitchAnim();
+        Debug.Log(castleState.ToString());
     }
 
     void SwitchState()
     {
-        #region 状態変更
+        //攻撃モード移行可能
+        if (GlobalData.Instance.isPlayerInSecondLine && SearchEnemy())
+            isAttack = true;
+        else
+            isAttack = false;
 
-        if (isDead)
-            castleState = CastleState.DEAD;
-        else if (GlobalData.Instance.isPlayerDead)
-        {
-            castleState = CastleState.PLAYERREVIVAL;
-            anim.SetTrigger("Revival");
-            GlobalData.Instance.isPlayerDead = false;
-        }
-        else if (isAttack)
-            castleState = CastleState.ATTACK;
-        else if(anim.GetCurrentAnimatorStateInfo(0).IsName("Move"))
-            castleState = CastleState.MOVE;
 
-        #endregion
+        if (GlobalData.Instance.isPlayerDead || isDead)
+            skipDamageAnim = true;
 
+        //Debug.Log(SearchEnemy());
         //行動
         switch (castleState)
         {
             case CastleState.MOVE:
-                if (attackTarget == null)
-                    SearchEnemy();
-                if (GlobalData.Instance.isPlayerInSecondLine && attackTarget)
-                    isAttack = true;
-                break;
-            case CastleState.TAKEDAMAGE:
-                break;
-            case CastleState.ATTACK:
-                if (attackTarget == null)
-                    SearchEnemy();
-                if (!GlobalData.Instance.isPlayerInSecondLine || attackTarget == null)
-                    isAttack = false;
-
-                //攻撃
-                timer -= Time.deltaTime;
-                if(timer <= 0)
                 {
-                    timer = _AttackCT;
-                    Attack();
+                    #region 状態遷移
+                    if (isDead)
+                        castleState = CastleState.DEAD;
+                    else if (anim.GetCurrentAnimatorStateInfo(0).IsName("TakeDamage"))
+                        castleState = CastleState.TAKEDAMAGE;
+                    else if (GlobalData.Instance.isPlayerDead)
+                    {
+                        castleState = CastleState.PLAYERREVIVAL;
+                        anim.SetTrigger("Revival");
+                        GlobalData.Instance.isPlayerDead = false;
+                    }
+                    else if (isAttack && SearchEnemy())
+                        castleState = CastleState.ATTACK;
+                    #endregion
+                    break;
                 }
-                break;
+            case CastleState.TAKEDAMAGE:
+                {
+                    #region 状態遷移
+                    if (!anim.GetCurrentAnimatorStateInfo(0).IsName("TakeDamage") || skipDamageAnim)
+                    {
+                        skipDamageAnim = false;
+                        if (isDead)
+                            castleState = CastleState.DEAD;
+                        else if (GlobalData.Instance.isPlayerDead)
+                        {
+                            castleState = CastleState.PLAYERREVIVAL;
+                            anim.SetTrigger("Revival");
+                            GlobalData.Instance.isPlayerDead = false;
+                        }
+                        else if (isAttack && SearchEnemy())
+                            castleState = CastleState.ATTACK;
+                        else
+                            castleState = CastleState.MOVE;
+                    }
+                    #endregion
+                    break;
+                }
+            case CastleState.ATTACK:
+                {
+                    #region 攻撃
+                    timer -= Time.deltaTime;
+                    if (timer <= 0)
+                    {
+                        timer = _AttackCT;
+                        Attack();
+                    }
+                    #endregion
+
+                    //敵がない場合攻撃モードに退出
+                    //if (!SearchEnemy())
+                    //    isAttack = false;
+
+                    #region 状態遷移
+                    if (isDead)
+                        castleState = CastleState.DEAD;
+                    else if (anim.GetCurrentAnimatorStateInfo(0).IsName("TakeDamage"))
+                        castleState = CastleState.TAKEDAMAGE;
+                    else if (GlobalData.Instance.isPlayerDead)
+                    {
+                        castleState = CastleState.PLAYERREVIVAL;
+                        anim.SetTrigger("Revival");
+                        GlobalData.Instance.isPlayerDead = false;
+                    }
+                    else if(!isAttack)
+                        castleState = CastleState.MOVE;
+                    #endregion
+
+                    break;
+                }
             case CastleState.PLAYERREVIVAL:
-                break;
+                {
+                    #region 状態遷移
+                    if (!anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerRevival"))
+                    {
+                        if (isDead)
+                            castleState = CastleState.DEAD;
+                        else if (anim.GetCurrentAnimatorStateInfo(0).IsName("TakeDamage"))
+                            castleState = CastleState.TAKEDAMAGE;
+                        else if (isAttack && SearchEnemy())
+                            castleState = CastleState.ATTACK;
+                        else
+                            castleState = CastleState.MOVE;
+                    }
+                    #endregion
+                    break;
+                }
             case CastleState.DEAD:
+                isDead = false;
                 break;
         }
     }
@@ -122,21 +177,54 @@ public class CastleBehavior : MonoBehaviour
     //敵捜索
     bool SearchEnemy()
     {
+        #region 古いバージョン
         //円型捜索
-        var colliders = Physics.OverlapSphere(transform.position, _AttackRange);
+        //var colliders = Physics.OverlapSphere(transform.position, _AttackRange);
         //矩形捜索
         //var colliders = Physics.OverlapBox(transform.position, new Vector3(_AttackRange, 20, 20));
+
         //敵記録
-        foreach (var target in colliders)
+        //foreach (var target in colliders)
+        //{
+        //    if (target.CompareTag("Enemy"))
+        //    {
+        //        attackTarget = target.gameObject;
+        //        return true;
+        //    }
+        //}
+        //attackTarget = null;
+        //return false;
+        #endregion
+
+        //円型捜索
+        var colliders = Physics.OverlapSphere(transform.position, _AttackRange, LayerMask.GetMask("Enemy"));
+
+        if (colliders.Length <= 0)
         {
-            if (target.CompareTag("Enemy"))
+            attackTarget = null;
+            return false;
+        }
+
+        //昇順ソート
+        if (colliders.Length > 1)
+        {
+            for (int i = colliders.Length - 1; i > 0; --i)
             {
-                attackTarget = target.gameObject;
-                return true;
+                for (int j = 0; j <= i - 1; ++j)
+                {
+                    if (Vector3.Distance(transform.position, colliders[j].transform.position) > Vector3.Distance(transform.position, colliders[j + 1].transform.position))
+                    {
+                        var temp = colliders[j];
+                        colliders[j] = colliders[j + 1];
+                        colliders[j + 1] = temp;
+                    }
+                }
             }
         }
-        attackTarget = null;
-        return false;
+        attackTarget = colliders[0].gameObject;
+        return true;
+
+
     }
 
     //範囲表示
@@ -154,10 +242,9 @@ public class CastleBehavior : MonoBehaviour
     {
         _Life -= _damage;
         anim.SetTrigger("TakeDamage");
-        if(_Life <= 0)
-        {
+        skipDamageAnim = false;
+        if (_Life <= 0)
             isDead = true;
-        }
     }
 
     //------------------------------------------------------------
@@ -166,24 +253,23 @@ public class CastleBehavior : MonoBehaviour
     public void CastleDestory()
     {
         GlobalData.Instance.isGameOver = true;
-        Destroy(gameObject, 5);
+        Destroy(gameObject);
     }
 
     //ダメージを与える
     public void Attack()
     {
-        if(attackTarget == null) { return; }
+        if (attackTarget == null) { return; }
         //弾生成
-        //var bullet = Instantiate(_BulletPrefab, attackPoint.transform.position, Quaternion.identity);
-        //bullet.GetComponent<CastleBullet>()._SetTarget(attackTarget.transform.position, 0.5f);
-        //エネミー側の関数
-        attackTarget.GetComponent<IPlayerDamege>()._AddDamege(1);
+        var bullet = Instantiate(_BulletPrefab, attackPoint.transform.position, Quaternion.identity);
+        bullet.GetComponent<CastleBullet>()._SetTarget(attackTarget.transform.position, 0.5f);
+        //エネミー側の関数(弾発射なし)
+        //attackTarget.GetComponent<IPlayerDamege>()._AddDamege(1);
     }
 
     //動画と合わせる
     public void RevivalPlayer()
     {
         Instantiate(_PlayerPrefab);
-        castleState = CastleState.MOVE;
     }
 }

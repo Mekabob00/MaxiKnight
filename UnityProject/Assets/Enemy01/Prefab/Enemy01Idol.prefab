@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8010033563805102329}
   - component: {fileID: 7432569408204935663}
   - component: {fileID: 6042794767881819312}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 3334536599192448648}
   - component: {fileID: 3334536599192448649}
   - component: {fileID: 9214313910890143482}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy01Idol
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -147,8 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad131e44d66f93b4dad32161ea0a1703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _MoveSpeed: 10
-  _SlowMoveSpeed: 5
+  _MoveSpeed: 5
+  _SlowMoveSpeed: 3
   _HP: 3
   _RigidBody: {fileID: 3334536599192448648}
   _Renderer: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 7252231367944205475}
   - component: {fileID: 54495972397443613}
   - component: {fileID: 5518946751850401982}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 7572508785454044790}
   - component: {fileID: 1580036731315773435}
   - component: {fileID: 1425058959501666588}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +341,7 @@ GameObject:
   - component: {fileID: 5063553180384709707}
   - component: {fileID: 2383368006558726933}
   - component: {fileID: 1875465377534604491}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 7076298764650912475}
   - component: {fileID: 5639305511556612218}
   - component: {fileID: 8121828269690411155}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
