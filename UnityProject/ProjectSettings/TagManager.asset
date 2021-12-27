@@ -11,6 +11,7 @@ TagManager:
   - Player Attack Area
   - First Defense
   - CanonBall
+  - Boss
   layers:
   - Default
   - TransparentFX

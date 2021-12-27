@@ -52,7 +52,7 @@ public class CastleBehavior : MonoBehaviour
     {
         SwitchState();
         SwitchAnim();
-        Debug.Log(castleState.ToString());
+        //Debug.Log(castleState.ToString());
     }
 
     void SwitchState()
@@ -223,8 +223,6 @@ public class CastleBehavior : MonoBehaviour
         }
         attackTarget = colliders[0].gameObject;
         return true;
-
-
     }
 
     //”ÍˆÍ•\Ž¦
