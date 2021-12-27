@@ -29,6 +29,7 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
 
 
     private GlobalData _GlobalData = null;
+    private Collider _MyCollider=null;
 
     private float _HighPos = 1.0f;
 
@@ -49,6 +50,8 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
         var obj = GameObject.Find("GlobalData");
         _GlobalData = obj.GetComponent<GlobalData>();
 
+        //コライダーを取得する
+        _MyCollider = GetComponent<Collider>();
 
     }
 
@@ -58,6 +61,10 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
         {
             if (this.transform.position.y < _HighPos)
             {
+                //当たり判定を有効
+                _MyCollider.enabled = true;
+
+
                 //一定の高さのになったらEffectを終了させる
                 _IsAddDamageEffect = false;
                 _RigidBody.useGravity= false;
@@ -158,8 +165,12 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
     {
         //重力をONにする
         _RigidBody.useGravity= true;
+
         //飛び上がる
         _RigidBody.AddForce(new Vector3(0,300.0f,0));
+
+        //当たり判定を無効
+        _MyCollider.enabled = false;
 
         //[TODO]
         //初撃に対して色を変更する

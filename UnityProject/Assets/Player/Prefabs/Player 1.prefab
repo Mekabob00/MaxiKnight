@@ -3553,7 +3553,6 @@ GameObject:
   - component: {fileID: 5525798857778145260}
   - component: {fileID: 919132147628603339}
   - component: {fileID: 1714492931}
-  - component: {fileID: 6929789928414415765}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -3619,10 +3618,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922767fd09ed87c40b4f1855d7f3320b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttakUPFlag: 0
+  _RigidBody: {fileID: 5525798857778144786}
   PlayerWlakSpeed: 10
   applySpeed: 0.2
   PlayerAttackPoint: 0
+  _SwordObject: {fileID: 6640276821208877425}
+  _CombAttackGraceTime: 1
+  _AttackPatternNum: 3
+  _AvoidanceValue: 2
 --- !u!95 &1714492931
 Animator:
   serializedVersion: 3
@@ -3642,19 +3645,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &6929789928414415765
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4642926551013645607}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4822481559080533448
 GameObject:
   m_ObjectHideFlags: 0
@@ -7448,6 +7438,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7de9064e242cc0141b1643cb7bbedfb0, type: 3}
+--- !u!1 &6640276821208877425 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1191365236335567084, guid: 7de9064e242cc0141b1643cb7bbedfb0, type: 3}
+  m_PrefabInstance: {fileID: 5525798857204410781}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6299638929680896971 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2000518467118676566, guid: 7de9064e242cc0141b1643cb7bbedfb0, type: 3}
