@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 831028682241360185}
   - component: {fileID: 2251570195224955956}
   - component: {fileID: -4044836795876074528}
-  - component: {fileID: 3305090855930110989}
   m_Layer: 0
   m_Name: katana
   m_TagString: Untagged
@@ -113,18 +112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a320a002627494d9ed83f180648523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Collider: {fileID: 0}
+  _Collider2: {fileID: 0}
   AttakUPFlag: 0
---- !u!136 &3305090855930110989
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1191365236335567084}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.41
-  m_Height: 6.95
-  m_Direction: 1
-  m_Center: {x: -0.09, y: -0.45, z: 0.55575347}
