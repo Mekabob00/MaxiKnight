@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2133760134597284057}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.348, y: 0.361, z: 0}
+  m_LocalPosition: {x: 0.924, y: 0.361, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9053702417799123997}
@@ -159,11 +159,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6955a42d24eaff24b8866b84b608f843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Life: 10
-  _AttackRange: 40
-  _AttackPoint: {fileID: 2133760134597284057}
+  _Life: 100000
+  _AttackRange: 35
+  attackPoint: {fileID: 2133760134597284057}
   _AttackCT: 0.5
   _PlayerPrefab: {fileID: 4642926551013645607, guid: 6e1de9ffc9a09034680bf5907f942ef0, type: 3}
   _BulletPrefab: {fileID: 5063920731970778596, guid: 85cc7e399f73d2c48aa3e4650fe1dc7f, type: 3}
+  skipDamageAnim: 0
   castleState: 0
   attackTarget: {fileID: 0}

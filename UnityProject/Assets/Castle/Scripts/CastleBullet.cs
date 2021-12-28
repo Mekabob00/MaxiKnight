@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CastleBullet : MonoBehaviour
 {
-    [SerializeField]private Vector3 attackTarget;
+    [SerializeField] private Vector3 attackTarget;
     [SerializeField] private float moveTime;
 
     private void Awake()

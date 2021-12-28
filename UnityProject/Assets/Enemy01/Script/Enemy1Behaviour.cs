@@ -48,8 +48,6 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
         //グローバルデータのコンポーネントを取得
         var obj = GameObject.Find("GlobalData");
         _GlobalData = obj.GetComponent<GlobalData>();
-
-
     }
 
     void Update()
