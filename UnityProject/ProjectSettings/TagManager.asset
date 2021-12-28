@@ -7,6 +7,10 @@ TagManager:
   - stage
   - 2st defense
   - Enemy
+  - First Defense
+  - Player Attack Area
+  - CanonBall
+  - castle
   layers:
   - Default
   - TransparentFX

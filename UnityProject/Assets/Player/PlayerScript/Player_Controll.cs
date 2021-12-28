@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class Player_Controll : MonoBehaviour
 {
+    public static Player_Controll instance = null;
+    public int HP;
     [SerializeField]
     float PlayerWlakSpeed;
     [SerializeField]
@@ -26,12 +28,17 @@ public class Player_Controll : MonoBehaviour
 
     private void Awake()
     {//スタート関数前に何か初期化する時用
+        if(instance==null)
+        {
+            instance = this;
+        }
     }
     void Start()
     {
         PlayerAttackAnimator = GetComponent<Animator>();
         latestPosition = transform.position;
         PlayerAttackPoint = 10;
+        HP = 10;
     }
     void Update()
     {

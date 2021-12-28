@@ -32,28 +32,38 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
 
     private float _HighPos = 1.0f;
 
+    public float span = 3f;
+    private float currentTime = 0f;
+
     //Flag
     private bool _IsAddDamageEffect = false;
-    private bool _IsMoveActive = false;
+    public  bool _IsMoveActive = false;
+    private bool _IsAttackFlag = false;
 
     #endregion
 
+    //城
+    [SerializeField]
+    private GameObject castle;
+    [SerializeField]
+    private GameObject Enemy;
+    public Vector3 castlePosition;
+    private Vector3 EnemyPosition;
+
+    private float dis;
 
     #region Unity function
-    void Start()
+    private void Start()
     {
         _IsAddDamageEffect = false;
         _IsMoveActive = true;
-
-        //グローバルデータのコンポーネントを取得
+        _IsAttackFlag = false;
         var obj = GameObject.Find("GlobalData");
         _GlobalData = obj.GetComponent<GlobalData>();
-
-
     }
-
     void Update()
     {
+        IsAttackFlag();
         if (_IsAddDamageEffect)//ダメージを食らった後のEffect最中
         {
             if (this.transform.position.y < _HighPos)
@@ -69,11 +79,8 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
             }
             return;
         }
-
-
-        if (_IsMoveActive)
+        if (_IsMoveActive && !_IsAttackFlag)
         {
-
             //前方進む
             if (!_GlobalData.isCanonAppear)//通常
             {
@@ -84,33 +91,13 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
                 //スロー移動
                 _RigidBody.ForontMove(this.transform, _SlowMoveSpeed);
             }
-
         }
-
-
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-
-
-        
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-
-        //最終防衛ラインを超えたら動きを止めるStop
-        if (other.tag == "Stage")
+        else 
         {
-            _IsMoveActive = false;
+            _RigidBody.ForontMove(this.transform, 0.0f);
+            IsAttack();
         }
-        
-
-
     }
-
-
     #endregion
 
     #region public function
@@ -121,7 +108,7 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
     /// <param name="damage">ダメージ量</param>
     public void _AddDamege(int _Damege)
     {
-        if (_IsAddDamageEffect || !_IsMoveActive)//ダメージを与えない
+        if (_IsAddDamageEffect)//ダメージを与えない
         {
             return;
         }
@@ -129,7 +116,7 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
         var after = _HP - _Damege;
 
         //体力が0なら
-        if (after <= 0)
+        if (after==0)
         {
             //仮
             Destroy(this.gameObject);
@@ -150,10 +137,48 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
 
     #region private function
 
+    private void IsAttackFlag()
+    {
+        castlePosition = castle.transform.position;
+        EnemyPosition = Enemy.transform.position;
+        dis = Vector3.Distance(castlePosition, EnemyPosition);
+        if (dis < 15.0f)
+        {
+            _IsAttackFlag = true;
+            _IsMoveActive = false;
+        }
+        Debug.Log("距離" + dis);
+    }
+    private void IsAttack()
+    {
+        currentTime += Time.deltaTime;
+
+        if (currentTime > span)
+        {
+            Debug.LogFormat("{0}秒経過", span);
+            EnemyAttackManeger.instance.CastleHP--;
+            Debug.Log("城に攻撃");
+            currentTime = 0f;
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+
+        //最終防衛ラインを超えたら動きを止めるStop
+        if (other.tag == "Stage")
+        {
+            _IsMoveActive = false;
+        }
+    }
 
     #endregion
 
-    #region Coroutine
+    #region コルーチン
     IEnumerator AddDamageMove()
     {
         //重力をONにする
@@ -175,6 +200,4 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
 
 
     #endregion
-
-
 }
