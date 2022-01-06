@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
+public class Enemy3Behaviour : MonoBehaviour, IPlayerDamege
 {
     #region SeliarizFild
     [SerializeField, Tooltip("通常の移動速度")]
@@ -22,6 +22,8 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
 
     [SerializeField, Tooltip("グローバルデータ")]
     private GameObject _GlobalDataObject = null;
+    [SerializeField, Tooltip("Enemyオブジェクト取得")]
+    private GameObject Enemy3;
 
     #endregion
 
@@ -37,7 +39,7 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
 
     //Flag
     private bool _IsAddDamageEffect = false;
-    public  bool _IsMoveActive = false;
+    public bool _IsMoveActive = false;
     private bool _IsAttackFlag = false;
 
     #endregion
@@ -63,14 +65,13 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
     }
     void Update()
     {
-        IsAttackFlag();
         if (_IsAddDamageEffect)//ダメージを食らった後のEffect最中
         {
             if (this.transform.position.y < _HighPos)
             {
                 //一定の高さのになったらEffectを終了させる
                 _IsAddDamageEffect = false;
-                _RigidBody.useGravity= false;
+                _RigidBody.useGravity = false;
 
                 //位置を補正
                 Vector3 pos = this.transform.position;
@@ -92,11 +93,6 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
                 _RigidBody.ForontMove(this.transform, _SlowMoveSpeed);
             }
         }
-        else 
-        {
-            _RigidBody.ForontMove(this.transform, 0.0f);
-            IsAttack();
-        }
     }
     #endregion
 
@@ -116,7 +112,7 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
         var after = _HP - _Damege;
 
         //体力が0なら
-        if (after==0)
+        if (after == 0)
         {
             //仮
             Destroy(this.gameObject);
@@ -136,36 +132,18 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
     #endregion
 
     #region private function
-
-    private void IsAttackFlag()
-    {
-        castlePosition = castle.transform.position;
-        EnemyPosition = Enemy.transform.position;
-        dis = Vector3.Distance(castlePosition, EnemyPosition);
-        if (dis < 15.0f)
-        {
-            _IsAttackFlag = true;
-            _IsMoveActive = false;
-        }
-        Debug.Log("距離" + dis);
-    }
-    private void IsAttack()
-    {
-        currentTime += Time.deltaTime;
-
-        if (currentTime > span)
-        {
-            Debug.LogFormat("{0}秒経過", span);
-            EnemyAttackManeger.instance.CastleHP--;
-            Debug.Log("城に攻撃");
-            currentTime = 0f;
-        }
-    }
     private void OnTriggerEnter(Collider other)
     {
 
     }
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag== "castle")
+        {
+            EnemyAttackManeger.instance.CastleHP--;
+            Destroy(Enemy3);
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
 
@@ -182,9 +160,9 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
     IEnumerator AddDamageMove()
     {
         //重力をONにする
-        _RigidBody.useGravity= true;
+        _RigidBody.useGravity = true;
         //飛び上がる
-        _RigidBody.AddForce(new Vector3(0,300.0f,0));
+        _RigidBody.AddForce(new Vector3(0, 300.0f, 0));
 
         //[TODO]
         //初撃に対して色を変更する
@@ -194,7 +172,7 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
         yield break;
     }
 
-    
+
 
 
 

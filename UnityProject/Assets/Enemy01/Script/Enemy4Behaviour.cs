@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
+public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
 {
     #region SeliarizFild
     [SerializeField, Tooltip("通常の移動速度")]
@@ -37,7 +37,7 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
 
     //Flag
     private bool _IsAddDamageEffect = false;
-    public  bool _IsMoveActive = false;
+    public bool _IsMoveActive = false;
     private bool _IsAttackFlag = false;
 
     #endregion
@@ -47,7 +47,7 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
     private GameObject castle;
     [SerializeField]
     private GameObject Enemy;
-    public Vector3 castlePosition;
+    public Vector3 PlayerPosition;
     private Vector3 EnemyPosition;
 
     private float dis;
@@ -70,7 +70,7 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
             {
                 //一定の高さのになったらEffectを終了させる
                 _IsAddDamageEffect = false;
-                _RigidBody.useGravity= false;
+                _RigidBody.useGravity = false;
 
                 //位置を補正
                 Vector3 pos = this.transform.position;
@@ -92,7 +92,7 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
                 _RigidBody.ForontMove(this.transform, _SlowMoveSpeed);
             }
         }
-        else 
+        else
         {
             _RigidBody.ForontMove(this.transform, 0.0f);
             IsAttack();
@@ -116,7 +116,7 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
         var after = _HP - _Damege;
 
         //体力が0なら
-        if (after==0)
+        if (after == 0)
         {
             //仮
             Destroy(this.gameObject);
@@ -139,9 +139,9 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
 
     private void IsAttackFlag()
     {
-        castlePosition = castle.transform.position;
+        PlayerPosition = castle.transform.position;
         EnemyPosition = Enemy.transform.position;
-        dis = Vector3.Distance(castlePosition, EnemyPosition);
+        dis = Vector3.Distance(PlayerPosition, EnemyPosition);
         if (dis < 15.0f)
         {
             _IsAttackFlag = true;
@@ -156,7 +156,7 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
         if (currentTime > span)
         {
             Debug.LogFormat("{0}秒経過", span);
-            EnemyAttackManeger.instance.CastleHP--;
+            Player_Controll.instance.HP--;
             Debug.Log("城に攻撃");
             currentTime = 0f;
         }
@@ -182,9 +182,9 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
     IEnumerator AddDamageMove()
     {
         //重力をONにする
-        _RigidBody.useGravity= true;
+        _RigidBody.useGravity = true;
         //飛び上がる
-        _RigidBody.AddForce(new Vector3(0,300.0f,0));
+        _RigidBody.AddForce(new Vector3(0, 300.0f, 0));
 
         //[TODO]
         //初撃に対して色を変更する
@@ -194,7 +194,7 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
         yield break;
     }
 
-    
+
 
 
 
