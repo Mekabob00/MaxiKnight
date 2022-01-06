@@ -153,6 +153,8 @@ MonoBehaviour:
   _RigidBody: {fileID: 3334536599192448648}
   _Renderer: {fileID: 0}
   _GlobalDataObject: {fileID: 0}
+  castle: {fileID: 3700817586448520043, guid: 8dce5764a7b0a81439fd6df4eed5e7b9, type: 3}
+  Enemy: {fileID: 2488184434410311971}
 --- !u!65 &9214313910890143482
 BoxCollider:
   m_ObjectHideFlags: 0
