@@ -156,7 +156,7 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
         if (currentTime > span)
         {
             Debug.LogFormat("{0}•bŒo‰ß", span);
-            Player_Controll.instance.HP--;
+            //Player_Controll.instance.HP--;
             Debug.Log("é‚ÉUŒ‚");
             currentTime = 0f;
         }
