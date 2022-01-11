@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum State { Move, StandBy, AttackPlayer, Charge, AttackCastle, Return };
+public enum State { Move, Enter, StandBy, AttackPlayer, Charge, AttackCastle, Return };
 
 public class BossBehavior : MonoBehaviour, IPlayerDamege
 {
@@ -30,16 +30,19 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
     public GameObject _Laser;
 
     Animator anim;
-    [SerializeField]
+    [SerializeField, Header("状態")]
     State state;            //ステータス
     Vector3 startPoint;     //初期位置
+    [SerializeField, Header("チャージ状態の解除回数計算")]
     int hitCount;           //チャージ状態の解除回数計算
     float castleDistance;   //城との距離
     float chargeTimeCount;  //チャージ時間計算
     bool isWait;            //状態遷移待ち
-    bool isAttackPlayer;    //プレイヤーに攻撃
-    bool isMove;            //移動(Anim)
-    bool isCharge;          //チャージ状態（Anim）
+    bool isEnter;           //構え状態記録
+    bool isAttackedPlayer;  //プレイヤーに攻撃記録
+    bool isMove;            //移動(Anim用)
+    bool isStandBy;         //攻撃予告(Anim用)
+    bool isCharge;          //チャージ状態(Anim用)
 
     void Start()
     {
@@ -48,7 +51,9 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
         anim = GetComponent<Animator>();
         isMove = false;
         isWait = false;
-        isAttackPlayer = false;
+        isEnter = false;
+        isStandBy = false;
+        isAttackedPlayer = false;
         isCharge = false;
     }
 
@@ -65,117 +70,152 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
         switch (state)
         {
             case State.Move:
-                {
-                    isMove = true;
-                    if (!isWait)
-                        transform.position += new Vector3(-_MoveSpeed * Time.deltaTime, 0, 0);
-
-                    //状態遷移
-                    if (castleDistance <= 40 && !isAttackPlayer)
-                    {
-                        //攻撃予告状態
-                        state = State.StandBy;
-                        //攻撃範囲生成
-                        for (int i = 0; i < 3; ++i)
-                        {
-                            GameObject temp = Instantiate(_AttackArea, new Vector3(_Player.transform.position.x, _AttackArea.transform.position.y, _Player.transform.position.z + (-_Area + (_Area + 1) * i)), Quaternion.identity);
-                            temp.GetComponent<SearchArea>()._Area = _Area;
-                            temp.GetComponent<SearchArea>()._Damage = _Damage;
-                            temp.GetComponent<SearchArea>()._SetTime = 1.5f;
-                        }
-                        StartCoroutine(WaitTime(1.5f));
-                    }
-                    else if (castleDistance <= 25)
-                    {
-                        state = State.Charge;
-                    }
-                    break;
-                }
+                StateUpDate_Move();
+                break;
+            case State.Enter:
+                StateUpDate_Enter();
+                break;
             case State.StandBy:
-                {
-                    isMove = false;
-
-                    //状態遷移
-                    if (!isWait)
-                    {
-                        anim.SetTrigger("Attack");
-                        state = State.AttackPlayer;
-                        isAttackPlayer = true;
-                        StartCoroutine(WaitTime(4.0f));
-                    }
-                    break;
-                }
+                StateUpDate_StandBy();
+                break;
             case State.AttackPlayer:
-                {
-                    if (!isWait)
-                        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
-                            state = State.Move;
-                    break;
-                }
+                StateUpDate_AttackPlayer();
+                break;
             case State.Charge:
-                {
-                    isMove = false;
-                    isCharge = true;
-                    chargeTimeCount += Time.deltaTime;
-
-                    //チャージ完成
-                    if (chargeTimeCount >= _ChargeTime)
-                    {
-                        state = State.AttackCastle;
-                        _Castle.GetComponent<CastleBehavior>()._AddDamage(_Damage);
-                        isCharge = false;
-                        anim.SetTrigger("Attack");
-                        _Laser.SetActive(true);
-                        StartCoroutine(WaitTime(0.5f));
-                    }
-                    //チャージ中断
-                    if (hitCount >= _StopChargeCount)
-                    {
-                        state = State.Return;
-                        transform.rotation = Quaternion.AngleAxis(90, Vector3.up);
-                        isCharge = false;
-                        StartCoroutine(WaitTime(4.0f));
-                    }
-                    break;
-                }
+                StateUpDate_Charge();
+                break;
             case State.AttackCastle:
-                {
-                    //開始地点に戻る
-                    if (!isWait)
-                        transform.position = Vector3.MoveTowards(transform.position, new Vector3(startPoint.x, transform.position.y, transform.position.z), 20 * Time.deltaTime);
-
-                    if (Mathf.Abs(transform.position.x - startPoint.x) <= 0.5)
-                    {
-                        //状態リセット
-                        StateReset();
-                        StartCoroutine(WaitTime(4.0f));
-                    }
-                    break;
-                }
+                StateUpDate_AttackCastle();
+                break;
             case State.Return:
-                {
-                    //開始地点に戻る
-                    if (!isWait)
-                    {
-                        isMove = true;
-                        transform.position = Vector3.MoveTowards(transform.position, new Vector3(startPoint.x, transform.position.y, transform.position.z), _BreakSpeed * Time.deltaTime);
-                    }
+                StateUpDate_Return();
+                break;
+        }
+    }
 
-                    if (Mathf.Abs(transform.position.x - startPoint.x) <= 0.5)
-                    {
-                        //状態リセット
-                        StateReset();
-                        StartCoroutine(WaitTime(4.0f));
-                        transform.rotation = Quaternion.AngleAxis(270, Vector3.up);
-                    }
-                    break;
-                }
+    void StateUpDate_Move()
+    {
+        isMove = true;
+        if (!isWait)
+            transform.position += new Vector3(-_MoveSpeed * Time.deltaTime, 0, 0);
+
+        //状態遷移
+        if (castleDistance <= 52 && !isEnter)
+        {
+            state = State.Enter;
+            anim.SetTrigger("Enter");
+            StartCoroutine(WaitTime(5.0f));
+        }
+        else if (castleDistance <= 40 && !isAttackedPlayer)
+        {
+            //攻撃予告状態
+            state = State.StandBy;
+            //攻撃範囲生成
+            for (int i = 0; i < 3; ++i)
+            {
+                GameObject temp = Instantiate(_AttackArea, new Vector3(_Player.transform.position.x, _AttackArea.transform.position.y, _Player.transform.position.z + (-_Area + (_Area + 1) * i)), Quaternion.identity);
+                temp.GetComponent<SearchArea>()._Area = _Area;
+                temp.GetComponent<SearchArea>()._Damage = _Damage;
+                temp.GetComponent<SearchArea>()._SetTime = 3.0f;
+            }
+            StartCoroutine(WaitTime(3.0f));
+        }
+        else if (castleDistance <= 25)
+        {
+            state = State.Charge;
+        }
+    }
+    void StateUpDate_Enter()
+    {
+        isMove = false;
+        isEnter = true;
+
+        if (!isWait)
+        {
+            state = State.Move;
+        }
+    }
+    void StateUpDate_StandBy()
+    {
+        isMove = false;
+        isStandBy = true;
+
+        //状態遷移
+        if (!isWait)
+        {
+            anim.SetTrigger("Attack");
+            state = State.AttackPlayer;
+            isAttackedPlayer = true;
+            isStandBy = false;
+            StartCoroutine(WaitTime(4.0f));
+        }
+    }
+    void StateUpDate_AttackPlayer()
+    {
+        if (!isWait)
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+                state = State.Move;
+    }
+    void StateUpDate_Charge()
+    {
+        isMove = false;
+        isCharge = true;
+        chargeTimeCount += Time.deltaTime;
+
+        //チャージ完成
+        if (chargeTimeCount >= _ChargeTime)
+        {
+            state = State.AttackCastle;
+            _Castle.GetComponent<CastleBehavior>()._AddDamage(_Damage);
+            isCharge = false;
+            anim.SetTrigger("Attack");
+            _Laser.SetActive(true);
+            StartCoroutine(WaitTime(0.5f));
+        }
+        //チャージ中断
+        if (hitCount >= _StopChargeCount)
+        {
+            state = State.Return;
+            transform.rotation = Quaternion.AngleAxis(90, Vector3.up);
+            isCharge = false;
+            StartCoroutine(WaitTime(2.0f));
+        }
+    }
+    void StateUpDate_AttackCastle()
+    {
+        //開始地点に戻る
+        if (!isWait)
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(startPoint.x, transform.position.y, transform.position.z), 20 * Time.deltaTime);
+
+        if (Mathf.Abs(transform.position.x - startPoint.x) <= 0.5)
+        {
+            //状態リセット
+            StateReset();
+            StartCoroutine(WaitTime(4.0f));
+        }
+    }
+    void StateUpDate_Return()
+    {
+        //開始地点に戻る
+        if (!isWait)
+        {
+            isMove = true;
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(startPoint.x, transform.position.y, transform.position.z), _BreakSpeed * Time.deltaTime);
+        }
+
+        if (Mathf.Abs(transform.position.x - startPoint.x) <= 0.5)
+        {
+            //状態リセット
+            StateReset();
+            StartCoroutine(WaitTime(4.0f));
+            transform.rotation = Quaternion.AngleAxis(270, Vector3.up);
         }
     }
 
     void SetAnim()
     {
         anim.SetBool("Move", isMove);
+        anim.SetBool("StandBy", isStandBy);
         anim.SetBool("Charge", isCharge);
     }
 
@@ -185,9 +225,10 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
         state = State.Move;
         hitCount = 0;
         chargeTimeCount = 0;
-        isAttackPlayer = false;
+        isAttackedPlayer = false;
         isWait = false;
         isCharge = false;
+        isEnter = false;
     }
 
     //次の状態を移行までの待ち時間
@@ -209,9 +250,9 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player Attack Area")
-        {
-            _AddDamege(1);
-        }
+        //if (other.tag == "Player Attack Area")
+        //{
+        //    _AddDamege(1);
+        //}
     }
 }

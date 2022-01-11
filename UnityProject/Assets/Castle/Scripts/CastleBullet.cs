@@ -15,6 +15,7 @@ public class CastleBullet : MonoBehaviour
 
     void Start()
     {
+        if(attackTarget == null) { Destroy(gameObject); }
         StartCoroutine(MoveTo());
     }
 

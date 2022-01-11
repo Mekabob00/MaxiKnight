@@ -140,12 +140,9 @@ public class Player_Controll : MonoBehaviour
                 {
                     _AttackType = 0;
                 }
-
-                
             }
             else
             {
-
                 //猶予時間を超えるとType１のアニメーションにする
                 _AttackType = 0;
 
