@@ -7,6 +7,11 @@ using UnityEngine.SceneManagement;
 
 public class SwordControll : MonoBehaviour
 {
+    [SerializeField, Tooltip("Collider")]
+    private Collider _Collider = null;
+
+    [SerializeField, Tooltip("Collider2")]
+    private Collider _Collider2 = null;
 
     public bool AttakUPFlag; //防衛ライン判定
 
@@ -17,9 +22,23 @@ public class SwordControll : MonoBehaviour
     {
         AttakUPFlag = false;
 
+        //初めは当たり判定をOFFにしておく
+        _Collider.enabled = false;
+        _Collider2.enabled = false;
+
     }
     void Update()
     {
+        //デバック用
+        //Debug.Log(AttakUPFlag);
+
+
+        //入力イベント
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            //ColliderをONにする
+            StartCoroutine(IEColliderActive());
+        }
 
     }
     public void _AddDamege(int _Damage)
@@ -61,6 +80,24 @@ public class SwordControll : MonoBehaviour
     }
 
     #region コルーチン
+    IEnumerator IEColliderActive()
+    {
+        //剣を振り上げてる時間
+        yield return new WaitForSeconds(0.2f);
+
+        //当たり判定をONにする
+        _Collider.enabled = true;
+        _Collider2.enabled = true;
+
+        //剣を振り下ろす時間
+        yield return new WaitForSeconds(0.2f);
+
+        //当たり判定をOFFにする
+        _Collider.enabled = false;
+        _Collider2.enabled = false;
+
+        yield break;
+    }
 
 
     #endregion
