@@ -1,5 +1,0 @@
-sceneSetups:
-- path: Assets/GlobalFile/Scenes/CastleBoss.unity
-  isLoaded: 1
-  isActive: 1
-  isSubScene: 0
