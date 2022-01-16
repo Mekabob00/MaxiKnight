@@ -50,6 +50,7 @@ public class CastleBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SearchEnemy();
         SwitchState();
         SwitchAnim();
         //Debug.Log(castleState.ToString());
