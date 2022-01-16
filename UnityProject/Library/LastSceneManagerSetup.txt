@@ -1,5 +1,1 @@
-sceneSetups:
-- path: "C:/Users/kazus/OneDrive/\u30C7\u30B9\u30AF\u30C8\u30C3\u30D7/MAKINITO/UnityProject/Assets/GlobalFile/Scenes/CastleBoss.unity"
-  isLoaded: 1
-  isActive: 1
-  isSubScene: 0
+sceneSetups: []
