@@ -5,14 +5,13 @@ using UnityEngine;
 public class PlayerGrab : MonoBehaviour
 {
     [Header("オブジェクト")]
-    [Tooltip("手の位置")] public GameObject _HandPosition;
     [Tooltip("手持ちのもの")]public GameObject _HandBallObject;
     [Tooltip("投げるアイテム")] public GameObject _ThrowBallObject;
 
     [Header("捜索範囲")]
     public float _SearchRange;
 
-    [Header("力")]
+    [Header("投力")]
     public float _ThrowForce;
 
     [Header("レイヤーマスク")]
@@ -21,22 +20,16 @@ public class PlayerGrab : MonoBehaviour
     [SerializeField]Vector3 lastPos;
     bool isGrab;
 
-    
-
-    // Start is called before the first frame update
     void Start()
     {
         isGrab = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //_HandBallObject.transform.position = _HandPosition.transform.position;
-        //Debug.Log(_HandPosition.transform.position == _HandBallObject.transform.position);
         Vector3 nowPos = new Vector3(transform.position.x, 0f, transform.position.z);
 
-        //移動量は0.1f以下の場合(止まっているとき)
+        //移動量は0.005f以下の場合(止まっているとき)
         if ((nowPos - lastPos).magnitude < 0.005f)
         {
             if (isGrab)

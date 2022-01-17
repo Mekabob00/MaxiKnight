@@ -72,6 +72,7 @@
     <Compile Include="Assets\Enemy01\Script\Enemy4Behaviour.cs" />
     <Compile Include="Assets\Player\PlayerScript\PlayerDefencePos.cs" />
     <Compile Include="Assets\Canon\Scripts\CanonBall\CanonBallGenerator.cs" />
+    <Compile Include="Assets\Item\Scripts\ItemBehavior.cs" />
     <Compile Include="Assets\Player\PlayerScript\IPlayerDamege.cs" />
     <Compile Include="Assets\Boss\Scripts\SearchArea.cs" />
     <Compile Include="Assets\Enemy01\Expansion\TransformExtensions.cs" />
@@ -79,7 +80,6 @@
     <Compile Include="Assets\Canon\Scripts\CanonBall\CanonBallController.cs" />
     <Compile Include="Assets\Enemy01\Expansion\RigidBodyExtensions.cs" />
     <Compile Include="Assets\Player\PlayerScript\PlayerGrab.cs" />
-    <Compile Include="Assets\Item\Scripts\ItemBehavior.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
