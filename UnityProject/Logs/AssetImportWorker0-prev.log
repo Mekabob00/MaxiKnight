@@ -15,11 +15,11 @@ C:/temp/SourceTree/MaxiKnight/UnityProject
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-61908
+65319
 Successfully changed project path to: C:/temp/SourceTree/MaxiKnight/UnityProject
 C:/temp/SourceTree/MaxiKnight/UnityProject
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 29.60 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 30.37 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.0f1 (c7b5465681fb)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/Resources/UnitySubsystems
@@ -35,800 +35,992 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56948
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56408
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.0f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001935 seconds.
+Registered in 0.001624 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 32.33 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 49.27 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.627 seconds
+- Completed reload, in  2.407 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.000484 seconds.
+Registered in 0.000520 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.36 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.94 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.929 seconds
+- Completed reload, in  1.174 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 0.26 ms, found 0 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 0.23 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1137 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 61.1 MB.
-System memory in use after: 61.1 MB.
+System memory in use after: 61.2 MB.
 
 Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 1579.
-Total: 2.310300 ms (FindLiveObjects: 0.135100 ms CreateObjectMapping: 0.022700 ms MarkObjects: 2.065800 ms  DeleteObjects: 0.084800 ms)
+Total: 1.581800 ms (FindLiveObjects: 0.102400 ms CreateObjectMapping: 0.022600 ms MarkObjects: 1.372300 ms  DeleteObjects: 0.083100 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Player/Prefabs/Player 1.prefab
-  artifactKey: Guid(6e1de9ffc9a09034680bf5907f942ef0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player/Prefabs/Player 1.prefab using Guid(6e1de9ffc9a09034680bf5907f942ef0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c501122876e796a9bff222cda43b085') in 0.188260 seconds
-  Import took 0.193325 seconds .
+  path: Assets/Player/Animation/M_Big_Sword
+  artifactKey: Guid(671cfde7e3a59db469f78b4d7c7fa163) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword using Guid(671cfde7e3a59db469f78b4d7c7fa163) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4e4ed7bf0a4427ff46bd8ddc7540bb0') in 0.010017 seconds
+  Import took 0.012314 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1.108884 seconds.
-  path: Assets/Player/PlayerScript/IPlayerDamege.cs
-  artifactKey: Guid(35c807c4287a5c84195dc85795c11366) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player/PlayerScript/IPlayerDamege.cs using Guid(35c807c4287a5c84195dc85795c11366) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df2a4a1b4856c7f0cfd45ce0f5539a90') in 0.010861 seconds
-  Import took 0.014106 seconds .
+  Time since last request: 0.000199 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/5_Revenges/StandUp_Revenge
+  artifactKey: Guid(243ed4c8e921bf741a75e26ba88fee5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/5_Revenges/StandUp_Revenge using Guid(243ed4c8e921bf741a75e26ba88fee5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4efd60214ddbd0d933585151bea50ef') in 0.007694 seconds
+  Import took 0.009473 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 3.168804 seconds.
-  path: Assets/Player/PlayerScript/SwordControll.cs
-  artifactKey: Guid(d9a320a002627494d9ed83f180648523) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player/PlayerScript/SwordControll.cs using Guid(d9a320a002627494d9ed83f180648523) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a71401593e5cd5c9843931f1084b7290') in 0.011046 seconds
-  Import took 0.013679 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000994 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.26 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.943 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.25 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1132 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.3 MB.
-System memory in use after: 78.3 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1591.
-Total: 1.615700 ms (FindLiveObjects: 0.233500 ms CreateObjectMapping: 0.104400 ms MarkObjects: 1.222600 ms  DeleteObjects: 0.053500 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.003501 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.50 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.836 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.44 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1132 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.3 MB.
-System memory in use after: 78.4 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1594.
-Total: 2.253800 ms (FindLiveObjects: 0.194100 ms CreateObjectMapping: 0.027500 ms MarkObjects: 1.979100 ms  DeleteObjects: 0.050900 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001045 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.89 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.328 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.34 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1132 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.3 MB.
-System memory in use after: 78.4 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1597.
-Total: 2.034900 ms (FindLiveObjects: 0.127800 ms CreateObjectMapping: 0.022700 ms MarkObjects: 1.796900 ms  DeleteObjects: 0.086400 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000869 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.45 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.877 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1132 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.3 MB.
-System memory in use after: 78.4 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1600.
-Total: 1.928800 ms (FindLiveObjects: 0.216200 ms CreateObjectMapping: 0.053700 ms MarkObjects: 1.605300 ms  DeleteObjects: 0.052100 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000866 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.54 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.275 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1132 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.3 MB.
-System memory in use after: 78.4 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1603.
-Total: 2.247300 ms (FindLiveObjects: 0.192500 ms CreateObjectMapping: 0.058300 ms MarkObjects: 1.929800 ms  DeleteObjects: 0.064400 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001106 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.26 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.991 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.47 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1132 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.3 MB.
-System memory in use after: 78.4 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1606.
-Total: 1.985500 ms (FindLiveObjects: 0.100000 ms CreateObjectMapping: 0.019800 ms MarkObjects: 1.737200 ms  DeleteObjects: 0.127500 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000966 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.37 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.949 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1132 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.3 MB.
-System memory in use after: 78.4 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1609.
-Total: 1.403700 ms (FindLiveObjects: 0.093500 ms CreateObjectMapping: 0.019700 ms MarkObjects: 1.231900 ms  DeleteObjects: 0.057500 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001080 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.26 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.068 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.47 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1132 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.3 MB.
-System memory in use after: 78.4 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1612.
-Total: 2.497600 ms (FindLiveObjects: 0.197300 ms CreateObjectMapping: 0.048600 ms MarkObjects: 2.161400 ms  DeleteObjects: 0.088700 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000693 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.57 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.209 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1132 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.3 MB.
-System memory in use after: 78.4 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1615.
-Total: 1.367800 ms (FindLiveObjects: 0.103200 ms CreateObjectMapping: 0.019700 ms MarkObjects: 1.198000 ms  DeleteObjects: 0.045700 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001222 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.43 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.303 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1132 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.3 MB.
-System memory in use after: 78.4 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1618.
-Total: 1.319100 ms (FindLiveObjects: 0.116300 ms CreateObjectMapping: 0.025400 ms MarkObjects: 1.101500 ms  DeleteObjects: 0.074600 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000916 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.23 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.053 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.26 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1132 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.3 MB.
-System memory in use after: 78.4 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1621.
-Total: 1.379000 ms (FindLiveObjects: 0.129900 ms CreateObjectMapping: 0.022500 ms MarkObjects: 1.182100 ms  DeleteObjects: 0.043500 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000652 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.69 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.239 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.49 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1132 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.4 MB.
-System memory in use after: 78.4 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1624.
-Total: 2.244200 ms (FindLiveObjects: 0.272500 ms CreateObjectMapping: 0.056700 ms MarkObjects: 1.829300 ms  DeleteObjects: 0.082100 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001015 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.063 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.43 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1132 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.4 MB.
-System memory in use after: 78.4 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1627.
-Total: 2.576100 ms (FindLiveObjects: 0.149400 ms CreateObjectMapping: 0.022300 ms MarkObjects: 2.291000 ms  DeleteObjects: 0.111500 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000716 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.38 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.047 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1132 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.4 MB.
-System memory in use after: 78.4 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1630.
-Total: 1.859000 ms (FindLiveObjects: 0.295300 ms CreateObjectMapping: 0.140100 ms MarkObjects: 1.353500 ms  DeleteObjects: 0.068800 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000887 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.993 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.34 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1132 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.4 MB.
-System memory in use after: 78.4 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1633.
-Total: 2.392900 ms (FindLiveObjects: 0.300300 ms CreateObjectMapping: 0.053100 ms MarkObjects: 1.973500 ms  DeleteObjects: 0.064300 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000640 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.45 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.917 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1132 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.4 MB.
-System memory in use after: 78.4 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1636.
-Total: 1.294100 ms (FindLiveObjects: 0.136800 ms CreateObjectMapping: 0.026500 ms MarkObjects: 1.069600 ms  DeleteObjects: 0.059800 ms)
+  Time since last request: 0.000245 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/5_Revenges/Guard_Revenges/M_Big_Sword@Revenge_Guard_Accept.FBX
+  artifactKey: Guid(3926aae8fd49d004ab3e4ff77bf39feb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/5_Revenges/Guard_Revenges/M_Big_Sword@Revenge_Guard_Accept.FBX using Guid(3926aae8fd49d004ab3e4ff77bf39feb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce795c6e1e6212ca0c0db4f1421c154e') in 0.078435 seconds
+  Import took 0.081147 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1732.976804 seconds.
-  path: Assets/Item/Prefabs/Item.prefab
-  artifactKey: Guid(a60ce9315209140449304ca7c78c5872) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Item/Prefabs/Item.prefab using Guid(a60ce9315209140449304ca7c78c5872) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '577e1f3ad7407017844eb32ba6ac4878') in 0.066435 seconds
-  Import took 0.069123 seconds .
+  Time since last request: 0.000250 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/5_Revenges/Guard_Revenges/M_Big_Sword@Revenge_Guard_Attack.FBX
+  artifactKey: Guid(98b40a0f8d28b2541854c6fa4941f7bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/5_Revenges/Guard_Revenges/M_Big_Sword@Revenge_Guard_Attack.FBX using Guid(98b40a0f8d28b2541854c6fa4941f7bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5fcedc9630650926a416bf7ed8d8d36') in 0.016905 seconds
+  Import took 0.019220 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1.079084 seconds.
-  path: Assets/Item/Prefabs/Item.prefab
-  artifactKey: Guid(a60ce9315209140449304ca7c78c5872) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Item/Prefabs/Item.prefab using Guid(a60ce9315209140449304ca7c78c5872) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e848003fc79de0ad0ebe88ee71c9da9c') in 0.012829 seconds
-  Import took 0.015049 seconds .
+  Time since last request: 0.000169 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade
+  artifactKey: Guid(c646ddb3af437014da0c8ebbc5bf0669) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade using Guid(c646ddb3af437014da0c8ebbc5bf0669) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '955f38dcfa6a9803ef567807f23891bd') in 0.006232 seconds
+  Import took 0.008043 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.009425 seconds.
-  path: Assets/Item/Prefabs/Item.prefab
-  artifactKey: Guid(a60ce9315209140449304ca7c78c5872) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Item/Prefabs/Item.prefab using Guid(a60ce9315209140449304ca7c78c5872) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e848003fc79de0ad0ebe88ee71c9da9c') in 0.017215 seconds
-  Import took 0.020452 seconds .
+  Time since last request: 0.000156 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/5_Revenges
+  artifactKey: Guid(b700702b1dd6b3e43a861f992010f067) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/5_Revenges using Guid(b700702b1dd6b3e43a861f992010f067) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5146dd8dc33d3c1e874554d3ce2dcbe7') in 0.006515 seconds
+  Import took 0.008252 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1.204141 seconds.
-  path: Assets/Item/Prefabs/Item.prefab
-  artifactKey: Guid(a60ce9315209140449304ca7c78c5872) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Item/Prefabs/Item.prefab using Guid(a60ce9315209140449304ca7c78c5872) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9f74c3db3720e615fde072eded4b3d7') in 0.014406 seconds
-  Import took 0.016787 seconds .
+  Time since last request: 0.000194 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/5_Revenges/Guard_Revenges
+  artifactKey: Guid(8509ecc42e0abb646baf153757ed97ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/5_Revenges/Guard_Revenges using Guid(8509ecc42e0abb646baf153757ed97ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '709c6d6873a15c1e7391353691682d71') in 0.006843 seconds
+  Import took 0.008615 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.007811 seconds.
-  path: Assets/Item/Prefabs/Item.prefab
-  artifactKey: Guid(a60ce9315209140449304ca7c78c5872) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Item/Prefabs/Item.prefab using Guid(a60ce9315209140449304ca7c78c5872) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9f74c3db3720e615fde072eded4b3d7') in 0.014278 seconds
-  Import took 0.016867 seconds .
+  Time since last request: 0.000241 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/5_Revenges/Guard_Revenges/M_Big_Sword@Revenge_Guard_Start.FBX
+  artifactKey: Guid(146b9e889fbe5994d8d22f6d5e04eaf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/5_Revenges/Guard_Revenges/M_Big_Sword@Revenge_Guard_Start.FBX using Guid(146b9e889fbe5994d8d22f6d5e04eaf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36dbc0280fbd19e1415585f2c31fb777') in 0.015836 seconds
+  Import took 0.017810 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 61.009798 seconds.
-  path: Assets/Item/Prefabs/PlayerGrabItem.prefab
-  artifactKey: Guid(379677a851fa7044389451d0bc121b6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Item/Prefabs/PlayerGrabItem.prefab using Guid(379677a851fa7044389451d0bc121b6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39c40cfc8a0e59ebab1857ced3e418f6') in 0.012901 seconds
-  Import took 0.015188 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000937 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.917 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.39 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1132 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.4 MB.
-System memory in use after: 78.5 MB.
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1640.
-Total: 2.029900 ms (FindLiveObjects: 0.136000 ms CreateObjectMapping: 0.029700 ms MarkObjects: 1.801900 ms  DeleteObjects: 0.061000 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000724 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.35 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.995 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.33 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1132 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.4 MB.
-System memory in use after: 78.5 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1643.
-Total: 1.902800 ms (FindLiveObjects: 0.189600 ms CreateObjectMapping: 0.100100 ms MarkObjects: 1.533600 ms  DeleteObjects: 0.074100 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000843 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.35 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.848 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.40 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1132 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.4 MB.
-System memory in use after: 78.5 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1646.
-Total: 1.946800 ms (FindLiveObjects: 0.222000 ms CreateObjectMapping: 0.066700 ms MarkObjects: 1.590600 ms  DeleteObjects: 0.066100 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000781 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.25 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.031 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1132 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.4 MB.
-System memory in use after: 78.5 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1649.
-Total: 1.918200 ms (FindLiveObjects: 0.230600 ms CreateObjectMapping: 0.047400 ms MarkObjects: 1.508700 ms  DeleteObjects: 0.129700 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001092 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.23 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.948 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.25 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1132 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.4 MB.
-System memory in use after: 78.5 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1652.
-Total: 1.666800 ms (FindLiveObjects: 0.184300 ms CreateObjectMapping: 0.027800 ms MarkObjects: 1.387700 ms  DeleteObjects: 0.065500 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000627 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.100 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.81 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1132 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.4 MB.
-System memory in use after: 78.5 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1655.
-Total: 6.666300 ms (FindLiveObjects: 0.141000 ms CreateObjectMapping: 0.033200 ms MarkObjects: 6.269700 ms  DeleteObjects: 0.219700 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001142 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.32 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.925 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.25 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1132 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.4 MB.
-System memory in use after: 78.5 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1658.
-Total: 1.462200 ms (FindLiveObjects: 0.111400 ms CreateObjectMapping: 0.021400 ms MarkObjects: 1.264800 ms  DeleteObjects: 0.063000 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001346 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.66 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.784 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.40 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1132 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.4 MB.
-System memory in use after: 78.5 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1661.
-Total: 3.047000 ms (FindLiveObjects: 0.180400 ms CreateObjectMapping: 0.046100 ms MarkObjects: 2.748800 ms  DeleteObjects: 0.069600 ms)
+  Time since last request: 0.000218 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/5_Revenges/Guard_Revenges/M_Big_Sword@Revenge_Guard_Loop.FBX
+  artifactKey: Guid(3fa5704c6cebc174da2ffca73404fc80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/5_Revenges/Guard_Revenges/M_Big_Sword@Revenge_Guard_Loop.FBX using Guid(3fa5704c6cebc174da2ffca73404fc80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0a4db920f1d3681d5636e75a87f96b6') in 0.012284 seconds
+  Import took 0.014563 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1103.014784 seconds.
-  path: Assets/Item/Prefabs/PlayerGrabItem.prefab
-  artifactKey: Guid(379677a851fa7044389451d0bc121b6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Item/Prefabs/PlayerGrabItem.prefab using Guid(379677a851fa7044389451d0bc121b6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3bb18b4bf49a5caa01ca83ef319a22a3') in 0.063235 seconds
-  Import took 0.066236 seconds .
+  Time since last request: 0.000201 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/0_Controller
+  artifactKey: Guid(8297a3b6ec1839248b77203305537d07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/0_Controller using Guid(8297a3b6ec1839248b77203305537d07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '153f4deecb076ee9e0eb695254b5b4cf') in 0.005794 seconds
+  Import took 0.007711 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.003473 seconds.
-  path: Assets/Item/Prefabs/PlayerGrabItem.prefab
-  artifactKey: Guid(379677a851fa7044389451d0bc121b6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Item/Prefabs/PlayerGrabItem.prefab using Guid(379677a851fa7044389451d0bc121b6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3bb18b4bf49a5caa01ca83ef319a22a3') in 0.020657 seconds
-  Import took 0.023169 seconds .
+  Time since last request: 0.000197 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/5_Revenges/Guard_Revenges/M_Big_Sword@Revenge_Guard_ALL.FBX
+  artifactKey: Guid(8885d9240be087a42ad30fc936903541) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/5_Revenges/Guard_Revenges/M_Big_Sword@Revenge_Guard_ALL.FBX using Guid(8885d9240be087a42ad30fc936903541) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '19037e1cb9a56fc377ca662045061050') in 0.010087 seconds
+  Import took 0.012339 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 9.531700 seconds.
-  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwChargeDash/CLazy@Mvm_PowerChargeDash_Front_L45_Root.FBX
-  artifactKey: Guid(6a540257f3957594ab87b7df78d8a239) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwChargeDash/CLazy@Mvm_PowerChargeDash_Front_L45_Root.FBX using Guid(6a540257f3957594ab87b7df78d8a239) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a6512d6702d3cd83cfef792673abf996') in 0.091875 seconds
-  Import took 0.095541 seconds .
+  Time since last request: 0.000196 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/5_Revenges/Guard_Revenges/M_Big_Sword@Revenge_Guard_End.FBX
+  artifactKey: Guid(f4cbc318c57ee8149996e08b762d6d71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/5_Revenges/Guard_Revenges/M_Big_Sword@Revenge_Guard_End.FBX using Guid(f4cbc318c57ee8149996e08b762d6d71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92cf2a47f43bb96f17abd24b936a79d1') in 0.016831 seconds
+  Import took 0.019636 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000177 seconds.
-  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwChargeDash/CLazy@Mvm_PowerChargeDash_Front_Root.FBX
-  artifactKey: Guid(95047d9d28d56bf43a4ccc7587053fb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwChargeDash/CLazy@Mvm_PowerChargeDash_Front_Root.FBX using Guid(95047d9d28d56bf43a4ccc7587053fb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a6cd9137a8426dd69c75457f0eb36bd6') in 0.051575 seconds
-  Import took 0.054208 seconds .
+  Time since last request: 7.169129 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/2_Attacks/3__Dash_Attack/M_Big_Sword@Dash_Attack_ver_A.FBX
+  artifactKey: Guid(aeadecb385108a04383a024f6c6b2bab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/2_Attacks/3__Dash_Attack/M_Big_Sword@Dash_Attack_ver_A.FBX using Guid(aeadecb385108a04383a024f6c6b2bab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c46369b7feeb6c1458fc209ecc6896d3') in 0.019940 seconds
+  Import took 0.022355 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000222 seconds.
-  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwChargeDash/CLazy@Mvm_PWChargeDash_Front.FBX
-  artifactKey: Guid(c07c449d07bfccb4c9f8758b19d17e64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwChargeDash/CLazy@Mvm_PWChargeDash_Front.FBX using Guid(c07c449d07bfccb4c9f8758b19d17e64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e97496d7c47ec5463955dd2e226cb9f') in 0.052089 seconds
-  Import took 0.054748 seconds .
+  Time since last request: 0.000346 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/2_Attacks/3__Dash_Attack/M_Big_Sword@Dash_Attack_ver_B.FBX
+  artifactKey: Guid(ea666a0024e95544eb16d6b6e817f80c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/2_Attacks/3__Dash_Attack/M_Big_Sword@Dash_Attack_ver_B.FBX using Guid(ea666a0024e95544eb16d6b6e817f80c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef65ce1825091c1cf6c5fb0db4decbfb') in 0.016175 seconds
+  Import took 0.018289 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000423 seconds.
-  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwChargeDash/CLazy@Mvm_PowerChargeDash_Front_R45_Root.FBX
-  artifactKey: Guid(a33c01e254972d34483753ff01c53599) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwChargeDash/CLazy@Mvm_PowerChargeDash_Front_R45_Root.FBX using Guid(a33c01e254972d34483753ff01c53599) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15a5e06c2c882443334117cfb576bac5') in 0.053962 seconds
-  Import took 0.057422 seconds .
+  Time since last request: 0.573500 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_1.FBX
+  artifactKey: Guid(0f01aa99506fe204f98d3a01ff53d76a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_1.FBX using Guid(0f01aa99506fe204f98d3a01ff53d76a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5cc972814bbd005d9a064b7f29eb61c') in 0.020885 seconds
+  Import took 0.023099 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000240 seconds.
-  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwChargeDash/CLazy@Mvm_PWChargeDash_Front_R45.FBX
-  artifactKey: Guid(cce8075df83d08a45b404afb15b2d813) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwChargeDash/CLazy@Mvm_PWChargeDash_Front_R45.FBX using Guid(cce8075df83d08a45b404afb15b2d813) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ecc49137253c78d9b950cc5c28ee19ec') in 0.051565 seconds
-  Import took 0.055683 seconds .
+  Time since last request: 0.000300 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_7_Inplace.FBX
+  artifactKey: Guid(a49d110b3c2651a4194e2d5e58436d13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_7_Inplace.FBX using Guid(a49d110b3c2651a4194e2d5e58436d13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '90f888a863187cd953dc602159abe8a7') in 0.014734 seconds
+  Import took 0.016744 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000243 seconds.
-  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwChargeDash/CLazy@Mvm_PWChargeDash_Front_L.FBX
-  artifactKey: Guid(a18ffa168d8dae54ba8082690a289e68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwChargeDash/CLazy@Mvm_PWChargeDash_Front_L.FBX using Guid(a18ffa168d8dae54ba8082690a289e68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8c99f1be2c4002cee14c9da56f7aef8') in 0.048399 seconds
-  Import took 0.051519 seconds .
+  Time since last request: 0.000158 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_ALL_Inplace.FBX
+  artifactKey: Guid(a5220ea1dd3ebb04e99d7a1dd21c8953) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_ALL_Inplace.FBX using Guid(a5220ea1dd3ebb04e99d7a1dd21c8953) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9366bcfb46738d02cb0ef709163ca6f') in 0.014946 seconds
+  Import took 0.017445 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000232 seconds.
-  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwChargeDash/CLazy@Mvm_PWChargeDash_Front_R.FBX
-  artifactKey: Guid(0ef4e54c371691349902e0b694062a16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwChargeDash/CLazy@Mvm_PWChargeDash_Front_R.FBX using Guid(0ef4e54c371691349902e0b694062a16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f765efef5d874f2817b1bfea042483f') in 0.046097 seconds
-  Import took 0.049410 seconds .
+  Time since last request: 0.000245 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_5.FBX
+  artifactKey: Guid(aa6f7162518b9784293e34060a110247) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_5.FBX using Guid(aa6f7162518b9784293e34060a110247) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4223c3efa28b6858ad977c5127dda93') in 0.015809 seconds
+  Import took 0.018200 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000178 seconds.
-  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwChargeDash/CLazy@Mvm_PowerChargeDash_Front_R_Root.FBX
-  artifactKey: Guid(136a667d3e4e249458daa4a4aa98f728) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwChargeDash/CLazy@Mvm_PowerChargeDash_Front_R_Root.FBX using Guid(136a667d3e4e249458daa4a4aa98f728) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b943d539b87c69dd697b20e7f1c9ff7') in 0.051917 seconds
-  Import took 0.054546 seconds .
+  Time since last request: 0.000136 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_1_Inplace.FBX
+  artifactKey: Guid(c45b7027d69f28b4eaefb95ed65bcc67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_1_Inplace.FBX using Guid(c45b7027d69f28b4eaefb95ed65bcc67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6c1caea71b58c3839040d5f4a42cc55') in 0.014686 seconds
+  Import took 0.016858 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000209 seconds.
-  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwChargeDash/CLazy@Mvm_PowerChargeDash_Front_L_Root.FBX
-  artifactKey: Guid(3d170659d592d0c4eb1c66ad3c908f6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwChargeDash/CLazy@Mvm_PowerChargeDash_Front_L_Root.FBX using Guid(3d170659d592d0c4eb1c66ad3c908f6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33c83ec1a55eb522ac5ab9b253487755') in 0.052433 seconds
-  Import took 0.055201 seconds .
+  Time since last request: 0.000171 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_2_Inplace.FBX
+  artifactKey: Guid(8be3e9637cdec3a409bdfe9a18dc78a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_2_Inplace.FBX using Guid(8be3e9637cdec3a409bdfe9a18dc78a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c72ead14818f1b4dda4259e73203527') in 0.015291 seconds
+  Import took 0.017208 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000173 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_4_Inplace.FBX
+  artifactKey: Guid(26ed62de90b9db74aa52cf8dd29d7424) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_4_Inplace.FBX using Guid(26ed62de90b9db74aa52cf8dd29d7424) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7ccd7447b43f615d43bfed95e2d4cc1') in 0.016114 seconds
+  Import took 0.018292 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000153 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_4.FBX
+  artifactKey: Guid(9b8482507c77b8a4ca0b9df3fcd1369e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_4.FBX using Guid(9b8482507c77b8a4ca0b9df3fcd1369e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87ce90dc8ce002c4db820741649feb03') in 0.018516 seconds
+  Import took 0.020714 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000156 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_3_Inplace.FBX
+  artifactKey: Guid(08d72b7f9d2ed9340bde002e411cf806) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_3_Inplace.FBX using Guid(08d72b7f9d2ed9340bde002e411cf806) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '277e6d7eac0254e638d538cc953f3b1c') in 0.015571 seconds
+  Import took 0.018054 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000238 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_5_Inplace.FBX
+  artifactKey: Guid(c86e29772c0bf3e49a9863c20f7b1c59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_5_Inplace.FBX using Guid(c86e29772c0bf3e49a9863c20f7b1c59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66734cb95abc66ee999db8ec19918e0a') in 0.014284 seconds
+  Import took 0.016346 seconds .
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000195 seconds.
-  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwChargeDash/CLazy@Mvm_PWChargeDash_Front_L45.FBX
-  artifactKey: Guid(4852880583f2bcd449dde4f55dbb9f77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwChargeDash/CLazy@Mvm_PWChargeDash_Front_L45.FBX using Guid(4852880583f2bcd449dde4f55dbb9f77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a13d243a309fac3542fb7522142bc905') in 0.045216 seconds
-  Import took 0.047764 seconds .
+  path: Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_7.FBX
+  artifactKey: Guid(f793f9d6ec799b14390f24f8f45e9694) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_7.FBX using Guid(f793f9d6ec799b14390f24f8f45e9694) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87413ea1783341f5693d9bf35eb92104') in 0.016395 seconds
+  Import took 0.019438 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000188 seconds.
-  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwChargeDash/CLazy@Mvm_PowerChargeDash_Front_L_Root.FBX
-  artifactKey: Guid(3d170659d592d0c4eb1c66ad3c908f6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwChargeDash/CLazy@Mvm_PowerChargeDash_Front_L_Root.FBX using Guid(3d170659d592d0c4eb1c66ad3c908f6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33c83ec1a55eb522ac5ab9b253487755') in 0.032327 seconds
-  Import took 0.034876 seconds .
+  Time since last request: 0.000201 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_6.FBX
+  artifactKey: Guid(8f933a988ef5cb845b864a1eb461f06e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_6.FBX using Guid(8f933a988ef5cb845b864a1eb461f06e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f6fefbd91463c9d703969eaed6ed614') in 0.016444 seconds
+  Import took 0.018851 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000262 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_ALL.FBX
+  artifactKey: Guid(66cff5e86524935419d43e73ed051f5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_ALL.FBX using Guid(66cff5e86524935419d43e73ed051f5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6c5a0aa7f065f70fb55fed5613569d3') in 0.019641 seconds
+  Import took 0.021853 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000192 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_2.FBX
+  artifactKey: Guid(7880debb8c11bb24fb791405e0967658) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_2.FBX using Guid(7880debb8c11bb24fb791405e0967658) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4dc62c1d01dcefebf6944a9ceb8202ff') in 0.016914 seconds
+  Import took 0.019256 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000172 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_3.FBX
+  artifactKey: Guid(767b33b2c087a5a4d9f2ae70fe712240) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_3.FBX using Guid(767b33b2c087a5a4d9f2ae70fe712240) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3612f2f136079f5c96fe874fc1245eb') in 0.016660 seconds
+  Import took 0.018749 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000141 seconds.
+  path: Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_6_Inplace.FBX
+  artifactKey: Guid(d8aede77b827fe14b97dee8895cab9a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Big_Sword/2_Attacks/2__7Combos/M_Big_Sword@Attack_7Combo_6_Inplace.FBX using Guid(d8aede77b827fe14b97dee8895cab9a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82a5a1e69faf356311cf986f75b86400') in 0.015807 seconds
+  Import took 0.017816 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 43.552726 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost.FBX
+  artifactKey: Guid(827eef435d7173646b237af03413ca12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost.FBX using Guid(827eef435d7173646b237af03413ca12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e03339fe208353f2d2c880744ab4a4e2') in 0.150991 seconds
+  Import took 0.153440 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000157 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Back_L45.FBX
+  artifactKey: Guid(3ca407df465c34a4fabf0ea7d917bc01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Back_L45.FBX using Guid(3ca407df465c34a4fabf0ea7d917bc01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b559e4030adf7a1a265e0da04850333') in 0.048438 seconds
+  Import took 0.050752 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000253 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Front_L45_Root.FBX
+  artifactKey: Guid(e786a93a21c7ddc4eac1fdb30680de44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Front_L45_Root.FBX using Guid(e786a93a21c7ddc4eac1fdb30680de44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '568642404cbac6bd0f48132d43d07e79') in 0.030287 seconds
+  Import took 0.032269 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000266 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Front_R45.FBX
+  artifactKey: Guid(4e21b2d4f99d97b41bbdaaed51fe19db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Front_R45.FBX using Guid(4e21b2d4f99d97b41bbdaaed51fe19db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '760d64b23b034d1d447b75637c47833e') in 0.028028 seconds
+  Import took 0.030359 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000190 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Root.FBX
+  artifactKey: Guid(90b423599ded4034ab5a997dbe4c4a25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Root.FBX using Guid(90b423599ded4034ab5a997dbe4c4a25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e7e6c99b38a83290eb344582b9344db') in 0.028385 seconds
+  Import took 0.030843 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000185 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Back_L45_Root.FBX
+  artifactKey: Guid(b70298ef6db5e94469283164279addb1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Back_L45_Root.FBX using Guid(b70298ef6db5e94469283164279addb1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ebaff214ebb0a7733faaf69aa5bce3a') in 0.028024 seconds
+  Import took 0.030202 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000224 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Back_Root.FBX
+  artifactKey: Guid(7eb6764fbf71d2048af9b8609165cdf9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Back_Root.FBX using Guid(7eb6764fbf71d2048af9b8609165cdf9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd181d2f3df48db0ace6ec96039232155') in 0.027735 seconds
+  Import took 0.030357 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000191 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Back_R_Root.FBX
+  artifactKey: Guid(dd64cb16c64ab724bad1a815ac8294cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Back_R_Root.FBX using Guid(dd64cb16c64ab724bad1a815ac8294cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e7cc877c9e7f9529d406f158dbb30bc') in 0.027825 seconds
+  Import took 0.029822 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000278 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Front_R45_Root.FBX
+  artifactKey: Guid(4f39ffd2521a2f54e8a5d0dbff873630) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Front_R45_Root.FBX using Guid(4f39ffd2521a2f54e8a5d0dbff873630) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8716df74dc2c8b37b704b81783751425') in 0.027690 seconds
+  Import took 0.030750 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000226 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Back_L.FBX
+  artifactKey: Guid(e00839e40e8de474590b04c63735e1aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Back_L.FBX using Guid(e00839e40e8de474590b04c63735e1aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f32b27aad9ac5c285af64e3f01807a3a') in 0.031934 seconds
+  Import took 0.033895 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000215 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Back_R.FBX
+  artifactKey: Guid(69d65784661645d44a2bb44b3ab08115) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Back_R.FBX using Guid(69d65784661645d44a2bb44b3ab08115) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '298f1ffb862b212140c86b41c08e82c5') in 0.027876 seconds
+  Import took 0.030663 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000284 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Back_R45_Root.FBX
+  artifactKey: Guid(072868e9600337947af9e4c027363d44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Back_R45_Root.FBX using Guid(072868e9600337947af9e4c027363d44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ea3ddc26251dd37532a034b01e4dda9') in 0.028415 seconds
+  Import took 0.030792 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000257 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Back.FBX
+  artifactKey: Guid(d47dec1846814f14aaab8cce778feb05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Back.FBX using Guid(d47dec1846814f14aaab8cce778feb05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '645f9744304a261b09d2840595730dfd') in 0.028980 seconds
+  Import took 0.031666 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000146 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Front_R.FBX
+  artifactKey: Guid(c63eaec4d5f0ce5419e2fc39cd4f2d16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Front_R.FBX using Guid(c63eaec4d5f0ce5419e2fc39cd4f2d16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a0f4e987deffdd7a36738bff2377b7d') in 0.026964 seconds
+  Import took 0.029038 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000163 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Front_L45.FBX
+  artifactKey: Guid(75146054c8959ce4a9bbc4447c540ecf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Front_L45.FBX using Guid(75146054c8959ce4a9bbc4447c540ecf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd56aba408cc2c38e7364d6f1f5cd740') in 0.026825 seconds
+  Import took 0.029114 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000172 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Back_R45.FBX
+  artifactKey: Guid(bf4a3504fe2d32449a277f6e3f5f13c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Back_R45.FBX using Guid(bf4a3504fe2d32449a277f6e3f5f13c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'edb2298301d844f401679cf198fa4663') in 0.029843 seconds
+  Import took 0.032966 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000227 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Front_R_Root.FBX
+  artifactKey: Guid(2f39ffd38e62f8048b11f18709a254f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Front_R_Root.FBX using Guid(2f39ffd38e62f8048b11f18709a254f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b25103a70bbbd8b657141a7be8a325c') in 0.028364 seconds
+  Import took 0.030617 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000169 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Back_L_Root.FBX
+  artifactKey: Guid(9901c48282b16dd47a16770c1f6cc851) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Back_L_Root.FBX using Guid(9901c48282b16dd47a16770c1f6cc851) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f9771962a70c25cc7cea96214a52a75') in 0.028747 seconds
+  Import took 0.031812 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000175 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwDash/CLazy@Mvm_PowerDash_Front_L.FBX
+  artifactKey: Guid(f829aa92412f3a54aa3d026fa9bb39a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwDash/CLazy@Mvm_PowerDash_Front_L.FBX using Guid(f829aa92412f3a54aa3d026fa9bb39a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff66da464f779a18b84b4ec43dcece74') in 0.029154 seconds
+  Import took 0.031777 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000190 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwDash/CLazy@Mvm_PowerDash_Front_R.FBX
+  artifactKey: Guid(89dd162846453714d9127248a244a8bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwDash/CLazy@Mvm_PowerDash_Front_R.FBX using Guid(89dd162846453714d9127248a244a8bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9db1cc479cff73029857e64728cdb5e6') in 0.029411 seconds
+  Import took 0.031443 seconds .
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000186 seconds.
-  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwChargeDash/CLazy@Mvm_PWChargeDash_Front_L45.FBX
-  artifactKey: Guid(4852880583f2bcd449dde4f55dbb9f77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwChargeDash/CLazy@Mvm_PWChargeDash_Front_L45.FBX using Guid(4852880583f2bcd449dde4f55dbb9f77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a13d243a309fac3542fb7522142bc905') in 0.030951 seconds
-  Import took 0.033965 seconds .
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwDash/CLazy@Mvm_PowerDash_Front_L_Root.FBX
+  artifactKey: Guid(d5936ad86c2a8a9429bc6d90f1c8b248) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwDash/CLazy@Mvm_PowerDash_Front_L_Root.FBX using Guid(d5936ad86c2a8a9429bc6d90f1c8b248) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6b88d31cb2f9f304dac1cb2cbcb0be5') in 0.032072 seconds
+  Import took 0.035982 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000249 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwDash/CLazy@Mvm_PowerDash_Front_R_Root.FBX
+  artifactKey: Guid(c5b5f12f2fe942049a414335f2bc0c65) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwDash/CLazy@Mvm_PowerDash_Front_R_Root.FBX using Guid(c5b5f12f2fe942049a414335f2bc0c65) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'adb5d3af66bf0ebbf6b2a07da4a16f51') in 0.032641 seconds
+  Import took 0.034902 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000220 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwDash/CLazy@Mvm_PowerDash_Front_R45_Root.FBX
+  artifactKey: Guid(ac718d0e627d53f4cbc882ee4f291bc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwDash/CLazy@Mvm_PowerDash_Front_R45_Root.FBX using Guid(ac718d0e627d53f4cbc882ee4f291bc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8b163b345058fcfa27bad357253734f') in 0.027682 seconds
+  Import took 0.031257 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000204 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwDash/CLazy@Mvm_PowerDash_Front_Root.FBX
+  artifactKey: Guid(38379fe2547633f4e8bbda308ea87a9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwDash/CLazy@Mvm_PowerDash_Front_Root.FBX using Guid(38379fe2547633f4e8bbda308ea87a9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f08c2f5a4112830b61c39d8a564afc6c') in 0.032531 seconds
+  Import took 0.035949 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwDash/CLazy@Mvm_PowerDash_Front_R45.FBX
+  artifactKey: Guid(01b5e04bf22e6084daf813138d75b129) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwDash/CLazy@Mvm_PowerDash_Front_R45.FBX using Guid(01b5e04bf22e6084daf813138d75b129) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ed365c28a0d9ff74033a73154053463') in 0.030707 seconds
+  Import took 0.033120 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000244 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwDash/CLazy@Mvm_PowerDash_Front.FBX
+  artifactKey: Guid(25dae0984551cbe49bdcb14241d0f83a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwDash/CLazy@Mvm_PowerDash_Front.FBX using Guid(25dae0984551cbe49bdcb14241d0f83a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e09ba9e79ed2eedc63f3d3a32559004') in 0.030138 seconds
+  Import took 0.033057 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000225 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwDash/CLazy@Mvm_PowerDash_Front_L45_Root.FBX
+  artifactKey: Guid(73234b65f248fcf4bb191a9bc89a1081) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwDash/CLazy@Mvm_PowerDash_Front_L45_Root.FBX using Guid(73234b65f248fcf4bb191a9bc89a1081) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45a6a90ba0893a61a124245fd8c4887d') in 0.032995 seconds
+  Import took 0.035320 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000289 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwDash/CLazy@Mvm_PowerDash_Front_L45.FBX
+  artifactKey: Guid(34f685896a85b214283aab7e11fe4c79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwDash/CLazy@Mvm_PowerDash_Front_L45.FBX using Guid(34f685896a85b214283aab7e11fe4c79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8acd8e826d45b47ec23a4327e99fd62e') in 0.030518 seconds
+  Import took 0.032834 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000196 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Front_L.FBX
+  artifactKey: Guid(efbadff736bc49f40b74d3dfb305127d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Front_L.FBX using Guid(efbadff736bc49f40b74d3dfb305127d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35c2899dc4b3ffc7d3d51adab35144f2') in 0.033303 seconds
+  Import took 0.036012 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000247 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwDash/CLazy@Mvm_PowerDash_Front_L45.FBX
+  artifactKey: Guid(34f685896a85b214283aab7e11fe4c79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwDash/CLazy@Mvm_PowerDash_Front_L45.FBX using Guid(34f685896a85b214283aab7e11fe4c79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8acd8e826d45b47ec23a4327e99fd62e') in 0.023197 seconds
+  Import took 0.025407 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000230 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Front_L_Root.FBX
+  artifactKey: Guid(aa9201ae4601dfe44b0fadc302ef2395) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_Boost/CLazy@Mvm_Boost_Front_L_Root.FBX using Guid(aa9201ae4601dfe44b0fadc302ef2395) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0eb0d5b445b729ca4f04c1c3c723499') in 0.030674 seconds
+  Import took 0.033517 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 18.403331 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwDash/Controller
+  artifactKey: Guid(b447f0587d6d4b3448ac8f78f5c7f24a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_5way_PwDash/Controller using Guid(b447f0587d6d4b3448ac8f78f5c7f24a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2de69befd77c01a5188a03d8dcb927f7') in 0.005718 seconds
+  Import took 0.008084 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.272309 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash.FBX
+  artifactKey: Guid(94993afd22c8a1c4095f43665dbb3d3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash.FBX using Guid(94993afd22c8a1c4095f43665dbb3d3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f397a2c1999093934581bd6e6d8da0c') in 0.035505 seconds
+  Import took 0.038345 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000386 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Back_R_Root.FBX
+  artifactKey: Guid(61ee963eee78c6b49a15279e235a8c76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Back_R_Root.FBX using Guid(61ee963eee78c6b49a15279e235a8c76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4680d5796abdb9c43c96cbdf385176c4') in 0.032542 seconds
+  Import took 0.035294 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000177 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Back_R.FBX
+  artifactKey: Guid(c3a93964b3fb8654c940df83f589cff7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Back_R.FBX using Guid(c3a93964b3fb8654c940df83f589cff7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aab83514073116b2722280625a70bc01') in 0.035597 seconds
+  Import took 0.037803 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000246 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Back_L.FBX
+  artifactKey: Guid(23840fb62de66db4db1e59cfc9ea03b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Back_L.FBX using Guid(23840fb62de66db4db1e59cfc9ea03b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '530ecb7c14267b16336a5505b4eb04f8') in 0.030522 seconds
+  Import took 0.032744 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000247 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Front_R.FBX
+  artifactKey: Guid(c1c7f1629158bbd40a2aa589ce2bedf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Front_R.FBX using Guid(c1c7f1629158bbd40a2aa589ce2bedf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72f19cc4ab609c56cca44d97fd0e37ed') in 0.033503 seconds
+  Import took 0.035946 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000167 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Front_L.FBX
+  artifactKey: Guid(3f0d8a5ec6953904c864087dde4ac826) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Front_L.FBX using Guid(3f0d8a5ec6953904c864087dde4ac826) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c43524e60a954e9fe99a1b3b4bd1a50d') in 0.033412 seconds
+  Import took 0.035850 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000219 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Back.FBX
+  artifactKey: Guid(ea84cf34df1ee9f46a03609a1c2ca8dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Back.FBX using Guid(ea84cf34df1ee9f46a03609a1c2ca8dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b807489deb0372a407dc55ae14ec001') in 0.033504 seconds
+  Import took 0.035498 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000268 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Back_R45_Root.FBX
+  artifactKey: Guid(881f526cdc6d6994ca0637d5393899ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Back_R45_Root.FBX using Guid(881f526cdc6d6994ca0637d5393899ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d13b11611b0dae479a37939730ae290') in 0.031053 seconds
+  Import took 0.033600 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000166 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Back_L_Root.FBX
+  artifactKey: Guid(0a67dfe572cd1d545ad5c0fdd6a4e3fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Back_L_Root.FBX using Guid(0a67dfe572cd1d545ad5c0fdd6a4e3fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c49e6d6967fcd230168fca937bbbe03') in 0.032057 seconds
+  Import took 0.034127 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000272 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Front_L45.FBX
+  artifactKey: Guid(020b964ad8df0994da94e86d9beafb62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Front_L45.FBX using Guid(020b964ad8df0994da94e86d9beafb62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '543467dd30908c8c5da4e89a07e7ced0') in 0.032738 seconds
+  Import took 0.035259 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000282 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Back_L45_Root.FBX
+  artifactKey: Guid(81617998baa63014c99b83beac7918c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Back_L45_Root.FBX using Guid(81617998baa63014c99b83beac7918c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33d6d01f066fa6d2a7b9df23401c7650') in 0.047538 seconds
+  Import took 0.050098 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000315 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Root.FBX
+  artifactKey: Guid(93f2183f829deff498210d0baad44087) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Root.FBX using Guid(93f2183f829deff498210d0baad44087) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '822e9cc429afeb6f1d808e6bede1ccaf') in 0.034580 seconds
+  Import took 0.037153 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000300 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Front_R45_Root.FBX
+  artifactKey: Guid(6a067504d1bd2ad4687964978fb496c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Front_R45_Root.FBX using Guid(6a067504d1bd2ad4687964978fb496c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7134b8ca65506650500ec5c515661ce2') in 0.036357 seconds
+  Import took 0.039947 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000271 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Front_L_Root.FBX
+  artifactKey: Guid(c474eee1d523d0d4e868cc5477686fc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Front_L_Root.FBX using Guid(c474eee1d523d0d4e868cc5477686fc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd761835bc7b2c7e625e2bea1c0b7d1bb') in 0.035427 seconds
+  Import took 0.038260 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000263 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Back_R45.FBX
+  artifactKey: Guid(cdfa27d7cde4d8644a2f2bc9d8de4c26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Back_R45.FBX using Guid(cdfa27d7cde4d8644a2f2bc9d8de4c26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44fbf68685c3afb330de873ce07f2b4e') in 0.041009 seconds
+  Import took 0.043592 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000233 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Back_Root.FBX
+  artifactKey: Guid(3dba5f6a391006143b18728ef468ea36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Back_Root.FBX using Guid(3dba5f6a391006143b18728ef468ea36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '399e146dbe46558e9ee0b201c2a6968e') in 0.030548 seconds
+  Import took 0.033776 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000291 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Back_L45.FBX
+  artifactKey: Guid(e14283cf45ffddc4085c9d4f2e05df23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Back_L45.FBX using Guid(e14283cf45ffddc4085c9d4f2e05df23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7bed858941d58493f1e7fd0df95766a5') in 0.030944 seconds
+  Import took 0.034000 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000238 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Front_R_Root.FBX
+  artifactKey: Guid(176a18117e68f2046b9cbe8710314824) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Front_R_Root.FBX using Guid(176a18117e68f2046b9cbe8710314824) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c5665368cbd8ebe6dc602438aad44d0') in 0.027068 seconds
+  Import took 0.031088 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000283 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Front_L45_Root.FBX
+  artifactKey: Guid(d4bcd0f20f859eb4fad0a59d03f841e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Front_L45_Root.FBX using Guid(d4bcd0f20f859eb4fad0a59d03f841e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a34506e97bea999f051db4050c020811') in 0.027933 seconds
+  Import took 0.031726 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000187 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Front_R45.FBX
+  artifactKey: Guid(2178d583ca19a894294fa74dd01ab25c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_8way_ChargeDash/CLazy@Mvm_ChargeDash_Front_R45.FBX using Guid(2178d583ca19a894294fa74dd01ab25c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94c1863b9dd7b8cc88fc8e840b08f537') in 0.031724 seconds
+  Import took 0.034219 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.552871 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Materials/CLazyBody_Gray.mat
+  artifactKey: Guid(a3ac3a789870a7a41a3a116e64bf55c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Materials/CLazyBody_Gray.mat using Guid(a3ac3a789870a7a41a3a116e64bf55c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee2aefc006193a5f34a55a28769d9c07') in 0.033649 seconds
+  Import took 0.035770 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000348 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Materials/CLazyBody_White.mat
+  artifactKey: Guid(03fa50f59422f82458e6a10dd5096822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Materials/CLazyBody_White.mat using Guid(03fa50f59422f82458e6a10dd5096822) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '747f1836ec6839ed4ca97f206bb262d5') in 0.014028 seconds
+  Import took 0.016525 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.690137 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Wp_Dash/CLazy@Mvm_Wp_ChargeBoost.FBX
+  artifactKey: Guid(6f3a8d28604ab6b4cb2742fe7537f01e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Wp_Dash/CLazy@Mvm_Wp_ChargeBoost.FBX using Guid(6f3a8d28604ab6b4cb2742fe7537f01e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f69520b40b671666912a77fdac88aca6') in 0.033949 seconds
+  Import took 0.036045 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000248 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Wp_Dash/CLazy@Mvm_Wp_ChargeDash_2.FBX
+  artifactKey: Guid(ef683bc37c27ab043a6003cedb97befd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Wp_Dash/CLazy@Mvm_Wp_ChargeDash_2.FBX using Guid(ef683bc37c27ab043a6003cedb97befd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad7d03d8a4d0c1543c051c70e31a16bf') in 0.028399 seconds
+  Import took 0.030457 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000196 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Wp_Dash/CLazy@Mvm_Wp_ChargeBoost_Root.FBX
+  artifactKey: Guid(23074598c69dc34469d37efa862765de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Wp_Dash/CLazy@Mvm_Wp_ChargeBoost_Root.FBX using Guid(23074598c69dc34469d37efa862765de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '286ad41bbffcadc0103157f98143bc4d') in 0.030348 seconds
+  Import took 0.032668 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000263 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Wp_Dash/CLazy@Mvm_Wp_ChargeDash.FBX
+  artifactKey: Guid(a54dcaba99002454cad21e2d118ebf0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Wp_Dash/CLazy@Mvm_Wp_ChargeDash.FBX using Guid(a54dcaba99002454cad21e2d118ebf0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29553554c97ff58c7d853cd3e78d68c4') in 0.029668 seconds
+  Import took 0.031933 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000185 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Wp_Dash/CLazy@Mvm_Wp_ChargeDash_Root.FBX
+  artifactKey: Guid(ab984ece85013104cab8767bb25f3096) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Wp_Dash/CLazy@Mvm_Wp_ChargeDash_Root.FBX using Guid(ab984ece85013104cab8767bb25f3096) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f2c63723d44585b696cb3152c8a8b16d') in 0.027439 seconds
+  Import took 0.029590 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000185 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Wp_Dash/CLazy@Mvm_Wp_ChargeDash2_Root.FBX
+  artifactKey: Guid(b0ea40c9a60f8034aa63022ed71d82ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Wp_Dash/CLazy@Mvm_Wp_ChargeDash2_Root.FBX using Guid(b0ea40c9a60f8034aa63022ed71d82ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a5f4ea12423ab20843b7d89fd9f4635') in 0.028127 seconds
+  Import took 0.030613 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.344791 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_A_TurnL_90.FBX
+  artifactKey: Guid(e0a021a581bd88d45ade5c859bfb9964) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_A_TurnL_90.FBX using Guid(e0a021a581bd88d45ade5c859bfb9964) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0401f8e06d5192e4f086cd8d56ce210') in 0.035782 seconds
+  Import took 0.038294 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000318 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_A_TurnR_180_Root.FBX
+  artifactKey: Guid(debea4e94c7d18b4a892e4a2eae87cce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_A_TurnR_180_Root.FBX using Guid(debea4e94c7d18b4a892e4a2eae87cce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '111dafe3de316776768157cda6569ad5') in 0.028726 seconds
+  Import took 0.030720 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000183 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_B_TurnL_90_Root.FBX
+  artifactKey: Guid(8f44d894018f68d4d97513649b1c0ff4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_B_TurnL_90_Root.FBX using Guid(8f44d894018f68d4d97513649b1c0ff4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48cb2e74917b4e2733fcf96dae62e321') in 0.028792 seconds
+  Import took 0.030910 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000263 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_A_TurnL_180.FBX
+  artifactKey: Guid(389b9e4324829c94797166d8bc531e4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_A_TurnL_180.FBX using Guid(389b9e4324829c94797166d8bc531e4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9bbed7088b58e3911db44212cc53b0bd') in 0.027941 seconds
+  Import took 0.030760 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000204 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_B_TurnR_90.FBX
+  artifactKey: Guid(6da56b318fc9d4949a7a0765c741bbac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_B_TurnR_90.FBX using Guid(6da56b318fc9d4949a7a0765c741bbac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ae69b9e52b552c254a5703ed93559da') in 0.028245 seconds
+  Import took 0.030700 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000265 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_A_TurnL_180_Root.FBX
+  artifactKey: Guid(139760eea0150584e9a23716277df37b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_A_TurnL_180_Root.FBX using Guid(139760eea0150584e9a23716277df37b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '906411066ebd12a29bf5c5d4f19ce0f6') in 0.030289 seconds
+  Import took 0.033117 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000218 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_A_TurnR_90.FBX
+  artifactKey: Guid(efa9416a2799b7e45815539b57d2275a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_A_TurnR_90.FBX using Guid(efa9416a2799b7e45815539b57d2275a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce9ccc01d4db060bdd1cf9d106408072') in 0.032444 seconds
+  Import took 0.035493 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000315 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_C_TurnL_90_Root.FBX
+  artifactKey: Guid(a8b76a40d6d1b4343822a24cf56cfd63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_C_TurnL_90_Root.FBX using Guid(a8b76a40d6d1b4343822a24cf56cfd63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd212bc94a798f389d1fbac0db36cf67e') in 0.029772 seconds
+  Import took 0.031623 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000267 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_B_TurnL_90.FBX
+  artifactKey: Guid(bcaa28d87b6f14744919b9cd071e2044) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_B_TurnL_90.FBX using Guid(bcaa28d87b6f14744919b9cd071e2044) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6939eba7eab2b1a07084b71379a42f13') in 0.028578 seconds
+  Import took 0.030722 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000217 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_A_TurnR_90_Root.FBX
+  artifactKey: Guid(c238f4186a086c3459f4d89371dcdb26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_A_TurnR_90_Root.FBX using Guid(c238f4186a086c3459f4d89371dcdb26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c38efd8ce26d2c9576b409474b7ec178') in 0.027336 seconds
+  Import took 0.029555 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000132 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_B_TurnR_90_Root.FBX
+  artifactKey: Guid(0b7c3e0743a0ba74b8123a6430a37e81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_B_TurnR_90_Root.FBX using Guid(0b7c3e0743a0ba74b8123a6430a37e81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70bdb521aa07d3faa23bcd14d0ad5d22') in 0.026443 seconds
+  Import took 0.028594 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000258 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_A_TurnL_90_Root.FBX
+  artifactKey: Guid(8465e074deb44864e921df587643c560) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_A_TurnL_90_Root.FBX using Guid(8465e074deb44864e921df587643c560) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a84ac3dacdd78bad82fc2b33f8a3d1d0') in 0.029313 seconds
+  Import took 0.031829 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000238 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_B_TurnL_180.FBX
+  artifactKey: Guid(5174730064f44b24e9fe63633141da4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_B_TurnL_180.FBX using Guid(5174730064f44b24e9fe63633141da4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b780ce476689d8bc25603ff1ea0eeab') in 0.029109 seconds
+  Import took 0.034533 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000201 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_B_TurnL_180_Root.FBX
+  artifactKey: Guid(e92b6f0f945912e4d9c8cbbb6c966d31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_B_TurnL_180_Root.FBX using Guid(e92b6f0f945912e4d9c8cbbb6c966d31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4de6a7002718868c14b14f4e57c77d2e') in 0.028386 seconds
+  Import took 0.030943 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000182 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_A_TurnR_180.FBX
+  artifactKey: Guid(8611ba492e4a2fc469c91a3bca9dc69a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_A_TurnR_180.FBX using Guid(8611ba492e4a2fc469c91a3bca9dc69a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69ee2b60544dbbb4c017e63d5f91a5d5') in 0.030240 seconds
+  Import took 0.033149 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000274 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_B_TurnR_180.FBX
+  artifactKey: Guid(f758c30bbc694134a95727e291a5111d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_B_TurnR_180.FBX using Guid(f758c30bbc694134a95727e291a5111d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10055de0296fbdd0f93258bda051154a') in 0.029481 seconds
+  Import took 0.031954 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000335 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_C_TurnL_180.FBX
+  artifactKey: Guid(659e385a8cd263a4f91438101f6b9772) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_C_TurnL_180.FBX using Guid(659e385a8cd263a4f91438101f6b9772) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb1d2e4aeb0d68f952b4a23d474288a7') in 0.039036 seconds
+  Import took 0.042053 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000281 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_B_TurnR_180_Root.FBX
+  artifactKey: Guid(bf61a8830b5a43242a1113ff6d0cc33f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_B_TurnR_180_Root.FBX using Guid(bf61a8830b5a43242a1113ff6d0cc33f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8bea3a41f2049c24dfec08c2451faf6') in 0.033203 seconds
+  Import took 0.035947 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000217 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_C_TurnL_90.FBX
+  artifactKey: Guid(7180d39a661a0904784dbc0a4cbcbff5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_C_TurnL_90.FBX using Guid(7180d39a661a0904784dbc0a4cbcbff5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be3f35ed19fc89abee5fe69a291aec57') in 0.030770 seconds
+  Import took 0.033315 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.133567 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_C_TurnL_180_Root.FBX
+  artifactKey: Guid(ba488245bba57c542ac02f0a5daa2ee5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_C_TurnL_180_Root.FBX using Guid(ba488245bba57c542ac02f0a5daa2ee5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc133f8b7cdf44c8463c40163254a25b') in 0.039726 seconds
+  Import took 0.042710 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.231544 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_C_TurnR_90.FBX
+  artifactKey: Guid(c230e61778db4ad4cbb382e9b0e9289f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_C_TurnR_90.FBX using Guid(c230e61778db4ad4cbb382e9b0e9289f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36c16fa99265507f708b92a23f210529') in 0.036142 seconds
+  Import took 0.038485 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000153 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_C_TurnR_180.FBX
+  artifactKey: Guid(2aac5e9b50d9cfe449066e5b12c12f49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_C_TurnR_180.FBX using Guid(2aac5e9b50d9cfe449066e5b12c12f49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9a359672d26efe8000bf20f820571a3') in 0.030378 seconds
+  Import took 0.032905 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000215 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_C_TurnR_180_Root.FBX
+  artifactKey: Guid(22b2a8365e7e22145858e60c0e98c7b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_C_TurnR_180_Root.FBX using Guid(22b2a8365e7e22145858e60c0e98c7b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82c07e1e52cfd8d26ccbdbe83c16f079') in 0.027732 seconds
+  Import took 0.030584 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000332 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_C_TurnR_90_Root.FBX
+  artifactKey: Guid(4296efe60d4dda146a16f67d30e27339) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_C_TurnR_90_Root.FBX using Guid(4296efe60d4dda146a16f67d30e27339) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f93a2a80d058e83dcc06c6062d7f18b9') in 0.030722 seconds
+  Import took 0.033615 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000453 seconds.
+  path: Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_C_TurnR_90_Root.FBX
+  artifactKey: Guid(4296efe60d4dda146a16f67d30e27339) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/CLazyRunnerActionAnimPack/Animations/P1_CLazyMovement/Mvm_Turn_Idle/CLazy@Mvm_Idle_C_TurnR_90_Root.FBX using Guid(4296efe60d4dda146a16f67d30e27339) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f93a2a80d058e83dcc06c6062d7f18b9') in 0.022091 seconds
+  Import took 0.024597 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.760420 seconds.
+  path: Assets/Player/Prefabs/Player 1.prefab
+  artifactKey: Guid(6e1de9ffc9a09034680bf5907f942ef0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Prefabs/Player 1.prefab using Guid(6e1de9ffc9a09034680bf5907f942ef0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df95cfde608045d068b5bd88f1191d18') in 0.081827 seconds
+  Import took 0.085922 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.000944 seconds.
+Registered in 0.000891 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.26 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.814 seconds
+- Completed reload, in  0.839 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.31 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1132 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.9 MB.
-System memory in use after: 78.9 MB.
+System memory in use before: 81.7 MB.
+System memory in use after: 81.8 MB.
 
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1668.
-Total: 1.350100 ms (FindLiveObjects: 0.108400 ms CreateObjectMapping: 0.022000 ms MarkObjects: 1.170900 ms  DeleteObjects: 0.047900 ms)
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1627.
+Total: 1.235800 ms (FindLiveObjects: 0.142500 ms CreateObjectMapping: 0.022400 ms MarkObjects: 1.021800 ms  DeleteObjects: 0.048500 ms)
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

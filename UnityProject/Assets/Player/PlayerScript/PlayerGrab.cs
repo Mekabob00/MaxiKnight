@@ -18,7 +18,10 @@ public class PlayerGrab : MonoBehaviour
     [Header("レイヤーマスク")]
     public LayerMask _ItemLayer;
 
+    [SerializeField]Vector3 lastPos;
     bool isGrab;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -31,20 +34,28 @@ public class PlayerGrab : MonoBehaviour
     {
         //_HandBallObject.transform.position = _HandPosition.transform.position;
         //Debug.Log(_HandPosition.transform.position == _HandBallObject.transform.position);
-        if (isGrab)
+        Vector3 nowPos = new Vector3(transform.position.x, 0f, transform.position.z);
+
+        //移動量は0.1f以下の場合(止まっているとき)
+        if ((nowPos - lastPos).magnitude < 0.005f)
         {
-            if (Input.GetKeyDown(KeyCode.T))
+            if (isGrab)
             {
-                ThrowItem();
+                if (Input.GetKeyDown(KeyCode.C))
+                {
+                    ThrowItem();
+                }
+            }
+            else
+            {
+                if (Input.GetKeyDown(KeyCode.C))
+                {
+                    GrabItem();
+                }
             }
         }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.G))
-            {
-                GrabItem();
-            }
-        }
+
+        lastPos = new Vector3(transform.position.x, 0f, transform.position.z);
     }
 
     bool SearchItem()

@@ -17,6 +17,7 @@ public class ItemBehavior : MonoBehaviour
     private void Update()
     {
         if (transform.position.y < -5) Destroy(gameObject);
+        if (rb.velocity.magnitude <= 1.2f) rb.velocity = Vector3.zero;
     }
 
     public void Throw(Vector3 forward_)
