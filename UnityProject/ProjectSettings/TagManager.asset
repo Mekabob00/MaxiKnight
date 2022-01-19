@@ -7,6 +7,12 @@ TagManager:
   - stage
   - 2st defense
   - Enemy
+  - First Defense
+  - CanonBall
+  - Boss
+  - Player Attack Area
+  - Castle
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -14,8 +20,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Enemy
+  - Item
   - 
   - 
   - 

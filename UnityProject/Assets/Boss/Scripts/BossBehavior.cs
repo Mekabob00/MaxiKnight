@@ -17,17 +17,19 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
     [Header("攻撃範囲")]
     public float _Area;
     [Header("チャージ")]
-    public float _ChargeTime;
-    [Header("チャージ中断回数")]
-    public int _StopChargeCount;
+    [Tooltip("時間")]public float _ChargeTime;
+    [Tooltip("中断回数")]public int _StopChargeCount;
     [Header("城")]
     public GameObject _Castle;
     [Header("プレイヤー")]
     public GameObject _Player;
     [Header("攻撃エリア")]
     public GameObject _AttackArea;
-    [Header("レーザー")]
     public GameObject _Laser;
+    [Header("距離設定")]
+    [Tooltip("構え")]public float _EnterDistance;
+    [Tooltip("攻撃")] public float _StandByDistance;
+    [Tooltip("チャージ")] public float _ChargeDistance;
 
     Animator anim;
     [SerializeField, Header("状態")]
@@ -100,13 +102,13 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             transform.position += new Vector3(-_MoveSpeed * Time.deltaTime, 0, 0);
 
         //状態遷移
-        if (castleDistance <= 52 && !isEnter)
+        if (castleDistance <= _EnterDistance && !isEnter)
         {
             state = State.Enter;
             anim.SetTrigger("Enter");
             StartCoroutine(WaitTime(5.0f));
         }
-        else if (castleDistance <= 40 && !isAttackedPlayer)
+        else if (castleDistance <= _StandByDistance && !isAttackedPlayer)
         {
             //攻撃予告状態
             state = State.StandBy;
@@ -120,7 +122,7 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             }
             StartCoroutine(WaitTime(3.0f));
         }
-        else if (castleDistance <= 25)
+        else if (castleDistance <= _ChargeDistance)
         {
             state = State.Charge;
         }
