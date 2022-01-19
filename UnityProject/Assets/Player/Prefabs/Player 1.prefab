@@ -3625,7 +3625,10 @@ MonoBehaviour:
   _SwordObject: {fileID: 6640276821208877425}
   _CombAttackGraceTime: 1
   _AttackPatternNum: 3
-  _AvoidanceValue: 2
+  _AvoidanceValue: 5
+  SmoothTime: 2
+  Speed: 1
+  JourneyLength: 10
 --- !u!95 &1714492931
 Animator:
   serializedVersion: 3

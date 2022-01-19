@@ -28,7 +28,7 @@ public class Player_Controll : MonoBehaviour
     private int _AttackPatternNum = 3;
 
     [SerializeField, Tooltip("回避の大きさ")]
-    private float _AvoidanceValue = 1000.0f;
+    private float _AvoidanceValue = 50.0f;
 
     private Vector3 latestPosition;
     private Animator PlayerAttackAnimator;
@@ -38,8 +38,17 @@ public class Player_Controll : MonoBehaviour
     private int _AttackType = 0;
     private float _NextActionTime;
 
+
     private bool _IsGaraceTime = false;
     private bool _IsAvoid = false;
+
+    public float SmoothTime = 2f;
+    public float Speed = 1f;
+    public float JourneyLength = 10f;
+    private float _StartTime = 0;
+
+    private Vector3 AvoidPos_Start = new Vector3();
+    private Vector3 AvoidPos_End = new Vector3();
 
     private void Awake()
     {//スタート関数前に何か初期化する時用
@@ -53,6 +62,7 @@ public class Player_Controll : MonoBehaviour
         latestPosition = transform.position;
         PlayerAttackPoint = 10;
         _AttackType = 0;
+        _StartTime = Time.time;
 
         //武器の当たり判定の設定
         _SwordCollider = _SwordObject.GetComponent<BoxCollider>();
@@ -65,13 +75,23 @@ public class Player_Controll : MonoBehaviour
     }
     void Update()
     {
+        if (_IsAvoid)
+        {
+            Avoidance();
+            return;
+        }
+
         PlayerWalk();//プレイヤー移動関数呼び出し
         PlayerAttackAnimation();//Zキーを押した時にアニメーションをさせる
         PlayerAvoidance();
     }
 
-    
 
+    float CalcMoveRatio()
+    {
+        var distCovered = (Time.deltaTime - _StartTime) * 5;
+        return distCovered / JourneyLength;
+    }
 
 
     private void PlayerWalk()
@@ -79,8 +99,10 @@ public class Player_Controll : MonoBehaviour
         float dx = Input.GetAxis("Horizontal") * Time.deltaTime * PlayerWlakSpeed;
         float dz = Input.GetAxis("Vertical") * Time.deltaTime * PlayerWlakSpeed;
 
+        bool IsAttack = PlayerAttackAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack");
+
         //攻撃時に動かさない
-        if (!_SwordCollider.enabled)
+        if (!IsAttack)
         {
             transform.position = new Vector3(
             transform.position.x + dx, 0.5f, transform.position.z + dz
@@ -100,6 +122,11 @@ public class Player_Controll : MonoBehaviour
         {
             PlayerAttackAnimator.SetBool("Run", false);
         }
+
+        
+
+
+
     }
 
     /// <summary>
@@ -108,11 +135,30 @@ public class Player_Controll : MonoBehaviour
     private void PlayerAvoidance()
     {
 
-        if (Input.GetKeyDown(KeyCode.C) && !_SwordCollider.enabled)
+        if (Input.GetKeyDown(KeyCode.C) && !_IsAvoid)
         {
             
             PlayerAttackAnimator.SetTrigger("Avoid");
+            
             _IsAvoid = true;
+            AvoidPos_Start = transform.position;
+            AvoidPos_End =transform.position + transform.forward * _AvoidanceValue;
+        }
+
+    }
+
+    private void Avoidance()
+    {
+        transform.position = Vector3.Lerp(transform.position, AvoidPos_End, CalcMoveRatio());
+
+        if (PlayerAttackAnimator.IsInTransition(0))//遷移中
+        {
+            return;
+        }
+
+        if (!PlayerAttackAnimator.GetCurrentAnimatorStateInfo(0).IsName("Avoidance"))
+        {
+            _IsAvoid = false;
         }
 
     }

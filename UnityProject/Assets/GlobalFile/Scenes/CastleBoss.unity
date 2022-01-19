@@ -1001,7 +1001,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2125512284}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 902468029b8609e4095414cfc8c1a3dd, type: 3}
+  m_Script: {fileID: 11500000, guid: d4a22d80368d7ac47ac56859930b5299, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isCanonAppear: 0
@@ -1018,6 +1018,10 @@ PrefabInstance:
     - target: {fileID: 284084038, guid: 6e1de9ffc9a09034680bf5907f942ef0, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132147628603339, guid: 6e1de9ffc9a09034680bf5907f942ef0, type: 3}
+      propertyPath: _AvoidanceValue
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4642926551013645607, guid: 6e1de9ffc9a09034680bf5907f942ef0, type: 3}
       propertyPath: m_Name
