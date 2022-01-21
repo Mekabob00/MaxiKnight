@@ -115,8 +115,12 @@ public class Player_Controll : MonoBehaviour
         diff.y = 0;//y方向は無視する
         if (diff.magnitude > 0.01f)
         {
-            transform.rotation = Quaternion.LookRotation(diff); //プレイヤーの向き変更
-            PlayerAttackAnimator.SetBool("Run", true);
+            if (!_IsAvoid)
+            {
+                transform.rotation = Quaternion.LookRotation(diff); //プレイヤーの向き変更
+                PlayerAttackAnimator.SetBool("Run", true);
+            }
+            
         }
         else
         {
