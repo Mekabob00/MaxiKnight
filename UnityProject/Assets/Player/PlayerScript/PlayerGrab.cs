@@ -29,7 +29,7 @@ public class PlayerGrab : MonoBehaviour
     {
         Vector3 nowPos = new Vector3(transform.position.x, 0f, transform.position.z);
 
-        //ˆÚ“®—Ê‚Í0.005fˆÈ‰º‚Ìê‡(~‚Ü‚Á‚Ä‚¢‚é‚Æ‚«)
+        //ˆÚ“®—Ê‚Í0.005fˆÈ‰º‚Ìê‡‚¿ã‚ª‚é‰Â”\(~‚Ü‚Á‚Ä‚¢‚é)
         if ((nowPos - lastPos).magnitude < 0.005f)
         {
             if (isGrab)
@@ -63,7 +63,6 @@ public class PlayerGrab : MonoBehaviour
         {
             for(int i = colliders.Length - 1; i > 0; --i)
             {
-
                 for (int j = 0; j <= i - 1; ++j)
                 {
                     if(Vector3.Distance(transform.position, colliders[j].transform.position) > Vector3.Distance(transform.position, colliders[j + 1].transform.position))
