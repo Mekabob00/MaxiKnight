@@ -7,7 +7,7 @@ public enum State { Move, Enter, StandBy, AttackPlayer, Charge, AttackCastle, Re
 public class BossBehavior : MonoBehaviour, IPlayerDamege
 {
     [Header("生命値")]
-    public int _Life;
+    public int _Health;
     [Header("移動速度")]
     public float _MoveSpeed;
     [Header("中断後移動速度")]
@@ -34,7 +34,7 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
     Animator anim;
     [SerializeField, Header("状態")]
     State state;            //ステータス
-    Vector3 startPoint;     //初期位置
+    [SerializeField, Tooltip("初期位置")]Vector3 startPoint;     //初期位置
     [SerializeField, Header("チャージ状態の解除回数計算")]
     int hitCount;           //チャージ状態の解除回数計算
     float castleDistance;   //城との距離
@@ -49,8 +49,8 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
     void Start()
     {
         state = State.Move;
-        startPoint = transform.position;
         anim = GetComponent<Animator>();
+        transform.position = startPoint;
         isMove = false;
         isWait = false;
         isEnter = false;
@@ -244,10 +244,10 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
     //ダメージを受ける
     public void _AddDamege(int _Damage)
     {
-        _Life--;
+        _Health--;
         hitCount++;
         chargeTimeCount -= 1.0f;
-        if (_Life <= 0) Destroy(gameObject);
+        if (_Health <= 0) Destroy(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
