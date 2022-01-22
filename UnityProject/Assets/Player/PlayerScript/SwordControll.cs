@@ -7,24 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class SwordControll : MonoBehaviour
 {
-    [SerializeField, Tooltip("Collider")]
-    private Collider _Collider = null;
-
-    [SerializeField, Tooltip("Collider2")]
-    private Collider _Collider2 = null;
 
     public bool AttakUPFlag; //–h‰qƒ‰ƒCƒ“”»’è
-
-
-
 
     void Start()
     {
         AttakUPFlag = false;
-
-        //‰‚ß‚Í“–‚½‚è”»’è‚ğOFF‚É‚µ‚Ä‚¨‚­
-        _Collider.enabled = false;
-        _Collider2.enabled = false;
 
     }
     void Update()
@@ -37,7 +25,7 @@ public class SwordControll : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z))
         {
             //Collider‚ğON‚É‚·‚é
-            StartCoroutine(IEColliderActive());
+            //StartCoroutine(IEColliderActive());
         }
 
     }
@@ -80,24 +68,24 @@ public class SwordControll : MonoBehaviour
     }
 
     #region ƒRƒ‹[ƒ`ƒ“
-    IEnumerator IEColliderActive()
-    {
-        //Œ•‚ğU‚èã‚°‚Ä‚éŠÔ
-        yield return new WaitForSeconds(0.2f);
+    //IEnumerator IEColliderActive()
+    //{
+    //    //Œ•‚ğU‚èã‚°‚Ä‚éŠÔ
+    //    yield return new WaitForSeconds(0.2f);
 
-        //“–‚½‚è”»’è‚ğON‚É‚·‚é
-        _Collider.enabled = true;
-        _Collider2.enabled = true;
+    //    //“–‚½‚è”»’è‚ğON‚É‚·‚é
+    //    _Collider.enabled = true;
+    //    _Collider2.enabled = true;
 
-        //Œ•‚ğU‚è‰º‚ë‚·ŠÔ
-        yield return new WaitForSeconds(0.2f);
+    //    //Œ•‚ğU‚è‰º‚ë‚·ŠÔ
+    //    yield return new WaitForSeconds(0.2f);
 
-        //“–‚½‚è”»’è‚ğOFF‚É‚·‚é
-        _Collider.enabled = false;
-        _Collider2.enabled = false;
+    //    //“–‚½‚è”»’è‚ğOFF‚É‚·‚é
+    //    _Collider.enabled = false;
+    //    _Collider2.enabled = false;
 
-        yield break;
-    }
+    //    yield break;
+    //}
 
 
     #endregion
