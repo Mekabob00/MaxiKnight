@@ -234,6 +234,7 @@ public class CastleBehavior : MonoBehaviour
         if (_Health <= 0)
         {
             m_isDead = true;
+            GlobalData.Instance.isGameOver = true;
             Destroy(gameObject);
         }
     }
