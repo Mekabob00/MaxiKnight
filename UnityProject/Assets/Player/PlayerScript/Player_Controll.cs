@@ -138,6 +138,11 @@ public class Player_Controll : MonoBehaviour
     /// </summary>
     private void PlayerAvoidance()
     {
+        //UŒ‚ƒ‚[ƒVƒ‡ƒ“’†
+        if (!_IsGaraceTime && PlayerAttackAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        {
+            return;
+        }
 
         if (Input.GetKeyDown(KeyCode.C) && !_IsAvoid)
         {
