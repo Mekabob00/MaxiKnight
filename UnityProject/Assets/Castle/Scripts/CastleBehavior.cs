@@ -2,182 +2,175 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+public enum CastleState { MOVE, TAKEDAMAGE, ATTACK, PLAYERREVIVAL, DEAD }
 
 public class CastleBehavior : MonoBehaviour
 {
     #region •Ï”
     [Header("¶–½’l")]
-    public int _Health;
+    public int _Life;
+
     [Header("‰‡ŒìËŒ‚”ÍˆÍ")]
     public int _AttackRange;
+
     [Header("UŒ‚’†S")]
     [SerializeField] private GameObject attackPoint;
+
     [Header("UŒ‚ƒN[ƒ‹ƒ^[ƒ€")]
     public float _AttackCT;
+
+    private float timer;
+
     [Header("ƒvƒŒƒCƒ„[")]
     public GameObject _PlayerPrefab;
+
     [Header("’e")]
     public GameObject _BulletPrefab;
-    [Header("HPBar")]
-    public CastleHPBar m_hpBar;
 
-    //ƒvƒ‰ƒCƒx[ƒg•Ï”
-    private Animator m_animator;
-    [Header("UŒ‚‘ÎÛ")]
-    [SerializeField] private GameObject m_attackTarget; //‰‡ŒìËŒ‚‘ÎÛ
-    enum CastleState { MOVE, TAKEDAMAGE, ATTACK, PLAYERREVIVAL, DEAD }
+    private Animator anim;
+
+    private bool isAttack;
+    private bool isDead;
+    [SerializeField] private bool skipDamageAnim;
+
     [Header("éó‘Ô")]
-    [SerializeField] private CastleState m_castleState;
-    private float m_timer;    //ƒ^ƒCƒ€ŒvZ
-    private bool m_isAttack;
-    private bool m_isDead;
-    [SerializeField] private bool m_skipDamageAnim;
+    [SerializeField] private CastleState castleState;
+
+    [Header("UŒ‚‘ÎÛ")]
+    [SerializeField] private GameObject attackTarget; //‰‡ŒìËŒ‚‘ÎÛ
 
     #endregion
 
+    // Start is called before the first frame update
     void Start()
     {
-        //m_animator = GetComponent<Animator>();
-        m_hpBar.SetMaxHealth(_Health);
+        anim = GetComponent<Animator>();
     }
 
+    // Update is called once per frame
     void Update()
     {
+        SearchEnemy();
         SwitchState();
-        Attack();
-        //SwitchAnim();
+        SwitchAnim();
+        //Debug.Log(castleState.ToString());
     }
 
     void SwitchState()
     {
+        //UŒ‚ƒ‚[ƒhˆÚs‰Â”\
+        if (GlobalData.Instance.isPlayerInSecondLine && SearchEnemy())
+            isAttack = true;
+        else
+            isAttack = false;
 
 
-        #region ‰ß‹ƒo[ƒWƒ‡ƒ“
-        ////UŒ‚ƒ‚[ƒhˆÚs‰Â”\
-        //if (GlobalData.Instance.isPlayerInSecondLine && SearchEnemy())
-        //    m_isAttack = true;
-        //else
-        //    m_isAttack = false;
-        //
-        //
-        //if (GlobalData.Instance.isPlayerDead || m_isDead)
-        //    m_skipDamageAnim = true;
-        //
-        ////Debug.Log(SearchEnemy());
-        ////s“®
-        //switch (m_castleState)
-        //{
-        //    case CastleState.MOVE:
-        //        {
-        //            #region ó‘Ô‘JˆÚ
-        //            if (m_isDead)
-        //                m_castleState = CastleState.DEAD;
-        //            else if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("TakeDamage"))
-        //                m_castleState = CastleState.TAKEDAMAGE;
-        //            else if (GlobalData.Instance.isPlayerDead)
-        //            {
-        //                m_castleState = CastleState.PLAYERREVIVAL;
-        //                m_animator.SetTrigger("Revival");
-        //                GlobalData.Instance.isPlayerDead = false;
-        //            }
-        //            else if (m_isAttack && SearchEnemy())
-        //                m_castleState = CastleState.ATTACK;
-        //            #endregion
-        //            break;
-        //        }
-        //    case CastleState.TAKEDAMAGE:
-        //        {
-        //            #region ó‘Ô‘JˆÚ
-        //            if (!m_animator.GetCurrentAnimatorStateInfo(0).IsName("TakeDamage") || m_skipDamageAnim)
-        //            {
-        //                m_skipDamageAnim = false;
-        //                if (m_isDead)
-        //                    m_castleState = CastleState.DEAD;
-        //                else if (GlobalData.Instance.isPlayerDead)
-        //                {
-        //                    m_castleState = CastleState.PLAYERREVIVAL;
-        //                    m_animator.SetTrigger("Revival");
-        //                    GlobalData.Instance.isPlayerDead = false;
-        //                }
-        //                else if (m_isAttack && SearchEnemy())
-        //                    m_castleState = CastleState.ATTACK;
-        //                else
-        //                    m_castleState = CastleState.MOVE;
-        //            }
-        //            #endregion
-        //            break;
-        //        }
-        //    case CastleState.ATTACK:
-        //        {
-        //            #region UŒ‚
-        //            m_timer -= Time.deltaTime;
-        //            if (m_timer <= 0)
-        //            {
-        //                m_timer = _AttackCT;
-        //                Attack();
-        //            }
-        //            #endregion
+        if (GlobalData.Instance.isPlayerDead || isDead)
+            skipDamageAnim = true;
 
-        //            //“G‚ª‚È‚¢ê‡UŒ‚ƒ‚[ƒh‚É‘Şo
-        //            //if (!SearchEnemy())
-        //            //    isAttack = false;
+        //Debug.Log(SearchEnemy());
+        //s“®
+        switch (castleState)
+        {
+            case CastleState.MOVE:
+                {
+                    #region ó‘Ô‘JˆÚ
+                    if (isDead)
+                        castleState = CastleState.DEAD;
+                    else if (anim.GetCurrentAnimatorStateInfo(0).IsName("TakeDamage"))
+                        castleState = CastleState.TAKEDAMAGE;
+                    else if (GlobalData.Instance.isPlayerDead)
+                    {
+                        castleState = CastleState.PLAYERREVIVAL;
+                        anim.SetTrigger("Revival");
+                        GlobalData.Instance.isPlayerDead = false;
+                    }
+                    else if (isAttack && SearchEnemy())
+                        castleState = CastleState.ATTACK;
+                    #endregion
+                    break;
+                }
+            case CastleState.TAKEDAMAGE:
+                {
+                    #region ó‘Ô‘JˆÚ
+                    if (!anim.GetCurrentAnimatorStateInfo(0).IsName("TakeDamage") || skipDamageAnim)
+                    {
+                        skipDamageAnim = false;
+                        if (isDead)
+                            castleState = CastleState.DEAD;
+                        else if (GlobalData.Instance.isPlayerDead)
+                        {
+                            castleState = CastleState.PLAYERREVIVAL;
+                            anim.SetTrigger("Revival");
+                            GlobalData.Instance.isPlayerDead = false;
+                        }
+                        else if (isAttack && SearchEnemy())
+                            castleState = CastleState.ATTACK;
+                        else
+                            castleState = CastleState.MOVE;
+                    }
+                    #endregion
+                    break;
+                }
+            case CastleState.ATTACK:
+                {
+                    #region UŒ‚
+                    timer -= Time.deltaTime;
+                    if (timer <= 0)
+                    {
+                        timer = _AttackCT;
+                        Attack();
+                    }
+                    #endregion
 
-        //            #region ó‘Ô‘JˆÚ
-        //            if (m_isDead)
-        //                m_castleState = CastleState.DEAD;
-        //            else if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("TakeDamage"))
-        //                m_castleState = CastleState.TAKEDAMAGE;
-        //            else if (GlobalData.Instance.isPlayerDead)
-        //            {
-        //                m_castleState = CastleState.PLAYERREVIVAL;
-        //                m_animator.SetTrigger("Revival");
-        //                GlobalData.Instance.isPlayerDead = false;
-        //            }
-        //            else if (!m_isAttack)
-        //                m_castleState = CastleState.MOVE;
-        //            #endregion
+                    //“G‚ª‚È‚¢ê‡UŒ‚ƒ‚[ƒh‚É‘Şo
+                    //if (!SearchEnemy())
+                    //    isAttack = false;
 
-        //            break;
-        //        }
-        //    case CastleState.PLAYERREVIVAL:
-        //        {
-        //            #region ó‘Ô‘JˆÚ
-        //            if (!m_animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerRevival"))
-        //            {
-        //                if (m_isDead)
-        //                    m_castleState = CastleState.DEAD;
-        //                else if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("TakeDamage"))
-        //                    m_castleState = CastleState.TAKEDAMAGE;
-        //                else if (m_isAttack && SearchEnemy())
-        //                    m_castleState = CastleState.ATTACK;
-        //                else
-        //                    m_castleState = CastleState.MOVE;
-        //            }
-        //            #endregion
-        //            break;
-        //        }
-        //    case CastleState.DEAD:
-        //        m_isDead = false;
-        //        break;
-        //}
-        #endregion
-    }
+                    #region ó‘Ô‘JˆÚ
+                    if (isDead)
+                        castleState = CastleState.DEAD;
+                    else if (anim.GetCurrentAnimatorStateInfo(0).IsName("TakeDamage"))
+                        castleState = CastleState.TAKEDAMAGE;
+                    else if (GlobalData.Instance.isPlayerDead)
+                    {
+                        castleState = CastleState.PLAYERREVIVAL;
+                        anim.SetTrigger("Revival");
+                        GlobalData.Instance.isPlayerDead = false;
+                    }
+                    else if(!isAttack)
+                        castleState = CastleState.MOVE;
+                    #endregion
 
-    void Attack()
-    {
-        if (!SearchEnemy()) { return; }
-        //’e¶¬
-        var bullet = Instantiate(_BulletPrefab, attackPoint.transform.position, Quaternion.identity);
-        bullet.GetComponent<CastleBullet>()._SetTarget(m_attackTarget.transform.position, 0.5f);
-        //ƒGƒlƒ~[‘¤‚ÌŠÖ”(’e”­Ë‚È‚µ)
-        //attackTarget.GetComponent<IPlayerDamege>()._AddDamege(1);
+                    break;
+                }
+            case CastleState.PLAYERREVIVAL:
+                {
+                    #region ó‘Ô‘JˆÚ
+                    if (!anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerRevival"))
+                    {
+                        if (isDead)
+                            castleState = CastleState.DEAD;
+                        else if (anim.GetCurrentAnimatorStateInfo(0).IsName("TakeDamage"))
+                            castleState = CastleState.TAKEDAMAGE;
+                        else if (isAttack && SearchEnemy())
+                            castleState = CastleState.ATTACK;
+                        else
+                            castleState = CastleState.MOVE;
+                    }
+                    #endregion
+                    break;
+                }
+            case CastleState.DEAD:
+                isDead = false;
+                break;
+        }
     }
 
     void SwitchAnim()
     {
-        m_animator.SetBool("Attack", m_isAttack);
-        m_animator.SetBool("Death", m_isDead);
+        anim.SetBool("Attack", isAttack);
+        anim.SetBool("Death", isDead);
     }
 
     //------------------------------------------------------------
@@ -185,12 +178,31 @@ public class CastleBehavior : MonoBehaviour
     //“G‘{õ
     bool SearchEnemy()
     {
+        #region ŒÃ‚¢ƒo[ƒWƒ‡ƒ“
+        //‰~Œ^‘{õ
+        //var colliders = Physics.OverlapSphere(transform.position, _AttackRange);
+        //‹éŒ`‘{õ
+        //var colliders = Physics.OverlapBox(transform.position, new Vector3(_AttackRange, 20, 20));
+
+        //“G‹L˜^
+        //foreach (var target in colliders)
+        //{
+        //    if (target.CompareTag("Enemy"))
+        //    {
+        //        attackTarget = target.gameObject;
+        //        return true;
+        //    }
+        //}
+        //attackTarget = null;
+        //return false;
+        #endregion
+
         //‰~Œ^‘{õ
         var colliders = Physics.OverlapSphere(transform.position, _AttackRange, LayerMask.GetMask("Enemy"));
 
         if (colliders.Length <= 0)
         {
-            m_attackTarget = null;
+            attackTarget = null;
             return false;
         }
 
@@ -210,7 +222,7 @@ public class CastleBehavior : MonoBehaviour
                 }
             }
         }
-        m_attackTarget = colliders[0].gameObject;
+        attackTarget = colliders[0].gameObject;
         return true;
     }
 
@@ -227,16 +239,11 @@ public class CastleBehavior : MonoBehaviour
     //ƒGƒlƒ~[‚ÌUŒ‚‚ğó‚¯‚é
     public void _AddDamage(int _damage)
     {
-        _Health -= _damage;
-        //m_animator.SetTrigger("TakeDamage");
-        m_hpBar.SetCurrentHealth(_Health);
-        m_skipDamageAnim = false;
-        if (_Health <= 0)
-        {
-            m_isDead = true;
-            GlobalData.Instance.isGameOver = true;
-            Destroy(gameObject);
-        }
+        _Life -= _damage;
+        anim.SetTrigger("TakeDamage");
+        skipDamageAnim = false;
+        if (_Life <= 0)
+            isDead = true;
     }
 
     //------------------------------------------------------------
@@ -246,6 +253,17 @@ public class CastleBehavior : MonoBehaviour
     {
         GlobalData.Instance.isGameOver = true;
         Destroy(gameObject);
+    }
+
+    //ƒ_ƒ[ƒW‚ğ—^‚¦‚é
+    public void Attack()
+    {
+        if (attackTarget == null) { return; }
+        //’e¶¬
+        var bullet = Instantiate(_BulletPrefab, attackPoint.transform.position, Quaternion.identity);
+        bullet.GetComponent<CastleBullet>()._SetTarget(attackTarget.transform.position, 0.5f);
+        //ƒGƒlƒ~[‘¤‚ÌŠÖ”(’e”­Ë‚È‚µ)
+        //attackTarget.GetComponent<IPlayerDamege>()._AddDamege(1);
     }
 
     //“®‰æ‚Æ‡‚í‚¹‚é
