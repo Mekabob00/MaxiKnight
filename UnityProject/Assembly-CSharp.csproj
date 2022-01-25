@@ -58,12 +58,12 @@
   <ItemGroup>
     <Compile Include="Assets\Boss\Scripts\LaserArea.cs" />
     <Compile Include="Assets\Player\PlayerScript\Player_Controll.cs" />
+    <Compile Include="Assets\f.cs" />
     <Compile Include="Assets\Enemy01\Script\Enemy3Behaviour.cs" />
     <Compile Include="Assets\Enemy01\Expansion\IntExtensions.cs" />
     <Compile Include="Assets\Enemy01\Script\Enemy2Behaviour.cs" />
     <Compile Include="Assets\Castle\Scripts\FSMClearSignals.cs" />
     <Compile Include="Assets\Enemy01\Script\EnemyAttackManeger.cs" />
-    <Compile Include="Assets\GlobalFile\Scripts\GlobalData.cs" />
     <Compile Include="Assets\Castle\Scripts\CastleBullet.cs" />
     <Compile Include="Assets\Boss\Scripts\BossBehavior.cs" />
     <Compile Include="Assets\Player\PlayerScript\SwordControll.cs" />
@@ -71,17 +71,21 @@
     <Compile Include="Assets\Enemy01\Script\Enemy1Behaviour.cs" />
     <Compile Include="Assets\UI\Scripts\UIAnimation.cs" />
     <Compile Include="Assets\UI\Scripts\CastleHPBar.cs" />
+    <Compile Include="Assets\NewBehaviourScript.cs" />
     <Compile Include="Assets\Enemy01\Script\Enemy4Behaviour.cs" />
     <Compile Include="Assets\Player\PlayerScript\PlayerDefencePos.cs" />
     <Compile Include="Assets\Canon\Scripts\CanonBall\CanonBallGenerator.cs" />
     <Compile Include="Assets\Item\Scripts\ItemBehavior.cs" />
+    <Compile Include="Assets\Enemy01\Script\LastEnemy.cs" />
     <Compile Include="Assets\Player\PlayerScript\IPlayerDamege.cs" />
+    <Compile Include="Assets\GlobalFile\GlobalData.cs" />
     <Compile Include="Assets\Boss\Scripts\SearchArea.cs" />
     <Compile Include="Assets\Enemy01\Expansion\TransformExtensions.cs" />
     <Compile Include="Assets\Boss\Scripts\NapalmBombBehavior.cs" />
     <Compile Include="Assets\Canon\Scripts\CanonBall\CanonBallController.cs" />
     <Compile Include="Assets\Enemy01\Expansion\RigidBodyExtensions.cs" />
     <Compile Include="Assets\Player\PlayerScript\PlayerGrab.cs" />
+    <Compile Include="Assets\Stage\ClearTime.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\3D\BackGround\NewSurfaceShader.shader" />
@@ -306,12 +310,6 @@
     </Reference>
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.0f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.0f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.0f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>

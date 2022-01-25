@@ -23,44 +23,69 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
     [SerializeField, Tooltip("グローバルデータ")]
     private GameObject _GlobalDataObject = null;
 
+    [SerializeField, Tooltip("ダメージ効果音")]
+    private AudioClip DamegeSE;
+
+    [SerializeField, Tooltip("攻撃SE")]
+    private AudioClip AttackSE;
+
+    [SerializeField, Tooltip("死亡SE")]
+    private AudioClip DieSE;
     #endregion
 
     #region Defalut
 
+    private Animator EnemyAnimator;
 
     private GlobalData _GlobalData = null;
 
     private float _HighPos = 1.0f;
 
+    public float span = 3f;
+    private float currentTime = 0f;
+
     //Flag
     private bool _IsAddDamageEffect = false;
-    private bool _IsMoveActive = false;
+    public bool _IsMoveActive = false;
+    private bool _IsAttackFlag = false;
 
     #endregion
 
+    //城
+    [SerializeField]
+    private GameObject castle;
+    [SerializeField]
+    private GameObject Enemy;
+    public Vector3 castlePosition;
+    private Vector3 EnemyPosition;
+
+    private float dis;
+
+    //エフェクト
+    [SerializeField]
+    private GameObject Effect;
+
 
     #region Unity function
-    void Start()
+    private void Start()
     {
         _IsAddDamageEffect = false;
         _IsMoveActive = true;
-
-        //グローバルデータのコンポーネントを取得
+        _IsAttackFlag = false;
         var obj = GameObject.Find("GlobalData");
         _GlobalData = obj.GetComponent<GlobalData>();
-
-
+        EnemyAnimator=GetComponent<Animator>();
     }
-
     void Update()
     {
+        IsAttackFlag();
         if (_IsAddDamageEffect)//ダメージを食らった後のEffect最中
         {
             if (this.transform.position.y < _HighPos)
             {
                 //一定の高さのになったらEffectを終了させる
                 _IsAddDamageEffect = false;
-                _RigidBody.useGravity= false;
+                _RigidBody.useGravity = false;
 
                 //位置を補正
                 Vector3 pos = this.transform.position;
@@ -69,11 +94,9 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
             }
             return;
         }
-
-
-        if (_IsMoveActive)
+        if (_IsMoveActive && !_IsAttackFlag)
         {
-
+            EnemyAnimator.SetBool("Walk",true);
             //前方進む
             if (!_GlobalData.isCanonAppear)//通常
             {
@@ -84,33 +107,14 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
                 //スロー移動
                 _RigidBody.ForontMove(this.transform, _SlowMoveSpeed);
             }
-
         }
-
-
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-
-
-        
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-
-        //最終防衛ラインを超えたら動きを止めるStop
-        if (other.tag == "Stage")
+        else
         {
-            _IsMoveActive = false;
+            EnemyAnimator.SetBool("Walk", false);
+            _RigidBody.ForontMove(this.transform, 0.0f);
+            IsAttack();
         }
-        
-
-
     }
-
-
     #endregion
 
     #region public function
@@ -121,7 +125,7 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
     /// <param name="damage">ダメージ量</param>
     public void _AddDamege(int _Damege)
     {
-        if (_IsAddDamageEffect || !_IsMoveActive)//ダメージを与えない
+        if (_IsAddDamageEffect)//ダメージを与えない
         {
             return;
         }
@@ -129,15 +133,19 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
         var after = _HP - _Damege;
 
         //体力が0なら
-        if (after <= 0)
+        if (after == 3)
         {
             //仮
+            EnemyAttackManeger.instance.PlaySE(DieSE);
             Destroy(this.gameObject);
+            EnemyAnimator.SetTrigger("Damage");
+            Instantiate(Effect, transform.position, transform.rotation);
             return;
         }
         else if (after != _HP)//ダメージを受けたら
         {
-
+            EnemyAttackManeger.instance.PlaySE(DamegeSE);
+            Instantiate(Effect, transform.position, transform.rotation);
             //ダメージを受けた時の処理
             StartCoroutine(AddDamageMove());
 
@@ -150,16 +158,58 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
 
     #region private function
 
+    private void IsAttackFlag()
+    {
+        castlePosition = castle.transform.position;
+        EnemyPosition = Enemy.transform.position;
+        dis = Vector3.Distance(castlePosition, EnemyPosition);
+        if (dis < 10.0f)
+        {
+            _IsAttackFlag = true;
+            _IsMoveActive = false;
+        }
+        Debug.Log("距離" + dis);
+    }
+    private void IsAttack()
+    {
+        currentTime += Time.deltaTime;
+
+        if (currentTime > span)
+        {
+            EnemyAttackManeger.instance.PlaySE(AttackSE);
+            EnemyAnimator.SetTrigger("Attack");
+            Debug.LogFormat("{0}秒経過", span);
+            EnemyAttackManeger.instance.CastleHP--;
+            Debug.Log("城に攻撃");
+            currentTime = 0f;
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+
+        //最終防衛ラインを超えたら動きを止めるStop
+        if (other.tag == "Stage")
+        {
+            _IsMoveActive = false;
+        }
+    }
 
     #endregion
 
-    #region Coroutine
+    #region コルーチン
     IEnumerator AddDamageMove()
     {
-        //重力をONにする
-        _RigidBody.useGravity= true;
-        //飛び上がる
-        _RigidBody.AddForce(new Vector3(0,300.0f,0));
+        /*   //重力をONにする
+           _RigidBody.useGravity = true;
+           //飛び上がる
+           _RigidBody.AddForce(new Vector3(0, 300.0f, 0));
+        */
+        //EnemyAnimator.SetTrigger("Damege");
 
         //[TODO]
         //初撃に対して色を変更する
@@ -169,12 +219,9 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
         yield break;
     }
 
-    
 
 
-
-
-    #endregion
 
 
 }
+    #endregion

@@ -21,7 +21,7 @@ public static class RigidBodyExtensions
     public static void ForontMove(this Rigidbody rb,Transform transform,float Speed)
     {
 
-        rb.velocity = transform.forward * Speed;
+        rb.velocity = new Vector3(-Speed, 0, 0);
 
     }
 
