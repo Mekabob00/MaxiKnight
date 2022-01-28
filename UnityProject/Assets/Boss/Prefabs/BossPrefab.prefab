@@ -2436,8 +2436,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a320a002627494d9ed83f180648523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Collider: {fileID: 0}
-  _Collider2: {fileID: 0}
   AttakUPFlag: 0
 --- !u!1 &2483202690253253369
 GameObject:
@@ -3654,8 +3652,8 @@ GameObject:
   - component: {fileID: 3992015873927707910}
   - component: {fileID: 3525408337835056503}
   - component: {fileID: 8954089530974727320}
-  - component: {fileID: 2047132071494906126}
   - component: {fileID: 4832576926791350726}
+  - component: {fileID: 787021074}
   m_Layer: 0
   m_Name: BossPrefab
   m_TagString: Boss
@@ -3690,10 +3688,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.52
-  m_Height: 2.41
+  m_Radius: 0.5
+  m_Height: 2.2
   m_Direction: 1
-  m_Center: {x: 0, y: 1.11, z: 0}
+  m_Center: {x: 0, y: 1.1, z: 0}
 --- !u!95 &8954089530974727320
 Animator:
   serializedVersion: 3
@@ -3707,25 +3705,12 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 11163c92158f0a24191db0dc0155081b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &2047132071494906126
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4336313219541772220}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: -0.09, y: -0.02, z: 1.39}
-  m_Center: {x: -0.99, y: 1.46, z: 0.65}
 --- !u!114 &4832576926791350726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3738,23 +3723,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce6ae07303151049a1ada35efc72a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Health: 10
-  _MoveSpeed: 3
-  _BreakSpeed: 8
-  _Damage: 4
-  _Area: 3
-  _ChargeTime: 5
-  _StopChargeCount: 1
+  _Health: 100
+  _MoveSpeed: 2
+  _BreakSpeed: 2
+  _Damage: 50
+  _Area: 5
+  _ChargeTime: 8
+  _StopChargeCount: 5
   _Castle: {fileID: 0}
   _Player: {fileID: 0}
   _AttackArea: {fileID: 1804531715904009248, guid: 6a2c41d4627c922428331395535b235c, type: 3}
   _Laser: {fileID: 2096609625}
-  _EnterDistance: 30
-  _StandByDistance: 20
-  _ChargeDistance: 10
+  _EnterDistance: 35
+  _StandByDistance: 25
+  _ChargeDistance: 15
   state: 0
-  startPoint: {x: 25, y: 0.4, z: 0}
-  hitCount: 0
+  startPoint: {x: 30, y: 1, z: 0}
+  currentHitCount: 0
+--- !u!54 &787021074
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4336313219541772220}
+  serializedVersion: 2
+  m_Mass: 1000
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &4517028589310707539
 GameObject:
   m_ObjectHideFlags: 0
@@ -7427,7 +7428,7 @@ PrefabInstance:
     - target: {fileID: -4044836795876074528, guid: 7de9064e242cc0141b1643cb7bbedfb0, type: 3}
       propertyPath: _Collider
       value: 
-      objectReference: {fileID: 2103971211901761291}
+      objectReference: {fileID: 0}
     - target: {fileID: -4044836795876074528, guid: 7de9064e242cc0141b1643cb7bbedfb0, type: 3}
       propertyPath: _Collider2
       value: 
@@ -7526,10 +7527,5 @@ Transform:
 --- !u!65 &3446356653483220786 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 2251570195224955956, guid: 7de9064e242cc0141b1643cb7bbedfb0, type: 3}
-  m_PrefabInstance: {fileID: 3525408336698036998}
-  m_PrefabAsset: {fileID: 0}
---- !u!136 &2103971211901761291 stripped
-CapsuleCollider:
-  m_CorrespondingSourceObject: {fileID: 3305090855930110989, guid: 7de9064e242cc0141b1643cb7bbedfb0, type: 3}
   m_PrefabInstance: {fileID: 3525408336698036998}
   m_PrefabAsset: {fileID: 0}

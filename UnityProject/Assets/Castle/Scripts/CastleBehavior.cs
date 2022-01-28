@@ -32,7 +32,7 @@ public class CastleBehavior : MonoBehaviour
     private float m_timer;    //ƒ^ƒCƒ€ŒvŽZ
     private bool m_isAttack;
     private bool m_isDead;
-    [SerializeField] private bool m_skipDamageAnim;
+    //[SerializeField] private bool m_skipDamageAnim;
 
     #endregion
 
@@ -230,7 +230,7 @@ public class CastleBehavior : MonoBehaviour
         _Health -= _damage;
         //m_animator.SetTrigger("TakeDamage");
         m_hpBar.SetCurrentHealth(_Health);
-        m_skipDamageAnim = false;
+       // m_skipDamageAnim = false;
         if (_Health <= 0)
         {
             m_isDead = true;
