@@ -237,8 +237,9 @@ public class Player_Controll : MonoBehaviour
     }
     public void _AddDamege(int _Damege)
     {
+        _NowHP -= _Damege;
 
-
+        PlayerAttackAnimator.SetTrigger("OnDamage");
     }
 
     IEnumerator AttackColliderTime()
