@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Player_Controll : MonoBehaviour
+public class Player_Controll : MonoBehaviour,IPlayerDamege
 {
     [SerializeField, Tooltip("RigidBody")]
     private Rigidbody _RigidBody = null;
@@ -30,6 +30,9 @@ public class Player_Controll : MonoBehaviour
     [SerializeField, Tooltip("‰ñ”ğ‚Ì‘å‚«‚³")]
     private float _AvoidanceValue = 50.0f;
 
+    [SerializeField, Tooltip("Å‘åƒ‰ƒCƒt")]
+    private float _MAXHP = 100;
+
     private Vector3 latestPosition;
     private Animator PlayerAttackAnimator;
     private Collider _SwordCollider;
@@ -46,6 +49,8 @@ public class Player_Controll : MonoBehaviour
     public float Speed = 1f;
     public float JourneyLength = 10f;
     private float _StartTime = 0;
+    private float _NowHP;
+
 
     private Vector3 AvoidPos_Start = new Vector3();
     private Vector3 AvoidPos_End = new Vector3();
@@ -63,6 +68,8 @@ public class Player_Controll : MonoBehaviour
         PlayerAttackPoint = 10;
         _AttackType = 0;
         _StartTime = Time.time;
+        _NowHP = _MAXHP;
+
 
         //•Ší‚Ì“–‚½‚è”»’è‚Ìİ’è
         _SwordCollider = _SwordObject.GetComponent<BoxCollider>();
@@ -237,9 +244,8 @@ public class Player_Controll : MonoBehaviour
     }
     public void _AddDamege(int _Damege)
     {
-        _NowHP -= _Damege;
 
-        PlayerAttackAnimator.SetTrigger("OnDamage");
+
     }
 
     IEnumerator AttackColliderTime()
