@@ -8652,6 +8652,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: katana
       objectReference: {fileID: 0}
+    - target: {fileID: 1191365236335567084, guid: 7de9064e242cc0141b1643cb7bbedfb0, type: 3}
+      propertyPath: m_TagString
+      value: Player Attack Area
+      objectReference: {fileID: 0}
     - target: {fileID: 2000518467118676566, guid: 7de9064e242cc0141b1643cb7bbedfb0, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -8713,7 +8717,15 @@ PrefabInstance:
       value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2251570195224955956, guid: 7de9064e242cc0141b1643cb7bbedfb0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2251570195224955956, guid: 7de9064e242cc0141b1643cb7bbedfb0, type: 3}
       propertyPath: m_Center.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2251570195224955956, guid: 7de9064e242cc0141b1643cb7bbedfb0, type: 3}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
