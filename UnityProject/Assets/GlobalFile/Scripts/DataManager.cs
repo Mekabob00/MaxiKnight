@@ -12,8 +12,9 @@ public class DataManager : MonoBehaviour
     [Tooltip("UŒ‚—Íƒoƒt")] public int _PlayerAttackBuff;
 
     [Header("‹’“_ŠÖŒW")]
-    [Header("Å‘åHP")] public int _CastleHP;
-    [Header("UŒ‚—Íƒoƒt")] public int _CastleAttackBuff;
+    [Tooltip("HP")] public int _CastleHP;
+    [Tooltip("Å‘åHP")] public int _CastleMaxHP;
+    [Tooltip("UŒ‚—Íƒoƒt")] public int _CastleAttackBuff;
 
     [Header("ƒQ[ƒ€ŠÖŒW")]
     [Tooltip("‘Œ¹")] public int _Resource;
@@ -43,6 +44,7 @@ public class DataManager : MonoBehaviour
         Instance._Stage = 1;
         Instance._Resource = 0;
         Instance._CastleHP = 10;
+        Instance._CastleMaxHP = 10;
         Instance._CastleRecoveryFee = 100;
         Instance._CastleAttackBuffFee = 100;
         Instance._PlayerAttackBuffFee = 100;

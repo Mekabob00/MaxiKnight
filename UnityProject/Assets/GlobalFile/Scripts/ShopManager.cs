@@ -10,6 +10,7 @@ public class ShopManager : MonoBehaviour
     public void Button_CastleRecovery()
     {
         if (DataManager.Instance._Resource < DataManager.Instance._CastleRecoveryFee) return;
+        if (DataManager.Instance._CastleHP >= DataManager.Instance._CastleMaxHP) return;
 
         DataManager.Instance._Resource -= DataManager.Instance._CastleRecoveryFee;
         DataManager.Instance._CastleRecoveryFee += 100;
