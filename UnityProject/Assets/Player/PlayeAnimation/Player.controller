@@ -109,27 +109,35 @@ BlendTree:
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 0faafc763f001ca4d95fcc89fcc40111, type: 3}
-    m_Threshold: 1
-    m_Position: {x: 0, y: 0}
+    m_Threshold: 0.6666667
+    m_Position: {x: 0, y: 1}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: AttackType
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: f1449fb106a8289428aa593db4bedb1e, type: 3}
-    m_Threshold: 2
-    m_Position: {x: 0, y: 0}
+    m_Threshold: 1.3333334
+    m_Position: {x: 0, y: 2}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: AttackType
     m_Mirror: 0
-  m_BlendParameter: AttackType
+  - serializedVersion: 2
+    m_Motion: {fileID: -203655887218126122, guid: 9192d88f5d0b2c344a2161b40112aff8, type: 3}
+    m_Threshold: 2
+    m_Position: {x: 1, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: AttackType
+    m_Mirror: 0
+  m_BlendParameter: Wepon
   m_BlendParameterY: AttackType
   m_MinThreshold: 0
   m_MaxThreshold: 2
   m_UseAutomaticThresholds: 1
   m_NormalizedBlendValues: 0
-  m_BlendType: 0
+  m_BlendType: 3
 --- !u!1101 &-6545838225492144067
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -499,6 +507,12 @@ AnimatorController:
     m_Controller: {fileID: 0}
   - m_Name: OnDamage
     m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: Wepon
+    m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0

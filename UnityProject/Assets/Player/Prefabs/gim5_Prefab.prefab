@@ -2532,6 +2532,7 @@ GameObject:
   - component: {fileID: 1374840035846192599}
   - component: {fileID: 1374840035846192597}
   - component: {fileID: 1374840035846192598}
+  - component: {fileID: 4632764703251145150}
   - component: {fileID: 1374840035846192593}
   m_Layer: 0
   m_Name: gim5_Prefab
@@ -2648,6 +2649,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   lastPos: {x: 0, y: 0, z: 0}
+--- !u!114 &4632764703251145150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2293740046951642231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e80699b768c83cb478a7ef5f74a0cb96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _PlayerAnimtor: {fileID: 1374840035846192597}
+  _Sword: {fileID: 6464102517153566040}
+  _Gun: {fileID: 0}
 --- !u!114 &1374840035846192593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2668,6 +2684,7 @@ MonoBehaviour:
   _CombAttackGraceTime: 1
   _AttackPatternNum: 3
   _AvoidanceValue: 5
+  _MAXHP: 100
   SmoothTime: 2
   Speed: 1
   JourneyLength: 10

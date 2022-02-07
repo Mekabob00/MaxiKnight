@@ -36,7 +36,7 @@ public class Player_Controll : MonoBehaviour,IPlayerDamege
     private Vector3 latestPosition;
     private Animator PlayerAttackAnimator;
     private Collider _SwordCollider;
-
+    private GunControll _GunControll;
     
     private int _AttackType = 0;
     private float _NextActionTime;
@@ -63,6 +63,8 @@ public class Player_Controll : MonoBehaviour,IPlayerDamege
         //animtion
         PlayerAttackAnimator = GetComponent<Animator>();
         PlayerAttackAnimator.SetFloat("AttackSpeed", 1);
+
+        _GunControll = GetComponent<GunControll>();
 
         latestPosition = transform.position;
         PlayerAttackPoint = 10;
@@ -240,6 +242,9 @@ public class Player_Controll : MonoBehaviour,IPlayerDamege
             //アニメーションの停止
             PlayerAttackAnimator.SetFloat("AttackSpeed", 0);
         }
+
+        _GunControll.GunAttack();
+
 
     }
     public void _AddDamege(int _Damege)
