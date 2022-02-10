@@ -57,8 +57,9 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
 
     void Update()
     {
+        if (GlobalData.Instance.isGameOver) return;
 
-        Debug.Log(state);
+        //Debug.Log(state);
         castleDistance = Vector3.Distance(transform.position, _Castle.transform.position);
 
         SetState();
@@ -122,7 +123,7 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             //çUåÇîÕàÕê∂ê¨
             for (int i = 0; i < 3; ++i)
             {
-                GameObject temp = Instantiate(_AttackArea, new Vector3(_Player.transform.position.x, _AttackArea.transform.position.y, _Player.transform.position.z + (-_Area + (_Area + 1) * i)), Quaternion.identity);
+                GameObject temp = Instantiate(_AttackArea, new Vector3(_Player.transform.position.x + ((-_Area - 2) + (_Area + 2) * i), _AttackArea.transform.position.y, _Player.transform.position.z), Quaternion.identity);
                 temp.GetComponent<SearchArea>()._Area = _Area;
                 temp.GetComponent<SearchArea>()._Damage = _Damage;
                 temp.GetComponent<SearchArea>()._SetTime = 3.0f;
