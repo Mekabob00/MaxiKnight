@@ -51,6 +51,9 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
     private Vector3 EnemyPosition;
 
     private float dis;
+    [SerializeField]
+    private float FocusSpeed;
+
 
     #region Unity function
     private void Start()
@@ -63,7 +66,9 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
     }
     void Update()
     {
-        IsAttackFlag();
+        PlayerFocus();
+        Debug.Log(dis);
+      //  IsAttackFlag();
         if (_IsAddDamageEffect)//ダメージを食らった後のEffect最中
         {
             if (this.transform.position.y < _HighPos)
@@ -80,17 +85,8 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
             return;
         }
         if (_IsMoveActive && !_IsAttackFlag)
-        {
-            //前方進む
-            if (!_GlobalData.isCanonAppear)//通常
-            {
-                _RigidBody.ForontMove(this.transform, _MoveSpeed);
-            }
-            else
-            {
-                //スロー移動
-                _RigidBody.ForontMove(this.transform, _SlowMoveSpeed);
-            }
+        { 
+              Enemy.transform.position= Vector3.MoveTowards(transform.position, castle.transform.position,2*Time.deltaTime);
         }
         else
         {
@@ -124,7 +120,7 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
         }
         else if (after != _HP)//ダメージを受けたら
         {
-
+            GetComponent<ParticleSystem>().Play();
             //ダメージを受けた時の処理
             StartCoroutine(AddDamageMove());
 
@@ -132,23 +128,49 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
 
         _HP = after;
     }
+    public void OnCollisionEnter(Collision collision)
+    {
+    }
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player") //現在仮タグでEnemyと付けています。随時変更していただけると助かります
+        {
+            Debug.Log("攻撃");
+            var Enemy4Damege = other.gameObject.GetComponent<IPlayerDamege>();
+            Enemy4Damege._AddDamege(3); //強攻撃
+
+        }
+    }
 
     #endregion
 
     #region private function
 
-    private void IsAttackFlag()
+    private void PlayerFocus()
     {
-        PlayerPosition = castle.transform.position;
-        EnemyPosition = Enemy.transform.position;
-        dis = Vector3.Distance(PlayerPosition, EnemyPosition);
-        if (dis < 15.0f)
-        {
-            _IsAttackFlag = true;
-            _IsMoveActive = false;
-        }
-        Debug.Log("距離" + dis);
+        // 対象物と自分自身の座標からベクトルを算出してQuaternion(回転値)を取得
+        Vector3 vector3 = castle.transform.position - this.transform.position;
+      
+        Quaternion quaternion = Quaternion.LookRotation(vector3);
+        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, quaternion, Time.deltaTime * FocusSpeed);
     }
+    /*  private void IsAttackFlag()
+      {
+          PlayerPosition = castle.transform.position;
+          EnemyPosition = Enemy.transform.position;
+          dis = Vector3.Distance(PlayerPosition, EnemyPosition);
+          if (dis < 5.0f)
+          {
+              _IsAttackFlag = true;
+              _IsMoveActive = false;
+          }
+          else
+          {
+              _IsAttackFlag = false;
+              _IsMoveActive = true;
+          }
+          Debug.Log("距離" + dis);
+      }*/
     private void IsAttack()
     {
         currentTime += Time.deltaTime;
@@ -160,10 +182,6 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
             Debug.Log("城に攻撃");
             currentTime = 0f;
         }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-
     }
 
     private void OnTriggerExit(Collider other)
@@ -182,9 +200,9 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
     IEnumerator AddDamageMove()
     {
         //重力をONにする
-        _RigidBody.useGravity = true;
+      //  _RigidBody.useGravity = true;
         //飛び上がる
-        _RigidBody.AddForce(new Vector3(0, 300.0f, 0));
+     //   _RigidBody.AddForce(new Vector3(0, 300.0f, 0));
 
         //[TODO]
         //初撃に対して色を変更する
@@ -193,11 +211,5 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
 
         yield break;
     }
-
-
-
-
-
-
     #endregion
 }
