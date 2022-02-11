@@ -10,6 +10,7 @@ public class EnemyAttackManeger : MonoBehaviour
     public static EnemyAttackManeger instance = null;
 
     public int Enemy1Attack;
+    public Slider CastleSlider;
     public int CastleHP=10;
     public GameObject Castle;
 
@@ -33,6 +34,7 @@ public class EnemyAttackManeger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if(CastleHP<=0)
         {
             CastleHP = 0;

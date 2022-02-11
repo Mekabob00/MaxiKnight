@@ -31,6 +31,8 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
 
     [SerializeField, Tooltip("éÄñSSE")]
     private AudioClip DieSE;
+    [SerializeField, Tooltip("Enemy1çUåÇóÕ")]
+    private int _Damage;
     #endregion
 
     #region Defalut
@@ -69,6 +71,7 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
     #region Unity function
     private void Start()
     {
+        _Damage = 1;
         _IsAddDamageEffect = false;
         _IsMoveActive = true;
         _IsAttackFlag = false;
@@ -178,8 +181,7 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
         {
             EnemyAttackManeger.instance.PlaySE(AttackSE);
             EnemyAnimator.SetTrigger("Attack");
-            Debug.LogFormat("{0}ïbåoâﬂ", span);
-            EnemyAttackManeger.instance.CastleHP--;
+            castle.GetComponent<CastleBehavior>()._AddDamage(_Damage);
             Debug.Log("èÈÇ…çUåÇ");
             currentTime = 0f;
         }
