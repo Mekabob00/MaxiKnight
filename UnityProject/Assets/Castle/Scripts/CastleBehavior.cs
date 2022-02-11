@@ -39,6 +39,7 @@ public class CastleBehavior : MonoBehaviour
     void Start()
     {
         //m_animator = GetComponent<Animator>();
+        _Health = DataManager.Instance._CastleHP;
         m_hpBar.SetMaxHealth(_Health);
     }
 
@@ -229,6 +230,7 @@ public class CastleBehavior : MonoBehaviour
     {
         _Health -= _damage;
         //m_animator.SetTrigger("TakeDamage");
+        DataManager.Instance._CastleHP = _Health;
         m_hpBar.SetCurrentHealth(_Health);
        // m_skipDamageAnim = false;
         if (_Health <= 0)
