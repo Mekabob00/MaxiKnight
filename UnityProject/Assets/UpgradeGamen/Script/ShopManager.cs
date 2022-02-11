@@ -6,6 +6,10 @@ using UnityEngine.UI;
 public class ShopManager : MonoBehaviour
 {
     public Text text;
+    public Text _OwnResource;
+    public Text _CastleRecoveryFee;
+    public Text _CastleAttackBuffFee;
+    public Text _PlayerAttackBuffFee;
 
     public enum SELECTITEM { NON, CASTLERECOVERY, CASTLEATTACKBUFF, PLAYERATTACKBUFF };
     SELECTITEM selectItem;
@@ -13,6 +17,10 @@ public class ShopManager : MonoBehaviour
     private void Start()
     {
         selectItem = SELECTITEM.NON;
+        _OwnResource.text = DataManager.Instance._Resource.ToString();
+        _CastleRecoveryFee.text = DataManager.Instance._CastleRecoveryFee.ToString();
+        _CastleAttackBuffFee.text = DataManager.Instance._PlayerAttackBuffFee.ToString();
+        _PlayerAttackBuffFee.text = DataManager.Instance._PlayerAttackBuffFee.ToString();
     }
 
     private void Update()
@@ -32,11 +40,20 @@ public class ShopManager : MonoBehaviour
                 text.text = "PlayerAttackBuff";
                 break;
         }
+        TextUpDate();
     }
 
     #region ショップ機能関数
+    //資源表示更新
+    void TextUpDate()
+    {
+        _OwnResource.text = DataManager.Instance._Resource.ToString();
+        _CastleRecoveryFee.text = DataManager.Instance._CastleRecoveryFee.ToString();
+        _CastleAttackBuffFee.text = DataManager.Instance._CastleAttackBuffFee.ToString();
+        _PlayerAttackBuffFee.text = DataManager.Instance._PlayerAttackBuffFee.ToString();
+    }
     //拠点回復
-    public void CastleRecovery()
+    void CastleRecovery()
     {
         if (DataManager.Instance._Resource < DataManager.Instance._CastleRecoveryFee) return;
         if (DataManager.Instance._CastleHP >= DataManager.Instance._CastleMaxHP) return;
@@ -46,7 +63,7 @@ public class ShopManager : MonoBehaviour
         DataManager.Instance._CastleHP += 1;
     }
     //拠点強化
-    public void CastleAttackBuff()
+    void CastleAttackBuff()
     {
         if (DataManager.Instance._Resource < DataManager.Instance._CastleAttackBuffFee) return;
 
@@ -55,7 +72,7 @@ public class ShopManager : MonoBehaviour
         DataManager.Instance._CastleAttackBuff += 1;
     }
     //プレイヤー強化
-    public void PlayerAttackBuff()
+    void PlayerAttackBuff()
     {
         if (DataManager.Instance._Resource < DataManager.Instance._PlayerAttackBuffFee) return;
 
