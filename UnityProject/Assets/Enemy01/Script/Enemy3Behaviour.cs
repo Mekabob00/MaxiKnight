@@ -63,7 +63,9 @@ public class Enemy3Behaviour : MonoBehaviour, IPlayerDamege
 
     [SerializeField, Tooltip("死亡SE")]
     private AudioClip DieSE;
-
+    [SerializeField, Tooltip("エフェクト")]
+    private GameObject Effect;
+    [SerializeField,Tooltip("アニメーション")]
     private Animator EnemyAnimator;
 
     private float dis;
@@ -131,16 +133,16 @@ public class Enemy3Behaviour : MonoBehaviour, IPlayerDamege
         if (after<=0)
         {
             //仮
-            GetComponent<ParticleSystem>().Play();
+            EnemyAnimator.SetTrigger("Damege");
+            Instantiate(Effect, transform.position, transform.rotation);
             Destroy(Enemy3);
             return;
         }
         else if (after != _HP)//ダメージを受けたら
         {
-           GetComponent<ParticleSystem>().Play();
-            
+            EnemyAnimator.SetTrigger("Damege");
+            Instantiate(Effect, transform.position, transform.rotation);
             EnemyAttackManeger.instance.PlaySE(DamegeSE);
-    
             //ダメージを受けた時の処理
             StartCoroutine(AddDamageMove());
 
@@ -148,7 +150,16 @@ public class Enemy3Behaviour : MonoBehaviour, IPlayerDamege
 
         _HP = after;
     }
+    public void AnimationStop()
+    {
+        _RigidBody.constraints = RigidbodyConstraints.FreezePositionX;
 
+    }
+    public void AnimationStart()
+    {
+        _RigidBody.constraints = RigidbodyConstraints.None;
+        _RigidBody.constraints = RigidbodyConstraints.FreezeRotation;
+    }
     #endregion
 
     #region private function

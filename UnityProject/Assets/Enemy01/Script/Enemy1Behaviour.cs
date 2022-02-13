@@ -33,11 +33,13 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
     private AudioClip DieSE;
     [SerializeField, Tooltip("Enemy1攻撃力")]
     private int _Damage;
+    [SerializeField, Tooltip("エフェクト")]
+    private GameObject Effect;
     #endregion
 
     #region Defalut
 
-    private Animator EnemyAnimator;
+   private Animator EnemyAnimator;
 
     private GlobalData _GlobalData = null;
 
@@ -63,9 +65,7 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
 
     private float dis;
 
-    //エフェクト
-    [SerializeField]
-    private GameObject Effect;
+ 
 
 
     #region Unity function
@@ -92,7 +92,7 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
 
                 //位置を補正
                 Vector3 pos = this.transform.position;
-                pos.y = _HighPos;
+              //  pos.y = _HighPos;
                 this.transform.position = pos;
             }
             return;
@@ -136,17 +136,18 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
         var after = _HP - _Damege;
 
         //体力が0なら
-        if (after == 3)
+        if (after<=0)
         {
             //仮
             EnemyAttackManeger.instance.PlaySE(DieSE);
             Destroy(this.gameObject);
-            EnemyAnimator.SetTrigger("Damage");
+            EnemyAnimator.SetTrigger("Damege");
             Instantiate(Effect, transform.position, transform.rotation);
             return;
         }
         else if (after != _HP)//ダメージを受けたら
         {
+            EnemyAnimator.SetTrigger("Damege");
             EnemyAttackManeger.instance.PlaySE(DamegeSE);
             Instantiate(Effect, transform.position, transform.rotation);
             //ダメージを受けた時の処理
@@ -156,7 +157,16 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
 
         _HP = after;
     }
+    public void AnimationStop()
+    {
+        _RigidBody.constraints = RigidbodyConstraints.FreezePositionX;
 
+    }
+    public void AnimationStart()
+    {
+        _RigidBody.constraints = RigidbodyConstraints.None;
+        _RigidBody.constraints = RigidbodyConstraints.FreezeRotation;
+    }
     #endregion
 
     #region private function
@@ -171,7 +181,7 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
             _IsAttackFlag = true;
             _IsMoveActive = false;
         }
-        Debug.Log("距離" + dis);
+      //  Debug.Log("距離" + dis);
     }
     private void IsAttack()
     {
