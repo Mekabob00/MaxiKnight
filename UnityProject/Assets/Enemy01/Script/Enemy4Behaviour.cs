@@ -22,6 +22,8 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
 
     [SerializeField, Tooltip("グローバルデータ")]
     private GameObject _GlobalDataObject = null;
+    [SerializeField, Tooltip("エフェクト")]
+    private GameObject Effct;
 
     #endregion
 
@@ -112,15 +114,16 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
         var after = _HP - _Damege;
 
         //体力が0なら
-        if (after == 0)
+        if (after<= 0)
         {
             //仮
+            Instantiate(Effct, transform.position, transform.rotation);
             Destroy(this.gameObject);
             return;
         }
         else if (after != _HP)//ダメージを受けたら
         {
-            GetComponent<ParticleSystem>().Play();
+            Instantiate(Effct, transform.position, transform.rotation);
             //ダメージを受けた時の処理
             StartCoroutine(AddDamageMove());
 
