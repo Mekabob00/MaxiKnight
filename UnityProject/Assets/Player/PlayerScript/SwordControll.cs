@@ -7,8 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class SwordControll : MonoBehaviour
 {
+    [SerializeField, Tooltip("剣の攻撃力")]
+    private List<float> _SwordAttackList;
+
 
     public bool AttakUPFlag; //防衛ライン判定
+
 
     void Start()
     {
@@ -17,6 +21,7 @@ public class SwordControll : MonoBehaviour
     }
     void Update()
     {
+
         //デバック用
         //Debug.Log(AttakUPFlag);
 
@@ -46,24 +51,15 @@ public class SwordControll : MonoBehaviour
     }
     public void OnTriggerEnter(Collider collision)
     {
-        if (AttakUPFlag)
+        if (collision.tag == "Enemy") //現在仮タグでEnemyと付けています。随時変更していただけると助かります
         {
-            Debug.Log("現在第二防衛ラインにいます 攻撃力アップ");
-            if (collision.tag == "Enemy") //現在仮タグでEnemyと付けています。随時変更していただけると助かります
-            {
-                Debug.Log("攻撃");
-                var SecondDamege = collision.gameObject.GetComponent<IPlayerDamege>();
-                SecondDamege._AddDamege(3); //強攻撃
-            }
-        }
-        else
-        {
-            if (collision.tag == "Enemy")　//現在仮タグでEnemyと付けています。随時変更していただけると助かります
-            {
-                Debug.Log("弱攻撃");
-                var SecondDamege = collision.gameObject.GetComponent<IPlayerDamege>();
-                SecondDamege._AddDamege(1);//弱攻撃
-            }
+            var PlayerPower = Player_Controll.AttackBuff;
+            int SwordNum = DataManager.Instance._WeaponNumberSword;
+            var SecondDamege = collision.gameObject.GetComponent<IPlayerDamege>();
+            SecondDamege._AddDamege(PlayerPower*_SwordAttackList[SwordNum]);//弱攻撃
+
+            Debug.Log(collision.name + ".HP=>-" + PlayerPower * _SwordAttackList[SwordNum]);
+
         }
     }
 

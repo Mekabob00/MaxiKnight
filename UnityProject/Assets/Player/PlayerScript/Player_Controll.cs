@@ -18,6 +18,9 @@ public class Player_Controll : MonoBehaviour,IPlayerDamege
     [SerializeField]
     public int PlayerAttackPoint;
 
+    [SerializeField, Tooltip("当たり判定")]
+    private Collider _HitBase;
+
     [SerializeField, Tooltip("武器のオブジェクト")]
     private GameObject _SwordObject = null;
 
@@ -44,6 +47,7 @@ public class Player_Controll : MonoBehaviour,IPlayerDamege
 
     private bool _IsGaraceTime = false;
     private bool _IsAvoid = false;
+    private bool _IsAttack = false;
 
     public float SmoothTime = 2f;
     public float Speed = 1f;
@@ -54,6 +58,10 @@ public class Player_Controll : MonoBehaviour,IPlayerDamege
 
     private Vector3 AvoidPos_Start = new Vector3();
     private Vector3 AvoidPos_End = new Vector3();
+
+
+    public static float AttackBuff = 1;
+
 
     private void Awake()
     {//スタート関数前に何か初期化する時用
@@ -71,6 +79,7 @@ public class Player_Controll : MonoBehaviour,IPlayerDamege
         _AttackType = 0;
         _StartTime = Time.time;
         _NowHP = _MAXHP;
+        AttackBuff = DataManager.Instance._PlayerAttackBuff;
 
 
         //武器の当たり判定の設定
@@ -81,9 +90,12 @@ public class Player_Controll : MonoBehaviour,IPlayerDamege
 
         _IsGaraceTime = false;
         _IsAvoid = false;
+        _IsAttack = false;
     }
     void Update()
     {
+        
+
         if (_IsAvoid)
         {
             Avoidance();
@@ -93,6 +105,10 @@ public class Player_Controll : MonoBehaviour,IPlayerDamege
         PlayerWalk();//プレイヤー移動関数呼び出し
         PlayerAttackAnimation();//Zキーを押した時にアニメーションをさせる
         PlayerAvoidance();
+        PlayercolliderONOFF();
+
+        //Playerの攻撃力反映
+        AttackBuff = DataManager.Instance._PlayerAttackBuff;
     }
 
 
@@ -102,6 +118,15 @@ public class Player_Controll : MonoBehaviour,IPlayerDamege
         return distCovered / JourneyLength;
     }
 
+    private void PlayercolliderONOFF()
+    {
+        if (!PlayerAttackAnimator.GetCurrentAnimatorStateInfo(0).IsName("OnDamage")||!PlayerAttackAnimator.GetCurrentAnimatorStateInfo(0).IsName("Avoidance"))
+        {
+            _HitBase.enabled = true;
+        }
+
+
+    }
 
     private void PlayerWalk()
     {//プレイヤーの移動関数
@@ -189,6 +214,7 @@ public class Player_Controll : MonoBehaviour,IPlayerDamege
 
         if(Input.GetKeyDown(KeyCode.Z)&&!_SwordCollider.enabled)
         {
+            _SwordCollider.enabled = true;
 
             //猶予時間の終わり
             _IsGaraceTime = false;
@@ -221,7 +247,7 @@ public class Player_Controll : MonoBehaviour,IPlayerDamege
             //攻撃アニメーション再生
             PlayerAttackAnimator.SetBool("IsAttack",true);
 
-            StartCoroutine(AttackColliderTime());
+            //StartCoroutine(AttackColliderTime());
         }
 
 
@@ -247,11 +273,27 @@ public class Player_Controll : MonoBehaviour,IPlayerDamege
 
 
     }
-    public void _AddDamege(int _Damege)
+    public void _AddDamege(float _Damege)
     {
-
-
+        _NowHP -= _Damege;
+        PlayerAttackAnimator.SetTrigger("OnDamage");
+        _HitBase.enabled = false;
     }
+
+    public void _AttackAnimEnd()
+    {
+        _IsAttack = false;
+
+        //0.5秒にColliderをOFF
+        _SwordCollider.enabled = false;
+
+        //猶予時間のリセット
+        _NextActionTime = 0;
+
+        //猶予時間の始まり
+        _IsGaraceTime = true;
+    }
+
 
     IEnumerator AttackColliderTime()
     {

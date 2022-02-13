@@ -283,7 +283,7 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
     }
 
     //ƒ_ƒ[ƒW‚ğó‚¯‚é
-    public void _AddDamege(int _Damage)
+    public void _AddDamege(float _Damage)
     {
         Debug.Log("hit!");
         _Health--;

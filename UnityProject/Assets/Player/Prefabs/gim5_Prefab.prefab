@@ -2581,7 +2581,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 90
+  m_Constraints: 94
   m_CollisionDetection: 0
 --- !u!65 &1374840035846192596
 BoxCollider:
@@ -2604,7 +2604,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2293740046951642231}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.68
   m_Height: 2.41
@@ -2677,9 +2677,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _RigidBody: {fileID: 1374840035846192592}
-  PlayerWlakSpeed: 10
+  PlayerWlakSpeed: 9
   applySpeed: 0.2
   PlayerAttackPoint: 0
+  _HitBase: {fileID: 1374840035846192599}
   _SwordObject: {fileID: 6464102517153566040}
   _CombAttackGraceTime: 1
   _AttackPatternNum: 3
@@ -8665,6 +8666,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 766110497207826158}
     m_Modifications:
+    - target: {fileID: -4044836795876074528, guid: 7de9064e242cc0141b1643cb7bbedfb0, type: 3}
+      propertyPath: _SwordAttackList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -4044836795876074528, guid: 7de9064e242cc0141b1643cb7bbedfb0, type: 3}
+      propertyPath: _SwordAttackList.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4044836795876074528, guid: 7de9064e242cc0141b1643cb7bbedfb0, type: 3}
+      propertyPath: _SwordAttackList.Array.data[1]
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: -4044836795876074528, guid: 7de9064e242cc0141b1643cb7bbedfb0, type: 3}
+      propertyPath: _SwordAttackList.Array.data[2]
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 1191365236335567084, guid: 7de9064e242cc0141b1643cb7bbedfb0, type: 3}
       propertyPath: m_Name
       value: katana
