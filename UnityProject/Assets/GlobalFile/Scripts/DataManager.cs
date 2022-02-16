@@ -42,7 +42,7 @@ public class DataManager : MonoBehaviour
         Instance._WeaponNumberSword = 1;
         Instance._WeaponNumberGun = 1;
         Instance._Stage = 1;
-        Instance._Resource = 0;
+        Instance._Resource = 100000;
         Instance._CastleHP = Instance._CastleMaxHP;
         Instance._CastleRecoveryFee = 100;
         Instance._CastleAttackBuffFee = 100;
