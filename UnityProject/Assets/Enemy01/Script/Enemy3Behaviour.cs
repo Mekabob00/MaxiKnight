@@ -12,7 +12,7 @@ public class Enemy3Behaviour : MonoBehaviour, IPlayerDamege
     private float _SlowMoveSpeed = 1.0f;
 
     [SerializeField, Tooltip("体力,int型")]
-    private int _HP;
+    private float _HP;
 
     [SerializeField, Tooltip("RigidBody")]
     private Rigidbody _RigidBody = null;
@@ -102,7 +102,7 @@ public class Enemy3Behaviour : MonoBehaviour, IPlayerDamege
     /// ダメージの加算
     /// </summary>
     /// <param name="damage">ダメージ量</param>
-    public void _AddDamege(int _Damege)
+    public void _AddDamege(float _Damege)
     {
         if (_IsAddDamageEffect)//ダメージを与えない
         {
