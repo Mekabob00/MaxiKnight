@@ -489,7 +489,7 @@ ModelImporter:
       curves: []
       events:
       - time: 0.6114892
-        functionName: _AttackAnimEnd
+        functionName: AttackAnimEnd
         data: 
         objectReferenceParameter: {fileID: 2293740046951642231, guid: 343eceb0462ebdb478274cde9d5e7058, type: 3}
         floatParameter: 0
