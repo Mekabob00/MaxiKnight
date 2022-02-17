@@ -1952,6 +1952,36 @@ Transform:
   m_Father: {fileID: 4740493369590078539}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1963789702653329092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3056736997809236089}
+  m_Layer: 0
+  m_Name: StageClearCamPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3056736997809236089
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963789702653329092}
+  m_LocalRotation: {x: -0.15731327, y: -0.8312893, z: 0.26748484, w: -0.4611536}
+  m_LocalPosition: {x: -1.8400002, y: 2.76, z: 1.5000005}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3992015873927707910}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1975325190346969280
 GameObject:
   m_ObjectHideFlags: 0
@@ -2436,6 +2466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a320a002627494d9ed83f180648523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _SwordAttackList: []
   AttakUPFlag: 0
 --- !u!1 &2483202690253253369
 GameObject:
@@ -3675,6 +3706,7 @@ Transform:
   - {fileID: 8878335967390342546}
   - {fileID: 495472092815521515}
   - {fileID: 2096609626}
+  - {fileID: 3056736997809236089}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3725,11 +3757,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Health: 100
   _MoveSpeed: 2
-  _BreakSpeed: 2
-  _Damage: 50
-  _Area: 5
+  _BreakSpeed: 5
+  _Damage: 5
+  _Area: 4
   _ChargeTime: 8
-  _StopChargeCount: 5
+  _StopChargeCount: 1
   _Castle: {fileID: 0}
   _Player: {fileID: 0}
   _AttackArea: {fileID: 1804531715904009248, guid: 6a2c41d4627c922428331395535b235c, type: 3}
@@ -3738,7 +3770,7 @@ MonoBehaviour:
   _StandByDistance: 25
   _ChargeDistance: 15
   state: 0
-  startPoint: {x: 30, y: 1, z: 0}
+  startPoint: {x: 30, y: 1, z: -5}
   currentHitCount: 0
 --- !u!54 &787021074
 Rigidbody:

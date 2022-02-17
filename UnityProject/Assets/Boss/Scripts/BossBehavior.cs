@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum STATE { MOVE, ENTER, STANDBY, ATTACKPLAYER, CHARGE, ATTACKCASTLE, RETURN, DAMAGE, DOWN, STANDUP };
+public enum STATE { MOVE, ENTER, STANDBY, ATTACKPLAYER, CHARGE, ATTACKCASTLE, RETURN, DAMAGE, DOWN, STANDUP, DEAD };
 
 public class BossBehavior : MonoBehaviour, IPlayerDamege
 {
@@ -288,7 +288,11 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
     {
         Debug.Log("hit!");
         _Health--;
-        if (_Health <= 0) Destroy(gameObject);
+        if (_Health <= 0)
+        {
+            GlobalData.Instance.isStageClear = true;
+            state = STATE.DEAD;
+        }
 
         if (state == STATE.MOVE)
         {

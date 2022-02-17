@@ -10,10 +10,10 @@ public class GlobalData : MonoBehaviour
     public bool isCanonAppear;
     [Header("援護射撃起動")]
     public bool isPlayerInSecondLine;
-    [Header("プレイヤ死亡/消滅")]
-    public bool isPlayerDead;
     [Header("ゲームオーバー")]
     public bool isGameOver;
+    [Header("ステージクリア")]
+    public bool isStageClear;
 
     private void Awake()
     {
@@ -31,7 +31,13 @@ public class GlobalData : MonoBehaviour
     {
         isCanonAppear = false;
         isPlayerInSecondLine = false;
-        isPlayerDead = false;
+        isGameOver = false;
+        isStageClear = false;
+    }
+
+    public void ResetData()
+    {
+        isStageClear = false;
         isGameOver = false;
     }
 }

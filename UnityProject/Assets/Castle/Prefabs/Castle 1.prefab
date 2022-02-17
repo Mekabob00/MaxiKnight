@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &875416590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 875416591}
+  m_Layer: 0
+  m_Name: GameOverCamPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &875416591
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875416590}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 45, y: 42.3, z: -50}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_Children: []
+  m_Father: {fileID: 7169435960141801265}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &136925749637255529
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,9 +1285,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7169435960141801265}
   - component: {fileID: 7274524476521365294}
+  - component: {fileID: 919132148436936752}
   m_Layer: 0
   m_Name: Castle 1
-  m_TagString: Untagged
+  m_TagString: Castle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1291,6 +1322,7 @@ Transform:
   - {fileID: 908307137059150726}
   - {fileID: 5773116001621899967}
   - {fileID: 7274524476188251646}
+  - {fileID: 875416591}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -50, z: 0}
@@ -1306,7 +1338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6955a42d24eaff24b8866b84b608f843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Health: 10
+  _Health: 100
   _AttackRange: 18
   attackPoint: {fileID: 7274524476188251633}
   _AttackCT: 1
@@ -1315,7 +1347,19 @@ MonoBehaviour:
   m_hpBar: {fileID: 0}
   m_attackTarget: {fileID: 0}
   m_castleState: 0
-  m_skipDamageAnim: 0
+--- !u!135 &919132148436936752
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7508948264773336459}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 34
+  m_Center: {x: 1.6, y: 24.21, z: -4.1}
 --- !u!1 &7805193281878472674
 GameObject:
   m_ObjectHideFlags: 0
