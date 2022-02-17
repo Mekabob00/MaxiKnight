@@ -13,10 +13,15 @@ public class GunControll : MonoBehaviour
     [SerializeField, Tooltip("èe")]
     private GameObject _Gun;
 
+    [SerializeField, Tooltip("íeä€")]
+    private GameObject _Bullet;
+
+    [SerializeField, Tooltip("î≠éÀà íu")]
+    private Transform ShotPos;
 
     void Start()
     {
-        
+        _Gun.SetActive(false);
     }
 
     // Update is called once per frame
@@ -31,7 +36,18 @@ public class GunControll : MonoBehaviour
     {
         _Sword.SetActive(true);
         _PlayerAnimtor.SetBool("IsAttack", false);
+        _Gun.SetActive(false);
+        _PlayerAnimtor.SetFloat("Wepon", 0);
     }
+
+    public void BulletShot()
+    {
+
+        GameObject obj = Instantiate(_Bullet, ShotPos.position, new Quaternion(0, 0, 0, 0));
+        obj.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, 1000));
+
+    }
+
 
     public void GunAttack()
     {
@@ -44,6 +60,8 @@ public class GunControll : MonoBehaviour
 
                 _PlayerAnimtor.SetFloat("Wepon", 1);
                 _PlayerAnimtor.SetBool("IsAttack", true);
+                _Gun.SetActive(true);
+                
             }
         }
 

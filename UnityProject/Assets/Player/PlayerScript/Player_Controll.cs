@@ -24,11 +24,16 @@ public class Player_Controll : MonoBehaviour,IPlayerDamege
     [SerializeField, Tooltip("武器のオブジェクト")]
     private GameObject _SwordObject = null;
 
+    [SerializeField, Tooltip("攻撃速度")]
+    private float _AttackSpeed = 1.0f;
+
     [SerializeField, Tooltip("連続攻撃の猶予時間")]
     private float _CombAttackGraceTime = 1.0f;
 
     [SerializeField, Tooltip("攻撃パターンの種類")]
     private int _AttackPatternNum = 3;
+
+
 
     [SerializeField, Tooltip("回避の大きさ")]
     private float _AvoidanceValue = 50.0f;
@@ -38,7 +43,7 @@ public class Player_Controll : MonoBehaviour,IPlayerDamege
 
     private Vector3 latestPosition;
     private Animator PlayerAttackAnimator;
-    private Collider _SwordCollider;
+    public Collider _SwordCollider;
     private GunControll _GunControll;
     
     private int _AttackType = 0;
@@ -211,65 +216,68 @@ public class Player_Controll : MonoBehaviour,IPlayerDamege
 
         //時間を計算
         _NextActionTime += Time.deltaTime;
-
-        if(Input.GetKeyDown(KeyCode.Z)&&!_SwordCollider.enabled)
+        if (PlayerAttackAnimator.GetCurrentAnimatorStateInfo(0).IsName("run") || PlayerAttackAnimator.GetCurrentAnimatorStateInfo(0).IsName("Stand"))
         {
-            _SwordCollider.enabled = true;
-
-            //猶予時間の終わり
-            _IsGaraceTime = false;
-
-            //連続攻撃
-            if (_NextActionTime <= _CombAttackGraceTime)//猶予時間内にイベントが発生時
+            if (Input.GetKeyDown(KeyCode.Z) && !_SwordCollider.enabled)
             {
-                PlayerAttackAnimator.SetFloat("AttackSpeed", 1);
+                _SwordCollider.enabled = true;
 
-                ++_AttackType;
+                //猶予時間の終わり
+                _IsGaraceTime = false;
 
-                if (_AttackType >= 3)
+                //連続攻撃
+                if (_NextActionTime <= _CombAttackGraceTime)//猶予時間内にイベントが発生時
                 {
-                    _AttackType = 0;
+                    PlayerAttackAnimator.SetFloat("AttackSpeed", _AttackSpeed);
+
+                    ++_AttackType;
+
+                    if (_AttackType >= 3)
+                    {
+                        _AttackType = 0;
+                    }
                 }
+                else
+                {
+                    //猶予時間を超えるとType１のアニメーションにする
+                    _AttackType = 0;
+
+                }
+
+                //AnimetorParameterに反映
+                PlayerAttackAnimator.SetFloat("AttackType", _AttackType);
+
+                //アニメーションを最初から再生
+                PlayerAttackAnimator.Play("Attack", 0, 0);
+
+                //攻撃アニメーション再生
+                PlayerAttackAnimator.SetBool("IsAttack", true);
+
+                //StartCoroutine(AttackColliderTime());
             }
-            else
+
+
+            if (_NextActionTime >= _CombAttackGraceTime)//猶予時間を超えたら
             {
-                //猶予時間を超えるとType１のアニメーションにする
-                _AttackType = 0;
+                //アニメーションの再生
+                PlayerAttackAnimator.SetFloat("AttackSpeed", _AttackSpeed);
 
+                //アニメーションの遷移
+                PlayerAttackAnimator.SetBool("IsAttack", false);
+
+                //猶予時間の終わり
+                _IsGaraceTime = false;
             }
 
-            //AnimetorParameterに反映
-            PlayerAttackAnimator.SetFloat("AttackType", _AttackType);
+            if (_IsGaraceTime)//猶予時間であるとき
+            {
+                //アニメーションの停止
+                PlayerAttackAnimator.SetFloat("AttackSpeed", 0);
+            }
 
-            //アニメーションを最初から再生
-            PlayerAttackAnimator.Play("Attack",0,0);
-
-            //攻撃アニメーション再生
-            PlayerAttackAnimator.SetBool("IsAttack",true);
-
-            //StartCoroutine(AttackColliderTime());
+            _GunControll.GunAttack();
         }
-
-
-        if(_NextActionTime >= _CombAttackGraceTime)//猶予時間を超えたら
-        {
-            //アニメーションの再生
-            PlayerAttackAnimator.SetFloat("AttackSpeed", 1);
-
-            //アニメーションの遷移
-            PlayerAttackAnimator.SetBool("IsAttack", false);
-
-            //猶予時間の終わり
-            _IsGaraceTime = false;
-        }
-
-        if(_IsGaraceTime)//猶予時間であるとき
-        {
-            //アニメーションの停止
-            PlayerAttackAnimator.SetFloat("AttackSpeed", 0);
-        }
-
-        _GunControll.GunAttack();
+       
 
 
     }
@@ -280,10 +288,10 @@ public class Player_Controll : MonoBehaviour,IPlayerDamege
         _HitBase.enabled = false;
     }
 
-    public void _AttackAnimEnd()
+    public void AttackAnimEnd()
     {
         _IsAttack = false;
-
+        PlayerAttackAnimator.SetFloat("AttackSpeed", 0);
         //0.5秒にColliderをOFF
         _SwordCollider.enabled = false;
 
@@ -292,26 +300,28 @@ public class Player_Controll : MonoBehaviour,IPlayerDamege
 
         //猶予時間の始まり
         _IsGaraceTime = true;
+        StartCoroutine(AttackColliderTime());
     }
 
 
     IEnumerator AttackColliderTime()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(1.0f);
+        PlayerAttackAnimator.SetFloat("AttackSpeed", 1);
 
-        //当たり判定をONにする
-        _SwordCollider.enabled = true;
+        ////当たり判定をONにする
+        //_SwordCollider.enabled = true;
 
-        yield return new WaitForSeconds(0.5f);//攻撃終了
+        //yield return new WaitForSeconds(0.5f);//攻撃終了
 
-        //0.5秒にColliderをOFF
-        _SwordCollider.enabled = false;
+        ////0.5秒にColliderをOFF
+        //_SwordCollider.enabled = false;
 
-        //猶予時間のリセット
-        _NextActionTime = 0;
+        ////猶予時間のリセット
+        //_NextActionTime = 0;
 
-        //猶予時間の始まり
-        _IsGaraceTime = true;
+        ////猶予時間の始まり
+        //_IsGaraceTime = true;
 
         yield break;
     }
