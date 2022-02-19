@@ -37,31 +37,31 @@ public class CameraController : MonoBehaviour
 					m_state = STATE.STAGECLEAR;
 				break;
 			case STATE.STAGECLEAR:
-				UpdateCameraRotation(_Boss);
+				UpdateCameraRotation(_Boss.position + new Vector3(0, 1, 0));
 				UpdateCameraPosition(_StageClearViewPos);
 				break;
 			case STATE.GAMEOVER:
-				UpdateCameraRotation(_Castle);
+				UpdateCameraRotation(_Castle.position + new Vector3(0, 4, 0));
 				UpdateCameraPosition(_GameOverViewPos);
 				break;
         }
     }
 
-	//更新照相機朝向，實時對準玩家
-	void UpdateCameraRotation(Transform target_)
+	//カメラの向き調整
+	void UpdateCameraRotation(Vector3 target_)
 	{
-		//
-		Vector3 vec = target_.position - transform.position;
+		Vector3 vec = target_ - transform.position;
 		if (Vector3.Angle(vec, transform.forward) > 0.1f)
         {
 			Quaternion rotate = Quaternion.LookRotation(vec);
-			transform.localRotation = Quaternion.Slerp(transform.localRotation, rotate, 0.05f);
+			transform.localRotation = Quaternion.Slerp(transform.localRotation, rotate, 0.04f);
         }
 	}
 
-	//緩動到目標點
+	//目標地まで移動
 	void UpdateCameraPosition(Transform target_)
 	{
-		transform.position = Vector3.Slerp(transform.position, target_.position, 0.05f);
+		if(Vector3.Distance(transform.position, target_.position) > 0.5f)
+			transform.position = Vector3.Slerp(transform.position, target_.position, 0.04f);
 	}
 }

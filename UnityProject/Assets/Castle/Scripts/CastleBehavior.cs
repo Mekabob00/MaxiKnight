@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
 public class CastleBehavior : MonoBehaviour
 {
     #region 変数
@@ -11,16 +10,18 @@ public class CastleBehavior : MonoBehaviour
     public int _Health;
     [Header("援護射撃範囲")]
     public int _AttackRange;
-    [Header("攻撃中心")]
-    [SerializeField] private GameObject attackPoint;
-    [Header("攻撃クールターム")]
-    public float _AttackCT;
-    [Header("プレイヤー")]
+    [Header("オブジェクト")]
+    public GameObject _AttackPoint;
+    public GameObject _Explosion;
     public GameObject _PlayerPrefab;
-    [Header("弾")]
     public GameObject _BulletPrefab;
+    public Transform[] _ExplosionPos;
+    [Header("ターム")]
+    public float _AttackCT;
+    public float _ExplosionCT;
     [Header("HPBar")]
     public CastleHPBar m_hpBar;
+
 
     //プライベート変数
     Animator m_animator;
@@ -29,9 +30,8 @@ public class CastleBehavior : MonoBehaviour
     enum CastleState { MOVE, ATTACK, DEAD }
     [Header("城状態")]
     [SerializeField] CastleState m_castleState;
-    float m_timer;    //攻撃クールタイム計算
+    float m_timer;    //タイム計算用タイマー
     bool m_canAttack;
-    bool m_isDead;
     #endregion
 
     void Start()
@@ -60,9 +60,7 @@ public class CastleBehavior : MonoBehaviour
             case CastleState.MOVE:
                 {
                     #region 状態遷移
-                    if (m_isDead)
-                        m_castleState = CastleState.DEAD;
-                    else if (m_canAttack && SearchEnemy())
+                    if (m_canAttack && SearchEnemy())
                         m_castleState = CastleState.ATTACK;
                     #endregion
                     break;
@@ -83,17 +81,31 @@ public class CastleBehavior : MonoBehaviour
                     //    isAttack = false;
 
                     #region 状態遷移
-                    if (m_isDead)
-                        m_castleState = CastleState.DEAD;
-                    else if (!m_canAttack)
+                    if (!m_canAttack)
                         m_castleState = CastleState.MOVE;
                     #endregion
 
                     break;
                 }
             case CastleState.DEAD:
-                m_isDead = false;
+                m_timer -= Time.deltaTime;
+                if (m_timer <= 0)
+                {
+                    m_timer = _ExplosionCT;
+                    CreateExplosion();
+                }
                 break;
+        }
+    }
+
+    void CreateExplosion()
+    {
+        int num = Random.Range(1, _ExplosionPos.Length / 2);
+        while(num > 0)
+        {
+            GameObject obj = Instantiate(_Explosion, _ExplosionPos[Random.Range(0, _ExplosionPos.Length)]);
+            obj.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            num--;
         }
     }
 
@@ -101,7 +113,7 @@ public class CastleBehavior : MonoBehaviour
     {
         if (!SearchEnemy()) { return; }
         //弾生成
-        var bullet = Instantiate(_BulletPrefab, attackPoint.transform.position, Quaternion.identity);
+        var bullet = Instantiate(_BulletPrefab, _AttackPoint.transform.position, Quaternion.identity);
         bullet.GetComponent<CastleBullet>()._SetTarget(m_attackTarget, 0.5f);
     }
 
@@ -152,12 +164,14 @@ public class CastleBehavior : MonoBehaviour
     //エネミーの攻撃を受ける
     public void _AddDamage(int _damage)
     {
+        if (m_castleState == CastleState.DEAD) return;
+
         _Health -= _damage;
         DataManager.Instance._CastleHP = _Health;
         m_hpBar.SetCurrentHealth(_Health);
         if (_Health <= 0)
         {
-            m_isDead = true;
+            m_castleState = CastleState.DEAD;
             GlobalData.Instance.isGameOver = true;
         }
     }
