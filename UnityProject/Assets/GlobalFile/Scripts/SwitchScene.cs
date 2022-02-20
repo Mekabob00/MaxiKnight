@@ -11,10 +11,14 @@ public static class SwitchScene
     }
     public static void ChangeSceneToStage()
     {
-        SceneManager.LoadScene("Stage");
+        SceneManager.LoadScene("Stage0");
     }
     public static void ChangeSceneToShop()
     {
         SceneManager.LoadScene("Shop");
+    }
+    public static void ChangeScceneToClear()
+    {
+        SceneManager.LoadScene("Clear0");
     }
 }

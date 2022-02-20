@@ -298,6 +298,11 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
         m_isReturn = false;
     }
 
+    void StageClear()
+    {
+        SwitchScene.ChangeSceneToShop();
+    }
+
     //Ÿ‚Ìó‘Ô‚ğˆÚs‚Ü‚Å‚Ì‘Ò‚¿ŠÔ
     IEnumerator WaitTime(float time)
     {
@@ -317,6 +322,7 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             m_state = STATE.DEAD;
             m_anim.SetTrigger("Dead");
             StartCoroutine(WaitTime(1.0f));
+            Invoke("StageClear", 8f);
         }
 
         if (m_state == STATE.MOVE)
