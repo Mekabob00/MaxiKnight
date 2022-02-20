@@ -166,7 +166,7 @@ public class Player_Controll : MonoBehaviour,IPlayerDamege
             PlayerAttackAnimator.SetBool("Run", false);
         }
 
-        
+
 
 
 
@@ -175,24 +175,26 @@ public class Player_Controll : MonoBehaviour,IPlayerDamege
     /// <summary>
     /// ‰ñ”ğ
     /// </summary>
-    private void PlayerAvoidance()
+    private bool PlayerAvoidance()
     {
         //UŒ‚ƒ‚[ƒVƒ‡ƒ“’†
         if (!_IsGaraceTime && PlayerAttackAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
-            return;
+            return false;
         }
 
         if (Input.GetKeyDown(KeyCode.C) && !_IsAvoid)
         {
-            
+
             PlayerAttackAnimator.SetTrigger("Avoid");
-            
+
             _IsAvoid = true;
             AvoidPos_Start = transform.position;
-            AvoidPos_End =transform.position + transform.forward * _AvoidanceValue;
+            AvoidPos_End = transform.position + transform.forward * _AvoidanceValue;
+            return true;
         }
 
+        return false;
     }
 
     private void Avoidance()
@@ -214,67 +216,13 @@ public class Player_Controll : MonoBehaviour,IPlayerDamege
     public void PlayerAttackAnimation()
     {
 
-        //ŠÔ‚ğŒvZ
-        _NextActionTime += Time.deltaTime;
+        
         if (PlayerAttackAnimator.GetCurrentAnimatorStateInfo(0).IsName("run") || PlayerAttackAnimator.GetCurrentAnimatorStateInfo(0).IsName("Stand"))
         {
-            if (Input.GetKeyDown(KeyCode.Z) && !_SwordCollider.enabled)
-            {
-                _SwordCollider.enabled = true;
+            //Œ•‚ÌUŒ‚
+            PlayerAttackMove();
 
-                //—P—\ŠÔ‚ÌI‚í‚è
-                _IsGaraceTime = false;
-
-                //˜A‘±UŒ‚
-                if (_NextActionTime <= _CombAttackGraceTime)//—P—\ŠÔ“à‚ÉƒCƒxƒ“ƒg‚ª”­¶
-                {
-                    PlayerAttackAnimator.SetFloat("AttackSpeed", _AttackSpeed);
-
-                    ++_AttackType;
-
-                    if (_AttackType >= 3)
-                    {
-                        _AttackType = 0;
-                    }
-                }
-                else
-                {
-                    //—P—\ŠÔ‚ğ’´‚¦‚é‚ÆType‚P‚ÌƒAƒjƒ[ƒVƒ‡ƒ“‚É‚·‚é
-                    _AttackType = 0;
-
-                }
-
-                //AnimetorParameter‚É”½‰f
-                PlayerAttackAnimator.SetFloat("AttackType", _AttackType);
-
-                //ƒAƒjƒ[ƒVƒ‡ƒ“‚ğÅ‰‚©‚çÄ¶
-                PlayerAttackAnimator.Play("Attack", 0, 0);
-
-                //UŒ‚ƒAƒjƒ[ƒVƒ‡ƒ“Ä¶
-                PlayerAttackAnimator.SetBool("IsAttack", true);
-
-                //StartCoroutine(AttackColliderTime());
-            }
-
-
-            if (_NextActionTime >= _CombAttackGraceTime)//—P—\ŠÔ‚ğ’´‚¦‚½‚ç
-            {
-                //ƒAƒjƒ[ƒVƒ‡ƒ“‚ÌÄ¶
-                PlayerAttackAnimator.SetFloat("AttackSpeed", _AttackSpeed);
-
-                //ƒAƒjƒ[ƒVƒ‡ƒ“‚Ì‘JˆÚ
-                PlayerAttackAnimator.SetBool("IsAttack", false);
-
-                //—P—\ŠÔ‚ÌI‚í‚è
-                _IsGaraceTime = false;
-            }
-
-            if (_IsGaraceTime)//—P—\ŠÔ‚Å‚ ‚é‚Æ‚«
-            {
-                //ƒAƒjƒ[ƒVƒ‡ƒ“‚Ì’â~
-                PlayerAttackAnimator.SetFloat("AttackSpeed", 0);
-            }
-
+            //e‚Å‚ÌUŒ‚
             _GunControll.GunAttack();
         }
        
@@ -301,28 +249,57 @@ public class Player_Controll : MonoBehaviour,IPlayerDamege
         //—P—\ŠÔ‚Ìn‚Ü‚è
         _IsGaraceTime = true;
         StartCoroutine(AttackColliderTime());
+
+        PlayerAttackAnimator.SetBool("IsAttack", false);
     }
 
+    //Œ•‚Å‚ÌUŒ‚
+    bool PlayerAttackMove()
+    {
+        if (Input.GetKeyDown(KeyCode.Z) && !_SwordCollider.enabled)
+        {
+            _SwordCollider.enabled = true;
+          
+            PlayerAttackAnimator.SetTrigger("Attack");
+            
+            PlayerAttackAnimator.Play("Attack", 0, 0);
+            return true;
+        }
+        return false;
+    }
 
     IEnumerator AttackColliderTime()
     {
-        yield return new WaitForSeconds(1.0f);
-        PlayerAttackAnimator.SetFloat("AttackSpeed", 1);
+        float time = 0;
 
-        ////“–‚½‚è”»’è‚ğON‚É‚·‚é
-        //_SwordCollider.enabled = true;
+        while (time <= 0.5f)//—P—\ŠÔ
+        {
+            //UŒ‚ƒCƒxƒ“ƒg‚ª”­¶‚µ‚½‚ç
+            if (PlayerAttackMove())
+            {
+                //˜A‘±UŒ‚‚ÌƒJƒEƒ“ƒg
+                _AttackType++;
+                if (_AttackType >= 3)
+                {
+                    _AttackType = 0;
+                }
+                PlayerAttackAnimator.SetFloat("AttackType", _AttackType);
+                PlayerAttackAnimator.SetFloat("AttackSpeed", _AttackSpeed);
 
-        //yield return new WaitForSeconds(0.5f);//UŒ‚I—¹
+                yield break;
+            }
+            else if (PlayerAvoidance())//‰ñ”ğ
+            {
+                break;
+            }
+            time += Time.deltaTime;
+            yield return null;
+        }
 
-        ////0.5•b‚ÉCollider‚ğOFF
-        //_SwordCollider.enabled = false;
+        PlayerAttackAnimator.SetFloat("AttackSpeed", _AttackSpeed);
 
-        ////—P—\ŠÔ‚ÌƒŠƒZƒbƒg
-        //_NextActionTime = 0;
-
-        ////—P—\ŠÔ‚Ìn‚Ü‚è
-        //_IsGaraceTime = true;
-
+        _AttackType = 0;
+        PlayerAttackAnimator.SetFloat("AttackType", _AttackType);
         yield break;
     }
 
