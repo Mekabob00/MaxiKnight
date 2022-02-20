@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum STATE { MOVE, ENTER, STANDBY, ATTACKPLAYER, CHARGE, ATTACKCASTLE, RETURN, DAMAGE, DOWN, STANDUP };
+public enum STATE { MOVE, ENTER, STANDBY, ATTACKPLAYER, CHARGE, ATTACKCASTLE, RETURN, DAMAGE, DOWN, STANDUP, DEAD };
 
 public class BossBehavior : MonoBehaviour, IPlayerDamege
 {
@@ -19,39 +19,40 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
     [Header("チャージ")]
     [Tooltip("時間")]public float _ChargeTime;
     [Tooltip("中断回数")]public int _StopChargeCount;
-    [Header("城")]
+    [Header("オブジェクト")]
     public GameObject _Castle;
-    [Header("プレイヤー")]
     public GameObject _Player;
-    [Header("攻撃エリア")]
     public GameObject _AttackArea;
     public GameObject _Laser;
+    public GameObject _Explosion;
+    public Transform[] _ExplosionPos;
     [Header("距離設定")]
     [Tooltip("構え")]public float _EnterDistance;
     [Tooltip("攻撃")] public float _StandByDistance;
     [Tooltip("チャージ")] public float _ChargeDistance;
 
-    Animator anim;
-    [SerializeField, Header("状態")]
-    STATE state;            //ステータス
-    Vector3 breakChargePos;
-    [SerializeField, Tooltip("初期位置")]Vector3 startPoint;     //初期位置
+    Animator m_anim;
+    Vector3 m_breakChargePos;
+    [SerializeField, Header("状態")] STATE m_state;            //ステータス
+    [SerializeField, Tooltip("初期位置")] Vector3 m_startPoint;     //初期位置
     [SerializeField, Header("チャージ状態の解除回数計算")]
-    int currentHitCount;           //チャージ状態の解除回数計算
-    float castleDistance;   //城との距離
-    float chargeTimeCount;  //チャージ時間計算
-    bool isWait;            //状態遷移待ち
-    bool isEnter;           //構え状態記録
-    bool isAttackedPlayer;  //プレイヤーに攻撃記録
-    bool isMove;            //移動(Anim用)
-    bool isStandBy;         //攻撃予告(Anim用)
-    bool isCharge;          //チャージ状態(Anim用)
-    bool isReturn;
+    int m_currentHitCount;           //チャージ状態の解除回数計算
+    float m_castleDistance;   //城との距離
+    float m_chargeTimeCount;  //チャージ時間計算
+    float m_explosionCT = 0.4f;
+    float m_timer;            //タイマー
+    bool m_isWait;            //状態遷移待ち
+    bool m_isEnter;           //構え状態記録
+    bool m_isAttackedPlayer;  //プレイヤーに攻撃記録
+    bool m_isMove;            //移動(Anim用)
+    bool m_isStandBy;         //攻撃予告(Anim用)
+    bool m_isCharge;          //チャージ状態(Anim用)
+    bool m_isReturn;
 
     void Start()
     {
-        anim = GetComponent<Animator>();
-        transform.position = startPoint;
+        m_anim = GetComponent<Animator>();
+        transform.position = m_startPoint;
         StateReset();
     }
 
@@ -60,7 +61,7 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
         if (GlobalData.Instance.isGameOver) return;
 
         //Debug.Log(state);
-        castleDistance = Vector3.Distance(transform.position, _Castle.transform.position);
+        m_castleDistance = Vector3.Distance(transform.position, _Castle.transform.position);
 
         SetState();
         SetAnim();
@@ -68,58 +69,61 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
 
     void SetState()
     {
-        switch (state)
+        switch (m_state)
         {
             case STATE.MOVE:
-                StateUpDate_Move();
+                StateUpdate_Move();
                 break;
             case STATE.ENTER:
-                StateUpDate_Enter();
+                StateUpdate_Enter();
                 break;
             case STATE.STANDBY:
-                StateUpDate_StandBy();
+                StateUpdate_StandBy();
                 break;
             case STATE.ATTACKPLAYER:
-                StateUpDate_AttackPlayer();
+                StateUpdate_AttackPlayer();
                 break;
             case STATE.CHARGE:
-                StateUpDate_Charge();
+                StateUpdate_Charge();
                 break;
             case STATE.ATTACKCASTLE:
-                StateUpDate_AttackCastle();
+                StateUpdate_AttackCastle();
                 break;
             case STATE.RETURN:
-                StateUpDate_Return();
+                StateUpdate_Return();
                 break;
             case STATE.DAMAGE:
-                StateUpDate_Damage();
+                StateUpdate_Damage();
                 break;
             case STATE.DOWN:
-                StateUpDate_Down();
+                StateUpdate_Down();
                 break;
             case STATE.STANDUP:
-                StateUpDate_StandUp();
+                StateUpdate_StandUp();
+                break;
+            case STATE.DEAD:
+                StateUpdate_Dead();
                 break;
         }
     }
 
-    void StateUpDate_Move()
+    void StateUpdate_Move()
     {
-        isMove = true;
-        if (!isWait)
+        m_isMove = true;
+        if (!m_isWait)
             transform.position += new Vector3(-_MoveSpeed * Time.deltaTime, 0, 0);
 
         //状態遷移
-        if (castleDistance <= _EnterDistance && !isEnter)
+        if (m_castleDistance <= _EnterDistance && !m_isEnter)
         {
-            state = STATE.ENTER;
-            anim.SetTrigger("Enter");
+            m_state = STATE.ENTER;
+            m_anim.SetTrigger("Enter");
             StartCoroutine(WaitTime(5.0f));
         }
-        else if (castleDistance <= _StandByDistance && !isAttackedPlayer)
+        else if (m_castleDistance <= _StandByDistance && !m_isAttackedPlayer)
         {
             //攻撃予告状態
-            state = STATE.STANDBY;
+            m_state = STATE.STANDBY;
             //攻撃範囲生成
             for (int i = 0; i < 3; ++i)
             {
@@ -130,95 +134,95 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             }
             StartCoroutine(WaitTime(3.0f));
         }
-        else if (castleDistance <= _ChargeDistance)
+        else if (m_castleDistance <= _ChargeDistance)
         {
-            state = STATE.CHARGE;
+            m_state = STATE.CHARGE;
         }
     }
-    void StateUpDate_Enter()
+    void StateUpdate_Enter()
     {
-        isMove = false;
-        isEnter = true;
+        m_isMove = false;
+        m_isEnter = true;
 
-        if (!isWait)
+        if (!m_isWait)
         {
-            state = STATE.MOVE;
+            m_state = STATE.MOVE;
         }
     }
-    void StateUpDate_StandBy()
+    void StateUpdate_StandBy()
     {
-        isMove = false;
-        isStandBy = true;
+        m_isMove = false;
+        m_isStandBy = true;
 
         //状態遷移
-        if (!isWait)
+        if (!m_isWait)
         {
-            anim.SetTrigger("Attack");
-            state = STATE.ATTACKPLAYER;
-            isAttackedPlayer = true;
-            isStandBy = false;
+            m_anim.SetTrigger("Attack");
+            m_state = STATE.ATTACKPLAYER;
+            m_isAttackedPlayer = true;
+            m_isStandBy = false;
             StartCoroutine(WaitTime(4.0f));
         }
     }
-    void StateUpDate_AttackPlayer()
+    void StateUpdate_AttackPlayer()
     {
-        if (!isWait)
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
-                state = STATE.MOVE;
+        if (!m_isWait)
+            if (m_anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+                m_state = STATE.MOVE;
     }
-    void StateUpDate_Charge()
+    void StateUpdate_Charge()
     {
-        isMove = false;
-        isCharge = true;
-        chargeTimeCount += Time.deltaTime;
+        m_isMove = false;
+        m_isCharge = true;
+        m_chargeTimeCount += Time.deltaTime;
 
         //チャージ完成
-        if (chargeTimeCount >= _ChargeTime)
+        if (m_chargeTimeCount >= _ChargeTime)
         {
-            state = STATE.ATTACKCASTLE;
-            float percent = (_StopChargeCount - currentHitCount) * 1.0f / _StopChargeCount;
+            m_state = STATE.ATTACKCASTLE;
+            float percent = (_StopChargeCount - m_currentHitCount) * 1.0f / _StopChargeCount;
             Debug.Log(_Damage * percent);
             _Castle.GetComponent<CastleBehavior>()._AddDamage((int)(_Damage * percent));
-            isCharge = false;
-            anim.SetTrigger("Attack");
+            m_isCharge = false;
+            m_anim.SetTrigger("Attack");
             _Laser.GetComponent<LaserArea>()._Damage = (int)(_Damage * percent);
             _Laser.SetActive(true);
             StartCoroutine(WaitTime(0.5f));
         }
         //チャージ中断
-        if (currentHitCount >= _StopChargeCount)
+        if (m_currentHitCount >= _StopChargeCount)
         {
-            state = STATE.DOWN;
-            breakChargePos = transform.position - new Vector3(0, 10, 0);
-            anim.SetTrigger("Down");
+            m_state = STATE.DOWN;
+            m_breakChargePos = transform.position - new Vector3(0, 10, 0);
+            m_anim.SetTrigger("Down");
             StartCoroutine(WaitTime(1.0f));
-            isCharge = false;
+            m_isCharge = false;
         }
     }
-    void StateUpDate_AttackCastle()
+    void StateUpdate_AttackCastle()
     {
         //開始地点に戻る
-        if (!isWait)
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(startPoint.x, transform.position.y, transform.position.z), 20 * Time.deltaTime);
+        if (!m_isWait)
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(m_startPoint.x, transform.position.y, transform.position.z), 20 * Time.deltaTime);
 
-        if (Mathf.Abs(transform.position.x - startPoint.x) <= 0.5)
+        if (Mathf.Abs(transform.position.x - m_startPoint.x) <= 0.5)
         {
             //状態リセット
             StateReset();
             StartCoroutine(WaitTime(4.0f));
         }
     }
-    void StateUpDate_Return()
+    void StateUpdate_Return()
     {
         transform.rotation = Quaternion.Euler(0, 90, 0);
 
         //開始地点に戻る
-        if (!isWait)
+        if (!m_isWait)
         {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(startPoint.x, transform.position.y, transform.position.z), _BreakSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(m_startPoint.x, transform.position.y, transform.position.z), _BreakSpeed * Time.deltaTime);
         }
 
-        if (Mathf.Abs(transform.position.x - startPoint.x) <= 0.5)
+        if (Mathf.Abs(transform.position.x - m_startPoint.x) <= 0.5)
         {
             //状態リセット
             StateReset();
@@ -226,61 +230,85 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             transform.rotation = Quaternion.Euler(0, -90, 0);
         }
     }
-    void StateUpDate_Damage()
+    void StateUpdate_Damage()
     {
-        isMove = false;
-        if (!isWait)
-            state = STATE.MOVE;
+        m_isMove = false;
+        if (!m_isWait)
+            m_state = STATE.MOVE;
     }
-    void StateUpDate_Down()
+    void StateUpdate_Down()
     {
-        if (!isWait)
+        if (!m_isWait)
         {
-            state = STATE.STANDUP;
+            m_state = STATE.STANDUP;
             StartCoroutine(WaitTime(1.0f));
         }
     }
-    void StateUpDate_StandUp()
+    void StateUpdate_StandUp()
     {
-        if(!isWait)
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(startPoint.x, transform.position.y-10, transform.position.z), 10 * Time.deltaTime);
+        
+        if (!m_isWait)
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(m_startPoint.x, transform.position.y-10, transform.position.z), 10 * Time.deltaTime);
 
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("StandUp"))
+        if (!m_anim.GetCurrentAnimatorStateInfo(0).IsName("StandUp"))
         {
-            state = STATE.RETURN;
-            isReturn = true;
+            m_state = STATE.RETURN;
+            m_isReturn = true;
+        }
+    }
+    void StateUpdate_Dead()
+    {
+        if (m_isWait) return;
+
+        m_timer -= Time.deltaTime;
+        if(m_timer <= 0)
+        {
+            m_timer = m_explosionCT;
+
+            int num = Random.Range(1, _ExplosionPos.Length / 2);
+            while(num > 0)
+            {
+                GameObject obj = Instantiate(_Explosion, _ExplosionPos[Random.Range(0, _ExplosionPos.Length)]);
+                obj.transform.localScale = new Vector3(0.02f, 0.02f, 0.02f);
+                num--;
+            }
         }
     }
 
     void SetAnim()
     {
-        anim.SetBool("Move", isMove);
-        anim.SetBool("StandBy", isStandBy);
-        anim.SetBool("Charge", isCharge);
-        anim.SetBool("Return", isReturn);
+        m_anim.SetBool("Move", m_isMove);
+        m_anim.SetBool("StandBy", m_isStandBy);
+        m_anim.SetBool("Charge", m_isCharge);
+        m_anim.SetBool("Return", m_isReturn);
     }
 
     void StateReset()
     {
         _Laser.SetActive(false);
-        state = STATE.MOVE;
-        currentHitCount = 0;
-        chargeTimeCount = 0;
-        isMove = false;
-        isWait = false;
-        isEnter = false;
-        isStandBy = false;
-        isAttackedPlayer = false;
-        isCharge = false;
-        isReturn = false;
+        m_state = STATE.MOVE;
+        m_currentHitCount = 0;
+        m_chargeTimeCount = 0;
+        m_isMove = false;
+        m_isWait = false;
+        m_isEnter = false;
+        m_isStandBy = false;
+        m_isAttackedPlayer = false;
+        m_isCharge = false;
+        m_isReturn = false;
+    }
+
+    void StageClear()
+    {
+        SwitchScene.ChangeSceneToShop();
     }
 
     //次の状態を移行までの待ち時間
     IEnumerator WaitTime(float time)
     {
-        isWait = true;
+        m_isWait = true;
         yield return new WaitForSeconds(time);
-        isWait = false;
+        m_isWait = false;
     }
 
     //ダメージを受ける
@@ -288,16 +316,23 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
     {
         Debug.Log("hit!");
         _Health--;
-        if (_Health <= 0) Destroy(gameObject);
+        if (_Health <= 0)
+        {
+            GlobalData.Instance.isStageClear = true;
+            m_state = STATE.DEAD;
+            m_anim.SetTrigger("Dead");
+            StartCoroutine(WaitTime(1.0f));
+            Invoke("StageClear", 8f);
+        }
 
-        if (state == STATE.MOVE)
+        if (m_state == STATE.MOVE)
         {
             StartCoroutine(WaitTime(0.3f));
-            anim.SetTrigger("Damage");
-            state = STATE.DAMAGE;
-        }else if(state == STATE.CHARGE)
+            m_anim.SetTrigger("Damage");
+            m_state = STATE.DAMAGE;
+        }else if(m_state == STATE.CHARGE)
         {
-            currentHitCount++;
+            m_currentHitCount++;
             //chargeTimeCount -= 1.0f;
         }
     }

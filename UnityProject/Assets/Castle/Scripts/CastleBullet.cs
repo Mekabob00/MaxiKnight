@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class CastleBullet : MonoBehaviour
 {
-    [SerializeField] private Vector3 attackTarget;
-    [SerializeField] private float moveTime;
+    [SerializeField] GameObject attackTarget;
+    [SerializeField] float moveTime;
 
     private void Awake()
     {
-        attackTarget = Vector3.zero;
+        attackTarget = null;
         moveTime = 0;
     }
 
     void Start()
     {
-        if(attackTarget == null) { Destroy(gameObject); }
         StartCoroutine(MoveTo());
+    }
+
+    private void Update()
+    {
+        if (attackTarget == null) { Destroy(gameObject); }
     }
 
     IEnumerator MoveTo()
@@ -27,14 +31,14 @@ public class CastleBullet : MonoBehaviour
         {
             t += Time.deltaTime;
             float a = t / moveTime;
-            transform.position = Vector3.Lerp(transform.position, attackTarget, a);
+            transform.position = Vector3.Lerp(transform.position, attackTarget.transform.position, a);
             if (a >= 1.0f)
                 break;
             yield return null;
         }
     }
 
-    public void _SetTarget(Vector3 _target, float _time)
+    public void _SetTarget(GameObject _target, float _time)
     {
         attackTarget = _target;
         moveTime = _time;

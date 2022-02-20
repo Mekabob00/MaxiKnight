@@ -15,6 +15,12 @@ public class UIAnimation : MonoBehaviour
         m_uistate = UISTATE.CLOSE;
     }
 
+    void Update()
+    {
+        if (GlobalData.Instance.isGameOver || GlobalData.Instance.isStageClear)
+            this.gameObject.SetActive(false);
+    }
+
     public void OnClick()
     {
         Debug.Log("Pressed");

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
 public class CastleBehavior : MonoBehaviour
 {
     #region 変数
@@ -11,34 +10,32 @@ public class CastleBehavior : MonoBehaviour
     public int _Health;
     [Header("援護射撃範囲")]
     public int _AttackRange;
-    [Header("攻撃中心")]
-    [SerializeField] private GameObject attackPoint;
-    [Header("攻撃クールターム")]
-    public float _AttackCT;
-    [Header("プレイヤー")]
+    [Header("オブジェクト")]
+    public GameObject _AttackPoint;
+    public GameObject _Explosion;
     public GameObject _PlayerPrefab;
-    [Header("弾")]
     public GameObject _BulletPrefab;
+    public Transform[] _ExplosionPos;
+    [Header("ターム")]
+    public float _AttackCT;
+    public float _ExplosionCT;
     [Header("HPBar")]
     public CastleHPBar m_hpBar;
 
-    //プライベート変数
-    private Animator m_animator;
-    [Header("攻撃対象")]
-    [SerializeField] private GameObject m_attackTarget; //援護射撃対象
-    enum CastleState { MOVE, TAKEDAMAGE, ATTACK, PLAYERREVIVAL, DEAD }
-    [Header("城状態")]
-    [SerializeField] private CastleState m_castleState;
-    private float m_timer;    //タイム計算
-    private bool m_isAttack;
-    private bool m_isDead;
-    //[SerializeField] private bool m_skipDamageAnim;
 
+    //プライベート変数
+    Animator m_animator;
+    [Header("攻撃対象")]
+    [SerializeField] GameObject m_attackTarget; //援護射撃目標
+    enum CastleState { MOVE, ATTACK, DEAD }
+    [Header("城状態")]
+    [SerializeField] CastleState m_castleState;
+    float m_timer;    //タイム計算用タイマー
+    bool m_canAttack;
     #endregion
 
     void Start()
     {
-        //m_animator = GetComponent<Animator>();
         _Health = DataManager.Instance._CastleHP;
         m_hpBar.SetMaxHealth(_Health);
     }
@@ -46,139 +43,78 @@ public class CastleBehavior : MonoBehaviour
     void Update()
     {
         SwitchState();
-        Attack();
-        //SwitchAnim();
     }
 
     void SwitchState()
     {
+        //攻撃モード移行可能
+        if (SearchEnemy())
+            m_canAttack = true;
+        else
+            m_canAttack = false;
 
+        //Debug.Log(SearchEnemy());
+        //行動
+        switch (m_castleState)
+        {
+            case CastleState.MOVE:
+                {
+                    #region 状態遷移
+                    if (m_canAttack && SearchEnemy())
+                        m_castleState = CastleState.ATTACK;
+                    #endregion
+                    break;
+                }
+            case CastleState.ATTACK:
+                {
+                    #region 攻撃
+                    m_timer -= Time.deltaTime;
+                    if (m_timer <= 0)
+                    {
+                        m_timer = _AttackCT;
+                        Attack();
+                    }
+                    #endregion
 
-        #region 過去バージョン
-        ////攻撃モード移行可能
-        //if (GlobalData.Instance.isPlayerInSecondLine && SearchEnemy())
-        //    m_isAttack = true;
-        //else
-        //    m_isAttack = false;
-        //
-        //
-        //if (GlobalData.Instance.isPlayerDead || m_isDead)
-        //    m_skipDamageAnim = true;
-        //
-        ////Debug.Log(SearchEnemy());
-        ////行動
-        //switch (m_castleState)
-        //{
-        //    case CastleState.MOVE:
-        //        {
-        //            #region 状態遷移
-        //            if (m_isDead)
-        //                m_castleState = CastleState.DEAD;
-        //            else if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("TakeDamage"))
-        //                m_castleState = CastleState.TAKEDAMAGE;
-        //            else if (GlobalData.Instance.isPlayerDead)
-        //            {
-        //                m_castleState = CastleState.PLAYERREVIVAL;
-        //                m_animator.SetTrigger("Revival");
-        //                GlobalData.Instance.isPlayerDead = false;
-        //            }
-        //            else if (m_isAttack && SearchEnemy())
-        //                m_castleState = CastleState.ATTACK;
-        //            #endregion
-        //            break;
-        //        }
-        //    case CastleState.TAKEDAMAGE:
-        //        {
-        //            #region 状態遷移
-        //            if (!m_animator.GetCurrentAnimatorStateInfo(0).IsName("TakeDamage") || m_skipDamageAnim)
-        //            {
-        //                m_skipDamageAnim = false;
-        //                if (m_isDead)
-        //                    m_castleState = CastleState.DEAD;
-        //                else if (GlobalData.Instance.isPlayerDead)
-        //                {
-        //                    m_castleState = CastleState.PLAYERREVIVAL;
-        //                    m_animator.SetTrigger("Revival");
-        //                    GlobalData.Instance.isPlayerDead = false;
-        //                }
-        //                else if (m_isAttack && SearchEnemy())
-        //                    m_castleState = CastleState.ATTACK;
-        //                else
-        //                    m_castleState = CastleState.MOVE;
-        //            }
-        //            #endregion
-        //            break;
-        //        }
-        //    case CastleState.ATTACK:
-        //        {
-        //            #region 攻撃
-        //            m_timer -= Time.deltaTime;
-        //            if (m_timer <= 0)
-        //            {
-        //                m_timer = _AttackCT;
-        //                Attack();
-        //            }
-        //            #endregion
+                    //敵がない場合攻撃モードに退出
+                    //if (!SearchEnemy())
+                    //    isAttack = false;
 
-        //            //敵がない場合攻撃モードに退出
-        //            //if (!SearchEnemy())
-        //            //    isAttack = false;
+                    #region 状態遷移
+                    if (!m_canAttack)
+                        m_castleState = CastleState.MOVE;
+                    #endregion
 
-        //            #region 状態遷移
-        //            if (m_isDead)
-        //                m_castleState = CastleState.DEAD;
-        //            else if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("TakeDamage"))
-        //                m_castleState = CastleState.TAKEDAMAGE;
-        //            else if (GlobalData.Instance.isPlayerDead)
-        //            {
-        //                m_castleState = CastleState.PLAYERREVIVAL;
-        //                m_animator.SetTrigger("Revival");
-        //                GlobalData.Instance.isPlayerDead = false;
-        //            }
-        //            else if (!m_isAttack)
-        //                m_castleState = CastleState.MOVE;
-        //            #endregion
+                    break;
+                }
+            case CastleState.DEAD:
+                m_timer -= Time.deltaTime;
+                if (m_timer <= 0)
+                {
+                    m_timer = _ExplosionCT;
+                    CreateExplosion();
+                }
+                break;
+        }
+    }
 
-        //            break;
-        //        }
-        //    case CastleState.PLAYERREVIVAL:
-        //        {
-        //            #region 状態遷移
-        //            if (!m_animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerRevival"))
-        //            {
-        //                if (m_isDead)
-        //                    m_castleState = CastleState.DEAD;
-        //                else if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("TakeDamage"))
-        //                    m_castleState = CastleState.TAKEDAMAGE;
-        //                else if (m_isAttack && SearchEnemy())
-        //                    m_castleState = CastleState.ATTACK;
-        //                else
-        //                    m_castleState = CastleState.MOVE;
-        //            }
-        //            #endregion
-        //            break;
-        //        }
-        //    case CastleState.DEAD:
-        //        m_isDead = false;
-        //        break;
-        //}
-        #endregion
+    void CreateExplosion()
+    {
+        int num = Random.Range(1, _ExplosionPos.Length / 2);
+        while(num > 0)
+        {
+            GameObject obj = Instantiate(_Explosion, _ExplosionPos[Random.Range(0, _ExplosionPos.Length)]);
+            obj.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            num--;
+        }
     }
 
     void Attack()
     {
         if (!SearchEnemy()) { return; }
         //弾生成
-        var bullet = Instantiate(_BulletPrefab, attackPoint.transform.position, Quaternion.identity);
-        bullet.GetComponent<CastleBullet>()._SetTarget(m_attackTarget.transform.position, 0.5f);
-        //エネミー側の関数(弾発射なし)
-        //attackTarget.GetComponent<IPlayerDamege>()._AddDamege(1);
-    }
-
-    void SwitchAnim()
-    {
-        m_animator.SetBool("Attack", m_isAttack);
-        m_animator.SetBool("Death", m_isDead);
+        var bullet = Instantiate(_BulletPrefab, _AttackPoint.transform.position, Quaternion.identity);
+        bullet.GetComponent<CastleBullet>()._SetTarget(m_attackTarget, 0.5f);
     }
 
     //------------------------------------------------------------
@@ -228,31 +164,15 @@ public class CastleBehavior : MonoBehaviour
     //エネミーの攻撃を受ける
     public void _AddDamage(int _damage)
     {
+        if (m_castleState == CastleState.DEAD) return;
+
         _Health -= _damage;
-        //m_animator.SetTrigger("TakeDamage");
         DataManager.Instance._CastleHP = _Health;
         m_hpBar.SetCurrentHealth(_Health);
-       // m_skipDamageAnim = false;
         if (_Health <= 0)
         {
-            m_isDead = true;
+            m_castleState = CastleState.DEAD;
             GlobalData.Instance.isGameOver = true;
-            Destroy(gameObject);
         }
-    }
-
-    //------------------------------------------------------------
-    //AnimationEvent用
-    //城を破壊する
-    public void CastleDestory()
-    {
-        GlobalData.Instance.isGameOver = true;
-        Destroy(gameObject);
-    }
-
-    //動画と合わせる
-    public void RevivalPlayer()
-    {
-        Instantiate(_PlayerPrefab);
     }
 }
