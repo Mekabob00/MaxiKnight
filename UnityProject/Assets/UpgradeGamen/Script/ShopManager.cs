@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,23 +28,23 @@ public class ShopManager : MonoBehaviour
         switch (selectItem)
         {
             case SELECTITEM.NON:
-                text.text = "Non";
+                text.text = "商品を選んでください。";
                 break;
             case SELECTITEM.CASTLERECOVERY:
-                text.text = "CastleRecovery";
+                text.text = "拠点を修理して、\n耐久度を最大値まで回復させます。\n現在の修理回数は" + (DataManager.Instance._CastleRecoveryFee/100-1)+ "回です。";
                 break;
             case SELECTITEM.CASTLEATTACKBUFF:
-                text.text = "CastleAttackBuff";
+                text.text = "拠点を強化して、\n拠点の攻撃力を上昇させます。\n現在の強化回数は" + (DataManager.Instance._CastleAttackBuffFee / 100 - 1) + "回です。";
                 break;
             case SELECTITEM.PLAYERATTACKBUFF:
-                text.text = "PlayerAttackBuff";
+                text.text = "機体を修理して、\n機体の攻撃力を上昇させます。\n現在の強化回数は" + (DataManager.Instance._PlayerAttackBuffFee / 100 - 1) + "回です。";
                 break;
         }
         TextUpDate();
     }
 
-    #region �V���b�v�@�\�֐�
-    //�����\���X�V
+    #region 긘깈긞긵??듫릶
+    //럱뙶?렑뛛륷
     void TextUpDate()
     {
         _OwnResource.text = DataManager.Instance._Resource.ToString();
@@ -52,7 +52,7 @@ public class ShopManager : MonoBehaviour
         _CastleAttackBuffFee.text = DataManager.Instance._CastleAttackBuffFee.ToString();
         _PlayerAttackBuffFee.text = DataManager.Instance._PlayerAttackBuffFee.ToString();
     }
-    //���_��
+    //땼?됷븳
     void CastleRecovery()
     {
         if (DataManager.Instance._Resource < DataManager.Instance._CastleRecoveryFee) return;
@@ -62,7 +62,7 @@ public class ShopManager : MonoBehaviour
         DataManager.Instance._CastleRecoveryFee += 100;
         DataManager.Instance._CastleHP += 1;
     }
-    //���_����
+    //땼?떗돸
     void CastleAttackBuff()
     {
         if (DataManager.Instance._Resource < DataManager.Instance._CastleAttackBuffFee) return;
@@ -71,7 +71,7 @@ public class ShopManager : MonoBehaviour
         DataManager.Instance._CastleAttackBuffFee += 100;
         DataManager.Instance._CastleAttackBuff += 1;
     }
-    //�v���C���[����
+    //긵깒귽깂?떗돸
     void PlayerAttackBuff()
     {
         if (DataManager.Instance._Resource < DataManager.Instance._PlayerAttackBuffFee) return;
@@ -82,8 +82,8 @@ public class ShopManager : MonoBehaviour
     }
     #endregion
 
-    #region �V���b�v���e��{�^���p�̊֐�
-    //�w��
+    #region 긘깈긞긵볙둫롰??깛뾭궻듫릶
+    //뛶볺
     public void Button_Buy()
     {
         switch (selectItem)
@@ -121,7 +121,7 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    //�ڋߐ핐��ύX
+    //먝뗟먰븧딇빾뛛
     public void Button_WeaponChangeSword1()
     {
         DataManager.Instance._WeaponNumberSword = 1;
@@ -135,7 +135,7 @@ public class ShopManager : MonoBehaviour
         DataManager.Instance._WeaponNumberSword = 3;
     }
 
-    //����������ύX
+    //돀떁뿣븧딇빾뛛
     public void Button_WeaponChangeGun1()
     {
         DataManager.Instance._WeaponNumberGun = 1;
