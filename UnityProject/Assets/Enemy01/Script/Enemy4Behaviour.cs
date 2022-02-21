@@ -24,6 +24,8 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
     private GameObject _GlobalDataObject = null;
     [SerializeField, Tooltip("エフェクト")]
     private GameObject Effct;
+    [SerializeField, Tooltip("SE")]
+    private AudioClip Damege;
 
     #endregion
 
@@ -71,7 +73,7 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
         PlayerFocus();
         Debug.Log(dis);
       //  IsAttackFlag();
-        if (_IsAddDamageEffect)//ダメージを食らった後のEffect最中
+       /* if (_IsAddDamageEffect)//ダメージを食らった後のEffect最中
         {
             if (this.transform.position.y < _HighPos)
             {
@@ -85,7 +87,7 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
                 this.transform.position = pos;
             }
             return;
-        }
+        }*/
         if (_IsMoveActive && !_IsAttackFlag)
         { 
               Enemy.transform.position= Vector3.MoveTowards(transform.position, castle.transform.position,2*Time.deltaTime);
@@ -106,10 +108,10 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
     /// <param name="damage">ダメージ量</param>
     public void _AddDamege(float _Damege)
     {
-        if (_IsAddDamageEffect)//ダメージを与えない
+      /*  if (_IsAddDamageEffect)//ダメージを与えない
         {
             return;
-        }
+        }*/
 
         var after = _HP - _Damege;
 
@@ -118,12 +120,14 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
         {
             //仮
             Instantiate(Effct, transform.position, transform.rotation);
+            EnemyAttackManeger.instance.PlaySE(Damege);
             Destroy(this.gameObject);
             return;
         }
         else if (after != _HP)//ダメージを受けたら
         {
             Instantiate(Effct, transform.position, transform.rotation);
+            EnemyAttackManeger.instance.PlaySE(Damege);
             //ダメージを受けた時の処理
             StartCoroutine(AddDamageMove());
 
@@ -140,7 +144,7 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
         {
             Debug.Log("攻撃");
             var Enemy4Damege = other.gameObject.GetComponent<IPlayerDamege>();
-            Enemy4Damege._AddDamege(3); //強攻撃
+            Enemy4Damege._AddDamege(1); //強攻撃
 
         }
     }
