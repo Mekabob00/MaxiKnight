@@ -149,5 +149,11 @@ public class ShopManager : MonoBehaviour
         DataManager.Instance._WeaponNumberGun = 3;
     }
 
+    public void Button_NextStage()
+    {
+        string stage = "Stage0";
+        GlobalData.Instance.ResetData();
+        FadeManager.Instance.LoadScene(stage, 1.0f);
+    }
     #endregion
 }

@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// エフェクト終了後自動削除
+/// </summary>
 public class ParticleAutoDestruction : MonoBehaviour
 {
     private ParticleSystem[] particleSystems;

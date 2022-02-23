@@ -8,8 +8,6 @@ public class GlobalData : MonoBehaviour
 
     [Header("砲弾出現")]
     public bool isCanonAppear;
-    [Header("援護射撃起動")]
-    public bool isPlayerInSecondLine;
     [Header("ゲームオーバー")]
     public bool isGameOver;
     [Header("ステージクリア")]
@@ -30,7 +28,6 @@ public class GlobalData : MonoBehaviour
     private void Start()
     {
         isCanonAppear = false;
-        isPlayerInSecondLine = false;
         isGameOver = false;
         isStageClear = false;
     }

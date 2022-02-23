@@ -3,21 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public static class SwitchScene
+public class SwitchScene : MonoBehaviour
 {
-    public static void ChangeSceneToTitle()
+    public static bool _ToShopScene;
+    public static bool _ToTitleScene;
+    public static bool _ToClearScene;
+
+    Animator m_animator;
+    void Start()
+    {
+        _ToShopScene = false;
+        _ToTitleScene = false;
+        _ToClearScene = false;
+        m_animator = GetComponent<Animator>();
+    }
+
+    public void ChangeScene()
+    {
+        if (_ToShopScene)
+            ChangeSceneToShop();
+        if (_ToTitleScene)
+            ChangeSceneToTitle();
+        if (_ToClearScene)
+            ChangeScceneToClear();
+    }
+
+    void ChangeSceneToTitle()
     {
         SceneManager.LoadScene("Title");
     }
-    public static void ChangeSceneToStage()
+    public void ChangeSceneToStage()
     {
         SceneManager.LoadScene("Stage0");
     }
-    public static void ChangeSceneToShop()
+    void ChangeSceneToShop()
     {
         SceneManager.LoadScene("Shop");
     }
-    public static void ChangeScceneToClear()
+    void ChangeScceneToClear()
     {
         SceneManager.LoadScene("Clear0");
     }

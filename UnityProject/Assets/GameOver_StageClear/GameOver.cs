@@ -39,24 +39,26 @@ public class GameOver : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.RightArrow))
                 {
                     m_cursor = CURSOR.GIVEUP;
-                    _Cursor.transform.position += new Vector3(1560, 0, 0);
+                    _Cursor.transform.localPosition = new Vector3(100, -45, 0);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Z))
                 {
-                    SwitchScene.ChangeSceneToShop();
+                    DataManager.Instance._CastleHP = DataManager.Instance._CastleMaxHP;
+                    FadeManager.Instance.LoadScene("Shop", 0.1f);
                 }
                 break;
             case CURSOR.GIVEUP:
                 if (Input.GetKeyDown(KeyCode.LeftArrow))
                 {
                     m_cursor = CURSOR.CONTINUE;
-                    _Cursor.transform.position += new Vector3(-1560, 0, 0);
+                    _Cursor.transform.localPosition = new Vector3(-620, -45, 0);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Z))
                 {
-                    SwitchScene.ChangeSceneToTitle();
+                    DataManager.Instance.Reset();
+                    FadeManager.Instance.LoadScene("Title", 0.1f);
                 }
                 break;
         }
