@@ -28,16 +28,16 @@ public class ShopManager : MonoBehaviour
         switch (selectItem)
         {
             case SELECTITEM.NON:
-                text.text = "Non";
+                text.text = "商品を選んでください。";
                 break;
             case SELECTITEM.CASTLERECOVERY:
-                text.text = "CastleRecovery";
+                text.text = "拠点を修理して、\n耐久度を最大値まで回復させます。\n現在の修理回数は" + (DataManager.Instance._CastleRecoveryFee / 100 - 1) + "回です。";
                 break;
             case SELECTITEM.CASTLEATTACKBUFF:
-                text.text = "CastleAttackBuff";
+                text.text = "拠点を強化して、\n拠点の攻撃力を上昇させます。\n現在の強化回数は" + (DataManager.Instance._CastleAttackBuffFee / 100 - 1) + "回です。";
                 break;
             case SELECTITEM.PLAYERATTACKBUFF:
-                text.text = "PlayerAttackBuff";
+                text.text = "機体を修理して、\n機体の攻撃力を上昇させます。\n現在の強化回数は" + (DataManager.Instance._PlayerAttackBuffFee / 100 - 1) + "回です。";
                 break;
         }
         TextUpDate();
