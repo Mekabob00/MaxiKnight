@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5267897546685419713}
   - component: {fileID: -2718930544192497443}
   - component: {fileID: 257563540}
+  - component: {fileID: 238334450}
+  - component: {fileID: 238334449}
   m_Layer: 0
   m_Name: BossAttackArea
   m_TagString: Untagged
@@ -95,9 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63de73631beaa724494a5d4bba86df7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Area: 0
-  _SetTime: 0
+  _Area: 4
   _Damage: 0
+  _Effect: {fileID: 2886189059328443225, guid: 9a4438211fb2e4547b050c2457cafb2c, type: 3}
 --- !u!95 &257563540
 Animator:
   serializedVersion: 3
@@ -117,3 +119,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &238334450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804531715904009248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f3718adf5eec44f8745c16062c42af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+--- !u!65 &238334449
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804531715904009248}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

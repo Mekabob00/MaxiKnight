@@ -69,7 +69,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 50527221}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.1, y: 26.9, z: -6.83}
+  m_LocalPosition: {x: 22.612, y: 26.9, z: -6.401}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 594244964}
@@ -157,7 +157,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 312984571}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.02, y: 35.2, z: -17.54}
+  m_LocalPosition: {x: 3.9, y: 35.2, z: -16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 594244964}
@@ -241,7 +241,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 661556885}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.7, y: 21.1, z: -19}
+  m_LocalPosition: {x: 6.981, y: 21.1, z: -18.143}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 594244964}
@@ -315,7 +315,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1385161912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.4, y: 27.2, z: -48.7}
+  m_LocalPosition: {x: 4.71, y: 27.2, z: -41.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 594244964}
@@ -491,7 +491,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2144005216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2, y: 30.2, z: -31.1}
+  m_LocalPosition: {x: 2.2, y: 29.102, z: -31.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 594244964}
@@ -1822,7 +1822,7 @@ MonoBehaviour:
   _Health: 100
   _AttackRange: 18
   _AttackPoint: {fileID: 7274524476188251633}
-  _Explosion: {fileID: 43556880712326259, guid: 9a4438211fb2e4547b050c2457cafb2c, type: 3}
+  _Explosion: {fileID: 2886189059328443225, guid: 9a4438211fb2e4547b050c2457cafb2c, type: 3}
   _PlayerPrefab: {fileID: 0}
   _BulletPrefab: {fileID: 5063920731970778596, guid: 85cc7e399f73d2c48aa3e4650fe1dc7f, type: 3}
   _ExplosionPos:
@@ -1836,6 +1836,7 @@ MonoBehaviour:
   - {fileID: 2144005217}
   - {fileID: 21344004}
   - {fileID: 160842241}
+  _DamageEffect: {fileID: 6905903939417113979, guid: dedfb3139b45fd249bdca337ec6d05b7, type: 3}
   _AttackCT: 1
   _ExplosionCT: 0.5
   m_hpBar: {fileID: 0}

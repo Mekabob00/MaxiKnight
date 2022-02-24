@@ -53,25 +53,25 @@ MonoBehaviour:
     value: 1
   temperature:
     overrideState: 1
-    value: -8
+    value: -1
   tint:
     overrideState: 0
-    value: -8
+    value: 0
   colorFilter:
     overrideState: 1
-    value: {r: 1.3041189, g: 1.3041189, b: 1.3041189, a: 1}
+    value: {r: 1.6245048, g: 1.6245048, b: 1.6245048, a: 1}
   hueShift:
     overrideState: 1
     value: 0
   saturation:
     overrideState: 1
-    value: 22
+    value: 9
   brightness:
     overrideState: 0
     value: 0
   postExposure:
-    overrideState: 1
-    value: -0.41
+    overrideState: 0
+    value: 0
   contrast:
     overrideState: 1
     value: 9
@@ -1332,7 +1332,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.63
+    value: 0.99
   color:
     overrideState: 1
     value: {r: 0, g: 0, b: 0, a: 1}
@@ -1350,16 +1350,16 @@ MonoBehaviour:
     value: -12
   thicknessModifier:
     overrideState: 1
-    value: 1
+    value: 1.05
   directLightingStrength:
     overrideState: 0
     value: 0
   radius:
-    overrideState: 1
+    overrideState: 0
     value: 0.25
   quality:
-    overrideState: 1
-    value: 4
+    overrideState: 0
+    value: 2
 --- !u!114 &-1928633775971206506
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1378,13 +1378,13 @@ MonoBehaviour:
     value: 1
   focusDistance:
     overrideState: 1
-    value: 22.38
+    value: 4.04
   aperture:
     overrideState: 1
-    value: 6.4
+    value: 15.2
   focalLength:
     overrideState: 1
-    value: 209
+    value: 82
   kernelSize:
     overrideState: 1
     value: 3
@@ -1405,7 +1405,6 @@ MonoBehaviour:
   - {fileID: -5245144695925891407}
   - {fileID: -1928633775971206506}
   - {fileID: -6775882729209608465}
-  - {fileID: 7739787740998655931}
 --- !u!114 &2699868040692277162
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1424,16 +1423,16 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 4.9
+    value: 5.29
   threshold:
     overrideState: 1
-    value: 2.32
+    value: 1.82
   softKnee:
     overrideState: 1
-    value: 0.738
+    value: 0.412
   clamp:
     overrideState: 1
-    value: 1.95
+    value: 2.5
   diffusion:
     overrideState: 1
     value: 5.52
@@ -1453,40 +1452,3 @@ MonoBehaviour:
   dirtIntensity:
     overrideState: 0
     value: 0
---- !u!114 &7739787740998655931
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a34fa72bd4185749832024e9c8010bf, type: 3}
-  m_Name: ScreenSpaceReflections
-  m_EditorClassIdentifier: 
-  active: 0
-  enabled:
-    overrideState: 1
-    value: 1
-  preset:
-    overrideState: 1
-    value: 6
-  maximumIterationCount:
-    overrideState: 0
-    value: 16
-  resolution:
-    overrideState: 0
-    value: 0
-  thickness:
-    overrideState: 0
-    value: 8
-  maximumMarchDistance:
-    overrideState: 0
-    value: 100
-  distanceFade:
-    overrideState: 0
-    value: 0.5
-  vignette:
-    overrideState: 0
-    value: 0.5

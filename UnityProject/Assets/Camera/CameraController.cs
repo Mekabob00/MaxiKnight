@@ -7,6 +7,7 @@ public class CameraController : MonoBehaviour
 	enum STATE { NORMAL, STAGECLEAR, GAMEOVER };
 	STATE m_state;
 
+	public Transform _Player;
 	public Transform _GameOverViewPos; //‹’“_
 	public Transform _Castle;
 	public Transform _StageClearViewPos; //ƒ{ƒX
@@ -31,6 +32,8 @@ public class CameraController : MonoBehaviour
         switch (m_state)
         {
 			case STATE.NORMAL:
+				transform.position = new Vector3(_Player.position.x + 1.5f, 3.8f, -8.45f);
+
 				if (GlobalData.Instance.isGameOver)
 					m_state = STATE.GAMEOVER;
 				if (GlobalData.Instance.isStageClear)
@@ -54,7 +57,7 @@ public class CameraController : MonoBehaviour
 		if (Vector3.Angle(vec, transform.forward) > 0.1f)
         {
 			Quaternion rotate = Quaternion.LookRotation(vec);
-			transform.localRotation = Quaternion.Slerp(transform.localRotation, rotate, 0.03f);
+			transform.localRotation = Quaternion.Lerp(transform.localRotation, rotate, 0.1f);
         }
 	}
 

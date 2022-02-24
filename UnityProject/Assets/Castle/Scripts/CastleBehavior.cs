@@ -16,6 +16,7 @@ public class CastleBehavior : MonoBehaviour
     public GameObject _PlayerPrefab;
     public GameObject _BulletPrefab;
     public Transform[] _ExplosionPos;
+    public GameObject _DamageEffect;
     [Header("É^Å[ÉÄ")]
     public float _AttackCT;
     public float _ExplosionCT;
