@@ -6,26 +6,35 @@ public class SearchArea : MonoBehaviour
 {
     [Header("攻撃範囲")]
     public float _Area;
-    [Header("猶予時間")]
-    public float _SetTime;
     [Header("ダメージ")]
     public int _Damage;
+    [Header("オブジェクト")]
+    public GameObject _Effect;
+    public GameObject _NapalmBomb;
 
-    GameObject attackTarget;
-    Animator anim;
-    bool isAttack;
+    GameObject m_attackTarget;
+    Vector3 m_velocuty; //速度
+    Vector3 m_accleration; //加速度
+    bool m_canAttack;
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
-        isAttack = false;
+        m_canAttack = false;
+        m_velocuty = Vector3.zero;
+        m_accleration = new Vector3(0, -30, 0); //3倍重力
         transform.localScale = new Vector3(_Area, 0.1f, _Area);
     }
 
     private void Update()
     {
-        _SetTime -= Time.deltaTime;
-        if(_SetTime <= 0 && !isAttack)
+        if (_NapalmBomb != null)
+        {
+            //加速度は時間の平方根
+            m_velocuty += m_accleration * Time.deltaTime;
+            _NapalmBomb.transform.position += m_velocuty * Time.deltaTime;
+        }
+
+        if (m_canAttack && SearchPlayer())
         {
             Attack();
         }
@@ -33,10 +42,8 @@ public class SearchArea : MonoBehaviour
 
     void Attack()
     {
-        isAttack = true;
-        anim.SetTrigger("Attack");
-        if (SearchPlayer())
-            attackTarget.GetComponent<Player_Controll>()._AddDamege(_Damage);
+        m_canAttack = false;
+        m_attackTarget.GetComponent<Player_Controll>()._AddDamege(_Damage);
     }
 
     bool SearchPlayer()
@@ -46,12 +53,24 @@ public class SearchArea : MonoBehaviour
         {
             if (target.tag == "Player")
             {
-                attackTarget = target.gameObject;
+                m_attackTarget = target.gameObject;
                 Debug.Log("Attack Player");
                 return true;
             }
         }
         return false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "NapalmBomb")
+        {
+            Destroy(other.gameObject);
+            Destroy(this.gameObject, 1f);
+            GameObject temp = Instantiate(_Effect, transform.position, transform.rotation);
+            temp.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+            m_canAttack = true;
+        }
     }
 
     //範囲表示
@@ -61,10 +80,4 @@ public class SearchArea : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, _Area / 2.0f);
         //Gizmos.DrawWireCube(transform.position, new Vector3(_AttackRange, 20, 20));
     }
-
-    public void DestoryThis()
-    {
-        Destroy(gameObject, 1.0f);
-    }
-
 }

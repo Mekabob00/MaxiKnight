@@ -13,6 +13,7 @@ TagManager:
   - Player Attack Area
   - Castle
   - Item
+  - NapalmBomb
   layers:
   - Default
   - TransparentFX

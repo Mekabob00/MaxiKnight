@@ -6,10 +6,12 @@ public class CastleBullet : MonoBehaviour
 {
     [SerializeField] GameObject attackTarget;
     [SerializeField] float moveTime;
+    float damage;
 
     private void Awake()
     {
         attackTarget = null;
+        damage = DataManager.Instance._CastleAttackBuff;
         moveTime = 0;
     }
 
@@ -48,7 +50,7 @@ public class CastleBullet : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<IPlayerDamege>()._AddDamege(1);
+            other.GetComponent<IPlayerDamege>()._AddDamege(damage);
             Destroy(gameObject);
         }
     }

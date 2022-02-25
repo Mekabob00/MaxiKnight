@@ -45,12 +45,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _WeaponNumberSword: 0
   _WeaponNumberGun: 0
-  _PlayerAttackBuff: 0
+  _PlayerAttackBuff: 1
   _CastleHP: 0
   _CastleMaxHP: 10
   _CastleAttackBuff: 0
   _Resource: 0
   _Stage: 0
+  _MaxStage: 5
   _CastleRecoveryFee: 0
   _CastleAttackBuffFee: 0
   _PlayerAttackBuffFee: 0

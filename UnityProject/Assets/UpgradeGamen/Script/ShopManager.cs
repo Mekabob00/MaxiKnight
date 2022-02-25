@@ -1,4 +1,4 @@
-ï»¿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,23 +28,23 @@ public class ShopManager : MonoBehaviour
         switch (selectItem)
         {
             case SELECTITEM.NON:
-                text.text = "å•†å“ã‚’é¸ã‚“ã§ãã ã•ã„ã€‚";
+                text.text = "¤•i‚ğ‘I‚ñ‚Å‚­‚¾‚³‚¢B";
                 break;
             case SELECTITEM.CASTLERECOVERY:
-                text.text = "æ‹ ç‚¹ã‚’ä¿®ç†ã—ã¦ã€\nè€ä¹…åº¦ã‚’æœ€å¤§å€¤ã¾ã§å›å¾©ã•ã›ã¾ã™ã€‚\nç¾åœ¨ã®ä¿®ç†å›æ•°ã¯" + (DataManager.Instance._CastleRecoveryFee/100-1)+ "å›ã§ã™ã€‚";
+                text.text = "‹’“_‚ğC—‚µ‚ÄA\n‘Ï‹v“x‚ğÅ‘å’l‚Ü‚Å‰ñ•œ‚³‚¹‚Ü‚·B\nŒ»İ‚ÌC—‰ñ”‚Í" + (DataManager.Instance._CastleRecoveryFee / 100 - 1) + "‰ñ‚Å‚·B";
                 break;
             case SELECTITEM.CASTLEATTACKBUFF:
-                text.text = "æ‹ ç‚¹ã‚’å¼·åŒ–ã—ã¦ã€\næ‹ ç‚¹ã®æ”»æ’ƒåŠ›ã‚’ä¸Šæ˜‡ã•ã›ã¾ã™ã€‚\nç¾åœ¨ã®å¼·åŒ–å›æ•°ã¯" + (DataManager.Instance._CastleAttackBuffFee / 100 - 1) + "å›ã§ã™ã€‚";
+                text.text = "‹’“_‚ğ‹­‰»‚µ‚ÄA\n‹’“_‚ÌUŒ‚—Í‚ğã¸‚³‚¹‚Ü‚·B\nŒ»İ‚Ì‹­‰»‰ñ”‚Í" + (DataManager.Instance._CastleAttackBuffFee / 100 - 1) + "‰ñ‚Å‚·B";
                 break;
             case SELECTITEM.PLAYERATTACKBUFF:
-                text.text = "æ©Ÿä½“ã‚’ä¿®ç†ã—ã¦ã€\næ©Ÿä½“ã®æ”»æ’ƒåŠ›ã‚’ä¸Šæ˜‡ã•ã›ã¾ã™ã€‚\nç¾åœ¨ã®å¼·åŒ–å›æ•°ã¯" + (DataManager.Instance._PlayerAttackBuffFee / 100 - 1) + "å›ã§ã™ã€‚";
+                text.text = "‹@‘Ì‚ğC—‚µ‚ÄA\n‹@‘Ì‚ÌUŒ‚—Í‚ğã¸‚³‚¹‚Ü‚·B\nŒ»İ‚Ì‹­‰»‰ñ”‚Í" + (DataManager.Instance._PlayerAttackBuffFee / 100 - 1) + "‰ñ‚Å‚·B";
                 break;
         }
         TextUpDate();
     }
 
-    #region ê¸˜ê¹ˆê¸ê¸µ??ë“«ë¦¶
-    //ëŸ±ë™¶?ë ‘ë››ë¥·
+    #region ƒVƒ‡ƒbƒv‹@”\ŠÖ”
+    //‘Œ¹•\¦XV
     void TextUpDate()
     {
         _OwnResource.text = DataManager.Instance._Resource.ToString();
@@ -52,7 +52,7 @@ public class ShopManager : MonoBehaviour
         _CastleAttackBuffFee.text = DataManager.Instance._CastleAttackBuffFee.ToString();
         _PlayerAttackBuffFee.text = DataManager.Instance._PlayerAttackBuffFee.ToString();
     }
-    //ë•¼?ë·ë¸³
+    //‹’“_‰ñ•œ
     void CastleRecovery()
     {
         if (DataManager.Instance._Resource < DataManager.Instance._CastleRecoveryFee) return;
@@ -62,7 +62,7 @@ public class ShopManager : MonoBehaviour
         DataManager.Instance._CastleRecoveryFee += 100;
         DataManager.Instance._CastleHP += 1;
     }
-    //ë•¼?ë–—ë¸
+    //‹’“_‹­‰»
     void CastleAttackBuff()
     {
         if (DataManager.Instance._Resource < DataManager.Instance._CastleAttackBuffFee) return;
@@ -71,7 +71,7 @@ public class ShopManager : MonoBehaviour
         DataManager.Instance._CastleAttackBuffFee += 100;
         DataManager.Instance._CastleAttackBuff += 1;
     }
-    //ê¸µê¹’ê·½ê¹‚?ë–—ë¸
+    //ƒvƒŒƒCƒ„[‹­‰»
     void PlayerAttackBuff()
     {
         if (DataManager.Instance._Resource < DataManager.Instance._PlayerAttackBuffFee) return;
@@ -82,8 +82,8 @@ public class ShopManager : MonoBehaviour
     }
     #endregion
 
-    #region ê¸˜ê¹ˆê¸ê¸µë³™ë‘«ë¡°??ê¹›ë¾­ê¶»ë“«ë¦¶
-    //ë›¶ë³º
+    #region ƒVƒ‡ƒbƒv“àŠeíƒ{ƒ^ƒ“—p‚ÌŠÖ”
+    //w“ü
     public void Button_Buy()
     {
         switch (selectItem)
@@ -121,7 +121,7 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    //ë¨ë—Ÿë¨°ë¸§ë”‡ë¹¾ë››
+    //Ú‹ßí•Ší•ÏX
     public void Button_WeaponChangeSword1()
     {
         DataManager.Instance._WeaponNumberSword = 1;
@@ -135,7 +135,7 @@ public class ShopManager : MonoBehaviour
         DataManager.Instance._WeaponNumberSword = 3;
     }
 
-    //ë€ë–ë¿£ë¸§ë”‡ë¹¾ë››
+    //‰“‹——£•Ší•ÏX
     public void Button_WeaponChangeGun1()
     {
         DataManager.Instance._WeaponNumberGun = 1;
@@ -149,5 +149,11 @@ public class ShopManager : MonoBehaviour
         DataManager.Instance._WeaponNumberGun = 3;
     }
 
+    public void Button_NextStage()
+    {
+        string stage = "Stage0";
+        GlobalData.Instance.ResetData();
+        FadeManager.Instance.LoadScene(stage, 1.0f);
+    }
     #endregion
 }
