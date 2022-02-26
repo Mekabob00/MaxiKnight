@@ -2684,10 +2684,12 @@ MonoBehaviour:
   PlayerAttackPoint: 0
   _HitBase: {fileID: 1374840035846192599}
   _SwordObject: {fileID: 6464102517153566040}
+  _AttackSpeed: 1
   _CombAttackGraceTime: 1
   _AttackPatternNum: 3
   _AvoidanceValue: 5
   _MAXHP: 100
+  _SwordCollider: {fileID: 0}
   SmoothTime: 2
   Speed: 1
   JourneyLength: 10
@@ -8728,6 +8730,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 150369d6d667d7d4a97810137da935b6, type: 3}
       propertyPath: m_Name
       value: AK
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 150369d6d667d7d4a97810137da935b6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 150369d6d667d7d4a97810137da935b6, type: 3}
