@@ -158,7 +158,7 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 11:
-                maxDispStr = "この機体は近接武装と遠距離武装を一種ずつ装備することができます。\n現在装備している武器は近接武装の刀と、遠距離武装のライフルです";
+                maxDispStr = "この機体は近接武装を装備することができます。\n現在装備している武器は近接武装の刀です";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 12;
@@ -169,7 +169,7 @@ public class tutorial_Controll : MonoBehaviour
                 maxDispStr = "近接攻撃は、近い一にある敵を攻撃することが可能、\n3回まで連続で攻撃出来ます。近接攻撃はZキーを押してください";
                 if (Input.GetKeyDown(KeyCode.Z))
                 {
-                    TutorialNum = 13;
+                    TutorialNum = 15;
                     nowDispCount = 0.0f;
                 }
                 break;
@@ -190,7 +190,7 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 15:
-                maxDispStr = "大量で敵が押し寄せてくる場合、\n遠距離攻撃で近距離攻撃を使い分ける必要があります。";
+                maxDispStr = "大量で敵が押し寄せてくる場合、\n遠距離攻撃で近距離攻撃を使い分ける必要があります。";//変更必須
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 16;

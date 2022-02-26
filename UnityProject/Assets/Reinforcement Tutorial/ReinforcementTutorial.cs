@@ -192,7 +192,7 @@ public class ReinforcementTutorial : MonoBehaviour
                maxDispStr = "方法は修理と同じだよ。\n一回、ボタンを押して、左に詳細が表示される。\nそして、購入ボタンを押す。もしくはキーボードの2を2回押す。\nやってみようか";
                 CastleRecovery.interactable=false;
                 CastleAttackBuff.interactable = true;
-                if(DataManager.Instance._CastleAttackBuff==1)//DataManegerで管理
+                if(DataManager.Instance._CastleAttackBuff==2)//DataManegerで管理
                 {
                     TutorialNum = 13;
                     nowDispCount = 0.0f;
@@ -237,7 +237,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 }
                 break;
             case 17:
-                maxDispStr = "装備できる武器は、近接と遠距離、それぞれ三種類あるよ。\nそれぞれ、武器による特性が違うから説明文を読んでね";
+                maxDispStr = "装備できる武器は、近接、三種類あるよ。\nそれぞれ、武器による特性が違うから説明文を読んでね";
                 if(Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 18;
@@ -246,7 +246,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 break;
             case 18:
                 ShortSowrd.interactable = true;
-                maxDispStr = "上の三つが近距離武器、下の三つが遠距離武器。\nそれじゃ、近距離武器を変えてみようか。\n真ん中の短検をクリック..もしくはキーボードの2を押してね";
+                maxDispStr = "上の三つが近距離武器。\nそれじゃ、近距離武器を変えてみようか。\n真ん中の<短検>をクリック..もしくはキーボードの2を押してね";
                 if(Input.GetKeyDown(KeyCode.Alpha2)||case18)
                 {
                     TutorialNum = 19;
@@ -254,7 +254,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 }
                 break;
             case 19:
-                maxDispStr = "武器は何回でも交換できるから、自分にあった武器を探して使ってね！\nそれと、マウスでクリックしなくても..\n近距離武器はキーボードの1,2,3キーで、\n遠距離武器はキーボードのQ,W,Eキーで変えられるよ！";
+                maxDispStr = "武器は何回でも交換できるから、自分にあった武器を探して使ってね！\nそれと、マウスでクリックしなくても..\n近距離武器はキーボードの1,2,3キーで変えられるよ！";
                 if(Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 20;

@@ -1583,6 +1583,7 @@ GameObject:
   - component: {fileID: 881875386844155380}
   - component: {fileID: 3974485362278721208}
   - component: {fileID: 8332321571208239103}
+  - component: {fileID: 237285792005069537}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Untagged
@@ -1666,8 +1667,13 @@ MonoBehaviour:
   AttackSE: {fileID: 0}
   DieSE: {fileID: 0}
   _Damage: 0
+  Effect: {fileID: 0}
+  DidEffect: {fileID: 0}
+  Item: {fileID: 0}
   span: 3
+  _IsAddDamageEffect: 0
   _IsMoveActive: 0
+  _IsAttackFlag: 0
   castle: {fileID: 0}
   Enemy: {fileID: 0}
   castlePosition: {x: 0, y: 0, z: 0}
@@ -1684,6 +1690,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.36, z: 1}
   m_Center: {x: -0.2, y: 0.72, z: 0.01}
+--- !u!114 &237285792005069537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8229912166651804817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2286d3421f9d9ea4a8b57d90ac93c063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _NowLane: 0
 --- !u!1 &8278692773378955883
 GameObject:
   m_ObjectHideFlags: 0
