@@ -25,15 +25,10 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
     private GameObject _SwordObject = null;
 
     [SerializeField, Tooltip("UŒ‚‘¬“x")]
-    private float _AttackSpeed = 1.0f;
+    private List<float> _AttackSpeed;
 
     [SerializeField, Tooltip("˜A‘±UŒ‚‚Ì—P—\ŠÔ")]
-    private float _CombAttackGraceTime = 1.0f;
-
-    [SerializeField, Tooltip("UŒ‚ƒpƒ^[ƒ“‚Ìí—Ş")]
-    private int _AttackPatternNum = 3;
-
-
+    private List<float> _AttackGraceTime;
 
     [SerializeField, Tooltip("‰ñ”ğ‚Ì‘å‚«‚³")]
     private float _AvoidanceValue = 50.0f;
@@ -57,9 +52,11 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
 
 
     private bool _IsGaraceTime = false;
-    private bool _IsAvoid = false;
+    public bool _IsAvoid = false;
     private bool _IsAttack = false;
     private bool _IsLaneChamge = false;
+
+
 
     public float SmoothTime = 2f;
     public float Speed = 1f;
@@ -100,8 +97,6 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
         _SwordCollider = _SwordObject.GetComponent<BoxCollider>();
         _SwordCollider.enabled = false;//ƒRƒ‰ƒCƒ_[‚ÍOFF
 
-        _NextActionTime = _CombAttackGraceTime;
-
         Input_tmp = 1;
         _IsGaraceTime = false;
         _IsAvoid = false;
@@ -110,8 +105,8 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
     void Update()
     {
 
-
-        if (_IsAvoid)
+        bool isAvoid = PlayerAttackAnimator.GetCurrentAnimatorStateInfo(0).IsName("Avoidance"); 
+        if (isAvoid)
         {
             Avoidance();
             return;
@@ -152,7 +147,7 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
         
         bool IsAttack = PlayerAttackAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack");
         bool IschangeLane = PlayerAttackAnimator.GetCurrentAnimatorStateInfo(0).IsName("ChangeLane");
-
+        bool IsAvoid = PlayerAttackAnimator.GetCurrentAnimatorStateInfo(0).IsName("Avoidance");
 
         //UŒ‚‚É“®‚©‚³‚È‚¢
         if (!IsAttack&&!IschangeLane)
@@ -174,7 +169,7 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
         diff.z = 0;
         if (diff.magnitude > 0.01f)
         {
-            if (!_IsAvoid||!_IsLaneChamge)
+            if (!IsAvoid||!_IsLaneChamge)
             {
                 transform.rotation = Quaternion.LookRotation(diff); //ƒvƒŒƒCƒ„[‚ÌŒü‚«•ÏX
                 PlayerAttackAnimator.SetBool("Run", true);
@@ -290,7 +285,10 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
 
     }
 
-
+    public int GetNowLane()
+    {
+        return _NowLane;
+    }
 
     /// <summary>
     /// ‰ñ”ğ
@@ -335,19 +333,13 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
         {
             return;
         }
-
-        if (!PlayerAttackAnimator.GetCurrentAnimatorStateInfo(0).IsName("Avoidance"))
+        else if (!PlayerAttackAnimator.GetCurrentAnimatorStateInfo(0).IsName("Avoidance"))
         {
-            _IsAvoid = false;
+            //_IsAvoid = false;
         }
-
-        if (_IsAvoid)
+        else if (PlayerAttackAnimator.GetCurrentAnimatorStateInfo(0).IsName("Avoidance"))
         {
             transform.position = Vector3.Lerp(transform.position, AvoidPos_End, CalcMoveRatio());
-        }
-        else
-        {
-            _IsLaneChamge = false;
         }
 
     }
@@ -382,9 +374,6 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
         //0.5•b‚ÉCollider‚ğOFF
         _SwordCollider.enabled = false;
 
-        //—P—\ŠÔ‚ÌƒŠƒZƒbƒg
-        _NextActionTime = 0;
-
         //—P—\ŠÔ‚Ìn‚Ü‚è
         _IsGaraceTime = true;
         StartCoroutine(AttackColliderTime());
@@ -411,9 +400,11 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
     IEnumerator AttackColliderTime()
     {
         float time = 0;
-
-        while (time <= 0.5f)//—P—\ŠÔ
+        int AttackNum = DataManager.Instance._WeaponNumberSword;
+        while (time <= _AttackGraceTime[AttackNum])//—P—\ŠÔ
         {
+            
+
             //UŒ‚ƒCƒxƒ“ƒg‚ª”­¶‚µ‚½‚ç
             if (PlayerAttackMove())
             {
@@ -424,7 +415,7 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
                     _AttackType = 0;
                 }
                 PlayerAttackAnimator.SetFloat("AttackType", _AttackType);
-                PlayerAttackAnimator.SetFloat("AttackSpeed", _AttackSpeed);
+                PlayerAttackAnimator.SetFloat("AttackSpeed", _AttackSpeed[AttackNum]);
 
                 yield break;
             }
@@ -436,7 +427,7 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
             yield return null;
         }
 
-        PlayerAttackAnimator.SetFloat("AttackSpeed", _AttackSpeed);
+        PlayerAttackAnimator.SetFloat("AttackSpeed", _AttackSpeed[AttackNum]);
 
         _AttackType = 0;
         PlayerAttackAnimator.SetFloat("AttackType", _AttackType);

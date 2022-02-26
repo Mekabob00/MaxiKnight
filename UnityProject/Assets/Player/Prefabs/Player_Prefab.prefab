@@ -765,7 +765,7 @@ GameObject:
   - component: {fileID: 6162803368805539825}
   - component: {fileID: 6162803368805539824}
   m_Layer: 0
-  m_Name: Player (1)
+  m_Name: Player_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -860,15 +860,22 @@ MonoBehaviour:
   PlayerAttackPoint: 0
   _HitBase: {fileID: 6162803368805539830}
   _SwordObject: {fileID: 4975977713484959320}
-  _AttackSpeed: 1
-  _CombAttackGraceTime: 1
-  _AttackPatternNum: 3
+  _AttackSpeed:
+  - 1
+  - 0.6
+  - 1.75
+  _AttackGraceTime:
+  - 0.7
+  - 1.3
+  - 0.4
   _AvoidanceValue: 5
+  AvoidReLoadTime: 3
   _LanePosList:
   - -5.5
   - -4.2
   _MAXHP: 100
   _SwordCollider: {fileID: 0}
+  _IsAvoid: 0
   SmoothTime: 2
   Speed: 1
   JourneyLength: 10
@@ -879,7 +886,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6433327002797403684}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e80699b768c83cb478a7ef5f74a0cb96, type: 3}
   m_Name: 

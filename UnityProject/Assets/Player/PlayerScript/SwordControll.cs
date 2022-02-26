@@ -10,6 +10,8 @@ public class SwordControll : MonoBehaviour
     [SerializeField, Tooltip("剣の攻撃力")]
     private List<float> _SwordAttackList;
 
+    [SerializeField, Tooltip("Player")]
+    private GameObject _Player;
 
     public bool AttakUPFlag; //防衛ライン判定
 
@@ -53,12 +55,20 @@ public class SwordControll : MonoBehaviour
     {
         if (collision.tag == "Enemy") //現在仮タグでEnemyと付けています。随時変更していただけると助かります
         {
-            var PlayerPower = Player_Controll.AttackBuff;
-            int SwordNum = DataManager.Instance._WeaponNumberSword;
-            var SecondDamege = collision.gameObject.GetComponent<IPlayerDamege>();
-            SecondDamege._AddDamege(PlayerPower*_SwordAttackList[SwordNum]);//弱攻撃
+            int you=collision.GetComponent<JudgLaneMovement>().GetNowLane();
+            int my = _Player.GetComponent<Player_Controll>().GetNowLane();
 
-            Debug.Log(collision.name + ".HP=>-" + PlayerPower * _SwordAttackList[SwordNum]);
+            if (you == my)
+            {
+                //攻撃のデータ処理
+                var PlayerPower = Player_Controll.AttackBuff;
+                int SwordNum = DataManager.Instance._WeaponNumberSword;
+                var SecondDamege = collision.gameObject.GetComponent<IPlayerDamege>();
+                SecondDamege._AddDamege(PlayerPower * _SwordAttackList[SwordNum]);//弱攻撃
+
+                Debug.Log(collision.name + ".HP=>-" + PlayerPower * _SwordAttackList[SwordNum]);
+            }
+            
 
         }
     }
