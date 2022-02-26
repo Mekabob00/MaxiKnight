@@ -5860,6 +5860,7 @@ GameObject:
   - component: {fileID: 8782918507786464902}
   - component: {fileID: 8782918507786464903}
   - component: {fileID: 4533250669207232884}
+  - component: {fileID: 9056571163677173120}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemy
@@ -5955,13 +5956,26 @@ MonoBehaviour:
   DieSE: {fileID: 8300000, guid: cb17f9d8b81d5a8489d0eb835e9d7a56, type: 3}
   _Damage: 0
   Effect: {fileID: 7428987436326373671}
-  DidEffect: {fileID: 43556880712326259, guid: 9a4438211fb2e4547b050c2457cafb2c, type: 3}
+  DidEffect: {fileID: 2886189059328443225, guid: 9a4438211fb2e4547b050c2457cafb2c, type: 3}
   Item: {fileID: 4637782406889143264, guid: be45f16098d8ec1438b1644a161bcf7d, type: 3}
   span: 3
   _IsMoveActive: 0
   castle: {fileID: 7508948264773336459, guid: 09c0fc99efab3c248b5bfd3a89f80052, type: 3}
   Enemy: {fileID: 7089379039445923204}
   castlePosition: {x: 0, y: 0, z: 0}
+--- !u!114 &9056571163677173120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7089379039445923204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2286d3421f9d9ea4a8b57d90ac93c063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _NowLane: 0
 --- !u!1 &7265245624784199241
 GameObject:
   m_ObjectHideFlags: 0

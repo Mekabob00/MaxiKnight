@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4366756, g: 0.48427194, b: 0.5645252, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589245, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -360,7 +360,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCanonAppear: 0
-  isPlayerInSecondLine: 0
   isGameOver: 0
   isStageClear: 0
 --- !u!1 &192549649
@@ -1021,6 +1020,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6656335215598024914, guid: 7cf074b202b565246ba0263449dc41d1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cf074b202b565246ba0263449dc41d1, type: 3}
 --- !u!1 &524507571
@@ -1276,7 +1279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2293740046951642231, guid: 343eceb0462ebdb478274cde9d5e7058, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 343eceb0462ebdb478274cde9d5e7058, type: 3}
@@ -1796,6 +1799,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40e6ab9b9f7dddc4295831bf88d1e1cb, type: 3}
+--- !u!4 &1358631870 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1485854480650186445, guid: 343eceb0462ebdb478274cde9d5e7058, type: 3}
+  m_PrefabInstance: {fileID: 708439490}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1416386015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1946,6 +1954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605b134d5aa5ec74da4d5d50db6e9c26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Player: {fileID: 1358631870}
   _GameOverViewPos: {fileID: 1693239974}
   _Castle: {fileID: 700057911}
   _StageClearViewPos: {fileID: 0}

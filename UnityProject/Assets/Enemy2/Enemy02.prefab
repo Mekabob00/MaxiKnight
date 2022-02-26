@@ -429,6 +429,7 @@ GameObject:
   - component: {fileID: 1009572387}
   - component: {fileID: 1009572388}
   - component: {fileID: 1009572393}
+  - component: {fileID: -7809804549744812361}
   m_Layer: 0
   m_Name: Enemy02
   m_TagString: Enemy
@@ -556,7 +557,7 @@ MonoBehaviour:
   DieSE: {fileID: 8300000, guid: cb17f9d8b81d5a8489d0eb835e9d7a56, type: 3}
   _Damage: 0
   Effect: {fileID: 6905903939417113979, guid: dedfb3139b45fd249bdca337ec6d05b7, type: 3}
-  DidEffect: {fileID: 43556880712326259, guid: 9a4438211fb2e4547b050c2457cafb2c, type: 3}
+  DidEffect: {fileID: 2886189059328443225, guid: 9a4438211fb2e4547b050c2457cafb2c, type: 3}
   Item: {fileID: 4637782406889143264, guid: be45f16098d8ec1438b1644a161bcf7d, type: 3}
   span: 3
   _IsAddDamageEffect: 0
@@ -584,6 +585,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-7809804549744812361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2457299109049045338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2286d3421f9d9ea4a8b57d90ac93c063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _NowLane: 0
 --- !u!1 &2589438313037850660
 GameObject:
   m_ObjectHideFlags: 0

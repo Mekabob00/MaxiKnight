@@ -343,13 +343,14 @@ GameObject:
   - component: {fileID: -3259748436945915643}
   - component: {fileID: -120542976365739712}
   - component: {fileID: 8471343084556784015}
+  - component: {fileID: 6060692686832951383}
   m_Layer: 0
   m_Name: Enemy4
   m_TagString: Enemy4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6354194847607136634
 Transform:
   m_ObjectHideFlags: 0
@@ -393,7 +394,7 @@ MonoBehaviour:
   Item: {fileID: 4637782406889143264, guid: be45f16098d8ec1438b1644a161bcf7d, type: 3}
   span: 3
   _IsMoveActive: 0
-  castle: {fileID: 4637782406889143264, guid: be45f16098d8ec1438b1644a161bcf7d, type: 3}
+  castle: {fileID: 0}
   Enemy: {fileID: 6009334763310939072}
   PlayerPosition: {x: 0, y: 0, z: 0}
   FocusSpeed: 2
@@ -446,6 +447,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.21, y: 1.33, z: 1.46}
   m_Center: {x: 0, y: 0.54, z: 0}
+--- !u!114 &6060692686832951383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6009334763310939072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2286d3421f9d9ea4a8b57d90ac93c063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _NowLane: 0
 --- !u!1 &6853947817236814744
 GameObject:
   m_ObjectHideFlags: 0
