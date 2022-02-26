@@ -35,6 +35,10 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
     private int _Damage;
     [SerializeField, Tooltip("エフェクト")]
     private GameObject Effect;
+    [SerializeField, Tooltip("死亡時のエフェクト")]
+    private GameObject DidEffect;
+    [SerializeField, Tooltip("アイテム生成")]
+    private GameObject Item;
     #endregion
 
     #region Defalut
@@ -142,7 +146,8 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
             EnemyAttackManeger.instance.PlaySE(DieSE);
             Destroy(this.gameObject);
             EnemyAnimator.SetTrigger("Damege");
-            Instantiate(Effect, transform.position, transform.rotation);
+            Instantiate(DidEffect, transform.position, transform.rotation);
+            Instantiate(Item, transform.position, transform.rotation);
             return;
         }
         else if (after != _HP)//ダメージを受けたら
@@ -185,15 +190,21 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
     }
     private void IsAttack()
     {
-        currentTime += Time.deltaTime;
-
-        if (currentTime > span)
+        if (DataManager.Instance._CastleHP>=1)
         {
-            EnemyAttackManeger.instance.PlaySE(AttackSE);
-            EnemyAnimator.SetTrigger("Attack");
-            castle.GetComponent<CastleBehavior>()._AddDamage(_Damage);
-            Debug.Log("城に攻撃");
-            currentTime = 0f;
+            currentTime += Time.deltaTime;
+            if (currentTime > span)
+            {
+                EnemyAttackManeger.instance.PlaySE(AttackSE);
+                EnemyAnimator.SetTrigger("Attack");
+                castle.GetComponent<CastleBehavior>()._AddDamage(_Damage);
+                Debug.Log("城に攻撃");
+                currentTime = 0f;
+            }
+        }
+        else if(DataManager.Instance._CastleHP<=0)
+        {
+            return;
         }
     }
     private void OnTriggerEnter(Collider other)

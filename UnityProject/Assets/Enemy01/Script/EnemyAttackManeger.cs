@@ -19,8 +19,7 @@ public class EnemyAttackManeger : MonoBehaviour
     private void Awake()
     {
         if (instance == null)
-        {
-            instance = this;
+        {            instance = this;
         }
         DontDestroyOnLoad(gameObject);
     }
