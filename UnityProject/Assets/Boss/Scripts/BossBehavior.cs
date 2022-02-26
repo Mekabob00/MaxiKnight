@@ -8,17 +8,23 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
 {
     [Header("生命値")]
     public int _Health;
+
     [Header("移動速度")]
     public float _MoveSpeed;
+
     [Header("中断後移動速度")]
     public float _BreakSpeed;
+
     [Header("ダメージ")]
     public int _Damage;
+
     [Header("攻撃範囲")]
     public float _Area;
+
     [Header("チャージ")]
-    [Tooltip("時間")]public float _ChargeTime;
-    [Tooltip("中断回数")]public int _StopChargeCount;
+    [Tooltip("時間")] public float _ChargeTime;
+    [Tooltip("中断回数")] public int _StopChargeCount;
+
     [Header("オブジェクト")]
     public GameObject _Castle;
     public GameObject _Player;
@@ -29,17 +35,28 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
     public Transform[] _ExplosionPos;
     public GameObject _StageClear;
     public GameObject _DamageEffect;
+    public GameObject _AttackFireEffect;
+
     [Header("距離設定")]
-    [Tooltip("構え")]public float _EnterDistance;
+    [Tooltip("構え")] public float _EnterDistance;
     [Tooltip("攻撃")] public float _StandByDistance;
     [Tooltip("チャージ")] public float _ChargeDistance;
 
+    [Header("次の状態移行までの待ち時間")]
+    [Tooltip("構えに移行前")] public float _Move_To_Enter;
+    [Tooltip("プレイヤーへ攻撃準備に移行前")] public float _Move_To_StandBy;
+    [Tooltip("プレイヤーへ攻撃に移行前")] public float _StandBy_To_AttackPlayer;
+    [Tooltip("拠点へ攻撃に移行前")] public float _Charge_To_AttackCastle;
+    [Tooltip("チャージ中断に移行前")]public float _Charge_To_StopCharge;
+    [Tooltip("ダウンされる前")]public float _Down_To_StandUp;
+    [Tooltip("次の攻撃ループに移行前")] public float _NextAttackLoop;
+
+    [Header("デバッグ用")]
     Animator m_anim;
     Vector3 m_breakChargePos;
-    [SerializeField, Header("状態")] STATE m_state;            //ステータス
+    [SerializeField, Tooltip("状態")] STATE m_state;            //ステータス
     [SerializeField, Tooltip("初期位置")] Vector3 m_startPoint;     //初期位置
-    [SerializeField, Header("チャージ状態の解除回数計算")]
-    int m_currentHitCount;           //チャージ状態の解除回数計算
+    [SerializeField, Tooltip("チャージ状態の解除回数計算")] int m_currentHitCount;           //チャージ状態の解除回数計算
     float m_castleDistance;   //城との距離
     float m_chargeTimeCount;  //チャージ時間計算
     float m_explosionCT = 0.6f;
@@ -61,7 +78,11 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
 
     void Update()
     {
-        if (GlobalData.Instance.isGameOver) return;
+        if (GlobalData.Instance.isGameOver)
+        {
+            StateReset();
+            return;
+        }
 
         //Debug.Log(state);
         //拠点の距離
@@ -124,13 +145,13 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
         {
             m_state = STATE.ENTER;
             m_anim.SetTrigger("Enter");
-            StartCoroutine(WaitTime(5.0f));
+            StartCoroutine(WaitTime(_Move_To_Enter));
         }
         else if (m_castleDistance <= _StandByDistance && !m_isAttackedPlayer)
         {
             //攻撃予告状態
             m_state = STATE.STANDBY;
-            StartCoroutine(WaitTime(2.0f));
+            StartCoroutine(WaitTime(_Move_To_StandBy));
         }
         else if (m_castleDistance <= _ChargeDistance)
         {
@@ -160,14 +181,14 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             //攻撃生成
             for (int i = 0; i < 3; ++i)
             {
-                GameObject temp = Instantiate(_AttackArea, new Vector3(_Player.transform.position.x + ((-_Area - 2) + (_Area + 2) * i), _AttackArea.transform.position.y + 0.2f, _Player.transform.position.z), Quaternion.identity);
-                temp.GetComponent<SearchArea>()._NapalmBomb = Instantiate(_NapalmBomb, temp.transform.position + new Vector3(0, 50, 0), Quaternion.Euler(90, 0, 0));
+                GameObject temp = Instantiate(_AttackArea, new Vector3(_Player.transform.position.x + ((-_Area - 2) + (_Area + 2) * i), transform.position.y + 0.15f, _Player.transform.position.z), Quaternion.identity);
+                temp.GetComponent<SearchArea>()._NapalmBomb = Instantiate(_NapalmBomb, temp.transform.position + new Vector3(0, 80 - 20 * i, 0), Quaternion.Euler(90, 0, 0));
                 temp.GetComponent<SearchArea>()._Area = _Area;
                 temp.GetComponent<SearchArea>()._Damage = _Damage;
             }
             m_isAttackedPlayer = true;
             m_isStandBy = false;
-            StartCoroutine(WaitTime(4.5f));
+            StartCoroutine(WaitTime(_StandBy_To_AttackPlayer));
         }
     }
     void StateUpdate_AttackPlayer()
@@ -190,9 +211,15 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             _Castle.GetComponent<CastleBehavior>()._AddDamage((int)(_Damage * percent));
             m_isCharge = false;
             m_anim.SetTrigger("Attack");
+
+            GameObject temp = Instantiate(_AttackFireEffect, new Vector3(0, 3, transform.position.z), _AttackFireEffect.transform.rotation);
+            temp.SetActive(true);
+            temp.transform.localScale = new Vector3(25, 10, 10);
+
             _Laser.GetComponent<LaserArea>()._Damage = (int)(_Damage * percent);
             _Laser.SetActive(true);
-            StartCoroutine(WaitTime(0.5f));
+
+            StartCoroutine(WaitTime(_Charge_To_AttackCastle));
         }
         //チャージ中断
         if (m_currentHitCount >= _StopChargeCount)
@@ -200,21 +227,20 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             m_state = STATE.DOWN;
             m_breakChargePos = transform.position - new Vector3(0, 10, 0);
             m_anim.SetTrigger("Down");
-            StartCoroutine(WaitTime(1.0f));
+            StartCoroutine(WaitTime(_Charge_To_StopCharge));
             m_isCharge = false;
         }
     }
     void StateUpdate_AttackCastle()
     {
         //開始地点に戻る
-        if (!m_isWait)
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(m_startPoint.x, transform.position.y, transform.position.z), 20 * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(m_startPoint.x, transform.position.y, transform.position.z), 100 * Time.deltaTime);
 
         if (Mathf.Abs(transform.position.x - m_startPoint.x) <= 0.5)
         {
             //状態リセット
             StateReset();
-            StartCoroutine(WaitTime(4.0f));
+            StartCoroutine(WaitTime(_NextAttackLoop));
         }
     }
     void StateUpdate_Return()
@@ -231,7 +257,7 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
         {
             //状態リセット
             StateReset();
-            StartCoroutine(WaitTime(4.0f));
+            StartCoroutine(WaitTime(_NextAttackLoop));
             transform.rotation = Quaternion.Euler(0, -90, 0);
         }
     }
@@ -246,13 +272,13 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
         if (!m_isWait)
         {
             m_state = STATE.STANDUP;
-            StartCoroutine(WaitTime(1.0f));
+            StartCoroutine(WaitTime(_Down_To_StandUp));
         }
     }
     void StateUpdate_StandUp()
     {
         if (!m_isWait)
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(m_startPoint.x, transform.position.y-10, transform.position.z), 10 * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(m_startPoint.x, transform.position.y - 7, transform.position.z), 10 * Time.deltaTime);
 
         if (!m_anim.GetCurrentAnimatorStateInfo(0).IsName("StandUp"))
         {
@@ -294,7 +320,6 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
         m_currentHitCount = 0;
         m_chargeTimeCount = 0;
         m_isMove = false;
-        m_isWait = false;
         m_isEnter = false;
         m_isStandBy = false;
         m_isAttackedPlayer = false;
@@ -323,6 +348,8 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
     //ダメージを受ける
     public void _AddDamege(float _Damage)
     {
+        if (_Health <= 0) return;
+
         Debug.Log("hit!");
         _Health--;
         Instantiate(_DamageEffect, transform.position + new Vector3(0, 2, 0), transform.rotation);

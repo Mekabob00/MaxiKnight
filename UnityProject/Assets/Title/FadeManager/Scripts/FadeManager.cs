@@ -139,4 +139,49 @@ public class FadeManager : MonoBehaviour
 
 		this.isFading = false;
 	}
+
+
+
+
+	/// <summary>
+	/// 画面遷移 .
+	/// </summary>
+	/// <param name='scene'>シーン名</param>
+	/// <param name='interval'>暗転にかかる時間(秒)</param>
+	public void LoadScene(int scene, float interval)
+	{
+		StartCoroutine(TransScene(scene, interval));
+	}
+
+	/// <summary>
+	/// シーン遷移用コルーチン .
+	/// </summary>
+	/// <param name='scene'>シーン名</param>
+	/// <param name='interval'>暗転にかかる時間(秒)</param>
+	private IEnumerator TransScene(int scene, float interval)
+	{
+		//だんだん暗く .
+		this.isFading = true;
+		float time = 0;
+		while (time <= interval)
+		{
+			this.fadeAlpha = Mathf.Lerp(0f, 1f, time / interval);
+			time += Time.deltaTime;
+			yield return 0;
+		}
+
+		//シーン切替 .
+		SceneManager.LoadScene(scene);
+
+		//だんだん明るく .
+		time = 0;
+		while (time <= interval)
+		{
+			this.fadeAlpha = Mathf.Lerp(1f, 0f, time / interval);
+			time += Time.deltaTime;
+			yield return 0;
+		}
+
+		this.isFading = false;
+	}
 }
