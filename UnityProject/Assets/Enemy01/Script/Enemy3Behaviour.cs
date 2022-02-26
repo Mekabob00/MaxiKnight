@@ -14,8 +14,6 @@ public class Enemy3Behaviour : MonoBehaviour, IPlayerDamege
     [SerializeField, Tooltip("体力,int型")]
     private float _HP;
 
-    [SerializeField, Tooltip("RigidBody")]
-    private Rigidbody _RigidBody = null;
 
     [SerializeField, Tooltip("Renderer")]
     private Renderer _Renderer = null;
@@ -26,6 +24,8 @@ public class Enemy3Behaviour : MonoBehaviour, IPlayerDamege
     private GameObject Enemy3;
     [SerializeField, Tooltip("Enemy3攻撃力")]
     private int _Damage;
+    [SerializeField, Tooltip("アイテム")]
+    private GameObject Item;
 
     #endregion
 
@@ -37,6 +37,7 @@ public class Enemy3Behaviour : MonoBehaviour, IPlayerDamege
     private float _HighPos = 1.0f;
 
     public float span = 3f;
+    public Rigidbody _RigidBody = null;
     private float currentTime = 0f;
 
     //Flag
@@ -65,6 +66,8 @@ public class Enemy3Behaviour : MonoBehaviour, IPlayerDamege
     private AudioClip DieSE;
     [SerializeField, Tooltip("エフェクト")]
     private GameObject Effect;
+    [SerializeField, Tooltip("死亡時のエフェクト")]
+    private GameObject DidEffect;
     [SerializeField,Tooltip("アニメーション")]
     private Animator EnemyAnimator;
 
@@ -92,7 +95,7 @@ public class Enemy3Behaviour : MonoBehaviour, IPlayerDamege
 
                 //位置を補正
                 Vector3 pos = this.transform.position;
-                pos.y = _HighPos;
+             //   pos.y = _HighPos;
                 this.transform.position = pos;
             }
             return;
@@ -122,10 +125,10 @@ public class Enemy3Behaviour : MonoBehaviour, IPlayerDamege
     public void _AddDamege(float _Damege)
     {
      
-        if (_IsAddDamageEffect)//ダメージを与えない
+       /* if (_IsAddDamageEffect)//ダメージを与えない
         {
             return;
-        }
+        }*/
 
         var after = _HP - _Damege;
 
@@ -134,7 +137,9 @@ public class Enemy3Behaviour : MonoBehaviour, IPlayerDamege
         {
             //仮
             EnemyAnimator.SetTrigger("Damege");
-            Instantiate(Effect, transform.position, transform.rotation);
+            Instantiate(DidEffect, transform.position, transform.rotation);
+            Instantiate(Item, transform.position, transform.rotation);
+            EnemyAttackManeger.instance.PlaySE(DamegeSE);
             Destroy(Enemy3);
             return;
         }
@@ -171,7 +176,11 @@ public class Enemy3Behaviour : MonoBehaviour, IPlayerDamege
     {
         if(collision.gameObject.tag== "Castle")
         {
-            castle.GetComponent<CastleBehavior>()._AddDamage(_Damage);
+            if (DataManager.Instance._CastleHP >= 0)
+            {
+                castle.GetComponent<CastleBehavior>()._AddDamage(_Damage);
+            }
+            Instantiate(DidEffect, transform.position, transform.rotation);
             Destroy(Enemy3);
         }
     }

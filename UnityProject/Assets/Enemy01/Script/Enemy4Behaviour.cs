@@ -26,6 +26,8 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
     private GameObject Effct;
     [SerializeField, Tooltip("SE")]
     private AudioClip Damege;
+    [SerializeField, Tooltip("アイテム")]
+    private GameObject Item;
 
     #endregion
 
@@ -58,6 +60,8 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
     [SerializeField]
     private float FocusSpeed;
 
+    //Player
+    public Rigidbody _PlayerRigidBody;
 
     #region Unity function
     private void Start()
@@ -70,32 +74,15 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
     }
     void Update()
     {
+        Debug.Log(_PlayerRigidBody);
         PlayerFocus();
-        Debug.Log(dis);
-      //  IsAttackFlag();
-       /* if (_IsAddDamageEffect)//ダメージを食らった後のEffect最中
-        {
-            if (this.transform.position.y < _HighPos)
-            {
-                //一定の高さのになったらEffectを終了させる
-                _IsAddDamageEffect = false;
-                _RigidBody.useGravity = false;
-
-                //位置を補正
-                Vector3 pos = this.transform.position;
-                pos.y = _HighPos;
-                this.transform.position = pos;
-            }
-            return;
-        }*/
         if (_IsMoveActive && !_IsAttackFlag)
         { 
               Enemy.transform.position= Vector3.MoveTowards(transform.position, castle.transform.position,2*Time.deltaTime);
         }
         else
         {
-            _RigidBody.ForontMove(this.transform, 0.0f);
-            IsAttack();
+            
         }
     }
     #endregion
@@ -108,11 +95,6 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
     /// <param name="damage">ダメージ量</param>
     public void _AddDamege(float _Damege)
     {
-      /*  if (_IsAddDamageEffect)//ダメージを与えない
-        {
-            return;
-        }*/
-
         var after = _HP - _Damege;
 
         //体力が0なら
@@ -121,6 +103,7 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
             //仮
             Instantiate(Effct, transform.position, transform.rotation);
             EnemyAttackManeger.instance.PlaySE(Damege);
+            Instantiate(Item, transform.position, transform.rotation);
             Destroy(this.gameObject);
             return;
         }
@@ -142,10 +125,8 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
     {
         if (other.gameObject.tag == "Player") //現在仮タグでEnemyと付けています。随時変更していただけると助かります
         {
-            Debug.Log("攻撃");
-            var Enemy4Damege = other.gameObject.GetComponent<IPlayerDamege>();
-            Enemy4Damege._AddDamege(1); //強攻撃
 
+           _PlayerRigidBody.constraints = RigidbodyConstraints.FreezePositionX;
         }
     }
 
@@ -161,12 +142,12 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
         Quaternion quaternion = Quaternion.LookRotation(vector3);
         this.transform.rotation = Quaternion.Slerp(this.transform.rotation, quaternion, Time.deltaTime * FocusSpeed);
     }
-    /*  private void IsAttackFlag()
+    private void IsAttackFlag()
       {
           PlayerPosition = castle.transform.position;
           EnemyPosition = Enemy.transform.position;
           dis = Vector3.Distance(PlayerPosition, EnemyPosition);
-          if (dis < 5.0f)
+          if (dis < 5f)
           {
               _IsAttackFlag = true;
               _IsMoveActive = false;
@@ -177,20 +158,7 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
               _IsMoveActive = true;
           }
           Debug.Log("距離" + dis);
-      }*/
-    private void IsAttack()
-    {
-        currentTime += Time.deltaTime;
-
-        if (currentTime > span)
-        {
-            Debug.LogFormat("{0}秒経過", span);
-            //Player_Controll.instance.HP--;
-            Debug.Log("城に攻撃");
-            currentTime = 0f;
-        }
-    }
-
+      }
     private void OnTriggerExit(Collider other)
     {
 
