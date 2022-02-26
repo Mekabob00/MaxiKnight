@@ -66,15 +66,15 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.95661587
-        functionName: GunAnimeEnd
+      - time: 0.9458128
+        functionName: BulletShot
         data: 
         objectReferenceParameter: {fileID: 2293740046951642231, guid: 343eceb0462ebdb478274cde9d5e7058, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.34707138
-        functionName: BulletShot
+      - time: 0.95661587
+        functionName: GunAnimeEnd
         data: 
         objectReferenceParameter: {fileID: 2293740046951642231, guid: 343eceb0462ebdb478274cde9d5e7058, type: 3}
         floatParameter: 0

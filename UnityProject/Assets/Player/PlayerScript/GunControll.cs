@@ -17,17 +17,23 @@ public class GunControll : MonoBehaviour
     private GameObject _Bullet;
 
     [SerializeField, Tooltip("発射位置")]
-    private Transform ShotPos;
+    private Vector3 ShotPos;
+
+    private Ray ray;
 
     void Start()
     {
         _Gun.SetActive(false);
+        ShotPos = this.transform.position;
+        ShotPos.y += 1.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        ray = new Ray(_Gun.transform.position, this.transform.forward);
+        //Rayの表示
+        Debug.DrawRay(ray.origin, ray.direction * 100, Color.green);
 
     }
 
@@ -43,27 +49,42 @@ public class GunControll : MonoBehaviour
     public void BulletShot()
     {
 
-        GameObject obj = Instantiate(_Bullet, ShotPos.position, new Quaternion(0, 0, 0, 0));
+        GameObject obj = Instantiate(_Bullet, ShotPos, new Quaternion(0, 0, 0, 0));
         obj.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, 1000));
+
+        
+        RaycastHit hit;
+
+        //弾丸の当たり判定
+        if (Physics.Raycast(ray, out hit))
+        {
+            //攻撃の処理
+
+        }
+        
 
     }
 
 
     public void GunAttack()
     {
-        if (_PlayerAnimtor.GetCurrentAnimatorStateInfo(0).IsName("run") || _PlayerAnimtor.GetCurrentAnimatorStateInfo(0).IsName("Stand"))
-        {
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                //剣を非表示にする
-                _Sword.SetActive(false);
+        
 
-                _PlayerAnimtor.SetFloat("Wepon", 1);
-                _PlayerAnimtor.SetBool("IsAttack", true);
-                _Gun.SetActive(true);
-                
-            }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            //剣を非表示にする
+            _Sword.SetActive(false);
+
+            _PlayerAnimtor.SetFloat("Wepon", 1);
+            //          _PlayerAnimtor.SetBool("IsAttack", true);
+            _PlayerAnimtor.SetTrigger("Attack");
+            _Gun.SetActive(true);
+
+
+            
         }
+         
+        
 
 
     }
