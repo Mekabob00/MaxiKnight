@@ -19,6 +19,10 @@ public class UIAnimation : MonoBehaviour
     {
         if (GlobalData.Instance.isGameOver || GlobalData.Instance.isStageClear)
             this.gameObject.SetActive(false);
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            OnClick();
+        }
     }
 
     public void OnClick()
