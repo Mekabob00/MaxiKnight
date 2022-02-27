@@ -22,7 +22,7 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
     private Collider _HitBase;
 
     [SerializeField, Tooltip("武器のオブジェクト")]
-    private GameObject _SwordObject = null;
+    private SwordControll _SwordBeh = null;
 
     [SerializeField, Tooltip("攻撃速度")]
     private List<float> _AttackSpeed;
@@ -100,7 +100,7 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
         _NowLane = 0;//初期
 
         //武器の当たり判定の設定
-        _SwordCollider = _SwordObject.GetComponent<BoxCollider>();
+        _SwordCollider = _SwordBeh.GetNowSwordCollider();
         _SwordCollider.enabled = false;//コライダーはOFF
 
         Input_tmp = 1;

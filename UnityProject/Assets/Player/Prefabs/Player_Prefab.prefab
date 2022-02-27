@@ -40,6 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4781827300747455036}
+  - component: {fileID: 995321691088982362}
   m_Layer: 0
   m_Name: Wepon
   m_TagString: Untagged
@@ -64,6 +65,28 @@ Transform:
   m_Father: {fileID: 5490734334716161213}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &995321691088982362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779588663535242564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a320a002627494d9ed83f180648523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _SwordAttackList:
+  - 1
+  - 1.25
+  - 0.75
+  _SwordObjectList:
+  - {fileID: 4975977713484959320}
+  - {fileID: 896773976133580865}
+  - {fileID: 3429457135900470719}
+  _Player: {fileID: 6433327002797403684}
+  AttakUPFlag: 0
 --- !u!1 &1610475583879757373
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,7 +915,7 @@ MonoBehaviour:
   applySpeed: 0.2
   PlayerAttackPoint: 0
   _HitBase: {fileID: 6162803368805539830}
-  _SwordObject: {fileID: 4975977713484959320}
+  _SwordBeh: {fileID: 0}
   _AttackSpeed:
   - 1
   - 0.6
@@ -1915,6 +1938,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb984ece87995e842bd580154e78d774, type: 3}
+--- !u!1 &3429457135900470719 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 733284921305296575, guid: eb984ece87995e842bd580154e78d774, type: 3}
+  m_PrefabInstance: {fileID: 2718705057213956864}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2656052532886304517 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 101038988319339525, guid: eb984ece87995e842bd580154e78d774, type: 3}
@@ -1993,6 +2021,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef296b329d4fb794aa39db01a42f07f8, type: 3}
+--- !u!1 &896773976133580865 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3520028799481328387, guid: ef296b329d4fb794aa39db01a42f07f8, type: 3}
+  m_PrefabInstance: {fileID: 4370845302160821058}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &520776546574787323 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4292624406549293497, guid: ef296b329d4fb794aa39db01a42f07f8, type: 3}
@@ -2005,6 +2038,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4781827300747455036}
     m_Modifications:
+    - target: {fileID: -4044836795876074528, guid: 7de9064e242cc0141b1643cb7bbedfb0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4044836795876074528, guid: 7de9064e242cc0141b1643cb7bbedfb0, type: 3}
       propertyPath: _SwordAttackList.Array.size
       value: 3

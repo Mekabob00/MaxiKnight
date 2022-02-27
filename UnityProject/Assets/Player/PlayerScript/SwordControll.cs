@@ -10,6 +10,11 @@ public class SwordControll : MonoBehaviour
     [SerializeField, Tooltip("剣の攻撃力")]
     private List<float> _SwordAttackList;
 
+    [SerializeField, Tooltip("剣")]
+    private List<GameObject> _SwordObjectList;
+
+    private Collider _NowSwordColldier;
+
     [SerializeField, Tooltip("Player")]
     private GameObject _Player;
 
@@ -19,6 +24,21 @@ public class SwordControll : MonoBehaviour
     void Start()
     {
         AttakUPFlag = false;
+
+
+        //剣のアクティブ/非アクティブ
+        foreach (GameObject obj in _SwordObjectList)
+        {
+            obj.SetActive(false);
+        }
+
+        //選択中の武器番号を取得
+        int Num = DataManager.Instance._WeaponNumberSword;
+
+        //選択中の武器だけアクティブにする
+        _SwordObjectList[Num].SetActive(true);
+        _NowSwordColldier = _SwordObjectList[Num].GetComponent<Collider>();
+
 
     }
     void Update()
@@ -55,7 +75,7 @@ public class SwordControll : MonoBehaviour
     {
         if (collision.tag == "Enemy") //現在仮タグでEnemyと付けています。随時変更していただけると助かります
         {
-            int you=collision.GetComponent<JudgLaneMovement>().GetNowLane();
+            int you = collision.GetComponent<JudgLaneMovement>().GetNowLane();
             int my = _Player.GetComponent<Player_Controll>().GetNowLane();
 
             if (you == my)
@@ -68,9 +88,14 @@ public class SwordControll : MonoBehaviour
 
                 Debug.Log(collision.name + ".HP=>-" + PlayerPower * _SwordAttackList[SwordNum]);
             }
-            
+
 
         }
+    }
+
+    public Collider GetNowSwordCollider()
+    {
+        return _NowSwordColldier;
     }
 
     #region コルーチン
