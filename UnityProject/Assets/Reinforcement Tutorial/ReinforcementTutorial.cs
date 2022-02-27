@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,27 +6,27 @@ using UnityEngine.SceneManagement;
 
 public class ReinforcementTutorial : MonoBehaviour
 {
-    [SerializeField, Tooltip("ƒeƒLƒXƒgƒEƒCƒ“ƒhƒE")]
+    [SerializeField, Tooltip("ãƒ†ã‚­ã‚¹ãƒˆã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦")]
     private GameObject TextWindow;
-    [SerializeField, Tooltip("•¶š‚ÌƒXƒs[ƒh")]
-    private float nowDispCount = 0.0f; //Œ»İ‰½•¶š–Ú‚Ü‚Å•\¦‚·‚é‚©‚ÌƒJƒEƒ“ƒ^[
-    [SerializeField, Tooltip("ƒXƒLƒbƒv‚Ì‘I‘ğƒIƒuƒWƒFƒNƒg")]
+    [SerializeField, Tooltip("æ–‡å­—ã®ã‚¹ãƒ”ãƒ¼ãƒ‰")]
+    private float nowDispCount = 0.0f; //ç¾åœ¨ä½•æ–‡å­—ç›®ã¾ã§è¡¨ç¤ºã™ã‚‹ã‹ã®ã‚«ã‚¦ãƒ³ã‚¿ãƒ¼
+    [SerializeField, Tooltip("ã‚¹ã‚­ãƒƒãƒ—ã®é¸æŠã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ")]
     private GameObject SkipObject;
-    [SerializeField, Tooltip("Shopƒ{ƒ^ƒ“")]
+    [SerializeField, Tooltip("Shopãƒœã‚¿ãƒ³")]
     private Button Shop;
-    [SerializeField, Tooltip("•Ší•ÏXƒ{ƒ^ƒ“")]
+    [SerializeField, Tooltip("æ­¦å™¨å¤‰æ›´ãƒœã‚¿ãƒ³")]
     private Button WeaponChange;
-    [SerializeField, Tooltip("í“¬‚Öƒ{ƒ^ƒ“")]
+    [SerializeField, Tooltip("æˆ¦é—˜ã¸ãƒœã‚¿ãƒ³")]
     private Button NextStage;
-    [SerializeField, Tooltip("é‚Ì‰ñ•œƒ{ƒ^ƒ“")]
+    [SerializeField, Tooltip("åŸã®å›å¾©ãƒœã‚¿ãƒ³")]
     private Button CastleRecovery;
-    [SerializeField, Tooltip("é‚ÌUŒ‚—ÍƒAƒbƒvƒ{ƒ^ƒ“")]
+    [SerializeField, Tooltip("åŸã®æ”»æ’ƒåŠ›ã‚¢ãƒƒãƒ—ãƒœã‚¿ãƒ³")]
     private Button CastleAttackBuff;
-    [SerializeField, Tooltip("Player‚ÌUŒ‚—ÍƒAƒbƒvƒ{ƒ^ƒ“")]
+    [SerializeField, Tooltip("Playerã®æ”»æ’ƒåŠ›ã‚¢ãƒƒãƒ—ãƒœã‚¿ãƒ³")]
     private Button PlayerAttackBuff;
-    [SerializeField, Tooltip("’ZŒ•ƒ{ƒ^ƒ“")]
+    [SerializeField, Tooltip("çŸ­å‰£ãƒœã‚¿ãƒ³")]
     private Button ShortSowrd;
-    [SerializeField, Tooltip("”ƒ‚¤")]
+    [SerializeField, Tooltip("è²·ã†")]
     private Button buy;
     [SerializeField, Tooltip("TextSound")]
     private AudioClip TextSound;
@@ -35,10 +35,11 @@ public class ReinforcementTutorial : MonoBehaviour
     public Text text = null;
     public AudioSource audioSource = null;
     private int TutorialNum;
-    private string maxDispStr = ""; //•\¦‚³‚¹‚½‚¢“à—e‚Ì•¶š—ñ
-    private string nowDispStr = ""; //ÀÛ‚É‰æ–Ê‚É•\¦‚³‚¹‚é—p‚Ì•¶š—ñ
+    private string maxDispStr = ""; //è¡¨ç¤ºã•ã›ãŸã„å†…å®¹ã®æ–‡å­—åˆ—
+    private string nowDispStr = ""; //å®Ÿéš›ã«ç”»é¢ã«è¡¨ç¤ºã•ã›ã‚‹ç”¨ã®æ–‡å­—åˆ—
+    public GameObject TutoPannel;
 
-    #region ƒ{ƒ^ƒ“ƒtƒ‰ƒO•Ï”éŒ¾
+    #region ãƒœã‚¿ãƒ³ãƒ•ãƒ©ã‚°å¤‰æ•°å®£è¨€
     public bool case5;
     public bool case8;
     public bool case16;
@@ -51,9 +52,9 @@ public class ReinforcementTutorial : MonoBehaviour
     void Start()
     {
         TutorialNum = 0;
-        SkipObject.SetActive(false);
+        SkipObject.SetActive(true);
         DataManager.Instance._CastleHP = 9;
-        //ˆê’U‘S‚Ä‚Ìƒ{ƒ^ƒ“–³Œø‰»
+        //ä¸€æ—¦å…¨ã¦ã®ãƒœã‚¿ãƒ³ç„¡åŠ¹åŒ–
         Shop.interactable = false;
         WeaponChange.interactable = false;
         NextStage.interactable = false;
@@ -62,9 +63,9 @@ public class ReinforcementTutorial : MonoBehaviour
         PlayerAttackBuff.interactable = false;
         ShortSowrd.interactable = false;
         buy.interactable = false;
-        #region ƒ{ƒ^ƒ“ƒtƒ‰ƒO
+        #region ãƒœã‚¿ãƒ³ãƒ•ãƒ©ã‚°
         case5 = false;
-        case8  = false;
+        case8 = false;
         case10 = false;
         case15 = false;
         case16 = false;
@@ -77,15 +78,15 @@ public class ReinforcementTutorial : MonoBehaviour
 
     void Update()
     {
-       /* if (Input.GetKeyDown(KeyCode.Backspace))
-        {
-            TutorialNum -= 1;
-            nowDispCount = 0.0f;
-        }*/
+        /* if (Input.GetKeyDown(KeyCode.Backspace))
+         {
+             TutorialNum -= 1;
+             nowDispCount = 0.0f;
+         }*/
         switch (TutorialNum)
         {
             case 0:
-                maxDispStr = "‚¨”æ‚êI‰‚ß‚Ä‚ÌoŒ‚A‚Ç‚¤‚¾‚Á‚½H\n‹@‘Ì‚ªƒp[ƒc‚ğ‚Á‚Ä—ˆ‚½‚¯‚Ç...\n‚à‚µ‚©‚µ‚ÄA‹’“_‚Ì{İ‚ğg‚¤‚Ì‚©‚ÈH";
+                maxDispStr = "ãŠç–²ã‚Œï¼åˆã‚ã¦ã®å‡ºæ’ƒã€ã©ã†ã ã£ãŸï¼Ÿ\næ©Ÿä½“ãŒãƒ‘ãƒ¼ãƒ„ã‚’æŒã£ã¦æ¥ãŸã‘ã©...\nã‚‚ã—ã‹ã—ã¦ã€æ‹ ç‚¹ã®æ–½è¨­ã‚’ä½¿ã†ã®ã‹ãªï¼Ÿ";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 1;
@@ -94,7 +95,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 }
                 break;
             case 1:
-                maxDispStr = "‚¾‚Á‚½‚çA{İ‚Ìg‚¢•û‚É‚Â‚¢‚Äà–¾‚µ‚Ä‚ ‚°‚é‚ËB\n‰ó‚ê‚½‚ç‚¨•ƒ‚³‚ñ‚ª“{‚é‚©‚çB";
+                maxDispStr = "ã ã£ãŸã‚‰ã€æ–½è¨­ã®ä½¿ã„æ–¹ã«ã¤ã„ã¦èª¬æ˜ã—ã¦ã‚ã’ã‚‹ã­ã€‚\nå£Šã‚ŒãŸã‚‰ãŠçˆ¶ã•ã‚“ãŒæ€’ã‚‹ã‹ã‚‰ã€‚";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 2;
@@ -103,24 +104,22 @@ public class ReinforcementTutorial : MonoBehaviour
                 }
                 break;
             case 2:
-                maxDispStr = "‚ Aà–¾‚Á‚Ä—v‚ç‚È‚¢‚©‚ÈH\nŒN‚Á‚Ä‚±‚¤‚¢‚¤‚ÌŠµ‚ê‚Ä‚é‚ñ‚¾‚Á‚¯H";
+                maxDispStr = "ã‚ã€èª¬æ˜ã£ã¦è¦ã‚‰ãªã„ã‹ãªï¼Ÿ\nå›ã£ã¦ã“ã†ã„ã†ã®æ…£ã‚Œã¦ã‚‹ã‚“ã ã£ã‘ï¼Ÿ\nï¼ˆZã‚­ãƒ¼ã§æ¬¡ã«é€²ã¿ã€\nã‚¹ãƒšãƒ¼ã‚¹ã‚­ãƒ¼ã§ãƒãƒ¥ãƒ¼ãƒˆãƒªã‚¢ãƒ«ã‚’ã‚¹ã‚­ãƒƒãƒ—ã§ãã¾ã™ï¼‰";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 3;
                     nowDispCount = 0.0f;
-                    SkipObject.SetActive(false);
                     SEPlay(TextSound);
                 }
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     TutorialNum = 100;
                     nowDispCount = 0.0f;
-                    SkipObject.SetActive(false);
                     SEPlay(TextSound);
                 }
                 break;
             case 3:
-                maxDispStr = "”C‚¹‚ÄIà–¾‚·‚é‚©‚çI";
+                maxDispStr = "ä»»ã›ã¦ï¼èª¬æ˜ã™ã‚‹ã‹ã‚‰ï¼";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 4;
@@ -129,7 +128,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 }
                 break;
             case 4:
-                maxDispStr = "‚±‚Ì‰æ–Ê‚Å‚ÍA‹@‘Ì‚â‹’“_‚Ì®”õ‚ÆA•Ší‚Ì•Ï‘•‚ª‚Å‚«‚é‚æB\n‰æ–Ê¶‚Ìƒ{ƒ^ƒ“‚ªŒ©‚¦‚é‚©‚ÈHã‚©‚ç‡”Ô‚Éà–¾‚·‚é‚ËH";
+                maxDispStr = "ã“ã®ç”»é¢ã§ã¯ã€æ©Ÿä½“ã‚„æ‹ ç‚¹ã®æ•´å‚™ã¨ã€æ­¦å™¨ã®å¤‰è£…ãŒã§ãã‚‹ã‚ˆã€‚\nç”»é¢å·¦ã®ãƒœã‚¿ãƒ³ãŒè¦‹ãˆã‚‹ã‹ãªï¼Ÿä¸Šã‹ã‚‰é †ç•ªã«èª¬æ˜ã™ã‚‹ã­ï¼Ÿ";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 5;
@@ -138,9 +137,9 @@ public class ReinforcementTutorial : MonoBehaviour
                 }
                 break;
             case 5:
-                Shop.interactable = true;//ƒVƒ‡ƒbƒvƒ{ƒ^ƒ“‚Ì‚İŠˆ«‰»
-                maxDispStr = "ˆê”Ôã‚ÍƒVƒ‡ƒbƒv‚¾‚ËA‰½‚ª‚Å‚«‚é‚©‚ÍA’†‚É“ü‚Á‚ÄŠm”F‚µ‚Ä‚İ‚æ‚¤I";
-                if (Input.GetKeyDown(KeyCode.Alpha1)||case5)
+                Shop.interactable = true;//ã‚·ãƒ§ãƒƒãƒ—ãƒœã‚¿ãƒ³ã®ã¿æ´»æ€§åŒ–
+                maxDispStr = "ä¸€ç•ªä¸Šã¯ã‚·ãƒ§ãƒƒãƒ—ã ã­ã€ä½•ãŒã§ãã‚‹ã‹ã¯ã€ä¸­ã«å…¥ã£ã¦ç¢ºèªã—ã¦ã¿ã‚ˆã†ï¼";
+                if (Input.GetKeyDown(KeyCode.Alpha1) || case5)
                 {
                     TutorialNum = 6;
                     nowDispCount = 0.0f;
@@ -148,7 +147,9 @@ public class ReinforcementTutorial : MonoBehaviour
                 }
                 break;
             case 6:
-                maxDispStr = "‚±‚±‚ÍƒVƒ‡ƒbƒvBí“¬‚ÅW‚ß‚½‘Œ¹‚ğg‚Á‚Ä‚¢‚ë‚ñ‚È‚±‚Æ‚ªo—ˆ‚é‚æ\n‘Œ¹‚Íæ‚Ù‚Ç‚Ì‚æ‚¤‚É“G‹@‚ª—‚Æ‚·‚©‚çAŠæ’£‚Á‚ÄW‚ß‚æ‚¤I";
+                TutoPannel.transform.localPosition = new Vector3(25f, 250f, 0f);
+
+                maxDispStr = "ã“ã“ã¯ã‚·ãƒ§ãƒƒãƒ—ã€‚æˆ¦é—˜ã§é›†ã‚ãŸè³‡æºã‚’ä½¿ã£ã¦ã„ã‚ã‚“ãªã“ã¨ãŒå‡ºæ¥ã‚‹ã‚ˆ\nè³‡æºã¯å…ˆã»ã©ã®ã‚ˆã†ã«æ•µæ©ŸãŒè½ã¨ã™ã‹ã‚‰ã€é ‘å¼µã£ã¦é›†ã‚ã‚ˆã†ï¼";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 7;
@@ -157,7 +158,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 }
                 break;
             case 7:
-                maxDispStr = "‚³‚ÄA‰½‚©‚ç‚µ‚Ä‚İ‚æ‚¤‚©...‚Ü‚¸‚Í‹’“_‚ÌC—‚©‚ÈB\n‹’“_‚ªƒ_ƒ[ƒW‚ğ•‰‚¤‚ÆA‚±‚±‚ÅC—‚·‚é‚±‚Æ‚ªo—ˆ‚é‚æB\nƒXƒe[ƒW‚ªI‚í‚Á‚Ä‚à©“®“I‚É‰ñ•œ‚µ‚È‚¢‚©‚ç’ˆÓ‚µ‚Ä‚ËB";
+                maxDispStr = "ã•ã¦ã€ä½•ã‹ã‚‰ã—ã¦ã¿ã‚ˆã†ã‹...ã¾ãšã¯æ‹ ç‚¹ã®ä¿®ç†ã‹ãªã€‚\næ‹ ç‚¹ãŒãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’è² ã†ã¨ã€ã“ã“ã§ä¿®ç†ã™ã‚‹ã“ã¨ãŒå‡ºæ¥ã‚‹ã‚ˆã€‚\nã‚¹ãƒ†ãƒ¼ã‚¸ãŒçµ‚ã‚ã£ã¦ã‚‚è‡ªå‹•çš„ã«å›å¾©ã—ãªã„ã‹ã‚‰æ³¨æ„ã—ã¦ã­ã€‚";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 8;
@@ -166,9 +167,9 @@ public class ReinforcementTutorial : MonoBehaviour
                 }
                 break;
             case 8:
-                maxDispStr = "ƒ}ƒEƒX‚Å‹’“_C—ƒ{ƒ^ƒ“‚ğ‰Ÿ‚·‚©AƒL[ƒ{[ƒh‚Ì1‚ğ‰Ÿ‚µ‚Ä‚ËB";
+                maxDispStr = "ãƒã‚¦ã‚¹ã§æ‹ ç‚¹ä¿®ç†ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦ã­ã€‚";
                 CastleRecovery.interactable = true;
-                if (Input.GetKeyDown(KeyCode.Alpha1)||case8)
+                if (Input.GetKeyDown(KeyCode.Alpha1) || case8)
                 {
                     TutorialNum = 9;
                     nowDispCount = 0.0f;
@@ -176,7 +177,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 }
                 break;
             case 9:
-                maxDispStr = "‰æ–Ê‚Ì¶‚ÉAC—‚ÉŠÖ‚·‚éà–¾‚ªo‚Ä‚¢‚é‚Ì‚ªŒ©‚¦‚é‚æ‚ËH\n‚»‚Ì‰º‚É‚ ‚éw“üƒ{ƒ^ƒ“‚ğ‰Ÿ‚·‚ÆA‘Œ¹‚ªÁ”ï‚³‚êA‹’“_‚ªC—‚³‚ê‚é‚æI";
+                maxDispStr = "ç”»é¢ã®å·¦ã«ã€ä¿®ç†ã«é–¢ã™ã‚‹èª¬æ˜ãŒå‡ºã¦ã„ã‚‹ã®ãŒè¦‹ãˆã‚‹ã‚ˆã­ï¼Ÿ\nãã®ä¸‹ã«ã‚ã‚‹è³¼å…¥ãƒœã‚¿ãƒ³ã‚’æŠ¼ã™ã¨ã€è³‡æºãŒæ¶ˆè²»ã•ã‚Œã€æ‹ ç‚¹ãŒä¿®ç†ã•ã‚Œã‚‹ã‚ˆï¼";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 10;
@@ -186,7 +187,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 break;
             case 10:
                 buy.interactable = true;
-               maxDispStr = "‹’“_‚ÌC—‚ğ‚µ‚Ä‚İ‚æ‚¤‚æI\nƒ}ƒEƒX‚Åƒ{ƒ^ƒ“‚ğ‰Ÿ‚·‚©A‚à‚¤ˆê“x1‚ğ‰Ÿ‚·‚Æ‚Å‚«‚é‚æI";
+                maxDispStr = "æ‹ ç‚¹ã®ä¿®ç†ã‚’ã—ã¦ã¿ã‚ˆã†ã‚ˆï¼\nãƒã‚¦ã‚¹ã§è³¼å…¥ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦ã¿ã‚ˆã†ï¼";
                 if (DataManager.Instance._CastleHP == 10)
                 {
                     TutorialNum = 11;
@@ -196,7 +197,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 break;
             case 11:
                 buy.interactable = false;
-                maxDispStr = "‹’“_‚Í‹ß‚Ã‚¢‚Ä‚«‚½“G‚ÉA‚ ‚é’ö“x©ŒÈ–h‰q“G‚ÈUŒ‚‚ªo—ˆ‚é‚æB\n‚±‚±‚Å‚ÍA‚»‚ÌUŒ‚‚ÌUŒ‚—Í‚ğ‹­‰»‚·‚é‚±‚Æ‚ª‚Å‚«‚é‚Ì";
+                maxDispStr = "æ‹ ç‚¹ã¯è¿‘ã¥ã„ã¦ããŸæ•µã«ã€ã‚ã‚‹ç¨‹åº¦è‡ªå·±é˜²è¡›æ•µãªæ”»æ’ƒãŒå‡ºæ¥ã‚‹ã‚ˆã€‚\nã“ã“ã§ã¯ã€ãã®æ”»æ’ƒã®æ”»æ’ƒåŠ›ã‚’å¼·åŒ–ã™ã‚‹ã“ã¨ãŒã§ãã‚‹ã®";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 12;
@@ -206,10 +207,10 @@ public class ReinforcementTutorial : MonoBehaviour
                 break;
             case 12:
                 buy.interactable = true;
-               maxDispStr = "•û–@‚ÍC—‚Æ“¯‚¶‚¾‚æB\nˆê‰ñAƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚ÄA¶‚ÉÚ×‚ª•\¦‚³‚ê‚éB\n‚»‚µ‚ÄAw“üƒ{ƒ^ƒ“‚ğ‰Ÿ‚·B‚à‚µ‚­‚ÍƒL[ƒ{[ƒh‚Ì2‚ğ2‰ñ‰Ÿ‚·B\n‚â‚Á‚Ä‚İ‚æ‚¤‚©";
-                CastleRecovery.interactable=false;
+                maxDispStr = "æ–¹æ³•ã¯ä¿®ç†ã¨åŒã˜ã ã‚ˆã€‚\nä¸€å›ã€ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦ã€å·¦ã«è©³ç´°ãŒè¡¨ç¤ºã•ã‚Œã‚‹ã€‚\nãã—ã¦ã€è³¼å…¥ãƒœã‚¿ãƒ³ã‚’æŠ¼ã™ã€‚\nã‚„ã£ã¦ã¿ã‚ˆã†ã‹";
+                CastleRecovery.interactable = false;
                 CastleAttackBuff.interactable = true;
-                if(DataManager.Instance._CastleAttackBuff==2)//DataManeger‚ÅŠÇ—
+                if (DataManager.Instance._CastleAttackBuff == 2)//DataManegerã§ç®¡ç†
                 {
                     TutorialNum = 13;
                     nowDispCount = 0.0f;
@@ -219,8 +220,8 @@ public class ReinforcementTutorial : MonoBehaviour
             case 13:
                 buy.interactable = false;
                 CastleAttackBuff.interactable = false;
-                maxDispStr = "‚¤‚ñ‚¤‚ñB‹­‰»‚Å‚«‚½‚ËB\n‚Å‚àA‹’“_‚Ì–hŒä”\—Í‚É‚ÍŒÀŠE‚ª‚ ‚é‚©‚ç‚ËH\n‚»‚ê‚¶‚áAÅŒã‚É...‹@‘Ì‚Ì‹­‰»‚¾‚ËI";
-                if(Input.GetKeyDown(KeyCode.V))
+                maxDispStr = "ã†ã‚“ã†ã‚“ã€‚å¼·åŒ–ã§ããŸã­ã€‚\nã§ã‚‚ã€æ‹ ç‚¹ã®é˜²å¾¡èƒ½åŠ›ã«ã¯é™ç•ŒãŒã‚ã‚‹ã‹ã‚‰ã­ï¼Ÿ\nãã‚Œã˜ã‚ƒã€æœ€å¾Œã«...æ©Ÿä½“ã®å¼·åŒ–ã ã­ï¼";
+                if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 14;
                     nowDispCount = 0.0f;
@@ -230,8 +231,8 @@ public class ReinforcementTutorial : MonoBehaviour
             case 14:
                 buy.interactable = true;
                 PlayerAttackBuff.interactable = true;
-                maxDispStr = "‹@‘Ì‚ğ‹­‰»‚·‚é‚ÆA‹@‘Ì‚ÌUŒ‚—Í‚ª‚ ‚ª‚Á‚ÄA“G‚ğ“|‚µ‚â‚·‚­‚È‚é‚æB‚â‚Á‚Ä‚İ‚æ‚¤‚©B\n‹­‰»ƒ{ƒ^ƒ“‚ğƒNƒŠƒbƒN¨w“üƒ{ƒ^ƒ“‚ğƒNƒŠƒbƒNB\n‚à‚µ‚­‚ÍƒL[ƒ{[ƒh‚Ì3‚ğ“ñ‰ñ‰Ÿ‚·B";
-                if(DataManager.Instance._PlayerAttackBuff==2)//DataManeger‚ÅŠÇ—
+                maxDispStr = "æ©Ÿä½“ã‚’å¼·åŒ–ã™ã‚‹ã¨ã€æ©Ÿä½“ã®æ”»æ’ƒåŠ›ãŒã‚ãŒã£ã¦ã€æ•µã‚’å€’ã—ã‚„ã™ããªã‚‹ã‚ˆã€‚ã‚„ã£ã¦ã¿ã‚ˆã†ã‹ã€‚\nå¼·åŒ–ãƒœã‚¿ãƒ³ã‚’ã‚¯ãƒªãƒƒã‚¯â†’è³¼å…¥ãƒœã‚¿ãƒ³ã‚’ã‚¯ãƒªãƒƒã‚¯ã€‚";
+                if (DataManager.Instance._PlayerAttackBuff == 2)//DataManegerã§ç®¡ç†
                 {
                     TutorialNum = 15;
                     nowDispCount = 0.0f;
@@ -239,10 +240,10 @@ public class ReinforcementTutorial : MonoBehaviour
                 }
                 break;
             case 15:
-                maxDispStr = "‹@‘Ì‚ª‹­‚­‚È‚Á‚½‚ËI‚±‚ê‚ÅA‚İ‚ñ‚ÈˆÀS‚Å‚«‚é‚©‚ÈH\nƒVƒ‡ƒbƒv‚Å‚Å‚«‚é–‚Ìà–¾‚Í‚±‚ê‚ÅI‚í‚è‚¾‚æB\n‚»‚ê‚¶‚áA•Ší•ÏX‚ğ‚µ‚És‚±‚¤I\nƒƒCƒ“‚Ì‹­‰»‰æ–Ê‚É–ß‚ë‚¤I";
+                maxDispStr = "æ©Ÿä½“ãŒå¼·ããªã£ãŸã­ï¼ã“ã‚Œã§ã€ã¿ã‚“ãªå®‰å¿ƒã§ãã‚‹ã‹ãªï¼Ÿ\nã‚·ãƒ§ãƒƒãƒ—ã§ã§ãã‚‹äº‹ã®èª¬æ˜ã¯ã“ã‚Œã§çµ‚ã‚ã‚Šã ã‚ˆã€‚\nãã‚Œã˜ã‚ƒã€æ­¦å™¨å¤‰æ›´ã‚’ã—ã«è¡Œã“ã†ï¼\nãƒ¡ã‚¤ãƒ³ã®å¼·åŒ–ç”»é¢ã«æˆ»ã‚ã†ï¼";
                 buy.interactable = false;
                 WeaponChange.interactable = true;
-                if (Input.GetKeyDown(KeyCode.Backspace)||case15)
+                if (Input.GetKeyDown(KeyCode.Backspace) || case15)
                 {
                     TutorialNum = 16;
                     nowDispCount = 0.0f;
@@ -250,8 +251,9 @@ public class ReinforcementTutorial : MonoBehaviour
                 }
                 break;
             case 16:
-                maxDispStr = "“ñ”Ô–Ú‚Ìƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚ÄA•Ší•ÏX‚ğ‚â‚Á‚Ä‚İ‚æ‚¤B";
-                if(Input.GetKeyDown(KeyCode.Alpha2)|| case16)
+                TutoPannel.transform.localPosition = new Vector3(25f, -267f, 0f);
+                maxDispStr = "äºŒç•ªç›®ã®ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦ã€æ­¦å™¨å¤‰æ›´ã‚’ã‚„ã£ã¦ã¿ã‚ˆã†ã€‚";
+                if (Input.GetKeyDown(KeyCode.Alpha2) || case16)
                 {
                     TutorialNum = 17;
                     nowDispCount = 0.0f;
@@ -259,8 +261,9 @@ public class ReinforcementTutorial : MonoBehaviour
                 }
                 break;
             case 17:
-                maxDispStr = "‘•”õ‚Å‚«‚é•Ší‚ÍA‹ßÚAOí—Ş‚ ‚é‚æB\n‚»‚ê‚¼‚êA•Ší‚É‚æ‚é“Á«‚ªˆá‚¤‚©‚çà–¾•¶‚ğ“Ç‚ñ‚Å‚Ë";
-                if(Input.GetKeyDown(KeyCode.V))
+                TutoPannel.transform.localPosition = new Vector3(25f, 250f, 0f);
+                maxDispStr = "è£…å‚™ã§ãã‚‹æ­¦å™¨ã¯ã€ä¸‰ç¨®é¡ã‚ã‚‹ã‚ˆã€‚\nãã‚Œãã‚Œã€æ­¦å™¨ã«ã‚ˆã‚‹ç‰¹æ€§ãŒé•ã†ã‹ã‚‰èª¬æ˜æ–‡ã‚’èª­ã‚“ã§ã­";
+                if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 18;
                     nowDispCount = 0.0f;
@@ -269,8 +272,8 @@ public class ReinforcementTutorial : MonoBehaviour
                 break;
             case 18:
                 ShortSowrd.interactable = true;
-                maxDispStr = "ã‚ÌO‚Â‚ª‹ß‹——£•ŠíB\n‚»‚ê‚¶‚áA‹ß‹——£•Ší‚ğ•Ï‚¦‚Ä‚İ‚æ‚¤‚©B\n^‚ñ’†‚Ì<’ZŒŸ>‚ğƒNƒŠƒbƒN..‚à‚µ‚­‚ÍƒL[ƒ{[ƒh‚Ì2‚ğ‰Ÿ‚µ‚Ä‚Ë";
-                if(Input.GetKeyDown(KeyCode.Alpha2)||case18)
+                maxDispStr = "ãã‚Œã˜ã‚ƒã€è¿‘è·é›¢æ­¦å™¨ã‚’å¤‰ãˆã¦ã¿ã‚ˆã†ã‹ã€‚\nçœŸã‚“ä¸­ã®<çŸ­æ¤œ>ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ã¦ã­";
+                if (Input.GetKeyDown(KeyCode.Alpha2) || case18)
                 {
                     TutorialNum = 19;
                     nowDispCount = 0.0f;
@@ -278,8 +281,8 @@ public class ReinforcementTutorial : MonoBehaviour
                 }
                 break;
             case 19:
-                maxDispStr = "•Ší‚Í‰½‰ñ‚Å‚àŒğŠ·‚Å‚«‚é‚©‚çA©•ª‚É‚ ‚Á‚½•Ší‚ğ’T‚µ‚Äg‚Á‚Ä‚ËI\n‚»‚ê‚ÆAƒ}ƒEƒX‚ÅƒNƒŠƒbƒN‚µ‚È‚­‚Ä‚à..\n‹ß‹——£•Ší‚ÍƒL[ƒ{[ƒh‚Ì1,2,3ƒL[‚Å•Ï‚¦‚ç‚ê‚é‚æI";
-                if(Input.GetKeyDown(KeyCode.V))
+                maxDispStr = "æ­¦å™¨ã¯ä½•å›ã§ã‚‚äº¤æ›ã§ãã‚‹ã‹ã‚‰ã€è‡ªåˆ†ã«ã‚ã£ãŸæ­¦å™¨ã‚’æ¢ã—ã¦ä½¿ã£ã¦ã­ï¼";
+                if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 20;
                     nowDispCount = 0.0f;
@@ -287,8 +290,8 @@ public class ReinforcementTutorial : MonoBehaviour
                 }
                 break;
             case 20:
-                maxDispStr = "‚»‚ë‚»‚ëŸ‚Ì–Ú“I’n‚ÉŒü‚©‚¨‚¤‚æBƒƒCƒ“‚Ì‹­‰»‰æ–Ê‚É–ß‚ë‚¤I\n";
-                if(case20)
+                maxDispStr = "ãã‚ãã‚æ¬¡ã®ç›®çš„åœ°ã«å‘ã‹ãŠã†ã‚ˆã€‚ãƒ¡ã‚¤ãƒ³ã®å¼·åŒ–ç”»é¢ã«æˆ»ã‚ã†ï¼";
+                if (case20)
                 {
                     TutorialNum = 21;
                     nowDispCount = 0.0f;
@@ -297,31 +300,34 @@ public class ReinforcementTutorial : MonoBehaviour
                 break;
             case 21:
                 NextStage.interactable = true;
-                maxDispStr = "3”Ô‚Ì<í“¬‚Ö>ƒ{ƒ^ƒ“‚ğ‰Ÿ‚·‚ÆAŸ‚ÌƒXƒe[ƒW‚És‚­‚±‚Æ‚ªo—ˆ‚é‚æB\n‚à‚µ‚­‚ÍA‹­‰»‰æ–Ê‚Ì‚Ç‚ñ‚ÈêŠ‚Å‚à<ƒGƒ“ƒ^[ƒL[>‚ğ‰Ÿ‚·‚±‚Æ‚ÅAŸ‚ÌƒXƒe[ƒW‚És‚¯‚é‚æI";
+                TutoPannel.transform.localPosition = new Vector3(25f, -267f, 0f);
+
+                maxDispStr = "3ç•ªã®<æˆ¦é—˜ã¸>ãƒœã‚¿ãƒ³ã‚’æŠ¼ã™ã¨ã€æ¬¡ã®ã‚¹ãƒ†ãƒ¼ã‚¸ã«è¡Œãã“ã¨ãŒå‡ºæ¥ã‚‹ã‚ˆã€‚\nã‚‚ã—ãã¯ã€å¼·åŒ–ç”»é¢ã®ã©ã‚“ãªå ´æ‰€ã§ã‚‚<ã‚¨ãƒ³ã‚¿ãƒ¼ã‚­ãƒ¼>ã‚’æŠ¼ã™ã“ã¨ã§ã€æ¬¡ã®ã‚¹ãƒ†ãƒ¼ã‚¸ã«è¡Œã‘ã‚‹ã‚ˆï¼";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
+                    SkipObject.SetActive(false);
                     TutorialNum = 22;
                     nowDispCount = 0.0f;
                     SEPlay(TextSound);
                 }
                 break;
             case 22:
-                maxDispStr = "‚±‚ê‚Å‹­‰»‰æ–Ê‚Ìà–¾‚ÍI‚í‚èI\nŒã‚ÍA‘O‚Éi‚Ş‚¾‚¯B\n“ss‚Ì‚İ‚ñ‚È‚àA„‚àA‚«‚İ‚ğM‚¶‚Ä‚¢‚é‚æB\n‚³‚ As‚±‚¤I";
-                if(Input.GetKeyDown(KeyCode.Return) ||case22)
+                maxDispStr = "ã“ã‚Œã§å¼·åŒ–ç”»é¢ã®èª¬æ˜ã¯çµ‚ã‚ã‚Šï¼\nå¾Œã¯ã€å‰ã«é€²ã‚€ã ã‘ã€‚\néƒ½å¸‚ã®ã¿ã‚“ãªã‚‚ã€ç§ã‚‚ã€ãã¿ã‚’ä¿¡ã˜ã¦ã„ã‚‹ã‚ˆã€‚\nã•ã‚ã€è¡Œã“ã†ï¼";
+                if (Input.GetKeyDown(KeyCode.Return) || case22)
                 {
                     FadeManager.Instance.LoadScene("Stage0", 1.5f);
                     nowDispCount = 0.0f;
                 }
                 break;
             case 100:
-                maxDispStr = "‚»‚Á‚©A‚»‚ê‚¶‚áA‘å–‚Ég‚Á‚Ä‚ËI";
+                maxDispStr = "ãã£ã‹ã€ãã‚Œã˜ã‚ƒã€å¤§äº‹ã«ä½¿ã£ã¦ã­ï¼";
                 DataManager.Instance._CastleHP = 10;
-                DataManager.Instance._CastleAttackBuff = 1;
-                DataManager.Instance._PlayerAttackBuff = 1;
+                DataManager.Instance._CastleAttackBuff = 2;
+                DataManager.Instance._PlayerAttackBuff = 2;
                 FadeManager.Instance.LoadScene("Stage0", 1.5f);
                 break;
         }
-        nowDispCount += Time.deltaTime / 0.05f;  //•¶š•\¦‘¬“x
+        nowDispCount += Time.deltaTime / 0.05f;  //æ–‡å­—è¡¨ç¤ºé€Ÿåº¦
         nowDispStr = maxDispStr.Substring(0, Mathf.Min((int)nowDispCount, maxDispStr.Length));
         text.text = nowDispStr;
     }
@@ -333,7 +339,7 @@ public class ReinforcementTutorial : MonoBehaviour
         }
         else
         {
-            Debug.Log("ƒI[ƒfƒBƒIƒ\[ƒX‚ªİ’è‚³‚ê‚Ä‚È‚¢");
+            Debug.Log("ã‚ªãƒ¼ãƒ‡ã‚£ã‚ªã‚½ãƒ¼ã‚¹ãŒè¨­å®šã•ã‚Œã¦ãªã„");
         }
     }
     public void Case5()
@@ -369,4 +375,3 @@ public class ReinforcementTutorial : MonoBehaviour
         case22 = true;
     }
 }
-
