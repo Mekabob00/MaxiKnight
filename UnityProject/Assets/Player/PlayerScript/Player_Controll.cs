@@ -36,8 +36,14 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
     [SerializeField, Tooltip("回避のリロード時間")]
     private float AvoidReLoadTime = 3.0f;
 
-    [SerializeField, Tooltip("レーンの座標")]
-    private List<float> _LanePosList;
+    [SerializeField, Tooltip("レーン座標Y")]
+    private List<float> _LanePosYList;
+
+    [SerializeField, Tooltip("レーンの座標Z")]
+    private List<float> _LanePosZList;
+
+    [SerializeField, Tooltip("大きさ")]
+    private List<float> _ScaleList;
 
     [SerializeField, Tooltip("最大ライフ")]
     private float _MAXHP = 100;
@@ -142,18 +148,47 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
 
     private void PlayerWalk()
     {//プレイヤーの移動関数
-        float dx = Input.GetAxis("Horizontal") * Time.deltaTime * PlayerWlakSpeed;
-        float dz = Input.GetAxis("Vertical") * Time.deltaTime * PlayerWlakSpeed;
-        
+        float dx = Input.GetAxisRaw("Horizontal") * Time.deltaTime * PlayerWlakSpeed;
+        float dz = Input.GetAxisRaw("Vertical") * Time.deltaTime * PlayerWlakSpeed;
+
         bool IsAttack = PlayerAttackAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack");
         bool IschangeLane = PlayerAttackAnimator.GetCurrentAnimatorStateInfo(0).IsName("ChangeLane");
         bool IsAvoid = PlayerAttackAnimator.GetCurrentAnimatorStateInfo(0).IsName("Avoidance");
 
+        //ローカル設定
+        const float PositionX_Left = 30;
+        const float PositionX_Right = 0.3f;
+
         //攻撃時に動かさない
-        if (!IsAttack&&!IschangeLane)
+        if (!IsAttack && !IschangeLane)
         {
+
             transform.position = new Vector3(
-            transform.position.x + dx, 0.5f, _LanePosList[_NowLane]) ;
+            transform.position.x + dx, _LanePosYList[_NowLane], _LanePosZList[_NowLane]);
+
+            //アニメーション再生
+            if (dx != 0.0f)
+            {
+                PlayerAttackAnimator.SetBool("Run", true);
+            }
+            else 
+            {
+                PlayerAttackAnimator.SetBool("Run", false);
+            }
+
+            //Xじくの限界設定
+            if (transform.position.x >= PositionX_Left)
+            {
+                transform.position = new Vector3(PositionX_Left, _LanePosYList[_NowLane], _LanePosZList[_NowLane]);
+            }
+            else if(transform.position.x<=PositionX_Right)
+            {
+                transform.position = new Vector3(PositionX_Right, _LanePosYList[_NowLane], _LanePosZList[_NowLane]);
+            }
+            else
+            {
+                
+            }
         }
 
         //向きデータを保存
@@ -172,13 +207,13 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
             if (!IsAvoid||!_IsLaneChamge)
             {
                 transform.rotation = Quaternion.LookRotation(diff); //プレイヤーの向き変更
-                PlayerAttackAnimator.SetBool("Run", true);
+                
             }
 
         }
         else
         {
-            PlayerAttackAnimator.SetBool("Run", false);
+            
         }
 
         //レーン移動
@@ -229,7 +264,7 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
     void ChangeLaneMove()
     {
         //2点間の距離を代入する
-        float distance = _LanePosList[1] - _LanePosList[0];
+        float distance = _LanePosZList[1] - _LanePosZList[0];
 
         //現在の位置
         float present_Location = (Time.time*0.01f) / distance;
@@ -237,7 +272,7 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
         if (_IsLaneChamge)
         {
             //オブジェクトの移動
-            this.transform.position = Vector3.Lerp(this.transform.position, new Vector3(this.transform.position.x, this.transform.position.y, _LanePosList[_NowLane]), 0.08f);
+            this.transform.position = Vector3.Lerp(this.transform.position, new Vector3(this.transform.position.x, _LanePosYList[_NowLane], _LanePosZList[_NowLane]), 0.08f);
 
             //レーン移動の終了
             if (present_Location >= 1)
@@ -251,6 +286,11 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
 
     }
 
+    void ChnageLanetoScale()
+    {
+        this.transform.localScale = new Vector3(_ScaleList[_NowLane], _ScaleList[_NowLane], _ScaleList[_NowLane]);
+    }
+
     public void ChangeLaneAnime_Start()
     {
         _IsLaneChamge = true;
@@ -259,9 +299,9 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
         {
             _NowLane++;
             //上限保護
-            if (_NowLane >= _LanePosList.Count)
+            if (_NowLane >= _LanePosZList.Count)
             {
-                _NowLane = _LanePosList.Count - 1;
+                _NowLane = _LanePosZList.Count - 1;
                 return;
             }
         }
@@ -276,8 +316,9 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
             }
         }
 
-
+        ChnageLanetoScale();
     }
+
     public void ChangeLaneAnime_End()
     {
         _IsLaneChamge = false;
