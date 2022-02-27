@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,15 +7,15 @@ using UnityEngine.SceneManagement;
 public class tutorial_Controll : MonoBehaviour
 {
     #region SeliarizFild
-    [SerializeField, Tooltip("ƒeƒLƒXƒgƒEƒCƒ“ƒhƒE")]
+    [SerializeField, Tooltip("ãƒ†ã‚­ã‚¹ãƒˆã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦")]
     private GameObject TextWindow;
     [SerializeField, Tooltip("Enemy3")]
     private GameObject Enemy3;
-    [SerializeField, Tooltip("ƒƒCƒ“camera")]
+    [SerializeField, Tooltip("ãƒ¡ã‚¤ãƒ³camera")]
     private GameObject MainCamera;
-    [SerializeField, Tooltip("ƒTƒuƒJƒƒ‰")]
+    [SerializeField, Tooltip("ã‚µãƒ–ã‚«ãƒ¡ãƒ©")]
     private GameObject SubCamera;
-    [SerializeField, Tooltip("é")]
+    [SerializeField, Tooltip("åŸŽ")]
     private GameObject castle;
     public Text text = null;
     public GameObject SkipSelect;
@@ -24,10 +24,10 @@ public class tutorial_Controll : MonoBehaviour
     private int TutorialCount;
     private bool EnemyDestroyFlag;
     private float time;
-    private string maxDispStr = ""; //•\Ž¦‚³‚¹‚½‚¢“à—e‚Ì•¶Žš—ñ
-    private string nowDispStr = ""; //ŽÀÛ‚É‰æ–Ê‚É•\Ž¦‚³‚¹‚é—p‚Ì•¶Žš—ñ
-    [SerializeField, Tooltip("•¶Žš‚ÌƒXƒs[ƒh")]
-    private float nowDispCount = 0.0f; //Œ»Ý‰½•¶Žš–Ú‚Ü‚Å•\Ž¦‚·‚é‚©‚ÌƒJƒEƒ“ƒ^[
+    private string maxDispStr = ""; //è¡¨ç¤ºã•ã›ãŸã„å†…å®¹ã®æ–‡å­—åˆ—
+    private string nowDispStr = ""; //å®Ÿéš›ã«ç”»é¢ã«è¡¨ç¤ºã•ã›ã‚‹ç”¨ã®æ–‡å­—åˆ—
+    [SerializeField, Tooltip("æ–‡å­—ã®ã‚¹ãƒ”ãƒ¼ãƒ‰")]
+    private float nowDispCount = 0.0f; //ç¾åœ¨ä½•æ–‡å­—ç›®ã¾ã§è¡¨ç¤ºã™ã‚‹ã‹ã®ã‚«ã‚¦ãƒ³ã‚¿ãƒ¼
     #endregion
     #region Unityfunction
     void Start()
@@ -59,7 +59,7 @@ public class tutorial_Controll : MonoBehaviour
         switch (TutorialNum)
         {
             case 0:
-                maxDispStr = "“¹•‚ª‹·‚¢‚Æ‚±‚ë‚Å‚ÌŽÀ‘H‚Í‰‚ß‚Ä‚É‚È‚è‚Ü‚·B\n‚æ‚Á‚ÄAŠî‘b‹@”\ƒiƒrƒQ[ƒVƒ‡ƒ“A’ÊÌƒ`ƒ…[ƒgƒŠƒAƒ‹‚ð„§‚µ‚Ü‚·B\n•K—v‚È‚¢‚È‚çAƒ`ƒ…[ƒgƒŠƒAƒ‹‚ðƒXƒLƒbƒv‚µ‚Ü‚·‚©A‚¢‚©‚ª‚¢‚½‚µ‚Ü‚·‚©H";
+                maxDispStr = "é“å¹…ãŒç‹­ã„ã¨ã“ã‚ã§ã®å®Ÿè·µã¯åˆã‚ã¦ã«ãªã‚Šã¾ã™ã€‚\nã‚ˆã£ã¦ã€åŸºç¤Žæ©Ÿèƒ½ãƒŠãƒ“ã‚²ãƒ¼ã‚·ãƒ§ãƒ³ã€é€šç§°ãƒãƒ¥ãƒ¼ãƒˆãƒªã‚¢ãƒ«ã‚’æŽ¨å¥¨ã—ã¾ã™ã€‚\nå¿…è¦ãªã„ãªã‚‰ã€ãƒãƒ¥ãƒ¼ãƒˆãƒªã‚¢ãƒ«ã‚’ã‚¹ã‚­ãƒƒãƒ—ã—ã¾ã™ã‹ã€ã„ã‹ãŒã„ãŸã—ã¾ã™ã‹ï¼Ÿ";
                 SkipSelect.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
@@ -73,8 +73,7 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 1:
-                maxDispStr = "—¹‰ðB‚»‚ê‚Å‚ÍAà–¾‚ðŠJŽn‚µ‚Ü‚·B";
-                SkipSelect.SetActive(false);
+                maxDispStr = "äº†è§£ã€‚ãã‚Œã§ã¯ã€èª¬æ˜Žã‚’é–‹å§‹ã—ã¾ã™ã€‚";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 2;
@@ -82,7 +81,7 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 2:
-                maxDispStr = "–îˆóƒL[‚Ì¶‰E‚ÅA¶‰E‚ÌˆÚ“®‚ª‰Â”\‚Å‚·B\n‰E‚É‚àA¶‚É‚àˆÚ“®‚Å‚«‚é‹——£‚ÌŒÀŠE‚ª‚ ‚è‚Ü‚·‚Ì‚ÅA‚²’ˆÓ‚ðB";
+                maxDispStr = "çŸ¢å°ã‚­ãƒ¼ã®å·¦å³ã§ã€å·¦å³ã®ç§»å‹•ãŒå¯èƒ½ã§ã™ã€‚\nå³ã«ã‚‚ã€å·¦ã«ã‚‚ç§»å‹•ã§ãã‚‹è·é›¢ã®é™ç•ŒãŒã‚ã‚Šã¾ã™ã®ã§ã€ã”æ³¨æ„ã‚’ã€‚";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 3;
@@ -90,7 +89,7 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 3:
-                maxDispStr = "‚»‚ê‚Å‚ÍAŽÀÛ‚É¶‰E‚ÌˆÚ“®‚ð‚µ‚Ä‚Ý‚Ü‚µ‚å‚¤B";
+                maxDispStr = "ãã‚Œã§ã¯ã€å®Ÿéš›ã«å·¦å³ã®ç§»å‹•ã‚’ã—ã¦ã¿ã¾ã—ã‚‡ã†ã€‚";
                 if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
                 {
 
@@ -99,7 +98,7 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 4:
-                maxDispStr = "‚³‚·‚ª‚Å‚·A¶‰E‚ÌˆÚ“®‚ÉŠÖ‚µ‚Ä‚Í–â‘è‚È‚¢‚Å‚µ‚å‚¤B\nŽŸ‚Í‰ñ”ð‚Ìà–¾‚ðs‚¢‚Ü‚·B";
+                maxDispStr = "ã•ã™ãŒã§ã™ã€å·¦å³ã®ç§»å‹•ã«é–¢ã—ã¦ã¯å•é¡Œãªã„ã§ã—ã‚‡ã†ã€‚\næ¬¡ã¯å›žé¿ã®èª¬æ˜Žã‚’è¡Œã„ã¾ã™ã€‚";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 5;
@@ -107,7 +106,7 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 5:
-                maxDispStr = "CƒL[‚ð‰Ÿ‚·‚ÆAŒü‚¢‚Ä‚¢‚é•ûŒü‚É‰ñ”ð‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B\n‰ñ”ð’†‚Í­‚µ‚ÌŠÔ–³“G‚Æ‚È‚èA\nUŒ‚’†‚É‚àŽg—p‚·‚é‚±‚Æ‚ªo—ˆ‚Ü‚·B";
+                maxDispStr = "Cã‚­ãƒ¼ã‚’æŠ¼ã™ã¨ã€å‘ã„ã¦ã„ã‚‹æ–¹å‘ã«å›žé¿ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚\nå›žé¿ä¸­ã¯å°‘ã—ã®é–“ç„¡æ•µã¨ãªã‚Šã€\næ”»æ’ƒä¸­ã«ã‚‚ä½¿ç”¨ã™ã‚‹ã“ã¨ãŒå‡ºæ¥ã¾ã™ã€‚";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 6;
@@ -115,7 +114,7 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 6:
-                maxDispStr = "‚»‚ê‚Å‚ÍA‰ñ”ð‚µ‚Ä‚Ý‚Ü‚µ‚å‚¤B";
+                maxDispStr = "ãã‚Œã§ã¯ã€å›žé¿ã—ã¦ã¿ã¾ã—ã‚‡ã†ã€‚";
                 if (Input.GetKeyDown(KeyCode.C))
                 {
                     TutorialNum = 7;
@@ -123,7 +122,7 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 7:
-                maxDispStr = "‚³‚·‚ª‚Å‚·\n‰ñ”ð‚ÅUŒ‚‚Ìƒ‚[ƒVƒ‡ƒ“‚ðƒLƒƒƒ“ƒZƒ‹‚·‚éƒeƒNƒjƒbƒN‚ð‹ìŽg‚·‚é‚Æ\n‚æ‚è‰~ŠŠ‚Èí“¬‚ª‰Â”\‚É‚È‚è‚Ü‚·B\nŽŸ‚ÍAƒŒ[ƒ“ˆÚ“®‚É‚Â‚¢‚Äà–¾‚¢‚½‚µ‚Ü‚·B";
+                maxDispStr = "ã•ã™ãŒã§ã™\nå›žé¿ã§æ”»æ’ƒã®ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³ã‚’ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã™ã‚‹ãƒ†ã‚¯ãƒ‹ãƒƒã‚¯ã‚’é§†ä½¿ã™ã‚‹ã¨\nã‚ˆã‚Šå††æ»‘ãªæˆ¦é—˜ãŒå¯èƒ½ã«ãªã‚Šã¾ã™ã€‚\næ¬¡ã¯ã€ãƒ¬ãƒ¼ãƒ³ç§»å‹•ã«ã¤ã„ã¦èª¬æ˜Žã„ãŸã—ã¾ã™ã€‚";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 8;
@@ -131,7 +130,7 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 8:
-                maxDispStr = "ƒXƒe[ƒW‚Ì’†‚É‚Íã‰º‚Å“G‚ª‚â‚Á‚Ä‚­‚é“¹‚ª•ª‚©‚ê‚Ä‚¢‚ÄA\n‚±‚Ì“¹‚ðƒŒ[ƒ“‚ÆÌ‚µ‚Ü‚·B\n‚ ‚È‚½‚Í“ñ‚Â‚ÌƒŒ[ƒ“‚ðs‚«—ˆ‚µ‚È‚ª‚çA“G‚ðí‚¤•K—v‚ª‚ ‚è‚Ü‚·B";
+                maxDispStr = "ã‚¹ãƒ†ãƒ¼ã‚¸ã®ä¸­ã«ã¯ä¸Šä¸‹ã§æ•µãŒã‚„ã£ã¦ãã‚‹é“ãŒåˆ†ã‹ã‚Œã¦ã„ã¦ã€\nã“ã®é“ã‚’ãƒ¬ãƒ¼ãƒ³ã¨ç§°ã—ã¾ã™ã€‚\nã‚ãªãŸã¯äºŒã¤ã®ãƒ¬ãƒ¼ãƒ³ã‚’è¡Œãæ¥ã—ãªãŒã‚‰ã€æ•µã‚’æˆ¦ã†å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 9;
@@ -139,7 +138,7 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 9:
-                maxDispStr = "ƒŒ[ƒ“‚ÌˆÚ“®‚ÍA‰ñ”ð‚Æ‚¨‚È‚¶ACƒL[‚ðŽg‚¢‚Ü‚·A\n‚±‚ÌŽžAã‰º‚Ì–îˆóƒL[‚ð‰Ÿ‚µ‚Ä‚¢‚é•K—v‚ª‚ ‚è‚Ü‚·B\nŽÀÛ‚É‚â‚Á‚Ä‚Ý‚Ü‚µ‚å‚¤B";
+                maxDispStr = "ãƒ¬ãƒ¼ãƒ³ã®ç§»å‹•ã¯ã€å›žé¿ã¨ãŠãªã˜ã€Cã‚­ãƒ¼ã‚’ä½¿ã„ã¾ã™ã€\nã“ã®æ™‚ã€ä¸Šä¸‹ã®çŸ¢å°ã‚­ãƒ¼ã‚’æŠ¼ã—ã¦ã„ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚\nå®Ÿéš›ã«ã‚„ã£ã¦ã¿ã¾ã—ã‚‡ã†ã€‚";
                 if (Input.GetKey(KeyCode.C))
                 {
                     if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
@@ -150,7 +149,7 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 10:
-                maxDispStr = "ƒŒ[ƒ“‚ÌˆÚ“®‚ÅA“G‚Ìis‚É‡‚í‚¹‚È‚ª‚çí“¬‚ðs‚Á‚Ä‚­‚¾‚³‚¢";
+                maxDispStr = "ãƒ¬ãƒ¼ãƒ³ã®ç§»å‹•ã§ã€æ•µã®é€²è¡Œã«åˆã‚ã›ãªãŒã‚‰æˆ¦é—˜ã‚’è¡Œã£ã¦ãã ã•ã„";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 11;
@@ -158,7 +157,7 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 11:
-                maxDispStr = "‚±‚Ì‹@‘Ì‚Í‹ßÚ•‘•‚ð‘•”õ‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B\nŒ»Ý‘•”õ‚µ‚Ä‚¢‚é•Ší‚Í‹ßÚ•‘•‚Ì“‚Å‚·";
+                maxDispStr = "ã“ã®æ©Ÿä½“ã¯è¿‘æŽ¥æ­¦è£…ã‚’è£…å‚™ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚\nç¾åœ¨è£…å‚™ã—ã¦ã„ã‚‹æ­¦å™¨ã¯è¿‘æŽ¥æ­¦è£…ã®åˆ€ã§ã™";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 12;
@@ -166,7 +165,7 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 12:
-                maxDispStr = "‹ßÚUŒ‚‚ÍA‹ß‚¢ˆê‚É‚ ‚é“G‚ðUŒ‚‚·‚é‚±‚Æ‚ª‰Â”\A\n3‰ñ‚Ü‚Å˜A‘±‚ÅUŒ‚o—ˆ‚Ü‚·B‹ßÚUŒ‚‚ÍZƒL[‚ð‰Ÿ‚µ‚Ä‚­‚¾‚³‚¢";
+                maxDispStr = "è¿‘æŽ¥æ”»æ’ƒã¯ã€è¿‘ã„ä¸€ã«ã‚ã‚‹æ•µã‚’æ”»æ’ƒã™ã‚‹ã“ã¨ãŒå¯èƒ½ã€\n3å›žã¾ã§é€£ç¶šã§æ”»æ’ƒå‡ºæ¥ã¾ã™ã€‚è¿‘æŽ¥æ”»æ’ƒã¯Zã‚­ãƒ¼ã‚’æŠ¼ã—ã¦ãã ã•ã„";
                 if (Input.GetKeyDown(KeyCode.Z))
                 {
                     TutorialNum = 15;
@@ -174,7 +173,7 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 13:
-                maxDispStr = "ŽŸ‚Íƒ‰ƒCƒtƒ‹‚ðŽg‚Á‚½‰“‹——£UŒ‚‚ðs‚¢‚Ü‚·B\n‰“‹——£UŒ‚‚Í­‚µ‰“‚­‚Ü‚Å‚Ì“G‚ÉUŒ‚‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·‚ªA\nˆê“xŽg‚¤‚ÆAÄ—˜—p‚Ü‚Å‘Ò‹@ŽžŠÔ‚ð—v‚µ‚Ü‚·B";
+                maxDispStr = "æ¬¡ã¯ãƒ©ã‚¤ãƒ•ãƒ«ã‚’ä½¿ã£ãŸé è·é›¢æ”»æ’ƒã‚’è¡Œã„ã¾ã™ã€‚\né è·é›¢æ”»æ’ƒã¯å°‘ã—é ãã¾ã§ã®æ•µã«æ”»æ’ƒã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ãŒã€\nä¸€åº¦ä½¿ã†ã¨ã€å†åˆ©ç”¨ã¾ã§å¾…æ©Ÿæ™‚é–“ã‚’è¦ã—ã¾ã™ã€‚";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 14;
@@ -182,7 +181,7 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 14:
-                maxDispStr = "XƒL[‚Å‰“‹——£UŒ‚‚ðŽg‚Á‚Ä‚Ý‚Ü‚µ‚å‚¤";
+                maxDispStr = "Xã‚­ãƒ¼ã§é è·é›¢æ”»æ’ƒã‚’ä½¿ã£ã¦ã¿ã¾ã—ã‚‡ã†";
                 if (Input.GetKeyDown(KeyCode.X))
                 {
                     TutorialNum = 15;
@@ -190,7 +189,7 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 15:
-                maxDispStr = "‘å—Ê‚Å“G‚ª‰Ÿ‚µŠñ‚¹‚Ä‚­‚éê‡A\n‰“‹——£UŒ‚‚Å‹ß‹——£UŒ‚‚ðŽg‚¢•ª‚¯‚é•K—v‚ª‚ ‚è‚Ü‚·B";//•ÏX•K{
+                maxDispStr = "å¤§é‡ã§æ•µãŒæŠ¼ã—å¯„ã›ã¦ãã‚‹å ´åˆã€\né è·é›¢æ”»æ’ƒã§è¿‘è·é›¢æ”»æ’ƒã‚’ä½¿ã„åˆ†ã‘ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚";//å¤‰æ›´å¿…é ˆ
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 16;
@@ -198,7 +197,7 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 16:
-                maxDispStr = "“G‚ª‹’“_‚Ü‚Å‹ßÚ‚·‚é‚ÆA‹’“_‚ª”íŠQ‚ð’Ç‚Á‚Ä‚µ‚Ü‚¢‚Ü‚·B\n‹’“_‚Ì‘Ï‹v’l‚ÍTabƒL[‚Å“WŠJ‚Å‚«‚éƒCƒ“ƒ^[ƒtƒF[ƒX‚ÅŠm”F‚Å‚«‚Ü‚·B";
+                maxDispStr = "æ•µãŒæ‹ ç‚¹ã¾ã§è¿‘æŽ¥ã™ã‚‹ã¨ã€æ‹ ç‚¹ãŒè¢«å®³ã‚’è¿½ã£ã¦ã—ã¾ã„ã¾ã™ã€‚\næ‹ ç‚¹ã®è€ä¹…å€¤ã¯Tabã‚­ãƒ¼ã§å±•é–‹ã§ãã‚‹ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã§ç¢ºèªã§ãã¾ã™ã€‚";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 17;
@@ -206,7 +205,7 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 17:
-                maxDispStr = "TabƒL[‚ÅƒCƒ“ƒ^[ƒtƒF[ƒX‚ð“WŠJ‚µ‚ÄA‹’“_‚Ì‘Ï‹v‚ðŠm”F‚µ‚Ä‚Ý‚Ü‚µ‚å‚¤B";
+                maxDispStr = "Tabã‚­ãƒ¼ã§ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å±•é–‹ã—ã¦ã€æ‹ ç‚¹ã®è€ä¹…ã‚’ç¢ºèªã—ã¦ã¿ã¾ã—ã‚‡ã†ã€‚";
                 if (Input.GetKeyDown(KeyCode.Tab))
                 {
                     TutorialNum = 18;
@@ -214,7 +213,7 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 18:
-                maxDispStr = "ƒCƒ“ƒ^[ƒtƒFƒX‚ð•Â‚¶A‹’“_‚Ìó‹µ‚ð”cˆ¬‚µ‚Ä‚­‚¾‚³‚¢B";
+                maxDispStr = "ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¹ã‚’é–‰ã˜ã€æ‹ ç‚¹ã®çŠ¶æ³ã‚’æŠŠæ¡ã—ã¦ãã ã•ã„ã€‚";
                 if (Input.GetKeyDown(KeyCode.Tab))
                 {
                     TutorialNum = 19;
@@ -225,7 +224,7 @@ public class tutorial_Controll : MonoBehaviour
                 SubCamera.SetActive(true);
                 MainCamera.SetActive(false);
                 Enemy3.SetActive(true);
-                maxDispStr = "...“G‚Ì‹ßÚ‚ðŠm”FA‚¢‚æ‚¢‚æ‹ßÚ‚ÌŽžŠÔ‚Å‚·BŽÀ‘H‚Ì—pˆÓ‚Í‘åä•v‚Å‚·‚©?";
+                maxDispStr = "...æ•µã®è¿‘æŽ¥ã‚’ç¢ºèªã€ã„ã‚ˆã„ã‚ˆè¿‘æŽ¥ã®æ™‚é–“ã§ã™ã€‚å®Ÿè·µã®ç”¨æ„ã¯å¤§ä¸ˆå¤«ã§ã™ã‹?";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 20;
@@ -233,7 +232,7 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 20:
-                maxDispStr = "UŒ‚‚ðs‚¢A“G‹@‚ð”j‰ó‚µ‚Ä‚­‚¾‚³‚¢B•û–@‚Í–â‚¢‚Ü‚¹‚ñB";
+                maxDispStr = "æ”»æ’ƒã‚’è¡Œã„ã€æ•µæ©Ÿã‚’ç ´å£Šã—ã¦ãã ã•ã„ã€‚æ–¹æ³•ã¯å•ã„ã¾ã›ã‚“ã€‚";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     MainCamera.SetActive(true);
@@ -257,7 +256,7 @@ public class tutorial_Controll : MonoBehaviour
                 break;
             case 21:
                 TextWindow.SetActive(true);
-                maxDispStr = "“G‹@‚Ì”j‰ó‚ðŽ‹”F‚µ‚Ü‚µ‚½B¡‚Ì’ãŽ@‹@‚¾‚Á‚½‚æ‚¤‚Å‚·B\n–{‘à‚Æ‚Ìí“¬‚Í‚à‚¤­‚µæ‚É‚È‚è‚»‚¤‚Å‚·‚ªA®”õ‚ð‚µ‚Ä‚¨‚«‚Ü‚µ‚å‚¤B";
+                maxDispStr = "æ•µæ©Ÿã®ç ´å£Šã‚’è¦–èªã—ã¾ã—ãŸã€‚ä»Šã®åµå¯Ÿæ©Ÿã ã£ãŸã‚ˆã†ã§ã™ã€‚\næœ¬éšŠã¨ã®æˆ¦é—˜ã¯ã‚‚ã†å°‘ã—å…ˆã«ãªã‚Šãã†ã§ã™ãŒã€æ•´å‚™ã‚’ã—ã¦ãŠãã¾ã—ã‚‡ã†ã€‚";
                 if (Input.GetKeyDown(KeyCode.A))
                 {
                     TutorialNum = 23;
@@ -266,7 +265,7 @@ public class tutorial_Controll : MonoBehaviour
                 break;
             case 22:
                 TextWindow.SetActive(true);
-                maxDispStr = "...“G‚ª‹’“_‚É“ž’B‚µA‹’“_‚ªƒ_ƒ[ƒW‚ð•‰‚Á‚Ä‚µ‚Ü‚¢‚Ü‚µ‚½B\n”íŠQ‚ÍŒy”÷‚Å‚·‚ªAŽŸ‚©‚ç‚Í‹C‚ð‚Â‚¯‚Ä‚­‚¾‚³‚¢B\n–{‘à‚Æ‚Ìí“¬‚Í‚à‚¤­‚µæ‚É‚È‚è‚»‚¤‚Å‚·‚ªA®”õ‚ð‚µ‚Ä‚¨‚«‚Ü‚µ‚å‚¤B";
+                maxDispStr = "...æ•µãŒæ‹ ç‚¹ã«åˆ°é”ã—ã€æ‹ ç‚¹ãŒãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’è² ã£ã¦ã—ã¾ã„ã¾ã—ãŸã€‚\nè¢«å®³ã¯è»½å¾®ã§ã™ãŒã€æ¬¡ã‹ã‚‰ã¯æ°—ã‚’ã¤ã‘ã¦ãã ã•ã„ã€‚\næœ¬éšŠã¨ã®æˆ¦é—˜ã¯ã‚‚ã†å°‘ã—å…ˆã«ãªã‚Šãã†ã§ã™ãŒã€æ•´å‚™ã‚’ã—ã¦ãŠãã¾ã—ã‚‡ã†ã€‚";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 23;
@@ -274,16 +273,18 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 23:
-                maxDispStr = "æ‚Ù‚Ç“|‚µ‚½“G‚©‚çAÄŠˆ—p‚Å‚«‚éƒp[ƒc‚ð“üŽè‚µ‚Ü‚µ‚½B\nˆê“x‹’“_‚É–ß‚èA‚»‚¿‚ç‚Å‹@‘Ì‚Ì®”õ‚ðs‚¢‚Ü‚µ‚å‚¤B";
+                maxDispStr = "å…ˆã»ã©å€’ã—ãŸæ•µã‹ã‚‰ã€å†æ´»ç”¨ã§ãã‚‹ãƒ‘ãƒ¼ãƒ„ã‚’å…¥æ‰‹ã—ã¾ã—ãŸã€‚\nä¸€åº¦æ‹ ç‚¹ã«æˆ»ã‚Šã€ãã¡ã‚‰ã§æ©Ÿä½“ã®æ•´å‚™ã‚’è¡Œã„ã¾ã—ã‚‡ã†ã€‚";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
+                    SkipSelect.SetActive(false);
+
                     DataManager.Instance._Resource = 300;
                     FadeManager.Instance.LoadScene("ShopTutorial", 1.0f);
                     TutorialNum = 1000;
                 }
                 break;
             case 100:
-                maxDispStr = "—¹‰ðB‚»‚ê‚Å‚ÍAŒ’“¬‚ð‹F‚è‚Ü‚·B";
+                maxDispStr = "äº†è§£ã€‚ãã‚Œã§ã¯ã€å¥é—˜ã‚’ç¥ˆã‚Šã¾ã™ã€‚";
                 DataManager.Instance._Resource = 300;
                 time += Time.deltaTime;
                 if (time >= 2.0f)
@@ -297,7 +298,7 @@ public class tutorial_Controll : MonoBehaviour
 
                 break;
         }
-        nowDispCount += Time.deltaTime / 0.05f;  //•¶Žš•\Ž¦‘¬“x
+        nowDispCount += Time.deltaTime / 0.05f;  //æ–‡å­—è¡¨ç¤ºé€Ÿåº¦
 
 
         nowDispStr = maxDispStr.Substring(0, Mathf.Min((int)nowDispCount, maxDispStr.Length));

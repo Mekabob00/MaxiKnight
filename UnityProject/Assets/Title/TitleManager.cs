@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class TitleManager : MonoBehaviour
 {
-    
+    public AudioClip startSE;
 
     // Start is called before the first frame update
     void Start()
@@ -18,10 +18,10 @@ public class TitleManager : MonoBehaviour
     void Update()
     {
         //SceneChange();
-        if(Input.GetKeyDown(KeyCode.Z))
+        if(Input.anyKeyDown)
         {
-            FadeManager.Instance.LoadScene("Stage0", 1.0f);
-            GetComponent<AudioSource>().Play();
+            FadeManager.Instance.LoadScene("tutorial", 1.5f);
+            GetComponent<AudioSource>().PlayOneShot(startSE);
         }
     }
     private void SceneChange()
