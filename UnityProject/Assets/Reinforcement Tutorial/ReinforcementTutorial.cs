@@ -28,7 +28,12 @@ public class ReinforcementTutorial : MonoBehaviour
     private Button ShortSowrd;
     [SerializeField, Tooltip("買う")]
     private Button buy;
+    [SerializeField, Tooltip("TextSound")]
+    private AudioClip TextSound;
+    [SerializeField, Tooltip("TutoSuccess")]
+    private AudioClip TutoSuccess;
     public Text text = null;
+    public AudioSource audioSource = null;
     private int TutorialNum;
     private string maxDispStr = ""; //表示させたい内容の文字列
     private string nowDispStr = ""; //実際に画面に表示させる用の文字列
@@ -85,6 +90,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 {
                     TutorialNum = 1;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 1:
@@ -93,22 +99,24 @@ public class ReinforcementTutorial : MonoBehaviour
                 {
                     TutorialNum = 2;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 2:
                 maxDispStr = "あ、説明って要らないかな？\n君ってこういうの慣れてるんだっけ？";
-                SkipObject.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 3;
                     nowDispCount = 0.0f;
                     SkipObject.SetActive(false);
+                    SEPlay(TextSound);
                 }
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     TutorialNum = 100;
                     nowDispCount = 0.0f;
                     SkipObject.SetActive(false);
+                    SEPlay(TextSound);
                 }
                 break;
             case 3:
@@ -117,6 +125,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 {
                     TutorialNum = 4;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 4:
@@ -125,6 +134,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 {
                     TutorialNum = 5;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 5:
@@ -134,6 +144,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 {
                     TutorialNum = 6;
                     nowDispCount = 0.0f;
+                    SEPlay(TutoSuccess);
                 }
                 break;
             case 6:
@@ -142,6 +153,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 {
                     TutorialNum = 7;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 7:
@@ -150,6 +162,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 {
                     TutorialNum = 8;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 8:
@@ -159,6 +172,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 {
                     TutorialNum = 9;
                     nowDispCount = 0.0f;
+                    SEPlay(TutoSuccess);
                 }
                 break;
             case 9:
@@ -167,6 +181,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 {
                     TutorialNum = 10;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 10:
@@ -176,6 +191,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 {
                     TutorialNum = 11;
                     nowDispCount = 0.0f;
+                    SEPlay(TutoSuccess);
                 }
                 break;
             case 11:
@@ -185,6 +201,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 {
                     TutorialNum = 12;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 12:
@@ -196,6 +213,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 {
                     TutorialNum = 13;
                     nowDispCount = 0.0f;
+                    SEPlay(TutoSuccess);
                 }
                 break;
             case 13:
@@ -206,6 +224,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 {
                     TutorialNum = 14;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 14:
@@ -216,6 +235,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 {
                     TutorialNum = 15;
                     nowDispCount = 0.0f;
+                    SEPlay(TutoSuccess);
                 }
                 break;
             case 15:
@@ -226,6 +246,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 {
                     TutorialNum = 16;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 16:
@@ -234,6 +255,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 {
                     TutorialNum = 17;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 17:
@@ -242,6 +264,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 {
                     TutorialNum = 18;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 18:
@@ -251,6 +274,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 {
                     TutorialNum = 19;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 19:
@@ -259,6 +283,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 {
                     TutorialNum = 20;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 20:
@@ -267,6 +292,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 {
                     TutorialNum = 21;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 21:
@@ -276,6 +302,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 {
                     TutorialNum = 22;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 22:
@@ -297,6 +324,17 @@ public class ReinforcementTutorial : MonoBehaviour
         nowDispCount += Time.deltaTime / 0.05f;  //文字表示速度
         nowDispStr = maxDispStr.Substring(0, Mathf.Min((int)nowDispCount, maxDispStr.Length));
         text.text = nowDispStr;
+    }
+    private void SEPlay(AudioClip audio)
+    {
+        if (audioSource != null)
+        {
+            audioSource.PlayOneShot(audio);
+        }
+        else
+        {
+            Debug.Log("オーディオソースが設定されてない");
+        }
     }
     public void Case5()
     {

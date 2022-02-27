@@ -17,21 +17,29 @@ public class tutorial_Controll : MonoBehaviour
     private GameObject SubCamera;
     [SerializeField, Tooltip("城")]
     private GameObject castle;
+    [SerializeField, Tooltip("TextSound")]
+    private AudioClip TextSound;
+    [SerializeField, Tooltip("TutoSuccess")]
+    private AudioClip TutoSuccess;
     public Text text = null;
     public GameObject SkipSelect;
     public Rigidbody Enemy3Rigidbody;
     private int TutorialNum;
     private int TutorialCount;
+    private int AttakConut;
     private bool EnemyDestroyFlag;
     private float time;
     private string maxDispStr = ""; //表示させたい内容の文字列
     private string nowDispStr = ""; //実際に画面に表示させる用の文字列
     [SerializeField, Tooltip("文字のスピード")]
     private float nowDispCount = 0.0f; //現在何文字目まで表示するかのカウンター
+
+    public AudioSource audioSource = null;
     #endregion
     #region Unityfunction
     void Start()
     {
+        AttakConut = 0;
         Enemy3Rigidbody.constraints = RigidbodyConstraints.FreezePositionX;
         time = 0;
         TutorialNum = 0;
@@ -70,6 +78,7 @@ public class tutorial_Controll : MonoBehaviour
                 {
                     TutorialNum = 1;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 1:
@@ -78,6 +87,7 @@ public class tutorial_Controll : MonoBehaviour
                 {
                     TutorialNum = 2;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 2:
@@ -86,15 +96,16 @@ public class tutorial_Controll : MonoBehaviour
                 {
                     TutorialNum = 3;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 3:
-                maxDispStr = "それでは、実際に左右の移動をしてみましょう。";
+                maxDispStr = "それでは、実際に左右の移動をしてみましょう。\n□矢印キーを使って左右の移動をしてみる。";
                 if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
                 {
-
                     TutorialNum = 4;
                     nowDispCount = 0.0f;
+                    SEPlay(TutoSuccess);
                 }
                 break;
             case 4:
@@ -103,6 +114,7 @@ public class tutorial_Controll : MonoBehaviour
                 {
                     TutorialNum = 5;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 5:
@@ -111,14 +123,16 @@ public class tutorial_Controll : MonoBehaviour
                 {
                     TutorialNum = 6;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 6:
-                maxDispStr = "それでは、回避してみましょう。";
+                maxDispStr = "それでは、回避してみましょう。\n□Cキーを使って回避をしてみる。";
                 if (Input.GetKeyDown(KeyCode.C))
                 {
                     TutorialNum = 7;
                     nowDispCount = 0.0f;
+                    SEPlay(TutoSuccess);
                 }
                 break;
             case 7:
@@ -127,6 +141,7 @@ public class tutorial_Controll : MonoBehaviour
                 {
                     TutorialNum = 8;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 8:
@@ -135,25 +150,25 @@ public class tutorial_Controll : MonoBehaviour
                 {
                     TutorialNum = 9;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 9:
-                maxDispStr = "レーンの移動は、回避とおなじ、Cキーを使います、\nこの時、上下の矢印キーを押している必要があります。\n実際にやってみましょう。";
-                if (Input.GetKey(KeyCode.C))
-                {
+                maxDispStr = "レーンは上下の矢印キーを使うことで移動できます。\n実際にやってみましょう\n□上下キーを使ってレーンを変更してみる";
                     if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
                     {
                         TutorialNum = 10;
                         nowDispCount = 0.0f;
+                        SEPlay(TutoSuccess);
                     }
-                }
                 break;
             case 10:
-                maxDispStr = "レーンの移動で、敵の進行に合わせながら戦闘を行ってください";
+                maxDispStr = "レーンの移動で、敵の進行に合わせながら戦闘を行ってください。\n次は、攻撃行動に関するチュートリアルを行います。";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 11;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 11:
@@ -162,14 +177,20 @@ public class tutorial_Controll : MonoBehaviour
                 {
                     TutorialNum = 12;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 12:
-                maxDispStr = "近接攻撃は、近い一にある敵を攻撃することが可能、\n3回まで連続で攻撃出来ます。近接攻撃はZキーを押してください";
+                maxDispStr = "近接攻撃は、近い一にある敵を攻撃することが可能、\n3回まで連続で攻撃出来ます。近接攻撃はZキーを押してください。\n□Zキーで3連攻撃をしてみる";
                 if (Input.GetKeyDown(KeyCode.Z))
                 {
-                    TutorialNum = 15;
-                    nowDispCount = 0.0f;
+                    AttakConut++;
+                    if (AttakConut >= 3)
+                    {
+                        TutorialNum = 15;
+                        nowDispCount = 0.0f;
+                        SEPlay(TutoSuccess);
+                    }
                 }
                 break;
             case 13:
@@ -178,6 +199,7 @@ public class tutorial_Controll : MonoBehaviour
                 {
                     TutorialNum = 14;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 14:
@@ -194,6 +216,7 @@ public class tutorial_Controll : MonoBehaviour
                 {
                     TutorialNum = 16;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 16:
@@ -202,22 +225,25 @@ public class tutorial_Controll : MonoBehaviour
                 {
                     TutorialNum = 17;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 17:
-                maxDispStr = "Tabキーでインターフェースを展開して、拠点の耐久を確認してみましょう。";
+                maxDispStr = "Tabキーでインターフェースを展開して、拠点の耐久を確認してみましょう。\n□Tabキーでインターフェースを展開してみる";
                 if (Input.GetKeyDown(KeyCode.Tab))
                 {
                     TutorialNum = 18;
                     nowDispCount = 0.0f;
+                    SEPlay(TutoSuccess);
                 }
                 break;
             case 18:
-                maxDispStr = "インターフェスを閉じ、拠点の状況を把握してください。";
+                maxDispStr = "インターフェスを閉じ、拠点の状況を把握してください。□Tabキーでインターフェースを閉じる。";
                 if (Input.GetKeyDown(KeyCode.Tab))
                 {
                     TutorialNum = 19;
                     nowDispCount = 0.0f;
+                    SEPlay(TutoSuccess);
                 }
                 break;
             case 19:
@@ -229,6 +255,7 @@ public class tutorial_Controll : MonoBehaviour
                 {
                     TutorialNum = 20;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 20:
@@ -241,6 +268,7 @@ public class tutorial_Controll : MonoBehaviour
                     Enemy3Rigidbody.constraints = RigidbodyConstraints.None;
                     Enemy3Rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 if (!Enemy3)
                 {
@@ -257,10 +285,11 @@ public class tutorial_Controll : MonoBehaviour
             case 21:
                 TextWindow.SetActive(true);
                 maxDispStr = "敵機の破壊を視認しました。今の偵察機だったようです。\n本隊との戦闘はもう少し先になりそうですが、整備をしておきましょう。";
-                if (Input.GetKeyDown(KeyCode.A))
+                if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 23;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 22:
@@ -270,6 +299,7 @@ public class tutorial_Controll : MonoBehaviour
                 {
                     TutorialNum = 23;
                     nowDispCount = 0.0f;
+                    SEPlay(TextSound);
                 }
                 break;
             case 23:
@@ -277,7 +307,7 @@ public class tutorial_Controll : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     SkipSelect.SetActive(false);
-
+                    SEPlay(TextSound);
                     DataManager.Instance._Resource = 300;
                     FadeManager.Instance.LoadScene("ShopTutorial", 1.0f);
                     TutorialNum = 1000;
@@ -289,6 +319,7 @@ public class tutorial_Controll : MonoBehaviour
                 time += Time.deltaTime;
                 if (time >= 2.0f)
                 {
+                    SEPlay(TextSound);
                     FadeManager.Instance.LoadScene("ShopTutorial", 1.5f);
                     time = 0.0f;
                     TutorialNum = 1000;
@@ -305,4 +336,15 @@ public class tutorial_Controll : MonoBehaviour
         text.text = nowDispStr;
     }
     #endregion
+    private void SEPlay(AudioClip audio)
+    {
+        if (audioSource != null)
+        {
+            audioSource.PlayOneShot(audio);
+        }
+        else
+        {
+            Debug.Log("オーディオソースが設定されてない");
+        }
+    }
 }
