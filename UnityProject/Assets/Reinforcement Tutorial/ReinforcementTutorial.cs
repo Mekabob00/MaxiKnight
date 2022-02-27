@@ -83,6 +83,12 @@ public class ReinforcementTutorial : MonoBehaviour
              TutorialNum -= 1;
              nowDispCount = 0.0f;
          }*/
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            TutorialNum = 100;
+            nowDispCount = 0.0f;
+            SEPlay(TextSound);
+        }
         switch (TutorialNum)
         {
             case 0:
@@ -104,7 +110,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 }
                 break;
             case 2:
-                maxDispStr = "あ、説明って要らないかな？\n君ってこういうの慣れてるんだっけ？\n（Zキーで次に進み、\nスペースキーでチュートリアルをスキップできます）";
+                maxDispStr = "あ、説明って要らないかな？\n君ってこういうの慣れてるんだっけ？\n（Vキーで次に進み、\nスペースキーでチュートリアルをスキップできます）";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 3;
@@ -272,7 +278,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 break;
             case 18:
                 ShortSowrd.interactable = true;
-                maxDispStr = "それじゃ、近距離武器を変えてみようか。\n真ん中の<短検>をクリックしてね";
+                maxDispStr = "それじゃ、近距離武器を変えてみようか。\n真ん中の<短剣>をクリックしてね";
                 if (Input.GetKeyDown(KeyCode.Alpha2) || case18)
                 {
                     TutorialNum = 19;
@@ -315,8 +321,9 @@ public class ReinforcementTutorial : MonoBehaviour
                 maxDispStr = "これで強化画面の説明は終わり！\n後は、前に進むだけ。\n都市のみんなも、私も、きみを信じているよ。\nさあ、行こう！";
                 if (Input.GetKeyDown(KeyCode.Return) || case22)
                 {
-                    FadeManager.Instance.LoadScene("Stage0", 1.5f);
+                    FadeManager.Instance.LoadScene("Stage1", 1.5f);
                     nowDispCount = 0.0f;
+                    TutorialNum = 1000;
                 }
                 break;
             case 100:
@@ -324,7 +331,10 @@ public class ReinforcementTutorial : MonoBehaviour
                 DataManager.Instance._CastleHP = 10;
                 DataManager.Instance._CastleAttackBuff = 2;
                 DataManager.Instance._PlayerAttackBuff = 2;
-                FadeManager.Instance.LoadScene("Stage0", 1.5f);
+                FadeManager.Instance.LoadScene("Stage1", 1.5f);
+                TutorialNum = 1000;
+                break;
+            case 1000:
                 break;
         }
         nowDispCount += Time.deltaTime / 0.05f;  //文字表示速度

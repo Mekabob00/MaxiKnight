@@ -112,7 +112,7 @@ public class tutorial_Controll : MonoBehaviour
             case 4:
                 maxDispStr = "さすがです、左右の移動に関しては問題ないでしょう。\n次は回避の説明を行います。";
                 TextWindow.SetActive(true);
-
+                SkipSelect.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 5;
@@ -142,7 +142,7 @@ public class tutorial_Controll : MonoBehaviour
             case 7:
                 maxDispStr = "さすがです\n回避で攻撃のモーションをキャンセルするテクニックを駆使すると\nより円滑な戦闘が可能になります。\n次は、レーン移動について説明いたします。";
                 TextWindow.SetActive(true);
-
+                SkipSelect.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 8;
@@ -172,7 +172,7 @@ public class tutorial_Controll : MonoBehaviour
             case 10:
                 maxDispStr = "レーンの移動で、敵の進行に合わせながら戦闘を行ってください。\n次は、攻撃行動に関するチュートリアルを行います。";
                 TextWindow.SetActive(true);
-
+                SkipSelect.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 11;
@@ -204,6 +204,7 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 13:
+                SkipSelect.SetActive(true);
                 maxDispStr = "次はライフルを使った遠距離攻撃を行います。\n遠距離攻撃は少し遠くまでの敵に攻撃することができますが、\n一度使うと、再利用まで待機時間を要します。";
                 if (Input.GetKeyDown(KeyCode.V))
                 {
@@ -240,7 +241,7 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 17:
-                maxDispStr = "Tabキーでインターフェースを展開して、拠点の耐久を確認してみましょう。\n□Tabキーでインターフェースを展開してみる";
+                maxDispStr = "Tabキーでインターフェースを展開して、拠点の耐久を確認しましょう。\n□Tabキーでインターフェースを展開してみる";
                 SkipSelect.SetActive(false);
                 if (Input.GetKeyDown(KeyCode.Tab))
                 {
@@ -250,8 +251,8 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 18:
-                maxDispStr = "インターフェスを閉じ、拠点の状況を把握してください。□Tabキーでインターフェースを閉じる。";
-                SkipSelect.SetActive(false);
+                maxDispStr = "インターフェスを閉じ、拠点の状況を把握してください。\n□Tabキーでインターフェースを閉じる。";
+               
                 if (Input.GetKeyDown(KeyCode.Tab))
                 {
                     TutorialNum = 19;
@@ -260,6 +261,7 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 19:
+                SkipSelect.SetActive(true);
                 SubCamera.SetActive(true);
                 MainCamera.SetActive(false);
                 Enemy3.SetActive(true);
