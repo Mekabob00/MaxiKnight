@@ -466,7 +466,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2977376511984716768
 Transform:
   m_ObjectHideFlags: 0
@@ -584,8 +584,8 @@ MonoBehaviour:
   _Renderer: {fileID: 0}
   _GlobalDataObject: {fileID: 0}
   DamegeSE: {fileID: 8300000, guid: cb17f9d8b81d5a8489d0eb835e9d7a56, type: 3}
-  AttackSE: {fileID: 8300000, guid: cb17f9d8b81d5a8489d0eb835e9d7a56, type: 3}
-  DieSE: {fileID: 8300000, guid: cb17f9d8b81d5a8489d0eb835e9d7a56, type: 3}
+  AttackSE: {fileID: 0}
+  DieSE: {fileID: 8300000, guid: ea3fbd51207c5264caa2245206a23afc, type: 3}
   _Damage: 0
   Effect: {fileID: 6905903939417113979, guid: dedfb3139b45fd249bdca337ec6d05b7, type: 3}
   DidEffect: {fileID: 2886189059328443225, guid: 9a4438211fb2e4547b050c2457cafb2c, type: 3}
@@ -596,7 +596,7 @@ MonoBehaviour:
   _IsAddDamageEffect: 0
   _IsMoveActive: 0
   _IsAttackFlag: 0
-  castle: {fileID: 7508948264773336459, guid: 09c0fc99efab3c248b5bfd3a89f80052, type: 3}
+  castle: {fileID: 0}
   Enemy: {fileID: 2457299109049045338}
   castlePosition: {x: 0, y: 0, z: 0}
 --- !u!95 &1009572393

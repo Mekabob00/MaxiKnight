@@ -394,6 +394,7 @@ MonoBehaviour:
   Damege: {fileID: 8300000, guid: cb17f9d8b81d5a8489d0eb835e9d7a56, type: 3}
   Item: {fileID: 4637782406889143264, guid: be45f16098d8ec1438b1644a161bcf7d, type: 3}
   Player: {fileID: 0}
+  DidSe: {fileID: 8300000, guid: ea3fbd51207c5264caa2245206a23afc, type: 3}
   _IsEnemy4explosionFlag: 0
   span: 3
   _IsMoveActive: 0

@@ -32,6 +32,9 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
     private GameObject Item;
     [SerializeField, Tooltip("Player")]
     private GameObject Player;
+    [SerializeField, Tooltip("Ž€–SŽž‚ÌSE")]
+    private AudioClip DidSe;
+ 
 
 
     public bool _IsEnemy4explosionFlag;
@@ -108,7 +111,7 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
         {
             //‰¼
             Instantiate(DidEffect, transform.position, transform.rotation);
-            EnemyAttackManeger.instance.PlaySE(Damege);
+            EnemyAttackManeger.instance.PlaySE(DidSe);
             Instantiate(Item, transform.position, transform.rotation);
             Destroy(this.gameObject);
             return;
@@ -129,6 +132,7 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
         if (collision.gameObject.tag == "Castle")
         {
             Instantiate(DidEffect, transform.position, transform.rotation);
+            EnemyAttackManeger.instance.PlaySE(DidSe);
             Destroy(gameObject);
         }
     }
@@ -157,6 +161,7 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
             this.transform.position = new Vector3(1000, 1000, 1000);
             Player.GetComponent<Player_Controll>().enabled =true;
             Player.GetComponent<Animator>().enabled = true;
+            EnemyAttackManeger.instance.PlaySE(DidSe);
             Destroy(Enemy);
             currentTime = 0.0f;
         }

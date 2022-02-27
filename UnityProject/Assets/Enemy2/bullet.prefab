@@ -101,6 +101,7 @@ MonoBehaviour:
   Effect: {fileID: 2886189059328443225, guid: 9a4438211fb2e4547b050c2457cafb2c, type: 3}
   Castle: {fileID: 7508948264773336459, guid: 09c0fc99efab3c248b5bfd3a89f80052, type: 3}
   _Damege: 0
+  AttackSE: {fileID: 8300000, guid: 504c779b2269d6d42b84b8a0541d2923, type: 3}
 --- !u!54 &-344973755878985735
 Rigidbody:
   m_ObjectHideFlags: 0
