@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2020.3/staging' branch; Version is '2020.3.0f1 (c7b5465681fb) revision 13088070'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Home; OS build 19043.1526; Version 2009; 64bit' Language: 'ko' Physical Memory: 16299 MB
+OS: 'Windows 10 Home; OS build 19043.1526; Version 2009; 64bit' Language: 'ja' Physical Memory: 16299 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
  COMMAND LINE ARGUMENTS:
@@ -15,11 +15,11 @@ F:/共同制作/MaxiKnight/UnityProject
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-11709
+4481
 Successfully changed project path to: F:/共同制作/MaxiKnight/UnityProject
 F:/共同制作/MaxiKnight/UnityProject
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 40.99 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 42.97 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.0f1 (c7b5465681fb)
 [Subsystems] Discovering subsystems at path F:/Program Files (x86)/2020.3.1f1/Editor/Data/Resources/UnitySubsystems
@@ -35,22 +35,22 @@ Initialize mono
 Mono path[0] = 'F:/Program Files (x86)/2020.3.1f1/Editor/Data/Managed'
 Mono path[1] = 'F:/Program Files (x86)/2020.3.1f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'F:/Program Files (x86)/2020.3.1f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56648
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56692
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: F:/Program Files (x86)/2020.3.1f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001775 seconds.
+Registered in 0.001783 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 40.96 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 65.76 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.183 seconds
+- Completed reload, in  1.348 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.001074 seconds.
+Registered in 0.002791 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.36 ms, found 0 plugins.
@@ -59,123 +59,621 @@ Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.940 seconds
+- Completed reload, in  1.020 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
-Refreshing native plugins compatible for Editor in 0.38 ms, found 0 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
+Refreshing native plugins compatible for Editor in 0.36 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1308 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 70.7 MB.
-System memory in use after: 70.6 MB.
+Unloading 1315 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 70.3 MB.
+System memory in use after: 70.3 MB.
 
-Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 1757.
-Total: 2.142600 ms (FindLiveObjects: 0.157500 ms CreateObjectMapping: 0.055300 ms MarkObjects: 1.791400 ms  DeleteObjects: 0.137100 ms)
-
-========================================================================
-Received Import Request.
-  path: Assets/Sprites/ゲームクリア.png
-  artifactKey: Guid(057a217cc94f7db48a0f9d4ff8a1ef61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/ゲームクリア.png using Guid(057a217cc94f7db48a0f9d4ff8a1ef61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b6152cd59530d070130ad9b66b5da40') in 0.146660 seconds
-  Import took 0.149866 seconds .
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 1764.
+Total: 1.771000 ms (FindLiveObjects: 0.152900 ms CreateObjectMapping: 0.048300 ms MarkObjects: 1.434500 ms  DeleteObjects: 0.134100 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.363933 seconds.
-  path: Assets/Scenes/backMain.fbx
-  artifactKey: Guid(9ca09ec38d34e2342920d80595bf1e84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/backMain.fbx using Guid(9ca09ec38d34e2342920d80595bf1e84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b097e8d2332f023454569a456bc38722') in 0.807789 seconds
-  Import took 0.811050 seconds .
+  path: Assets/UpgradeGamen/Asset/katanabutton.psd
+  artifactKey: Guid(d3cfd744636616146bbac86cafe14452) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UpgradeGamen/Asset/katanabutton.psd using Guid(d3cfd744636616146bbac86cafe14452) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ff0bdf46fe4c029c74694b935fc5541') in 0.095644 seconds
+  Import took 0.098327 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000326 seconds.
-  path: Assets/Scenes/shanghai_bund_8k.hdr
-  artifactKey: Guid(4bffdb35e6535f241b81c052e83dcc2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/shanghai_bund_8k.hdr using Guid(4bffdb35e6535f241b81c052e83dcc2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fef1bdda3d69b0b8e759eabac1fec8c4') in 0.068316 seconds
-  Import took 0.072765 seconds .
+  Time since last request: 0.000449 seconds.
+  path: Assets/UpgradeGamen/Asset/katanabutton.png
+  artifactKey: Guid(ea7b8d590ff753445a3c3f2a3a5fd280) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UpgradeGamen/Asset/katanabutton.png using Guid(ea7b8d590ff753445a3c3f2a3a5fd280) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c991363588ed6eb816d710b3bac175c6') in 0.017728 seconds
+  Import took 0.020324 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 6.055693 seconds.
-  path: Assets/Scenes/New Lighting Settings.lighting
-  artifactKey: Guid(615f1aec6c57e27488abe44a108e4b62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/New Lighting Settings.lighting using Guid(615f1aec6c57e27488abe44a108e4b62) Importer(815301076,1909f56bfc062723c751e8b465ee728b) LightingSettings: switching bake backend from 1 to 2.
- -> (artifact id: '5b85eeff7c99133dac9fcf25a514890a') in 0.007964 seconds
-  Import took 0.010570 seconds .
+  Time since last request: 33.041306 seconds.
+  path: Assets/UpgradeGamen/Asset/katanabutton.psd
+  artifactKey: Guid(d3cfd744636616146bbac86cafe14452) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UpgradeGamen/Asset/katanabutton.psd using Guid(d3cfd744636616146bbac86cafe14452) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '41ac9b5fc1895c9e40b46e4860116b3a') in 0.055170 seconds
+  Import took 0.057851 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.008381 seconds.
-  path: Assets/Scenes/New Lighting Settings.lighting
-  artifactKey: Guid(615f1aec6c57e27488abe44a108e4b62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/New Lighting Settings.lighting using Guid(615f1aec6c57e27488abe44a108e4b62) Importer(815301076,1909f56bfc062723c751e8b465ee728b) LightingSettings: switching bake backend from 1 to 2.
- -> (artifact id: '5b85eeff7c99133dac9fcf25a514890a') in 0.004009 seconds
-  Import took 0.006611 seconds .
+  Time since last request: 0.000299 seconds.
+  path: Assets/UpgradeGamen/Asset/katanabutton.png
+  artifactKey: Guid(ea7b8d590ff753445a3c3f2a3a5fd280) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UpgradeGamen/Asset/katanabutton.png using Guid(ea7b8d590ff753445a3c3f2a3a5fd280) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '577c0a633398cf195479489543935954') in 0.012266 seconds
+  Import took 0.014803 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 25.284423 seconds.
-  path: Assets/UpgradeGamen/Scenes/Shop.unity
-  artifactKey: Guid(0a7414fb2d1b4174e93ad669829a2d16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/UpgradeGamen/Scenes/Shop.unity using Guid(0a7414fb2d1b4174e93ad669829a2d16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2ba983d4249026e709716e654f46d43') in 0.005536 seconds
-  Import took 0.008242 seconds .
+  Time since last request: 1.082847 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/4_Damages/5__KnockDown/M_katana_Blade@KnockDown_Front_FW_Rolling_StandUp.FBX
+  artifactKey: Guid(79c7935f3f39ece47ad2908660c894a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/4_Damages/5__KnockDown/M_katana_Blade@KnockDown_Front_FW_Rolling_StandUp.FBX using Guid(79c7935f3f39ece47ad2908660c894a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe1df526189337d7323c268e971b5975') in 0.098017 seconds
+  Import took 0.101240 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 104.808549 seconds.
-  path: Assets/Stage/Stage0.unity
-  artifactKey: Guid(9fd7aeeb408862148a213baab5ce81b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Stage/Stage0.unity using Guid(9fd7aeeb408862148a213baab5ce81b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9fe90fa038aece5d9a49fe47d9e347e7') in 0.005456 seconds
-  Import took 0.008016 seconds .
+  Time since last request: 0.000396 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Back_L45.FBX
+  artifactKey: Guid(4bbe169dcfd603d48b5964e57f1cdacf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Back_L45.FBX using Guid(4bbe169dcfd603d48b5964e57f1cdacf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4cb34b908ac0dbafa29b7ae6bbbe4c9') in 0.009094 seconds
+  Import took 0.012009 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.558915 seconds.
-  path: Assets/Stage/Stage0 1.unity
-  artifactKey: Guid(4b08abacdd437774498fed7ebfb776a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Stage/Stage0 1.unity using Guid(4b08abacdd437774498fed7ebfb776a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c48acee2e7cbd4cec4142f13fcca8032') in 0.005338 seconds
-  Import took 0.007877 seconds .
+  Time since last request: 0.000370 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/4_Damages/5__KnockDown/M_katana_Blade@KnockDown_Front_ver_A.FBX
+  artifactKey: Guid(a7f5f6b15f267844e8c82f29d3012a43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/4_Damages/5__KnockDown/M_katana_Blade@KnockDown_Front_ver_A.FBX using Guid(a7f5f6b15f267844e8c82f29d3012a43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81d9d8d45ad84818da564f8a931dce24') in 0.010583 seconds
+  Import took 0.013670 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 159.546531 seconds.
-  path: Assets/Player/Player.fbx
-  artifactKey: Guid(5e28bcb86f8a01c498170a6d857705a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player/Player.fbx using Guid(5e28bcb86f8a01c498170a6d857705a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0de620c2aff3a86b6f6241f8abc13757') in 0.119362 seconds
-  Import took 0.122738 seconds .
+  Time since last request: 0.000432 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/4_Damages/5__KnockDown/M_katana_Blade@KnockDown_Front_Loop.FBX
+  artifactKey: Guid(0c942cb12398a4a4380f433a74b2ccb4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/4_Damages/5__KnockDown/M_katana_Blade@KnockDown_Front_Loop.FBX using Guid(0c942cb12398a4a4380f433a74b2ccb4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4526b49960a44b1027218fc32772f093') in 0.007978 seconds
+  Import took 0.011365 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000352 seconds.
-  path: Assets/Player/Prefabs/Player0.fbx
-  artifactKey: Guid(d2e64ed385c88d8469807788d5cab628) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player/Prefabs/Player0.fbx using Guid(d2e64ed385c88d8469807788d5cab628) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '184cf1856fd7a77d83b76b97fcb1bbb5') in 0.295478 seconds
-  Import took 0.299503 seconds .
+  Time since last request: 0.000381 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Back_L45_Root.FBX
+  artifactKey: Guid(77a3d89d1deb05d43a6c6bbe5e083357) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Back_L45_Root.FBX using Guid(77a3d89d1deb05d43a6c6bbe5e083357) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e86307fc5c8b81032c0f16a1083843ad') in 0.008206 seconds
+  Import took 0.011301 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000309 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/4_Damages/5__KnockDown/M_katana_Blade@KnockDown_Front_Spear_Inplace.FBX
+  artifactKey: Guid(9c1cab0e6d1bdbb43a6c8842b005914f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/4_Damages/5__KnockDown/M_katana_Blade@KnockDown_Front_Spear_Inplace.FBX using Guid(9c1cab0e6d1bdbb43a6c8842b005914f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96d6b362b920166ce80a8c30452f0297') in 0.009850 seconds
+  Import took 0.012722 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000336 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/4_Damages/5__KnockDown/M_katana_Blade@KnockDown_Front_Smash_Double_Inplace.FBX
+  artifactKey: Guid(b8228c95bd497484997f59af4062c0cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/4_Damages/5__KnockDown/M_katana_Blade@KnockDown_Front_Smash_Double_Inplace.FBX using Guid(b8228c95bd497484997f59af4062c0cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a98031b6bb01c13263d007e0eb87f55d') in 0.011265 seconds
+  Import took 0.014286 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000341 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/4_Damages/5__KnockDown/M_katana_Blade@KnockDown_Front_Spear.FBX
+  artifactKey: Guid(bd1a5eb53babb01458774def9a5713cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/4_Damages/5__KnockDown/M_katana_Blade@KnockDown_Front_Spear.FBX using Guid(bd1a5eb53babb01458774def9a5713cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c16747d9d1cef6fd6ac127d74409b5b6') in 0.009997 seconds
+  Import took 0.013265 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000313 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/4_Damages/5__KnockDown/M_katana_Blade@KnockDown_Front_Smash_Double.FBX
+  artifactKey: Guid(1d5a0011942d4f045a96eb477ad0486f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/4_Damages/5__KnockDown/M_katana_Blade@KnockDown_Front_Smash_Double.FBX using Guid(1d5a0011942d4f045a96eb477ad0486f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e01c9e2e504d3b4054526ef7d71e80a9') in 0.009720 seconds
+  Import took 0.013026 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000291 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Back.FBX
+  artifactKey: Guid(a35e7696d2fd31f4b82415c8c9d5dce0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Back.FBX using Guid(a35e7696d2fd31f4b82415c8c9d5dce0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '465064ac2e3c78e65987fab88ceb51c2') in 0.008858 seconds
+  Import took 0.011772 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.058359 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Back_L90.FBX
+  artifactKey: Guid(1a6e625f375f97544a3b21f1fde2e29f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Back_L90.FBX using Guid(1a6e625f375f97544a3b21f1fde2e29f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6bc94177d89e8eb48f7b845f25e96dc5') in 0.009005 seconds
+  Import took 0.012606 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000341 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Front_L90_Root.FBX
+  artifactKey: Guid(9226a7482ad359040810d9f050baa6a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Front_L90_Root.FBX using Guid(9226a7482ad359040810d9f050baa6a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '58894dbd4d7209382073a4705c147b45') in 0.008811 seconds
+  Import took 0.011814 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000368 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Back_L90.FBX
+  artifactKey: Guid(1a6e625f375f97544a3b21f1fde2e29f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Back_L90.FBX using Guid(1a6e625f375f97544a3b21f1fde2e29f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6bc94177d89e8eb48f7b845f25e96dc5') in 0.007347 seconds
+  Import took 0.010875 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000286 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Back_R90.FBX
+  artifactKey: Guid(4e75bc35eb02dd340b49ade7390eefc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Back_R90.FBX using Guid(4e75bc35eb02dd340b49ade7390eefc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '65e2b499a6b92e6f6eda084d43256f77') in 0.009782 seconds
+  Import took 0.012684 seconds .
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000297 seconds.
-  path: Assets/Player/Prefabs/Player 1.prefab
-  artifactKey: Guid(6e1de9ffc9a09034680bf5907f942ef0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player/Prefabs/Player 1.prefab using Guid(6e1de9ffc9a09034680bf5907f942ef0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '494679a8c8a57c9c4d4c1f4c3ffb3c48') in 0.067545 seconds
-  Import took 0.072188 seconds .
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Back_L90.FBX
+  artifactKey: Guid(c440e1aa46d609c42859239d9d875a2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Back_L90.FBX using Guid(c440e1aa46d609c42859239d9d875a2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '858ef7752ef97acfd6dee8016a656b3e') in 0.009693 seconds
+  Import took 0.012871 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000352 seconds.
-  path: Assets/Player/Prefabs/Player0.prefab
-  artifactKey: Guid(04188648e7039b14e8df3a3c9c1d0188) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Player/Prefabs/Player0.prefab using Guid(04188648e7039b14e8df3a3c9c1d0188) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b94f870c1bd74de7cccaf5ea2f38bde') in 0.124255 seconds
-  Import took 0.128921 seconds .
+  Time since last request: 0.000293 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Front.FBX
+  artifactKey: Guid(5e04ec40bbc3ac84796a85672bfea74b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Front.FBX using Guid(5e04ec40bbc3ac84796a85672bfea74b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5cb4abab888342d6a5d72f4a8ef3054') in 0.008993 seconds
+  Import took 0.012818 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000354 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Back_R45_Root.FBX
+  artifactKey: Guid(b83d51966ad32d94c8129f24f7ff40dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Back_R45_Root.FBX using Guid(b83d51966ad32d94c8129f24f7ff40dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb3d0888cff747e2e9e8d3bb003bf2d7') in 0.009601 seconds
+  Import took 0.013059 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000363 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Front.FBX
+  artifactKey: Guid(9b47bd9e3b792054d9f1d8320fe0403b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Front.FBX using Guid(9b47bd9e3b792054d9f1d8320fe0403b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d176adbc1581bc6b9c7372d91db14b5') in 0.011961 seconds
+  Import took 0.015565 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000995 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Back_Root.FBX
+  artifactKey: Guid(60e1d0a3d59a3134d8da259d8c15933a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Back_Root.FBX using Guid(60e1d0a3d59a3134d8da259d8c15933a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9700434eb19f14ad3ab90f5754d46e58') in 0.012724 seconds
+  Import took 0.016389 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000282 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Back.FBX
+  artifactKey: Guid(9375c2b945d124841a646c89c572f444) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Back.FBX using Guid(9375c2b945d124841a646c89c572f444) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46054e92d7909d8d01568c98a6d1fd1c') in 0.008976 seconds
+  Import took 0.012504 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000313 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Back_R45.FBX
+  artifactKey: Guid(66c06930f90d8a74ba326ddc3eed5685) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Back_R45.FBX using Guid(66c06930f90d8a74ba326ddc3eed5685) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a6c65d5fa6a43ae0c66ccf9c1d65eec2') in 0.008811 seconds
+  Import took 0.012192 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000261 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Back_R45_Root.FBX
+  artifactKey: Guid(6e3a361d41abf8e488923bc9558c0556) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Back_R45_Root.FBX using Guid(6e3a361d41abf8e488923bc9558c0556) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ca81056534dfc4953a232c5c4c1f661') in 0.008839 seconds
+  Import took 0.012300 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000327 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Front_L45.FBX
+  artifactKey: Guid(75c1bc47f938fec4aa4acacc13ef050f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Front_L45.FBX using Guid(75c1bc47f938fec4aa4acacc13ef050f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bcdd1696a434fd96d6182acc35489932') in 0.009874 seconds
+  Import took 0.013509 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000281 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Back_L90_Root.FBX
+  artifactKey: Guid(1e7ca535a36f41341ab9aaae9c118995) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Back_L90_Root.FBX using Guid(1e7ca535a36f41341ab9aaae9c118995) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '233e11a96973dd555773d2193544a879') in 0.008993 seconds
+  Import took 0.012245 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000323 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Back_R90.FBX
+  artifactKey: Guid(dd1802c7bc061054d9364020d0ffee22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Back_R90.FBX using Guid(dd1802c7bc061054d9364020d0ffee22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce54f4882fd9c71b2ab7fd52079a3aaf') in 0.008733 seconds
+  Import took 0.011747 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000259 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Front_L45_Root.FBX
+  artifactKey: Guid(b57a4c083e371a242bc687deee287ca4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Front_L45_Root.FBX using Guid(b57a4c083e371a242bc687deee287ca4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8f972b6bfbd21f6ba19725aafee80e2') in 0.009092 seconds
+  Import took 0.012099 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000230 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Back_Root.FBX
+  artifactKey: Guid(44f15519ee1b49f42aa09afa6c3b1364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Back_Root.FBX using Guid(44f15519ee1b49f42aa09afa6c3b1364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95ac4ba9dc17388b04367778a996bf8d') in 0.008475 seconds
+  Import took 0.011569 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000262 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Front_R90.FBX
+  artifactKey: Guid(301be80f247a2894eb94606aabf7442b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Front_R90.FBX using Guid(301be80f247a2894eb94606aabf7442b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5dc83301b2a286131e49da573c980a6') in 0.008994 seconds
+  Import took 0.012127 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000250 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Front_L90.FBX
+  artifactKey: Guid(419ae4620afd8ed4e90c0bbc096cef7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Front_L90.FBX using Guid(419ae4620afd8ed4e90c0bbc096cef7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b05e4e01eb0b79bdb4c6be90895b5a4c') in 0.008583 seconds
+  Import took 0.011481 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000252 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Back_L90_Root.FBX
+  artifactKey: Guid(ad2b58a971fadff4f8688a6caab08d2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Back_L90_Root.FBX using Guid(ad2b58a971fadff4f8688a6caab08d2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0bace85512d68da3a1976974165249dd') in 0.009323 seconds
+  Import took 0.012327 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000271 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Front_R90_Root.FBX
+  artifactKey: Guid(6a628fa1413909748ad2144f6fc8aa37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Front_R90_Root.FBX using Guid(6a628fa1413909748ad2144f6fc8aa37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '667556ce6787db9c88a761db17e05053') in 0.009473 seconds
+  Import took 0.012636 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000266 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Back_R45.FBX
+  artifactKey: Guid(a91ca0522c3c1f84795fe844cee7db6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Back_R45.FBX using Guid(a91ca0522c3c1f84795fe844cee7db6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5da855abd138efc9a754ae87841b50a') in 0.009117 seconds
+  Import took 0.012089 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000241 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Back_R90_Root.FBX
+  artifactKey: Guid(a04ecdf98b0103e41b39158c59a1d153) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Back_R90_Root.FBX using Guid(a04ecdf98b0103e41b39158c59a1d153) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54df15bc2babad122196a184dfd8447d') in 0.009071 seconds
+  Import took 0.011966 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000266 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Front_R45_Root.FBX
+  artifactKey: Guid(94be1451cf5c0ae4e93ffb72c0ab093a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Front_R45_Root.FBX using Guid(94be1451cf5c0ae4e93ffb72c0ab093a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc8e836d866b7badfebe568811c137ad') in 0.008626 seconds
+  Import took 0.011797 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000265 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Front_Root.FBX
+  artifactKey: Guid(80c5992fa46974f4a8108ece87f48747) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Front_Root.FBX using Guid(80c5992fa46974f4a8108ece87f48747) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9271159662917dc5cdd16838d212e00d') in 0.008375 seconds
+  Import took 0.011438 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000318 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Front_L90.FBX
+  artifactKey: Guid(2252c73a70ea9cf468658689df4cd800) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Front_L90.FBX using Guid(2252c73a70ea9cf468658689df4cd800) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23d916cbc0632c371624f06176f18dcb') in 0.008694 seconds
+  Import took 0.011731 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000264 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Front_R90_Root.FBX
+  artifactKey: Guid(78b88b4bedf2dcc4a9d1006af8d6903a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Front_R90_Root.FBX using Guid(78b88b4bedf2dcc4a9d1006af8d6903a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'feb2e66bae817db63af4881d37df9b4e') in 0.009572 seconds
+  Import took 0.012747 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000262 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Front_R90.FBX
+  artifactKey: Guid(29c66b69a51fa714b98251901692238e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Front_R90.FBX using Guid(29c66b69a51fa714b98251901692238e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6b625ea381cd7a9a63528f706d6fa1a') in 0.008570 seconds
+  Import took 0.011732 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000260 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Front_L45_Root.FBX
+  artifactKey: Guid(a0868176f04744645ad27574c088e444) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Front_L45_Root.FBX using Guid(a0868176f04744645ad27574c088e444) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d1168c61c42f99745a243170a1096ae') in 0.009130 seconds
+  Import took 0.012268 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000260 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Front_R45_Root.FBX
+  artifactKey: Guid(f9fbe5bff252853439474ddd0e2e7d49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Front_R45_Root.FBX using Guid(f9fbe5bff252853439474ddd0e2e7d49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7c0ab501fce8eaf711aa3f00002a858') in 0.008822 seconds
+  Import took 0.011889 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000278 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Front_L45.FBX
+  artifactKey: Guid(939ccb1d2d065fc4194390079cc5557f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Front_L45.FBX using Guid(939ccb1d2d065fc4194390079cc5557f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ea45ea114a9e6b9705e96e644a71e5c') in 0.009026 seconds
+  Import took 0.012023 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000253 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Front_L90_Root.FBX
+  artifactKey: Guid(4c6c01279956cc840a2b373c4e4f29b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Front_L90_Root.FBX using Guid(4c6c01279956cc840a2b373c4e4f29b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07367299425ff2c0e2b2e34ce11d08ab') in 0.009174 seconds
+  Import took 0.012221 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000267 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Front_Root.FBX
+  artifactKey: Guid(3c062a023b171594a82e7fae98bfca28) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Front_Root.FBX using Guid(3c062a023b171594a82e7fae98bfca28) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7552fddcb42f0eac7420ad3e2cc5450b') in 0.008955 seconds
+  Import took 0.012079 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000256 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Back_L45_Root.FBX
+  artifactKey: Guid(d9e8f5e2a6a708047a9a5ca329c59a9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Back_L45_Root.FBX using Guid(d9e8f5e2a6a708047a9a5ca329c59a9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92568b7fb137d8818f1cfb140fd3e325') in 0.008631 seconds
+  Import took 0.011677 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000250 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Front_R45.FBX
+  artifactKey: Guid(6cae46fabedc7a543a0b3fa22418260f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/A/M_katana_Blade@Walk_ver_A_Front_R45.FBX using Guid(6cae46fabedc7a543a0b3fa22418260f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e7fbfc362841ad82e9cbeb0fcfc89e0') in 0.008971 seconds
+  Import took 0.011880 seconds .
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000273 seconds.
-  path: Assets/Item/Prefabs/PlayerGrabItem.prefab
-  artifactKey: Guid(379677a851fa7044389451d0bc121b6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Item/Prefabs/PlayerGrabItem.prefab using Guid(379677a851fa7044389451d0bc121b6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ded14a27eb8cedd7fc30d2baafeceb1') in 0.010683 seconds
-  Import took 0.013529 seconds .
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Back_L45.FBX
+  artifactKey: Guid(4d0fe52f58c7be742aad2766032caab3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Back_L45.FBX using Guid(4d0fe52f58c7be742aad2766032caab3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1a622fd4866af9ce31f5f8bacc2c9d1') in 0.008866 seconds
+  Import took 0.012145 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000268 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Back_R90_Root.FBX
+  artifactKey: Guid(6dd83a08112e3be47845db7d87796088) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Back_R90_Root.FBX using Guid(6dd83a08112e3be47845db7d87796088) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dacf8e60e8d869859cd567f6e3f8e340') in 0.008881 seconds
+  Import took 0.011929 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000295 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Front_R45.FBX
+  artifactKey: Guid(84d6b6c6184140747b543bde6179f0c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Front_R45.FBX using Guid(84d6b6c6184140747b543bde6179f0c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '707b7d1f5b4613676782f618214d09e9') in 0.008670 seconds
+  Import took 0.011672 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000282 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Back_R90_Root.FBX
+  artifactKey: Guid(6dd83a08112e3be47845db7d87796088) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Back_R90_Root.FBX using Guid(6dd83a08112e3be47845db7d87796088) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dacf8e60e8d869859cd567f6e3f8e340') in 0.008049 seconds
+  Import took 0.010860 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003060 seconds.
+  path: Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Front_R45.FBX
+  artifactKey: Guid(84d6b6c6184140747b543bde6179f0c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Animation/M_Katana_Blade/1_Movements/2__Walk/B/M_katana_Blade@Walk_ver_B_Front_R45.FBX using Guid(84d6b6c6184140747b543bde6179f0c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '707b7d1f5b4613676782f618214d09e9') in 0.007857 seconds
+  Import took 0.011016 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.217303 seconds.
+  path: Assets/UpgradeGamen/Asset/Taiken.png
+  artifactKey: Guid(30114648189e8b045a5746ba3f52ef90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UpgradeGamen/Asset/Taiken.png using Guid(30114648189e8b045a5746ba3f52ef90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a891d1e5546d990afdf60720e56b077') in 0.009680 seconds
+  Import took 0.012742 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000354 seconds.
+  path: Assets/UpgradeGamen/Asset/Tanken.png
+  artifactKey: Guid(800151b83d813054aaa1cf423b08430e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UpgradeGamen/Asset/Tanken.png using Guid(800151b83d813054aaa1cf423b08430e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b198710f00aebc36e29827db3a3ad415') in 0.009070 seconds
+  Import took 0.011724 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000330 seconds.
+  path: Assets/UpgradeGamen/Asset/WeaponButton.psd
+  artifactKey: Guid(a8c2b223b28a8844dba11e3c4daa090a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UpgradeGamen/Asset/WeaponButton.psd using Guid(a8c2b223b28a8844dba11e3c4daa090a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7090322c17c1a5c4aa9f24c2ef2d2dfe') in 0.015969 seconds
+  Import took 0.019310 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000474 seconds.
+  path: Assets/UpgradeGamen/Asset/Tanken.psd
+  artifactKey: Guid(d7677f0b635f6f34ea2f1523255a26be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UpgradeGamen/Asset/Tanken.psd using Guid(d7677f0b635f6f34ea2f1523255a26be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1d4f1f6c5ae77b36a90f345ba0ecbfc') in 0.008998 seconds
+  Import took 0.011855 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000360 seconds.
+  path: Assets/UpgradeGamen/Asset/Taiken.psd
+  artifactKey: Guid(c9ffd85232f667f40b1832d03d2f3cf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UpgradeGamen/Asset/Taiken.psd using Guid(c9ffd85232f667f40b1832d03d2f3cf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '301dcb8ca6fc08293616794061f7b11e') in 0.009743 seconds
+  Import took 0.012325 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.105632 seconds.
+  path: Assets/UpgradeGamen/Asset/Taiken.png
+  artifactKey: Guid(30114648189e8b045a5746ba3f52ef90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UpgradeGamen/Asset/Taiken.png using Guid(30114648189e8b045a5746ba3f52ef90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93f21ea9b6c476776c1a27211f31c4f7') in 0.013072 seconds
+  Import took 0.015897 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000310 seconds.
+  path: Assets/UpgradeGamen/Asset/Tanken.png
+  artifactKey: Guid(800151b83d813054aaa1cf423b08430e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UpgradeGamen/Asset/Tanken.png using Guid(800151b83d813054aaa1cf423b08430e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67ed72c3e76bfb72d2bc359f2d071947') in 0.012269 seconds
+  Import took 0.015222 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000308 seconds.
+  path: Assets/UpgradeGamen/Asset/Taiken.png
+  artifactKey: Guid(30114648189e8b045a5746ba3f52ef90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UpgradeGamen/Asset/Taiken.png using Guid(30114648189e8b045a5746ba3f52ef90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93f21ea9b6c476776c1a27211f31c4f7') in 0.012135 seconds
+  Import took 0.014805 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000332 seconds.
+  path: Assets/UpgradeGamen/Asset/Tanken.psd
+  artifactKey: Guid(d7677f0b635f6f34ea2f1523255a26be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UpgradeGamen/Asset/Tanken.psd using Guid(d7677f0b635f6f34ea2f1523255a26be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b3c1808b65d024fb69dc00ab79113a3') in 0.013496 seconds
+  Import took 0.016417 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000338 seconds.
+  path: Assets/UpgradeGamen/Asset/Taiken.psd
+  artifactKey: Guid(c9ffd85232f667f40b1832d03d2f3cf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UpgradeGamen/Asset/Taiken.psd using Guid(c9ffd85232f667f40b1832d03d2f3cf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01ca155906476e52ab3c219b4befdf33') in 0.014290 seconds
+  Import took 0.016981 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001723 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.53 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.197 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.45 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1272 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 71.3 MB.
+System memory in use after: 71.3 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1775.
+Total: 2.389000 ms (FindLiveObjects: 0.205700 ms CreateObjectMapping: 0.228400 ms MarkObjects: 1.841500 ms  DeleteObjects: 0.111700 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001552 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.37 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.285 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.36 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1272 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 71.3 MB.
+System memory in use after: 71.3 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1778.
+Total: 1.700100 ms (FindLiveObjects: 0.150800 ms CreateObjectMapping: 0.045200 ms MarkObjects: 1.371400 ms  DeleteObjects: 0.131500 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002407 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.39 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.076 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.38 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1272 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 71.4 MB.
+System memory in use after: 71.3 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1781.
+Total: 2.361200 ms (FindLiveObjects: 0.182300 ms CreateObjectMapping: 0.060200 ms MarkObjects: 1.982500 ms  DeleteObjects: 0.134300 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001298 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.37 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.920 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.39 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1272 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 71.4 MB.
+System memory in use after: 71.3 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1784.
+Total: 2.030700 ms (FindLiveObjects: 0.143300 ms CreateObjectMapping: 0.042000 ms MarkObjects: 1.721000 ms  DeleteObjects: 0.122800 ms)
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

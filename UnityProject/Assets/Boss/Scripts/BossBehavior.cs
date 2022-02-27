@@ -54,6 +54,7 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
     [Header("âπå¯")]
     public AudioClip _FireAttackSE;
     public AudioClip _DamageSE;
+    public AudioClip _NapalmBombShotSE;
 
     Animator m_animator;
     AudioSource m_audioSource;
@@ -362,6 +363,12 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
         m_isWait = true;
         yield return new WaitForSeconds(time);
         m_isWait = false;
+    }
+
+    public void Animation_PlayShotSE()
+    {
+        m_audioSource.clip = _NapalmBombShotSE;
+        m_audioSource.Play();
     }
 
     //É_ÉÅÅ[ÉWÇéÛÇØÇÈ

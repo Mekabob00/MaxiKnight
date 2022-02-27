@@ -6,6 +6,7 @@ public class PannelControl : MonoBehaviour
 {
     public GameObject Pannel;
     public int status;
+    public int ThisPannel;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +17,7 @@ public class PannelControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     public void ShopClick()

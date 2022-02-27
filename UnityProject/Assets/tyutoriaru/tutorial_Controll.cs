@@ -101,6 +101,7 @@ public class tutorial_Controll : MonoBehaviour
                 break;
             case 3:
                 maxDispStr = "それでは、実際に左右の移動をしてみましょう。\n□矢印キーを使って左右の移動をしてみる。";
+                SkipSelect.SetActive(false);
                 if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
                 {
                     TutorialNum = 4;
@@ -110,6 +111,8 @@ public class tutorial_Controll : MonoBehaviour
                 break;
             case 4:
                 maxDispStr = "さすがです、左右の移動に関しては問題ないでしょう。\n次は回避の説明を行います。";
+                TextWindow.SetActive(true);
+
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 5;
@@ -128,6 +131,7 @@ public class tutorial_Controll : MonoBehaviour
                 break;
             case 6:
                 maxDispStr = "それでは、回避してみましょう。\n□Cキーを使って回避をしてみる。";
+                SkipSelect.SetActive(false);
                 if (Input.GetKeyDown(KeyCode.C))
                 {
                     TutorialNum = 7;
@@ -137,6 +141,8 @@ public class tutorial_Controll : MonoBehaviour
                 break;
             case 7:
                 maxDispStr = "さすがです\n回避で攻撃のモーションをキャンセルするテクニックを駆使すると\nより円滑な戦闘が可能になります。\n次は、レーン移動について説明いたします。";
+                TextWindow.SetActive(true);
+
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 8;
@@ -155,7 +161,8 @@ public class tutorial_Controll : MonoBehaviour
                 break;
             case 9:
                 maxDispStr = "レーンは上下の矢印キーを使うことで移動できます。\n実際にやってみましょう\n□上下キーを使ってレーンを変更してみる";
-                    if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
+                SkipSelect.SetActive(false);
+                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
                     {
                         TutorialNum = 10;
                         nowDispCount = 0.0f;
@@ -164,6 +171,8 @@ public class tutorial_Controll : MonoBehaviour
                 break;
             case 10:
                 maxDispStr = "レーンの移動で、敵の進行に合わせながら戦闘を行ってください。\n次は、攻撃行動に関するチュートリアルを行います。";
+                TextWindow.SetActive(true);
+
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 11;
@@ -182,6 +191,7 @@ public class tutorial_Controll : MonoBehaviour
                 break;
             case 12:
                 maxDispStr = "近接攻撃は、近い一にある敵を攻撃することが可能、\n3回まで連続で攻撃出来ます。近接攻撃はZキーを押してください。\n□Zキーで3連攻撃をしてみる";
+                SkipSelect.SetActive(false);
                 if (Input.GetKeyDown(KeyCode.Z))
                 {
                     AttakConut++;
@@ -211,7 +221,8 @@ public class tutorial_Controll : MonoBehaviour
                 }
                 break;
             case 15:
-                maxDispStr = "大量で敵が押し寄せてくる場合、\n遠距離攻撃で近距離攻撃を使い分ける必要があります。";//変更必須
+                maxDispStr = "大量で敵が押し寄せてくる場合、\n慌てず、レーン移動と近距離攻撃で対応しましょう。";//変更必須
+                TextWindow.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.V))
                 {
                     TutorialNum = 16;
@@ -230,6 +241,7 @@ public class tutorial_Controll : MonoBehaviour
                 break;
             case 17:
                 maxDispStr = "Tabキーでインターフェースを展開して、拠点の耐久を確認してみましょう。\n□Tabキーでインターフェースを展開してみる";
+                SkipSelect.SetActive(false);
                 if (Input.GetKeyDown(KeyCode.Tab))
                 {
                     TutorialNum = 18;
@@ -239,6 +251,7 @@ public class tutorial_Controll : MonoBehaviour
                 break;
             case 18:
                 maxDispStr = "インターフェスを閉じ、拠点の状況を把握してください。□Tabキーでインターフェースを閉じる。";
+                SkipSelect.SetActive(false);
                 if (Input.GetKeyDown(KeyCode.Tab))
                 {
                     TutorialNum = 19;
