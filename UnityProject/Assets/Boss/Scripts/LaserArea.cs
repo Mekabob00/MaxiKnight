@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class LaserArea : MonoBehaviour
 {
-    [Header("テスト レーザーダメージ")]
+    [Header("レーザーダメージ")]
     public int _Damage;
-    [Header("攻撃間隔")]
-    public float _IntervalTIme;
 
     private float timeCount;
 
@@ -16,10 +14,11 @@ public class LaserArea : MonoBehaviour
         if(other.tag == "Player")
         {
             //タイマー
-            timeCount += Time.deltaTime;
-            if(timeCount >= _IntervalTIme)
+            timeCount -= Time.deltaTime;
+            if(timeCount <= 0)
             {
-                timeCount = 0;
+                Debug.Log("hit player!");
+                timeCount = 0.1f;
                 other.gameObject.GetComponent<Player_Controll>()._AddDamege(_Damage);
             }
         }

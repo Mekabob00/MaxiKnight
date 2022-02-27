@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804531715904009248}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.72, y: 0.4, z: 0}
+  m_LocalPosition: {x: 26.72, y: 0.5, z: 0}
   m_LocalScale: {x: 3, y: 0.01, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,7 +99,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Area: 4
   _Damage: 0
-  _Effect: {fileID: 2886189059328443225, guid: 9a4438211fb2e4547b050c2457cafb2c, type: 3}
+  _Effect: {fileID: 3864701454724545576, guid: d47dd7753d00d1c43a7d03a4f1ca4135, type: 3}
+  _NapalmBomb: {fileID: 0}
 --- !u!95 &257563540
 Animator:
   serializedVersion: 3
@@ -143,5 +144,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 35.796806, z: 1}
+  m_Center: {x: 0, y: -14.410843, z: 0}

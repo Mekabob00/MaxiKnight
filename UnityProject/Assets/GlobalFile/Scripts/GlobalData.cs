@@ -24,14 +24,6 @@ public class GlobalData : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    //‰Šú‰»
-    private void Start()
-    {
-        isCanonAppear = false;
-        isGameOver = false;
-        isStageClear = false;
-    }
-
     public void ResetData()
     {
         isStageClear = false;

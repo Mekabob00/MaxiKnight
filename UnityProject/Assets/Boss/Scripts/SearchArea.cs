@@ -67,8 +67,9 @@ public class SearchArea : MonoBehaviour
         {
             Destroy(other.gameObject);
             Destroy(this.gameObject, 1f);
-            GameObject temp = Instantiate(_Effect, transform.position, transform.rotation);
-            temp.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+            GameObject temp = Instantiate(_Effect, transform.position, _Effect.transform.rotation);
+            temp.transform.localScale = new Vector3(0.18f, 0.18f, 0.18f);
+            //temp.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
             m_canAttack = true;
         }
     }

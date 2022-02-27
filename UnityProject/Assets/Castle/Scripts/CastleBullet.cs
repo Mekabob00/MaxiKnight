@@ -48,7 +48,7 @@ public class CastleBullet : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.gameObject == attackTarget)
         {
             other.GetComponent<IPlayerDamege>()._AddDamege(damage);
             Destroy(gameObject);

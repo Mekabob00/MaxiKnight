@@ -151,9 +151,8 @@ public class ShopManager : MonoBehaviour
 
     public void Button_NextStage()
     {
-        string stage = "Stage0";
         GlobalData.Instance.ResetData();
-        FadeManager.Instance.LoadScene(stage, 1.0f);
+        FadeManager.Instance.LoadScene(DataManager.Instance._Stage, 1.0f);
     }
     #endregion
 }

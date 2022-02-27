@@ -43,8 +43,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 4, z: 30}
+  m_Center: {x: 0, y: 2, z: 15}
 --- !u!114 &7968151716632942065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1666,23 +1666,27 @@ MonoBehaviour:
   _Damage: 5
   _Area: 4
   _ChargeTime: 8
-  _StopChargeCount: 1
+  _StopChargeCount: 5
   _Castle: {fileID: 0}
   _Player: {fileID: 0}
   _AttackArea: {fileID: 1804531715904009248, guid: 6a2c41d4627c922428331395535b235c, type: 3}
+  _NapalmBomb: {fileID: 5986765393266625324, guid: 1a87dd0fb2003334a83291e09fc8f612, type: 3}
   _Laser: {fileID: 277346004946000450}
-  _Explosion: {fileID: 43556880712326259, guid: 9a4438211fb2e4547b050c2457cafb2c, type: 3}
+  _Explosion: {fileID: 2886189059328443225, guid: 9a4438211fb2e4547b050c2457cafb2c, type: 3}
   _ExplosionPos:
   - {fileID: 6521728135850008975}
   - {fileID: 5216180983386293933}
   - {fileID: 5815526525205611525}
   - {fileID: 9048130881515144834}
   - {fileID: 9141111266457411276}
-  _EnterDistance: 35
-  _StandByDistance: 25
+  _StageClear: {fileID: 0}
+  _DamageEffect: {fileID: 6905903939417113979, guid: dedfb3139b45fd249bdca337ec6d05b7, type: 3}
+  _AttackFireEffect: {fileID: 0}
+  _EnterDistance: 40
+  _StandByDistance: 30
   _ChargeDistance: 15
   m_state: 0
-  m_startPoint: {x: 30, y: 0.2, z: 0}
+  m_startPoint: {x: 35, y: 0.2, z: 0}
   m_currentHitCount: 0
 --- !u!136 &1218186373804328878
 CapsuleCollider:
