@@ -115,6 +115,25 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!95 &464258937
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6656335215598024914}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 90883ab1f1c1067499fd1c6f0dfb38e8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2005275493920720284
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -208,10 +227,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5166797499437186382, guid: 3e6cf34df81efd04db2b2acc186314ff, type: 3}
       propertyPath: m_Name
-      value: Image
+      value: StageClear
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256123806549754076, guid: 3e6cf34df81efd04db2b2acc186314ff, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e6cf34df81efd04db2b2acc186314ff, type: 3}
+--- !u!1 &6656335215598024914 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5166797499437186382, guid: 3e6cf34df81efd04db2b2acc186314ff, type: 3}
+  m_PrefabInstance: {fileID: 2005275493920720284}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4087132240701081452 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2552488145114890992, guid: 3e6cf34df81efd04db2b2acc186314ff, type: 3}
@@ -224,6 +252,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2598121057022413746}
     m_Modifications:
+    - target: {fileID: 1986591071, guid: 4292234803bf5614db1d9bc466a829d0, type: 3}
+      propertyPath: _WaitTime
+      value: 5.5
+      objectReference: {fileID: 0}
     - target: {fileID: 223437163132556036, guid: 4292234803bf5614db1d9bc466a829d0, type: 3}
       propertyPath: m_Name
       value: GameOverPanel
@@ -330,15 +362,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 223437164075370808, guid: 4292234803bf5614db1d9bc466a829d0, type: 3}
       propertyPath: m_Color.g
-      value: 0.9906527
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 223437164075370808, guid: 4292234803bf5614db1d9bc466a829d0, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.96101236
       objectReference: {fileID: 0}
     - target: {fileID: 223437164161290187, guid: 4292234803bf5614db1d9bc466a829d0, type: 3}
       propertyPath: m_Color.a
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 223437164251213002, guid: 4292234803bf5614db1d9bc466a829d0, type: 3}
+      propertyPath: m_Text
+      value: "\u7D9A\u3051\u308B"
       objectReference: {fileID: 0}
     - target: {fileID: 223437164251213002, guid: 4292234803bf5614db1d9bc466a829d0, type: 3}
       propertyPath: m_Color.a

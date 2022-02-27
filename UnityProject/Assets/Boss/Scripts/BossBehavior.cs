@@ -55,6 +55,7 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
     public AudioClip _FireAttackSE;
     public AudioClip _DamageSE;
     public AudioClip _NapalmBombShotSE;
+    public AudioClip _DestorySE;
 
     Animator m_animator;
     AudioSource m_audioSource;
@@ -137,7 +138,7 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
                 break;
         }
     }
-
+    //移動
     void StateUpdate_Move()
     {
         m_isMove = true;
@@ -164,6 +165,7 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             m_state = STATE.CHARGE;
         }
     }
+    //構え
     void StateUpdate_Enter()
     {
         m_isMove = false;
@@ -174,6 +176,7 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             m_state = STATE.MOVE;
         }
     }
+    //プレイヤーに攻撃準備
     void StateUpdate_StandBy()
     {
         m_isMove = false;
@@ -187,7 +190,7 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             //攻撃生成
             for (int i = 0; i < 3; ++i)
             {
-                GameObject temp = Instantiate(_AttackArea, new Vector3(_Player.transform.position.x + ((-_Area - 2) + (_Area + 2) * i), transform.position.y + 0.15f, _Player.transform.position.z), Quaternion.identity);
+                GameObject temp = Instantiate(_AttackArea, new Vector3(_Player.transform.position.x + ((-_Area - 2) + (_Area + 2) * i), _Player.transform.position.y + 0.15f, _Player.transform.position.z), Quaternion.identity);
                 temp.GetComponent<SearchArea>()._NapalmBomb = Instantiate(_NapalmBomb, temp.transform.position + new Vector3(0, 80 - 20 * i, 0), Quaternion.Euler(90, 0, 0));
                 temp.GetComponent<SearchArea>()._Area = _Area;
                 temp.GetComponent<SearchArea>()._Damage = _Damage;
@@ -197,12 +200,14 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             StartCoroutine(WaitTime(_StandBy_To_AttackPlayer));
         }
     }
+    //プレイヤーに攻撃する
     void StateUpdate_AttackPlayer()
     {
         if (!m_isWait)
             if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
                 m_state = STATE.MOVE;
     }
+    //チャージ
     void StateUpdate_Charge()
     {
         m_isMove = false;
@@ -244,6 +249,7 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             m_isCharge = false;
         }
     }
+    //拠点へ攻撃する
     void StateUpdate_AttackCastle()
     {
         //開始地点に戻る
@@ -256,6 +262,7 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             StartCoroutine(WaitTime(_NextAttackLoop));
         }
     }
+    //中断後原位置に戻す
     void StateUpdate_Return()
     {
         transform.rotation = Quaternion.Euler(0, 90, 0);
@@ -274,12 +281,14 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             transform.rotation = Quaternion.Euler(0, -90, 0);
         }
     }
+    //ダメージを受けた
     void StateUpdate_Damage()
     {
         m_isMove = false;
         if (!m_isWait)
             m_state = STATE.MOVE;
     }
+    //チャージ中断された
     void StateUpdate_Down()
     {
         if (!m_isWait)
@@ -288,6 +297,7 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             StartCoroutine(WaitTime(_Down_To_StandUp));
         }
     }
+    //立てる
     void StateUpdate_StandUp()
     {
         if (!m_isWait)
@@ -299,6 +309,7 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             m_isReturn = true;
         }
     }
+    //破壊された
     void StateUpdate_Dead()
     {
         if (m_isWait) return;
@@ -312,7 +323,7 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             while(num > 0)
             {
                 GameObject obj = Instantiate(_Explosion, _ExplosionPos[Random.Range(0, _ExplosionPos.Length)]);
-                obj.transform.localScale = new Vector3(0.02f, 0.02f, 0.02f);
+                obj.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
                 num--;
             }
         }
@@ -365,6 +376,13 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
         m_isWait = false;
     }
 
+    void DestorySE()
+    {
+        m_audioSource.clip = _DestorySE;
+        m_audioSource.Play();
+    }
+
+    //ナパーム弾の発射音効
     public void Animation_PlayShotSE()
     {
         m_audioSource.clip = _NapalmBombShotSE;
@@ -386,7 +404,8 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             GlobalData.Instance.isStageClear = true;
             m_state = STATE.DEAD;
             m_animator.SetTrigger("Dead");
-            StartCoroutine(WaitTime(1.0f));
+            Invoke("DestorySE", 1.8f);
+            StartCoroutine(WaitTime(2.0f));
             StartCoroutine(StageClear());
         }
 
@@ -432,9 +451,9 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player Attack Area")
-        {
-            _AddDamege(Player_Controll.AttackBuff);
-        }
+        //if (other.tag == "Player Attack Area")
+        //{
+        //    _AddDamege(Player_Controll.AttackBuff);
+        //}
     }
 }
