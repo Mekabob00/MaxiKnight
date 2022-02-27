@@ -24,11 +24,17 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
     private GameObject _GlobalDataObject = null;
     [SerializeField, Tooltip("エフェクト")]
     private GameObject Effct;
+    [SerializeField, Tooltip("死亡時のエフェクト")]
+    private GameObject DidEffect;
     [SerializeField, Tooltip("SE")]
     private AudioClip Damege;
     [SerializeField, Tooltip("アイテム")]
     private GameObject Item;
+    [SerializeField, Tooltip("Player")]
+    private GameObject Player;
 
+
+    public bool _IsEnemy4explosionFlag;
     #endregion
 
     #region Defalut
@@ -37,12 +43,10 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
     private GlobalData _GlobalData = null;
 
     private float _HighPos = 1.0f;
-
+    private float PlayerStopTime=0.0f;
     public float span = 3f;
     private float currentTime = 0f;
 
-    //Flag
-    private bool _IsAddDamageEffect = false;
     public bool _IsMoveActive = false;
     private bool _IsAttackFlag = false;
 
@@ -66,7 +70,7 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
     #region Unity function
     private void Start()
     {
-        _IsAddDamageEffect = false;
+        _IsEnemy4explosionFlag = false;
         _IsMoveActive = true;
         _IsAttackFlag = false;
         var obj = GameObject.Find("GlobalData");
@@ -74,16 +78,19 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
     }
     void Update()
     {
-        Debug.Log(_PlayerRigidBody);
-        PlayerFocus();
         if (_IsMoveActive && !_IsAttackFlag)
-        { 
-              Enemy.transform.position= Vector3.MoveTowards(transform.position, castle.transform.position,2*Time.deltaTime);
-        }
-        else
         {
-            
+            _RigidBody.ForontMove(this.transform, _MoveSpeed);
         }
+        else 
+        {
+            _RigidBody.ForontMove(this.transform, 0.0f);
+        }
+        if (_IsAttackFlag)
+        {
+            IsAttackFlag();
+        }
+        InPlayerStop();
     }
     #endregion
 
@@ -98,10 +105,10 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
         var after = _HP - _Damege;
 
         //体力が0なら
-        if (after<= 0)
+        if (after <= 0)
         {
             //仮
-            Instantiate(Effct, transform.position, transform.rotation);
+            Instantiate(DidEffect, transform.position, transform.rotation);
             EnemyAttackManeger.instance.PlaySE(Damege);
             Instantiate(Item, transform.position, transform.rotation);
             Destroy(this.gameObject);
@@ -120,45 +127,52 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
     }
     public void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.tag == "Castle")
+        {
+            Instantiate(DidEffect, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
     }
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player") //現在仮タグでEnemyと付けています。随時変更していただけると助かります
         {
-
-           _PlayerRigidBody.constraints = RigidbodyConstraints.FreezePositionX;
+            transform.SetParent(Player.transform);
+         //   this.transform.rotation = Quaternion.Euler(-90, -90, 0);
+            _IsMoveActive = false;
+            _IsAttackFlag = true;
         }
     }
 
     #endregion
 
     #region private function
-
-    private void PlayerFocus()
-    {
-        // 対象物と自分自身の座標からベクトルを算出してQuaternion(回転値)を取得
-        Vector3 vector3 = castle.transform.position - this.transform.position;
-      
-        Quaternion quaternion = Quaternion.LookRotation(vector3);
-        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, quaternion, Time.deltaTime * FocusSpeed);
-    }
     private void IsAttackFlag()
-      {
-          PlayerPosition = castle.transform.position;
-          EnemyPosition = Enemy.transform.position;
-          dis = Vector3.Distance(PlayerPosition, EnemyPosition);
-          if (dis < 5f)
-          {
-              _IsAttackFlag = true;
-              _IsMoveActive = false;
-          }
-          else
-          {
-              _IsAttackFlag = false;
-              _IsMoveActive = true;
-          }
-          Debug.Log("距離" + dis);
-      }
+    {
+        currentTime += Time.deltaTime;
+        if(currentTime>=3.0f)
+        {
+            Instantiate(DidEffect, transform.position, transform.rotation);
+            this.transform.position = new Vector3(1000, 1000, 1000);
+            Player.GetComponent<Player_Controll>().enabled = false;
+            Player.GetComponent<Animator>().enabled = false;
+            _IsEnemy4explosionFlag = true;
+            currentTime = 0.0f;
+        }
+    }
+    private void InPlayerStop()
+    {
+        if (_IsEnemy4explosionFlag)
+        {
+            PlayerStopTime += Time.deltaTime;
+            if (PlayerStopTime >= 2.0f)
+            {
+                Destroy(Enemy);
+                Player.GetComponent<Animator>().enabled = true;
+                Player.GetComponent<Player_Controll>().enabled = true;
+            }
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
 
@@ -175,14 +189,12 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
     IEnumerator AddDamageMove()
     {
         //重力をONにする
-      //  _RigidBody.useGravity = true;
+        //  _RigidBody.useGravity = true;
         //飛び上がる
-     //   _RigidBody.AddForce(new Vector3(0, 300.0f, 0));
+        //   _RigidBody.AddForce(new Vector3(0, 300.0f, 0));
 
         //[TODO]
         //初撃に対して色を変更する
-
-        _IsAddDamageEffect = true;
 
         yield break;
     }

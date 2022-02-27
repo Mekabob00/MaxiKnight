@@ -10,6 +10,8 @@ public class ResourceBehavior : MonoBehaviour
 
     [SerializeField, Tooltip("Šl“¾Effect")]
     private ParticleSystem _Effect;
+    [SerializeField, Tooltip("ƒAƒCƒeƒ€")]
+    private GameObject Item;
 
 
     void Start()
@@ -22,11 +24,9 @@ public class ResourceBehavior : MonoBehaviour
     {
 
     }
-
-
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             //Effect‚ÌÄ¶
             if (_Effect != null)
@@ -34,13 +34,9 @@ public class ResourceBehavior : MonoBehaviour
                 _Effect.Play();
             }
 
-
+            Destroy(Item);
             //‘Œ¹‚ÌŠl“¾
             DataManager.Instance._Resource += (int)_ResourceAmount;
         }
-
-
     }
-
-
 }
