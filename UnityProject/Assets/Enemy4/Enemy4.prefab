@@ -343,6 +343,7 @@ GameObject:
   - component: {fileID: -3259748436945915643}
   - component: {fileID: -120542976365739712}
   - component: {fileID: 1108783661405603007}
+  - component: {fileID: 5101827282742523771}
   m_Layer: 0
   m_Name: Enemy4
   m_TagString: Enemy4
@@ -393,6 +394,7 @@ MonoBehaviour:
   Damege: {fileID: 8300000, guid: cb17f9d8b81d5a8489d0eb835e9d7a56, type: 3}
   Item: {fileID: 4637782406889143264, guid: be45f16098d8ec1438b1644a161bcf7d, type: 3}
   Player: {fileID: 0}
+  _IsEnemy4explosionFlag: 0
   span: 3
   _IsMoveActive: 0
   castle: {fileID: 4637782406889143264, guid: be45f16098d8ec1438b1644a161bcf7d, type: 3}
@@ -448,6 +450,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.67, z: 0}
+--- !u!114 &5101827282742523771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6009334763310939072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2286d3421f9d9ea4a8b57d90ac93c063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _NowLane: 0
 --- !u!1 &6853947817236814744
 GameObject:
   m_ObjectHideFlags: 0
