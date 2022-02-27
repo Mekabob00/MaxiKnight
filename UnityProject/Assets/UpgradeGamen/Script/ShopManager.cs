@@ -62,7 +62,7 @@ public class ShopManager : MonoBehaviour
 
         DataManager.Instance._Resource -= DataManager.Instance._CastleRecoveryFee;
         DataManager.Instance._CastleRecoveryFee += 100;
-        DataManager.Instance._CastleHP += 1;
+        DataManager.Instance._CastleHP = DataManager.Instance._CastleMaxHP;
     }
     //拠点強化
     void CastleAttackBuff()
@@ -160,8 +160,10 @@ public class ShopManager : MonoBehaviour
 
     public void Button_NextStage()
     {
+        string stage = "Stage" + DataManager.Instance._Stage.ToString();
         GlobalData.Instance.ResetData();
-        FadeManager.Instance.LoadScene(DataManager.Instance._Stage, 1.0f);
+        FadeManager.Instance.LoadScene(stage, 1.0f);
+
     }
     #endregion
 }

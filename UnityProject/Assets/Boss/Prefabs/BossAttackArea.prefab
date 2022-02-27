@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Area: 4
   _Damage: 0
-  _Effect: {fileID: 3864701454724545576, guid: d47dd7753d00d1c43a7d03a4f1ca4135, type: 3}
+  _Effect: {fileID: 2886189059328443225, guid: 9a4438211fb2e4547b050c2457cafb2c, type: 3}
   _NapalmBomb: {fileID: 0}
   _NapalmBombSE: {fileID: 8300000, guid: fcbc537bec4c3214680a65ea1791f3dd, type: 3}
 --- !u!95 &257563540

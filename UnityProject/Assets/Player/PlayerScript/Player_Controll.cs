@@ -174,7 +174,7 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
 
         //ƒ[ƒJƒ‹İ’è
         const float PositionX_Left = 30;
-        const float PositionX_Right = 0.3f;
+        const float PositionX_Right = -0.3f;
 
         //UŒ‚‚É“®‚©‚³‚È‚¢
         if (!IsAttack && !IschangeLane)

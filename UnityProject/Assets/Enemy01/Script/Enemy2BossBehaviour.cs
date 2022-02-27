@@ -153,6 +153,7 @@ public class Enemy2BossBehaviour : MonoBehaviour, IPlayerDamege
             EnemyDestroy("Enemy","Enemy4");
             Instantiate(DidEffect, transform.position, transform.rotation);
             Instantiate(Item, transform.position, Item.transform.rotation);
+            DataManager.Instance._Stage++;
             return;
         }
         else if (after != _HP)//ƒ_ƒ[ƒW‚ğó‚¯‚½‚ç

@@ -170,7 +170,7 @@ public class Enemy2Behaviour : MonoBehaviour, IPlayerDamege
         castlePosition = castle.transform.position;
         EnemyPosition = Enemy.transform.position;
         dis = Vector3.Distance(castlePosition, EnemyPosition);
-        if (dis < 35.0f)
+        if (dis < 20.0f)
         {
             _IsAttackFlag = true;
             _IsMoveActive = false;

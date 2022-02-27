@@ -170,11 +170,7 @@ public class Enemy3Behaviour : MonoBehaviour, IPlayerDamege
     #region private function
     private void OnTriggerEnter(Collider other)
     {
-
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag== "Castle")
+        if (other.gameObject.tag == "Castle")
         {
             if (DataManager.Instance._CastleHP >= 0)
             {
@@ -183,6 +179,10 @@ public class Enemy3Behaviour : MonoBehaviour, IPlayerDamege
             Instantiate(DidEffect, transform.position, transform.rotation);
             Destroy(Enemy3);
         }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+
     }
     private void OnTriggerExit(Collider other)
     {

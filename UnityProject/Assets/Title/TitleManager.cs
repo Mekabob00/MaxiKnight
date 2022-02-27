@@ -23,7 +23,7 @@ public class TitleManager : MonoBehaviour
     {
         if(Input.anyKeyDown && !Input.GetMouseButtonDown(0)&&!Input.GetMouseButtonDown(1)&&!Input.GetMouseButtonDown(2))
         {
-            FadeManager.Instance.LoadScene("Stage0",0.5f);
+            FadeManager.Instance.LoadScene("tutorial", 0.5f);
             GetComponent<AudioSource>().Play();
         }
     }

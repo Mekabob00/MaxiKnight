@@ -5636,6 +5636,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1606381987}
     m_Modifications:
+    - target: {fileID: -4044836795876074528, guid: 7de9064e242cc0141b1643cb7bbedfb0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1191365236335567084, guid: 7de9064e242cc0141b1643cb7bbedfb0, type: 3}
       propertyPath: m_Name
       value: katana

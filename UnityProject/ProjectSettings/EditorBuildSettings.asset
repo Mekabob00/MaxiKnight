@@ -17,4 +17,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Stage/Clear0.unity
     guid: caa68f6b5ae866f4d8c64819deff4fd7
+  - enabled: 1
+    path: Assets/tyutoriaru/tutorial.unity
+    guid: 759a81608bfcae743b0059460d2fc1c6
+  - enabled: 1
+    path: Assets/UpgradeGamen/Scenes/ShopTutorial.unity
+    guid: a4ab9e260394f024ebb741e2ece56b65
+  - enabled: 1
+    path: Assets/Stage/Stage1.unity
+    guid: 936db11eecbd74c4e9f6484b456103a6
+  - enabled: 1
+    path: Assets/Stage/Stage2.unity
+    guid: e51e2c5a49ea22946bdcf95a8bd30e26
+  - enabled: 1
+    path: Assets/Stage/Stage5.unity
+    guid: 83327d14d6b368543a5c61e5c053d730
   m_configObjects: {}
