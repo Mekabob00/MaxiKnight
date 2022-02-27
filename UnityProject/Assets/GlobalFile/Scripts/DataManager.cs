@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class DataManager : MonoBehaviour
 {
+    public struct CurrentState
+    {
+        int _PlayerAttackBuff;
+        int _CastleHP;
+        int _CastleAttackBuff;
+        int _Resource;
+        int _CastleRecoveryFee;
+        int _CastleAttackBuffFee;
+        int _PlayerAttackBuffFee;
+    } 
+
     public static DataManager Instance;
 
     [Header("プレイヤー関係")]
@@ -19,6 +30,7 @@ public class DataManager : MonoBehaviour
     [Header("ゲーム関係")]
     [Tooltip("資源")] public int _Resource;
     [Tooltip("ステージ")] public int _Stage;
+    [Tooltip("最大ステージ")] public int _MaxStage;
 
     [Header("ショップ関係")]
     [Tooltip("拠点回復費用")] public int _CastleRecoveryFee;
@@ -33,16 +45,30 @@ public class DataManager : MonoBehaviour
             return;
         }
         Instance = this;
+
+        //初期数値設定
+        Instance._WeaponNumberSword = 0;
+        Instance._WeaponNumberGun = 0;
+        Instance._PlayerAttackBuff = 1;
+        Instance._CastleAttackBuff = 1;
+        Instance._Stage = 1;
+        Instance._Resource = 100;
+        Instance._CastleHP = Instance._CastleMaxHP;
+        Instance._CastleRecoveryFee = 100;
+        Instance._CastleAttackBuffFee = 100;
+        Instance._PlayerAttackBuffFee = 100;
+
         DontDestroyOnLoad(this);
     }
 
-    //初期数値設定
-    void Start()
+    public void Reset()
     {
         Instance._WeaponNumberSword = 1;
         Instance._WeaponNumberGun = 1;
+        Instance._PlayerAttackBuff = 1;
+        Instance._CastleAttackBuff = 1;
         Instance._Stage = 1;
-        Instance._Resource = 100000;
+        Instance._Resource = 100;
         Instance._CastleHP = Instance._CastleMaxHP;
         Instance._CastleRecoveryFee = 100;
         Instance._CastleAttackBuffFee = 100;
