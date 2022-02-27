@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class CastleBullet : MonoBehaviour
 {
-    [SerializeField] GameObject attackTarget;
-    [SerializeField] float moveTime;
+    public GameObject _Explosion;
+    
+    [Header("–Ú•W"), SerializeField]GameObject attackTarget;
+    float moveTime;
     float damage;
 
     private void Awake()
@@ -51,6 +53,7 @@ public class CastleBullet : MonoBehaviour
         if (other.gameObject == attackTarget)
         {
             other.GetComponent<IPlayerDamege>()._AddDamege(damage);
+            Instantiate(_Explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

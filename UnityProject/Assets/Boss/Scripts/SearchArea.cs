@@ -11,14 +11,19 @@ public class SearchArea : MonoBehaviour
     [Header("オブジェクト")]
     public GameObject _Effect;
     public GameObject _NapalmBomb;
+    [Header("音効")]
+    public AudioClip _NapalmBombSE;
+
 
     GameObject m_attackTarget;
+    AudioSource m_audioSource;
     Vector3 m_velocuty; //速度
     Vector3 m_accleration; //加速度
     bool m_canAttack;
 
     private void Start()
     {
+        m_audioSource = GetComponent<AudioSource>();
         m_canAttack = false;
         m_velocuty = Vector3.zero;
         m_accleration = new Vector3(0, -30, 0); //3倍重力
@@ -66,10 +71,12 @@ public class SearchArea : MonoBehaviour
         if(other.tag == "NapalmBomb")
         {
             Destroy(other.gameObject);
-            Destroy(this.gameObject, 1f);
+            Destroy(this.gameObject, 2f);
+            GetComponent<MeshRenderer>().material.color = new Color(0, 0, 0, 0);
             GameObject temp = Instantiate(_Effect, transform.position, _Effect.transform.rotation);
             temp.transform.localScale = new Vector3(0.18f, 0.18f, 0.18f);
-            //temp.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+            m_audioSource.clip = _NapalmBombSE;
+            m_audioSource.Play();
             m_canAttack = true;
         }
     }
