@@ -143,7 +143,7 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
             transform.SetParent(Player.transform);
             Player.GetComponent<Player_Controll>().enabled = false;
             Player.GetComponent<Animator>().enabled = false;
-           // this.transform.rotation = Quaternion.Euler(-90, -90, 0);
+            this.transform.rotation = Quaternion.Euler(0, -90, 70);
             _IsMoveActive = false;
             _IsAttackFlag = true;
         }

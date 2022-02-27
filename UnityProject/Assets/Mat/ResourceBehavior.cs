@@ -26,17 +26,19 @@ public class ResourceBehavior : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.tag == "Player")
         {
+            Debug.Log("AAA");
             //EffectÇÃçƒê∂
-            if (_Effect != null)
-            {
-                _Effect.Play();
-            }
+           // if (_Effect != null)
+           // {
+             //   _Effect.Play();
+            //}
 
-            Destroy(Item);
+         
             //éëåπÇÃälìæ
             DataManager.Instance._Resource += (int)_ResourceAmount;
+            Destroy(Item);
         }
     }
 }
