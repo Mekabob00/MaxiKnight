@@ -39,6 +39,10 @@ public class Enemy2Behaviour : MonoBehaviour, IPlayerDamege
     private GameObject DidEffect;
     [SerializeField, Tooltip("アイテム")]
     private GameObject Item;
+    [SerializeField, Tooltip("弾発射ポイント")]
+    private Transform ShotPoint;
+    [SerializeField, Tooltip("弾")]
+    private GameObject Shot;
     #endregion
 
     #region Defalut
@@ -182,7 +186,7 @@ public class Enemy2Behaviour : MonoBehaviour, IPlayerDamege
             {
                 EnemyAttackManeger.instance.PlaySE(AttackSE);
                 EnemyAnimator.SetTrigger("Attack");
-                castle.GetComponent<CastleBehavior>()._AddDamage(_Damage);
+                Instantiate(Shot, ShotPoint.position, ShotPoint.rotation);
                 currentTime = 0f;
             }
         }
