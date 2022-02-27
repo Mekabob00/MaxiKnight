@@ -185,11 +185,8 @@ public class CastleBehavior : MonoBehaviour
         DataManager.Instance._CastleHP = _Health;
         m_hpBar.SetCurrentHealth(_Health);
 
-        if(damage_ > 1)
-        {
-            m_audioSource.clip = _DamageSE;
-            m_audioSource.Play();
-        }
+        m_audioSource.clip = _DamageSE;
+        m_audioSource.Play();
 
         if (_Health <= 0)
         {

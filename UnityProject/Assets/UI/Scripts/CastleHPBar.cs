@@ -9,9 +9,14 @@ public class CastleHPBar : MonoBehaviour
     public Gradient _Gradient;
     public Image _Fill;
 
+    private void Start()
+    {
+        _HPSlider.maxValue = DataManager.Instance._CastleMaxHP;
+        _HPSlider.value = DataManager.Instance._CastleHP;
+    }
+
     private void Update()
     {
-        //debug
         _Fill.color = _Gradient.Evaluate(_HPSlider.normalizedValue);
     }
 
@@ -27,7 +32,10 @@ public class CastleHPBar : MonoBehaviour
     public void SetCurrentHealth(int health_)
     {
         _HPSlider.value = health_;
+    }
 
-        _Fill.color = _Gradient.Evaluate(_HPSlider.normalizedValue);
+    public void Button_RecoveryHP()
+    {
+        _HPSlider.value = DataManager.Instance._CastleHP;
     }
 }
