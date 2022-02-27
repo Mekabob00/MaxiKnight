@@ -56,6 +56,12 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
     public Collider _SwordCollider;
     private GunControll _GunControll;
 
+    //Effect
+    [SerializeField]
+    private ParticleSystem RunSmork_P;
+    [SerializeField]
+    private ParticleSystem JunpDownSmork_P;
+
     private int _AttackType = 0;
     private float _NextActionTime;
 
@@ -78,6 +84,7 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
     private Vector3 AvoidPos_Start = new Vector3();
     private Vector3 AvoidPos_End = new Vector3();
     private float AvoidAngle = 0;
+
 
     //äOïîÇ©ÇÁÇÃÉfÅ[É^ÇéÛÇØéÊÇÈ
     private int DataSowrdNum;
@@ -116,11 +123,12 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
         _IsGaraceTime = false;
         _IsAvoid = false;
         _IsAttack = false;
+
     }
     void Update()
     {
 
-        bool isAvoid = PlayerAttackAnimator.GetCurrentAnimatorStateInfo(0).IsName("Avoidance"); 
+        bool isAvoid = PlayerAttackAnimator.GetCurrentAnimatorStateInfo(0).IsName("Avoidance");
         if (isAvoid)
         {
             Avoidance();
@@ -179,10 +187,14 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
             if (dx != 0.0f)
             {
                 PlayerAttackAnimator.SetBool("Run", true);
+
+                //EffectÇÃçƒê∂
+                RunSmork_P.Play();
             }
-            else 
+            else
             {
                 PlayerAttackAnimator.SetBool("Run", false);
+                RunSmork_P.Stop();
             }
 
             //XÇ∂Ç≠ÇÃå¿äEê›íË
@@ -333,6 +345,13 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
         _IsLaneChamge = false;
         PlayerAttackAnimator.ResetTrigger("ChangeLane");
 
+        JunpDownSmork_P.Stop();
+        if (JunpDownSmork_P.isStopped)
+        {
+            JunpDownSmork_P.Play();
+        }
+        
+
     }
 
     public int GetNowLane()
@@ -404,7 +423,7 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
             PlayerAttackMove();
 
             //èeÇ≈ÇÃçUåÇ
-            _GunControll.GunAttack();
+            //_GunControll.GunAttack();
         }
 
 

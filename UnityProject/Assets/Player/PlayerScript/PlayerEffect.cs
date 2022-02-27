@@ -11,12 +11,21 @@ public class PlayerEffect : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
-    
+
     void Update()
     {
-        
+
     }
+
+
+
+    //Effect‚ğ¶¬
+    public GameObject CreateEffect(int Number,Vector3 pos)
+    {
+        return Instantiate(_Effect[Number], pos, new Quaternion(0, 0, 0, 0));
+    }
+
 }
