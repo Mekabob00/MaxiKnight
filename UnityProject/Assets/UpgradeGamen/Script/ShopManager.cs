@@ -133,15 +133,15 @@ public class ShopManager : MonoBehaviour
     //接近戦武器変更
     public void Button_WeaponChangeSword1()
     {
-        DataManager.Instance._WeaponNumberSword = 1;
+        DataManager.Instance._WeaponNumberSword = 0;
     }
     public void Button_WeaponChangeSword2()
     {
-        DataManager.Instance._WeaponNumberSword = 2;
+        DataManager.Instance._WeaponNumberSword = 1;
     }
     public void Button_WeaponChangeSword3()
     {
-        DataManager.Instance._WeaponNumberSword = 3;
+        DataManager.Instance._WeaponNumberSword = 2;
     }
 
     //遠距離武器変更
