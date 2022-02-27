@@ -90,7 +90,6 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
         {
             IsAttackFlag();
         }
-        InPlayerStop();
     }
     #endregion
 
@@ -138,7 +137,9 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
         if (other.gameObject.tag == "Player") //現在仮タグでEnemyと付けています。随時変更していただけると助かります
         {
             transform.SetParent(Player.transform);
-         //   this.transform.rotation = Quaternion.Euler(-90, -90, 0);
+            Player.GetComponent<Player_Controll>().enabled = false;
+            Player.GetComponent<Animator>().enabled = false;
+           // this.transform.rotation = Quaternion.Euler(-90, -90, 0);
             _IsMoveActive = false;
             _IsAttackFlag = true;
         }
@@ -150,17 +151,17 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
     private void IsAttackFlag()
     {
         currentTime += Time.deltaTime;
-        if(currentTime>=3.0f)
+        if(currentTime>=1.5f)
         {
             Instantiate(DidEffect, transform.position, transform.rotation);
             this.transform.position = new Vector3(1000, 1000, 1000);
-            Player.GetComponent<Player_Controll>().enabled = false;
-            Player.GetComponent<Animator>().enabled = false;
-            _IsEnemy4explosionFlag = true;
+            Player.GetComponent<Player_Controll>().enabled =true;
+            Player.GetComponent<Animator>().enabled = true;
+            Destroy(Enemy);
             currentTime = 0.0f;
         }
     }
-    private void InPlayerStop()
+  /*  private void InPlayerStop()
     {
         if (_IsEnemy4explosionFlag)
         {
@@ -172,7 +173,7 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
                 Player.GetComponent<Player_Controll>().enabled = true;
             }
         }
-    }
+    }*/
     private void OnTriggerExit(Collider other)
     {
 
