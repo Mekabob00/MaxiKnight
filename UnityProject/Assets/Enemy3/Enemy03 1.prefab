@@ -229,8 +229,8 @@ MonoBehaviour:
   Enemy: {fileID: 3626047702815612001}
   castlePosition: {x: 0, y: 0, z: 0}
   DamegeSE: {fileID: 8300000, guid: cb17f9d8b81d5a8489d0eb835e9d7a56, type: 3}
-  AttackSE: {fileID: 8300000, guid: cb17f9d8b81d5a8489d0eb835e9d7a56, type: 3}
-  DieSE: {fileID: 8300000, guid: cb17f9d8b81d5a8489d0eb835e9d7a56, type: 3}
+  AttackSE: {fileID: 8300000, guid: 504c779b2269d6d42b84b8a0541d2923, type: 3}
+  DieSE: {fileID: 8300000, guid: ea3fbd51207c5264caa2245206a23afc, type: 3}
   Effect: {fileID: 6905903939417113979, guid: dedfb3139b45fd249bdca337ec6d05b7, type: 3}
   DidEffect: {fileID: 2886189059328443225, guid: 9a4438211fb2e4547b050c2457cafb2c, type: 3}
   EnemyAnimator: {fileID: 5623209144978531945}

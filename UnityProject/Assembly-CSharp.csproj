@@ -56,22 +56,18 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\tyutoriaru\tutorial_Maneger.cs" />
     <Compile Include="Assets\PostEffect\Depth2.cs" />
     <Compile Include="Assets\PostEffect\blur.cs" />
     <Compile Include="Assets\Stage\ClearTime.cs" />
     <Compile Include="Assets\Boss\Scripts\LaserArea.cs" />
     <Compile Include="Assets\Player\PlayerScript\Player_Controll.cs" />
     <Compile Include="Assets\f.cs" />
-    <Compile Include="Assets\Reinforcement Tutorial\UIBloom.cs" />
     <Compile Include="Assets\Enemy01\Script\Enemy3Behaviour.cs" />
     <Compile Include="Assets\Enemy01\Expansion\IntExtensions.cs" />
     <Compile Include="Assets\Enemy01\Script\Enemy2Behaviour.cs" />
     <Compile Include="Assets\Castle\Scripts\FSMClearSignals.cs" />
     <Compile Include="Assets\Enemy01\Script\EnemyAttackManeger.cs" />
     <Compile Include="Assets\GlobalFile\Scripts\GlobalData.cs" />
-    <Compile Include="Assets\Enemy2\BulletControll.cs" />
-    <Compile Include="Assets\Player\PlayerScript\SwordBehavia.cs" />
     <Compile Include="Assets\Castle\Scripts\CastleBullet.cs" />
     <Compile Include="Assets\PostEffect\contrast.cs" />
     <Compile Include="Assets\Title\TitleManager.cs" />
@@ -80,11 +76,9 @@
     <Compile Include="Assets\Player\PlayerScript\GunControll.cs" />
     <Compile Include="Assets\UpgradeGamen\Script\PannelControl.cs" />
     <Compile Include="Assets\Title\FadeManager\Sample\FadeSample.cs" />
-    <Compile Include="Assets\tyutoriaru\tutorial_Controll.cs" />
     <Compile Include="Assets\GlobalFile\Scripts\SwitchScene.cs" />
     <Compile Include="Assets\Boss\Scripts\BossBehavior.cs" />
     <Compile Include="Assets\Title\FadeManager\Scripts\FadeManager.cs" />
-    <Compile Include="Assets\Stage\Stage12ClearText.cs" />
     <Compile Include="Assets\Player\PlayerScript\SwordControll.cs" />
     <Compile Include="Assets\UpgradeGamen\Script\ShopManager.cs" />
     <Compile Include="Assets\Castle\Scripts\CastleBehavior.cs" />
@@ -95,18 +89,14 @@
     <Compile Include="Assets\Title\Blinking_Control.cs" />
     <Compile Include="Assets\UI\Scripts\CastleHPBar.cs" />
     <Compile Include="Assets\UpgradeGamen\Script\TopPannelControl.cs" />
-    <Compile Include="Assets\Enemy01\Script\Enemy1BossBehaviour.cs" />
     <Compile Include="Assets\Camera\CameraController.cs" />
     <Compile Include="Assets\Stage\SceneTest.cs" />
-    <Compile Include="Assets\tyutoriaru\Fader.cs" />
     <Compile Include="Assets\PostEffect\fog.cs" />
     <Compile Include="Assets\PostEffect\softLight.cs" />
     <Compile Include="Assets\NewBehaviourScript.cs" />
     <Compile Include="Assets\Enemy01\Script\Enemy4Behaviour.cs" />
     <Compile Include="Assets\Player\PlayerScript\PlayerDefencePos.cs" />
-    <Compile Include="Assets\JudgLaneMovement.cs" />
     <Compile Include="Assets\Test.cs" />
-    <Compile Include="Assets\Player\PlayerScript\PlayerEffect.cs" />
     <Compile Include="Assets\Canon\Scripts\CanonBall\CanonBallGenerator.cs" />
     <Compile Include="Assets\Item\Scripts\ItemBehavior.cs" />
     <Compile Include="Assets\UpgradeGamen\Script\AnimationControl.cs" />
@@ -122,12 +112,10 @@
     <Compile Include="Assets\Canon\Scripts\CanonBall\CanonBallController.cs" />
     <Compile Include="Assets\Enemy01\Expansion\RigidBodyExtensions.cs" />
     <Compile Include="Assets\UpgradeGamen\Script\AudioPlay.cs" />
-    <Compile Include="Assets\Reinforcement Tutorial\ReinforcementTutorial.cs" />
     <Compile Include="Assets\GameOver_StageClear\GameOver.cs" />
     <Compile Include="Assets\Camera\Camela.cs" />
     <Compile Include="Assets\Player\PlayerScript\PlayerGrab.cs" />
     <Compile Include="Assets\GlobalFile\Scripts\DataManager.cs" />
-    <Compile Include="Assets\Enemy01\Script\Enemy2BossBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\PostEffect\Blur.shader" />
@@ -139,11 +127,14 @@
      <None Include="Assets\3D\BackGround\NewSurfaceShader.shader" />
      <None Include="Assets\PostEffect\vertexTest.shader" />
      <None Include="Assets\explosion\Smoke.shader" />
+     <None Include="Assets\FireEffect\shader\Ground.shader" />
      <None Include="Assets\explosion\explosionFire.shader" />
      <None Include="Assets\PostEffect\fog.shader" />
      <None Include="Assets\PostEffect\lensDistortion.shader" />
+     <None Include="Assets\FireEffect\shader\blast front.shader" />
      <None Include="Assets\PostEffect\softLight.shader" />
      <None Include="Assets\particle\particle2.shader" />
+     <None Include="Assets\FireEffect\shader\Fire.shader" />
      <None Include="Assets\PostEffect\Depth.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
@@ -366,6 +357,12 @@
     </Reference>
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.0f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.0f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.0f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>

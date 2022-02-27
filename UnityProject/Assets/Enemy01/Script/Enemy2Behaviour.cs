@@ -184,7 +184,6 @@ public class Enemy2Behaviour : MonoBehaviour, IPlayerDamege
             currentTime += Time.deltaTime;
             if (currentTime > span)
             {
-                EnemyAttackManeger.instance.PlaySE(AttackSE);
                 EnemyAnimator.SetTrigger("Attack");
                 Instantiate(Shot, ShotPoint.position, ShotPoint.rotation);
                 currentTime = 0f;
