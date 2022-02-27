@@ -57,7 +57,7 @@ public class CameraController : MonoBehaviour
 		if (Vector3.Angle(vec, transform.forward) > 0.1f)
         {
 			Quaternion rotate = Quaternion.LookRotation(vec);
-			transform.localRotation = Quaternion.Lerp(transform.localRotation, rotate, 0.1f);
+			transform.localRotation = Quaternion.Lerp(transform.localRotation, rotate, 1);
         }
 	}
 
@@ -65,6 +65,6 @@ public class CameraController : MonoBehaviour
 	void UpdateCameraPosition(Transform target_)
 	{
 		if(Vector3.Distance(transform.position, target_.position) > 0.5f)
-			transform.position = Vector3.Slerp(transform.position, target_.position, 0.03f);
+			transform.position = Vector3.Slerp(transform.position, target_.position, 0.05f);
 	}
 }

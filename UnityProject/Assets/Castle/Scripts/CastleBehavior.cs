@@ -22,10 +22,13 @@ public class CastleBehavior : MonoBehaviour
     public float _ExplosionCT;
     [Header("HPBar")]
     public CastleHPBar m_hpBar;
-
+    [Header("音効")]
+    public AudioClip _DamageSE;
+    public AudioClip _AttackSE;
+    public AudioClip _DestorySE;
 
     //プライベート変数
-    Animator m_animator;
+    AudioSource m_audioSource;
     [Header("攻撃対象")]
     [SerializeField] GameObject m_attackTarget; //援護射撃目標
     enum CastleState { MOVE, ATTACK, DEAD }
@@ -33,10 +36,12 @@ public class CastleBehavior : MonoBehaviour
     [SerializeField] CastleState m_castleState;
     float m_timer;    //タイム計算用タイマー
     bool m_canAttack;
+    bool m_isWait;
     #endregion
 
     void Start()
     {
+        m_audioSource = GetComponent<AudioSource>();
         _Health = DataManager.Instance._CastleHP;
         m_hpBar.SetMaxHealth(_Health);
     }
@@ -89,6 +94,8 @@ public class CastleBehavior : MonoBehaviour
                     break;
                 }
             case CastleState.DEAD:
+                if (m_isWait) return;
+
                 m_timer -= Time.deltaTime;
                 if (m_timer <= 0)
                 {
@@ -102,7 +109,8 @@ public class CastleBehavior : MonoBehaviour
     void CreateExplosion()
     {
         int num = Random.Range(1, _ExplosionPos.Length / 2);
-        while(num > 0)
+       
+        while (num > 0)
         {
             GameObject obj = Instantiate(_Explosion, _ExplosionPos[Random.Range(0, _ExplosionPos.Length)]);
             obj.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
@@ -114,8 +122,14 @@ public class CastleBehavior : MonoBehaviour
     {
         if (!SearchEnemy()) { return; }
         //弾生成
+        var explosion = Instantiate(_Explosion, _AttackPoint.transform.position, Quaternion.identity);
+        explosion.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        m_audioSource.clip = _AttackSE;
+        m_audioSource.Play();
         var bullet = Instantiate(_BulletPrefab, _AttackPoint.transform.position, Quaternion.identity);
         bullet.GetComponent<CastleBullet>()._SetTarget(m_attackTarget, 0.5f);
+        bullet.transform.LookAt(m_attackTarget.transform);
+        bullet.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
     }
 
     //------------------------------------------------------------
@@ -163,17 +177,41 @@ public class CastleBehavior : MonoBehaviour
     //------------------------------------------------------------
 
     //エネミーの攻撃を受ける
-    public void _AddDamage(int _damage)
+    public void _AddDamage(int damage_)
     {
         if (m_castleState == CastleState.DEAD) return;
 
-        _Health -= _damage;
+        _Health -= damage_;
         DataManager.Instance._CastleHP = _Health;
         m_hpBar.SetCurrentHealth(_Health);
+
+        if(damage_ > 1)
+        {
+            m_audioSource.clip = _DamageSE;
+            m_audioSource.Play();
+        }
+
         if (_Health <= 0)
         {
             m_castleState = CastleState.DEAD;
             GlobalData.Instance.isGameOver = true;
+            StartCoroutine(WaitTime(2.8f));
+            StartCoroutine(LatePlay(2.5f));
         }
+    }
+
+    //次の状態を移行までの待ち時間
+    IEnumerator WaitTime(float time)
+    {
+        m_isWait = true;
+        yield return new WaitForSeconds(time);
+        m_isWait = false;
+    }
+
+    IEnumerator LatePlay(float time)
+    {
+        yield return new WaitForSeconds(time);
+        m_audioSource.clip = _DestorySE;
+        m_audioSource.Play();
     }
 }
