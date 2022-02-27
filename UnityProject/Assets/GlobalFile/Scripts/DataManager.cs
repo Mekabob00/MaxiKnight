@@ -63,8 +63,8 @@ public class DataManager : MonoBehaviour
 
     public void Reset()
     {
-        Instance._WeaponNumberSword = 1;
-        Instance._WeaponNumberGun = 1;
+        Instance._WeaponNumberSword = 0;
+        Instance._WeaponNumberGun = 0;
         Instance._PlayerAttackBuff = 1;
         Instance._CastleAttackBuff = 1;
         Instance._Stage = 1;

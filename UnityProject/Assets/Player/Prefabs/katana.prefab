@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1191365236335567084}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.26, y: -2.32, z: -2.95}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.26, y: -2.33, z: -2.95}
+  m_LocalScale: {x: 1, y: 1.2916, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -112,4 +112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a320a002627494d9ed83f180648523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttakUPFlag: 0
+  _SwordAttackList: []
+  _SwordObjectList: []
+  _Player: {fileID: 0}

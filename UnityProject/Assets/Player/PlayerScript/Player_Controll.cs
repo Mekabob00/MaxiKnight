@@ -11,7 +11,7 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
     private Rigidbody _RigidBody = null;
 
     [SerializeField]
-    float PlayerWlakSpeed;
+    private List<float> PlayerWlakSpeed;
     [SerializeField]
     private float applySpeed = 0.2f;       // 回転の適用速度
 
@@ -20,6 +20,9 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
 
     [SerializeField, Tooltip("当たり判定")]
     private Collider _HitBase;
+
+    [SerializeField, Tooltip("武器の当たり判定")]
+    private List<Collider> _SwordColliderList;
 
     [SerializeField, Tooltip("武器のオブジェクト")]
     private SwordControll _SwordBeh = null;
@@ -74,8 +77,10 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
     private float InputZ_tmp = 0;
     private Vector3 AvoidPos_Start = new Vector3();
     private Vector3 AvoidPos_End = new Vector3();
-    private float AvoidAngle = 0; 
+    private float AvoidAngle = 0;
 
+    //外部からのデータを受け取る
+    private int DataSowrdNum;
     public static float AttackBuff = 1;
 
 
@@ -84,9 +89,13 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
     }
     void Start()
     {
+        //外部からデータを受け取る
+        DataSowrdNum = DataManager.Instance._WeaponNumberSword;
+
         //animtion
         PlayerAttackAnimator = GetComponent<Animator>();
-        PlayerAttackAnimator.SetFloat("AttackSpeed", 1);
+        PlayerAttackAnimator.SetFloat("AttackSpeed", _AttackSpeed[DataSowrdNum]);
+        PlayerAttackAnimator.SetFloat("RunSpeed", PlayerWlakSpeed[DataSowrdNum] * 0.7f);
 
         _GunControll = GetComponent<GunControll>();
 
@@ -100,7 +109,7 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
         _NowLane = 0;//初期
 
         //武器の当たり判定の設定
-        _SwordCollider = _SwordBeh.GetNowSwordCollider();
+        _SwordCollider = _SwordColliderList[DataSowrdNum];
         _SwordCollider.enabled = false;//コライダーはOFF
 
         Input_tmp = 1;
@@ -148,8 +157,8 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
 
     private void PlayerWalk()
     {//プレイヤーの移動関数
-        float dx = Input.GetAxisRaw("Horizontal") * Time.deltaTime * PlayerWlakSpeed;
-        float dz = Input.GetAxisRaw("Vertical") * Time.deltaTime * PlayerWlakSpeed;
+        float dx = Input.GetAxisRaw("Horizontal") * Time.deltaTime * PlayerWlakSpeed[DataSowrdNum]*7;
+        float dz = Input.GetAxisRaw("Vertical") * Time.deltaTime * 1;
 
         bool IsAttack = PlayerAttackAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack");
         bool IschangeLane = PlayerAttackAnimator.GetCurrentAnimatorStateInfo(0).IsName("ChangeLane");
