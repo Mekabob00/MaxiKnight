@@ -25,7 +25,7 @@ public class PlayerDefencePos : MonoBehaviour
         if (collision.tag == "2st defense")
         {
             //UŒ‚—Í‘‰Á
-            _SwordControll.AttakUPFlag = true;
+            //_SwordControll.AttakUPFlag = true;
             Debug.Log("”ÍˆÍ“à");
         }
     }
@@ -35,7 +35,7 @@ public class PlayerDefencePos : MonoBehaviour
         if (collision.tag == "2st defense")
         {
             //”ÍˆÍŠO‚Éo‚½‚çUŒ‚—Í‚ğ’á‰º
-            _SwordControll.AttakUPFlag = false;
+            //_SwordControll.AttakUPFlag = false;
 
         }
     }

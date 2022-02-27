@@ -18,12 +18,8 @@ public class SwordControll : MonoBehaviour
     [SerializeField, Tooltip("Player")]
     private GameObject _Player;
 
-    public bool AttakUPFlag; //防衛ライン判定
-
-
     void Start()
     {
-        AttakUPFlag = false;
 
 
         //剣のアクティブ/非アクティブ
@@ -77,6 +73,8 @@ public class SwordControll : MonoBehaviour
         {
             int you = collision.GetComponent<JudgLaneMovement>().GetNowLane();
             int my = _Player.GetComponent<Player_Controll>().GetNowLane();
+
+            Debug.Log("EnemytoHit");
 
             if (you == my)
             {
