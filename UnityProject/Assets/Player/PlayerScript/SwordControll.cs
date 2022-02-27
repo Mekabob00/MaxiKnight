@@ -69,7 +69,7 @@ public class SwordControll : MonoBehaviour
     }
     public void OnTriggerEnter(Collider collision)
     {
-        if (collision.tag == "Enemy") //現在仮タグでEnemyと付けています。随時変更していただけると助かります
+        if (collision.tag == "Enemy"||collision.tag=="Enemy4") //現在仮タグでEnemyと付けています。随時変更していただけると助かります
         {
             int you = collision.GetComponent<JudgLaneMovement>().GetNowLane();
             int my = _Player.GetComponent<Player_Controll>().GetNowLane();
