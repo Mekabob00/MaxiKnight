@@ -10,9 +10,13 @@ public class Stage12ClearText : MonoBehaviour
     [SerializeField, Tooltip("文字のスピード")]
     private float nowDispCount = 0.0f; //現在何文字目まで表示するかのカウンター
     public Text text = null;
+    public GameObject MainBGM;
+    public GameObject ClearBGM;
     // Start is called before the first frame update
     void Start()
     {
+        MainBGM.GetComponent<AudioSource>().enabled = false;
+        ClearBGM.GetComponent<AudioSource>().enabled = true;
     }
 
     // Update is called once per frame

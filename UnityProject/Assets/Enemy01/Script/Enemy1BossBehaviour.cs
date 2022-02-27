@@ -41,6 +41,8 @@ public class Enemy1BossBehaviour : MonoBehaviour, IPlayerDamege
     private GameObject Item;
     [SerializeField, Tooltip("クリアウインドウ")]
     private GameObject panel;
+    [SerializeField, Tooltip("オーラ")]
+    private GameObject Aura;
     #endregion
 
     #region Defalut

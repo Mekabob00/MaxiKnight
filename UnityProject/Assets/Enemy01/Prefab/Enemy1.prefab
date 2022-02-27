@@ -5957,7 +5957,7 @@ MonoBehaviour:
   _Damage: 0
   Effect: {fileID: 6905903939417113979, guid: dedfb3139b45fd249bdca337ec6d05b7, type: 3}
   DidEffect: {fileID: 2886189059328443225, guid: 9a4438211fb2e4547b050c2457cafb2c, type: 3}
-  Item: {fileID: 4637782406889143264, guid: be45f16098d8ec1438b1644a161bcf7d, type: 3}
+  Item: {fileID: 8283514797142747799, guid: e63cedd4d3cfa8940927a294b0141954, type: 3}
   span: 3
   _IsMoveActive: 0
   castle: {fileID: 0}
@@ -5975,7 +5975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2286d3421f9d9ea4a8b57d90ac93c063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _NowLane: 0
+  _NowLane: 1
 --- !u!1 &7265245624784199241
 GameObject:
   m_ObjectHideFlags: 0
