@@ -544,6 +544,7 @@ MonoBehaviour:
   _CastleRecoveryFee: {fileID: 1645590303}
   _CastleAttackBuffFee: {fileID: 817324177}
   _PlayerAttackBuffFee: {fileID: 1324459130}
+  ShousaiImage: {fileID: 1097522636}
 --- !u!4 &173014135
 Transform:
   m_ObjectHideFlags: 0
@@ -1050,8 +1051,8 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
+    m_NormalColor: {r: 0.8627451, g: 0.8627451, b: 0.8627451, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -1735,6 +1736,7 @@ RectTransform:
   - {fileID: 1645590301}
   - {fileID: 817324175}
   - {fileID: 1324459132}
+  - {fileID: 1097522640}
   - {fileID: 920071518}
   m_Father: {fileID: 831750389}
   m_RootOrder: 0
@@ -1758,6 +1760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pannel: {fileID: 519885530}
   status: 0
+  ThisPannel: 0
 --- !u!95 &519885533
 Animator:
   serializedVersion: 3
@@ -1942,6 +1945,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pannel: {fileID: 644677030}
   status: 0
+  ThisPannel: 0
 --- !u!95 &644677032
 Animator:
   serializedVersion: 3
@@ -2227,6 +2231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pannel: {fileID: 658804474}
   status: 0
+  ThisPannel: 0
 --- !u!95 &658804476
 Animator:
   serializedVersion: 3
@@ -3130,6 +3135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pannel: {fileID: 869842290}
   status: 0
+  ThisPannel: 0
 --- !u!95 &869842293
 Animator:
   serializedVersion: 3
@@ -3401,7 +3407,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 519885531}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3637,6 +3643,98 @@ Transform:
   m_Father: {fileID: 1216899570}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1097522636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1097522640}
+  - component: {fileID: 1097522639}
+  - component: {fileID: 1097522638}
+  - component: {fileID: 1097522637}
+  m_Layer: 5
+  m_Name: ShousaiImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1097522637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097522636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5118793475bf0254dbab225f571f4ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Repair: {fileID: 21300000, guid: 6918ed2532fc2044ca7a9a19292977c2, type: 3}
+  Castle: {fileID: 21300000, guid: 4edee682034e51f4c8574737d25c1520, type: 3}
+  Robot: {fileID: 21300000, guid: 66dd00505ca03c04bbe4cbe55c58d021, type: 3}
+  Status: 0
+--- !u!114 &1097522638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097522636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 66dd00505ca03c04bbe4cbe55c58d021, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1097522639
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097522636}
+  m_CullTransparentMesh: 1
+--- !u!224 &1097522640
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097522636}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 519885531}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -458, y: 102}
+  m_SizeDelta: {x: 637.8724, y: 293.5937}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1104373920
 GameObject:
   m_ObjectHideFlags: 0
@@ -5401,8 +5499,8 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.7647059, g: 0.7647059, b: 0.7647059, a: 1}
+    m_NormalColor: {r: 0.8627451, g: 0.8627451, b: 0.8627451, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.5176471, g: 0.5176471, b: 0.5176471, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -6870,8 +6968,8 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.7647059, g: 0.7647059, b: 0.7647059, a: 1}
+    m_NormalColor: {r: 0.9019608, g: 0.9019608, b: 0.9019608, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.5176471, g: 0.5176471, b: 0.5176471, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}

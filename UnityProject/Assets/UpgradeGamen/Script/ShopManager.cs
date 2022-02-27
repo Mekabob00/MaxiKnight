@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +10,8 @@ public class ShopManager : MonoBehaviour
     public Text _CastleRecoveryFee;
     public Text _CastleAttackBuffFee;
     public Text _PlayerAttackBuffFee;
+
+    public GameObject ShousaiImage;
 
     public enum SELECTITEM { NON, CASTLERECOVERY, CASTLEATTACKBUFF, PLAYERATTACKBUFF };
     SELECTITEM selectItem;
@@ -28,23 +30,23 @@ public class ShopManager : MonoBehaviour
         switch (selectItem)
         {
             case SELECTITEM.NON:
-                text.text = "¤•i‚ğ‘I‚ñ‚Å‚­‚¾‚³‚¢B";
+                text.text = "å•†å“ã‚’é¸ã‚“ã§ãã ã•ã„ã€‚";
                 break;
             case SELECTITEM.CASTLERECOVERY:
-                text.text = "‹’“_‚ğC—‚µ‚ÄA\n‘Ï‹v“x‚ğÅ‘å’l‚Ü‚Å‰ñ•œ‚³‚¹‚Ü‚·B\nŒ»İ‚ÌC—‰ñ”‚Í" + (DataManager.Instance._CastleRecoveryFee / 100 - 1) + "‰ñ‚Å‚·B";
+                text.text = "æ‹ ç‚¹ã‚’ä¿®ç†ã—ã¦ã€\nè€ä¹…åº¦ã‚’æœ€å¤§å€¤ã¾ã§å›å¾©ã•ã›ã¾ã™ã€‚";
                 break;
             case SELECTITEM.CASTLEATTACKBUFF:
-                text.text = "‹’“_‚ğ‹­‰»‚µ‚ÄA\n‹’“_‚ÌUŒ‚—Í‚ğã¸‚³‚¹‚Ü‚·B\nŒ»İ‚Ì‹­‰»‰ñ”‚Í" + (DataManager.Instance._CastleAttackBuffFee / 100 - 1) + "‰ñ‚Å‚·B";
+                text.text = "æ‹ ç‚¹ã‚’å¼·åŒ–ã—ã¦ã€\næ‹ ç‚¹ã®æ”»æ’ƒåŠ›ã‚’ä¸Šæ˜‡ã•ã›ã¾ã™ã€‚";
                 break;
             case SELECTITEM.PLAYERATTACKBUFF:
-                text.text = "‹@‘Ì‚ğC—‚µ‚ÄA\n‹@‘Ì‚ÌUŒ‚—Í‚ğã¸‚³‚¹‚Ü‚·B\nŒ»İ‚Ì‹­‰»‰ñ”‚Í" + (DataManager.Instance._PlayerAttackBuffFee / 100 - 1) + "‰ñ‚Å‚·B";
+                text.text = "æ©Ÿä½“ã‚’å¼·åŒ–ã—ã¦ã€\næ©Ÿä½“ã®æ”»æ’ƒåŠ›ã‚’ä¸Šæ˜‡ã•ã›ã¾ã™ã€‚";
                 break;
         }
         TextUpDate();
     }
 
-    #region ƒVƒ‡ƒbƒv‹@”\ŠÖ”
-    //‘Œ¹•\¦XV
+    #region ã‚·ãƒ§ãƒƒãƒ—æ©Ÿèƒ½é–¢æ•°
+    //è³‡æºè¡¨ç¤ºæ›´æ–°
     void TextUpDate()
     {
         _OwnResource.text = DataManager.Instance._Resource.ToString();
@@ -52,7 +54,7 @@ public class ShopManager : MonoBehaviour
         _CastleAttackBuffFee.text = DataManager.Instance._CastleAttackBuffFee.ToString();
         _PlayerAttackBuffFee.text = DataManager.Instance._PlayerAttackBuffFee.ToString();
     }
-    //‹’“_‰ñ•œ
+    //æ‹ ç‚¹å›å¾©
     void CastleRecovery()
     {
         if (DataManager.Instance._Resource < DataManager.Instance._CastleRecoveryFee) return;
@@ -62,16 +64,17 @@ public class ShopManager : MonoBehaviour
         DataManager.Instance._CastleRecoveryFee += 100;
         DataManager.Instance._CastleHP += 1;
     }
-    //‹’“_‹­‰»
+    //æ‹ ç‚¹å¼·åŒ–
     void CastleAttackBuff()
     {
         if (DataManager.Instance._Resource < DataManager.Instance._CastleAttackBuffFee) return;
+
 
         DataManager.Instance._Resource -= DataManager.Instance._CastleAttackBuffFee;
         DataManager.Instance._CastleAttackBuffFee += 100;
         DataManager.Instance._CastleAttackBuff += 1;
     }
-    //ƒvƒŒƒCƒ„[‹­‰»
+    //ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼å¼·åŒ–
     void PlayerAttackBuff()
     {
         if (DataManager.Instance._Resource < DataManager.Instance._PlayerAttackBuffFee) return;
@@ -82,8 +85,8 @@ public class ShopManager : MonoBehaviour
     }
     #endregion
 
-    #region ƒVƒ‡ƒbƒv“àŠeíƒ{ƒ^ƒ“—p‚ÌŠÖ”
-    //w“ü
+    #region ã‚·ãƒ§ãƒƒãƒ—å†…å„ç¨®ãƒœã‚¿ãƒ³ç”¨ã®é–¢æ•°
+    //è³¼å…¥
     public void Button_Buy()
     {
         switch (selectItem)
@@ -110,18 +113,24 @@ public class ShopManager : MonoBehaviour
                 selectItem = SELECTITEM.NON;
                 break;
             case "CastleRecovery":
+                ShousaiImage.GetComponent<ShousaiImage>().Status = 1;
+
                 selectItem = SELECTITEM.CASTLERECOVERY;
                 break;
             case "CastleAttackBuff":
+                ShousaiImage.GetComponent<ShousaiImage>().Status = 2;
+
                 selectItem = SELECTITEM.CASTLEATTACKBUFF;
                 break;
             case "PlayerAttackBuff":
+                ShousaiImage.GetComponent<ShousaiImage>().Status = 3;
+
                 selectItem = SELECTITEM.PLAYERATTACKBUFF;
                 break;
         }
     }
 
-    //Ú‹ßí•Ší•ÏX
+    //æ¥è¿‘æˆ¦æ­¦å™¨å¤‰æ›´
     public void Button_WeaponChangeSword1()
     {
         DataManager.Instance._WeaponNumberSword = 1;
@@ -135,7 +144,7 @@ public class ShopManager : MonoBehaviour
         DataManager.Instance._WeaponNumberSword = 3;
     }
 
-    //‰“‹——£•Ší•ÏX
+    //é è·é›¢æ­¦å™¨å¤‰æ›´
     public void Button_WeaponChangeGun1()
     {
         DataManager.Instance._WeaponNumberGun = 1;
