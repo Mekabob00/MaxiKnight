@@ -359,7 +359,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6009334763310939072}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.263, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7087238203705110182}
@@ -390,14 +390,14 @@ MonoBehaviour:
   _Renderer: {fileID: 0}
   _GlobalDataObject: {fileID: 0}
   Effct: {fileID: 6905903939417113979, guid: dedfb3139b45fd249bdca337ec6d05b7, type: 3}
-  DidEffect: {fileID: 43556880712326259, guid: 9a4438211fb2e4547b050c2457cafb2c, type: 3}
+  DidEffect: {fileID: 2886189059328443225, guid: 9a4438211fb2e4547b050c2457cafb2c, type: 3}
   Damege: {fileID: 8300000, guid: cb17f9d8b81d5a8489d0eb835e9d7a56, type: 3}
   Item: {fileID: 4637782406889143264, guid: be45f16098d8ec1438b1644a161bcf7d, type: 3}
   Player: {fileID: 0}
   _IsEnemy4explosionFlag: 0
   span: 3
   _IsMoveActive: 0
-  castle: {fileID: 4637782406889143264, guid: be45f16098d8ec1438b1644a161bcf7d, type: 3}
+  castle: {fileID: 0}
   Enemy: {fileID: 6009334763310939072}
   PlayerPosition: {x: 0, y: 0, z: 0}
   FocusSpeed: 2
