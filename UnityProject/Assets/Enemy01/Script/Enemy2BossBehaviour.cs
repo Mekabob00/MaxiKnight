@@ -41,6 +41,10 @@ public class Enemy2BossBehaviour : MonoBehaviour, IPlayerDamege
     private GameObject Item;
     [SerializeField, Tooltip("クリアウインドウ")]
     private GameObject panel;
+    [SerializeField, Tooltip("弾発射ポイント")]
+    private Transform ShotPoint;
+    [SerializeField, Tooltip("弾")]
+    private GameObject Shot;
     #endregion
 
     #region Defalut
@@ -200,7 +204,7 @@ public class Enemy2BossBehaviour : MonoBehaviour, IPlayerDamege
             {
                 EnemyAttackManeger.instance.PlaySE(AttackSE);
                 EnemyAnimator.SetTrigger("Attack");
-                castle.GetComponent<CastleBehavior>()._AddDamage(_Damage);
+                Instantiate(Shot, ShotPoint.position, ShotPoint.rotation);
                 currentTime = 0f;
             }
         }
