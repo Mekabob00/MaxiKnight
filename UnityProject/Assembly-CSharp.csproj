@@ -70,6 +70,8 @@
     <Compile Include="Assets\Castle\Scripts\FSMClearSignals.cs" />
     <Compile Include="Assets\Enemy01\Script\EnemyAttackManeger.cs" />
     <Compile Include="Assets\GlobalFile\Scripts\GlobalData.cs" />
+    <Compile Include="Assets\Enemy2\BulletControll.cs" />
+    <Compile Include="Assets\Player\PlayerScript\SwordBehavia.cs" />
     <Compile Include="Assets\Castle\Scripts\CastleBullet.cs" />
     <Compile Include="Assets\PostEffect\contrast.cs" />
     <Compile Include="Assets\Title\TitleManager.cs" />
@@ -82,26 +84,31 @@
     <Compile Include="Assets\GlobalFile\Scripts\SwitchScene.cs" />
     <Compile Include="Assets\Boss\Scripts\BossBehavior.cs" />
     <Compile Include="Assets\Title\FadeManager\Scripts\FadeManager.cs" />
+    <Compile Include="Assets\Stage\Stage12ClearText.cs" />
     <Compile Include="Assets\Player\PlayerScript\SwordControll.cs" />
     <Compile Include="Assets\UpgradeGamen\Script\ShopManager.cs" />
     <Compile Include="Assets\Castle\Scripts\CastleBehavior.cs" />
     <Compile Include="Assets\Enemy01\Script\Enemy1Behaviour.cs" />
+    <Compile Include="Assets\UpgradeGamen\Script\ShousaiImage.cs" />
     <Compile Include="Assets\UI\Scripts\UIAnimation.cs" />
     <Compile Include="Assets\PostEffect\DepthOn.cs" />
     <Compile Include="Assets\PostEffect\NullTest.cs" />
     <Compile Include="Assets\Title\Blinking_Control.cs" />
     <Compile Include="Assets\UI\Scripts\CastleHPBar.cs" />
     <Compile Include="Assets\UpgradeGamen\Script\TopPannelControl.cs" />
+    <Compile Include="Assets\Enemy01\Script\Enemy1BossBehaviour.cs" />
     <Compile Include="Assets\Camera\CameraController.cs" />
     <Compile Include="Assets\Stage\SceneTest.cs" />
     <Compile Include="Assets\tyutoriaru\Fader.cs" />
     <Compile Include="Assets\PostEffect\fog.cs" />
     <Compile Include="Assets\PostEffect\softLight.cs" />
     <Compile Include="Assets\NewBehaviourScript.cs" />
+    <Compile Include="Assets\UpgradeGamen\Script\ShopGamenControl.cs" />
     <Compile Include="Assets\Enemy01\Script\Enemy4Behaviour.cs" />
     <Compile Include="Assets\Player\PlayerScript\PlayerDefencePos.cs" />
     <Compile Include="Assets\JudgLaneMovement.cs" />
     <Compile Include="Assets\Test.cs" />
+    <Compile Include="Assets\Player\PlayerScript\PlayerEffect.cs" />
     <Compile Include="Assets\Canon\Scripts\CanonBall\CanonBallGenerator.cs" />
     <Compile Include="Assets\Item\Scripts\ItemBehavior.cs" />
     <Compile Include="Assets\UpgradeGamen\Script\AnimationControl.cs" />
@@ -122,8 +129,9 @@
     <Compile Include="Assets\Camera\Camela.cs" />
     <Compile Include="Assets\Player\PlayerScript\PlayerGrab.cs" />
     <Compile Include="Assets\GlobalFile\Scripts\DataManager.cs" />
-    <Compile Include="Assets\UpgradeGamen\Script\ShopGamenControl.cs" />
-    <Compile Include="Assets\UpgradeGamen\Script\ShousaiImage.cs" />
+    <Compile Include="Assets\Enemy01\Script\Enemy2BossBehaviour.cs" />
+    <Compile Include="Assets\UpgradeGamen\Script\ShopHPUI.cs" />
+    <Compile Include="Assets\UpgradeGamen\Script\WeaponShowControl.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\PostEffect\Blur.shader" />
