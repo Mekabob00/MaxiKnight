@@ -16,6 +16,7 @@ public class SearchArea : MonoBehaviour
 
 
     GameObject m_attackTarget;
+    Animator m_animator;
     AudioSource m_audioSource;
     Vector3 m_velocuty; //‘¬“x
     Vector3 m_accleration; //‰Á‘¬“x
@@ -23,6 +24,7 @@ public class SearchArea : MonoBehaviour
 
     private void Start()
     {
+        m_animator = GetComponent<Animator>();
         m_audioSource = GetComponent<AudioSource>();
         m_canAttack = false;
         m_velocuty = Vector3.zero;
@@ -72,9 +74,9 @@ public class SearchArea : MonoBehaviour
         {
             Destroy(other.gameObject);
             Destroy(this.gameObject, 2f);
-            GetComponent<MeshRenderer>().material.color = new Color(0, 0, 0, 0);
             GameObject temp = Instantiate(_Effect, transform.position, _Effect.transform.rotation);
             temp.transform.localScale = new Vector3(0.18f, 0.18f, 0.18f);
+            m_animator.SetTrigger("Attack");
             m_audioSource.clip = _NapalmBombSE;
             m_audioSource.Play();
             m_canAttack = true;
