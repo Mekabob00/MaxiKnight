@@ -86,21 +86,7 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
     void Update()
     {
         IsAttackFlag();
-        if (_IsAddDamageEffect)//ダメージを食らった後のEffect最中
-        {
-            if (this.transform.position.y < _HighPos)
-            {
-                //一定の高さのになったらEffectを終了させる
-                _IsAddDamageEffect = false;
-                _RigidBody.useGravity = false;
 
-                //位置を補正
-                Vector3 pos = this.transform.position;
-              //  pos.y = _HighPos;
-                this.transform.position = pos;
-            }
-            return;
-        }
         if (_IsMoveActive && !_IsAttackFlag)
         {
             EnemyAnimator.SetBool("Walk",true);
@@ -132,10 +118,7 @@ public class Enemy1Behaviour : MonoBehaviour, IPlayerDamege
     /// <param name="damage">ダメージ量</param>
     public void _AddDamege(float _Damege)
     {
-        if (_IsAddDamageEffect)//ダメージを与えない
-        {
-            return;
-        }
+       
 
         var after = _HP - _Damege;
 

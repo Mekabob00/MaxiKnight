@@ -145,7 +145,7 @@ public class Enemy2Behaviour : MonoBehaviour, IPlayerDamege
             Destroy(this.gameObject);
             EnemyAnimator.SetTrigger("Damege");
             Instantiate(DidEffect, transform.position, transform.rotation);
-            Instantiate(Item, transform.position, transform.rotation);
+            Instantiate(Item, transform.position, Item.transform.rotation);
             return;
         }
         else if (after != _HP)//ƒ_ƒ[ƒW‚ğó‚¯‚½‚ç

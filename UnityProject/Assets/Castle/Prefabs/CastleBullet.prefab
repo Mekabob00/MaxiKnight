@@ -108,5 +108,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6aca13f13088c4dbaf5ab31278a4a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Explosion: {fileID: 2886189059328443225, guid: 9a4438211fb2e4547b050c2457cafb2c, type: 3}
   attackTarget: {fileID: 0}
-  moveTime: 0
