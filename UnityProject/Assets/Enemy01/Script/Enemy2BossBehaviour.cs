@@ -45,8 +45,6 @@ public class Enemy2BossBehaviour : MonoBehaviour, IPlayerDamege
     private Transform ShotPoint;
     [SerializeField, Tooltip("’e")]
     private GameObject Shot;
-    [SerializeField, Tooltip("ƒI[ƒ‰")]
-    private GameObject Aura;
     #endregion
 
     #region Defalut
@@ -204,6 +202,7 @@ public class Enemy2BossBehaviour : MonoBehaviour, IPlayerDamege
             currentTime += Time.deltaTime;
             if (currentTime > span)
             {
+                EnemyAttackManeger.instance.PlaySE(AttackSE);
                 EnemyAnimator.SetTrigger("Attack");
                 Instantiate(Shot, ShotPoint.position, ShotPoint.rotation);
                 currentTime = 0f;

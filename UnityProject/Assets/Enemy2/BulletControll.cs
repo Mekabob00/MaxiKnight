@@ -14,8 +14,6 @@ public class BulletControll : MonoBehaviour
     private GameObject Castle;
     [SerializeField, Tooltip("çUåÇóÕ")]
     private int _Damege;
-    [SerializeField,Tooltip("çUåÇSE")]
-    private AudioClip AttackSE;
     void Start()
     {
         _Damege = 1;
@@ -36,7 +34,6 @@ public class BulletControll : MonoBehaviour
     {
         if (other.gameObject.tag == "Castle")
         {
-            EnemyAttackManeger.instance.PlaySE(AttackSE);
             Instantiate(Effect, transform.position, transform.rotation);
             Destroy(this.gameObject);
             Castle.GetComponent<CastleBehavior>()._AddDamage(_Damege);

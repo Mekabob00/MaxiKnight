@@ -182,15 +182,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c65a92aeac5af2f47a0ef43d80a11c46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _MoveSpeed: 1
+  _MoveSpeed: 10
   _SlowMoveSpeed: 1
   _HP: 3
   _RigidBody: {fileID: 4084654680422032276}
   _Renderer: {fileID: 0}
   _GlobalDataObject: {fileID: 0}
   DamegeSE: {fileID: 8300000, guid: cb17f9d8b81d5a8489d0eb835e9d7a56, type: 3}
-  AttackSE: {fileID: 0}
-  DieSE: {fileID: 8300000, guid: ea3fbd51207c5264caa2245206a23afc, type: 3}
+  AttackSE: {fileID: 8300000, guid: cb17f9d8b81d5a8489d0eb835e9d7a56, type: 3}
+  DieSE: {fileID: 8300000, guid: cb17f9d8b81d5a8489d0eb835e9d7a56, type: 3}
   _Damage: 0
   Effect: {fileID: 6905903939417113979, guid: dedfb3139b45fd249bdca337ec6d05b7, type: 3}
   DidEffect: {fileID: 2886189059328443225, guid: 9a4438211fb2e4547b050c2457cafb2c, type: 3}
@@ -198,7 +198,6 @@ MonoBehaviour:
   panel: {fileID: 0}
   ShotPoint: {fileID: 786969453708522203}
   Shot: {fileID: 2515032855495260710, guid: cabbf7055928007439723a97cd70a589, type: 3}
-  Aura: {fileID: 0}
   span: 3
   _IsAddDamageEffect: 0
   _IsMoveActive: 0
