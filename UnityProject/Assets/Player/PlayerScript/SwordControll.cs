@@ -34,8 +34,6 @@ public class SwordControll : MonoBehaviour
         //選択中の武器だけアクティブにする
         _SwordObjectList[Num].SetActive(true);
         _NowSwordColldier = _SwordObjectList[Num].GetComponent<Collider>();
-
-
     }
     void Update()
     {
