@@ -375,6 +375,9 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
             //アニメーション再生
             PlayerAttackAnimator.SetTrigger("Avoid");
 
+            //バグの保険
+            _SwordCollider.enabled = false;
+
             _IsAvoid = true;
             AvoidPos_Start = transform.position;
 
