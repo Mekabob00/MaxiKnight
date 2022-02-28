@@ -28,7 +28,13 @@ EditorBuildSettings:
     guid: 936db11eecbd74c4e9f6484b456103a6
   - enabled: 1
     path: Assets/Stage/Stage2.unity
-    guid: e51e2c5a49ea22946bdcf95a8bd30e26
+    guid: 7207e3d15baaa8b47a9833d3677295f8
+  - enabled: 1
+    path: Assets/Stage/Stage3.unity
+    guid: d90b63e38dddcc64089828dfb90e5d8e
+  - enabled: 1
+    path: Assets/Stage/Stage4.unity
+    guid: 99b7af308c46b2041a219f78904f0f87
   - enabled: 1
     path: Assets/Stage/Stage5.unity
     guid: 83327d14d6b368543a5c61e5c053d730
