@@ -22,7 +22,7 @@ public class Stage12ClearText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        maxDispStr = "クリアしたよ";
+        maxDispStr = "敵の殲滅を確認しました。\nお疲れ様です。";
         nowDispCount += Time.deltaTime / 0.05f;  //文字表示速度
         nowDispStr = maxDispStr.Substring(0, Mathf.Min((int)nowDispCount, maxDispStr.Length));
         text.text = nowDispStr;
