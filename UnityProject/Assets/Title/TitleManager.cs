@@ -23,6 +23,8 @@ public class TitleManager : MonoBehaviour
     {
         if(Input.anyKeyDown && !Input.GetMouseButtonDown(0)&&!Input.GetMouseButtonDown(1)&&!Input.GetMouseButtonDown(2))
         {
+            DataManager.Instance.Reset();
+            GlobalData.Instance.ResetData();
             FadeManager.Instance.LoadScene("tutorial", 0.5f);
             GetComponent<AudioSource>().Play();
         }

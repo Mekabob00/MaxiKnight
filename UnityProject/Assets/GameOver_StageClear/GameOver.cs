@@ -5,16 +5,21 @@ using UnityEngine;
 public class GameOver : MonoBehaviour
 {
     public GameObject _Cursor;
+    [Header("BGM")]public AudioSource _StageBGM;
+
     public float _WaitTime;
 
-    Animator m_anim;
+    Animator m_animtor;
+    AudioSource m_audioSource;
     enum CURSOR { CONTINUE, GIVEUP };
     CURSOR m_cursor;
     float m_timer;
   
     void Start()
     {
-        m_anim = GetComponent<Animator>();
+        _StageBGM = GameObject.Find("Main Camera (1)").GetComponent<AudioSource>();
+        m_animtor = GetComponent<Animator>();
+        m_audioSource = GetComponent<AudioSource>();
         m_cursor = CURSOR.CONTINUE;
     }
 
@@ -22,10 +27,13 @@ public class GameOver : MonoBehaviour
     {
         if (GlobalData.Instance.isGameOver)
         {
+            _StageBGM.Stop();
             m_timer += Time.deltaTime;
             if (m_timer >= _WaitTime)
             {
-                m_anim.SetTrigger("Open");
+                if(!m_audioSource.isPlaying)
+                    m_audioSource.Play();
+                m_animtor.SetTrigger("Open");
                 SwitchSelect();
             }
         }
@@ -57,8 +65,7 @@ public class GameOver : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Z))
                 {
-                    DataManager.Instance.Reset();
-                    FadeManager.Instance.LoadScene("Title", 1.0f);
+                    FadeManager.Instance.LoadScene("Title(scene)", 1.0f);
                 }
                 break;
         }
