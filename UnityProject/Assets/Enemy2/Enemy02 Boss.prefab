@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _MoveSpeed: 1
   _SlowMoveSpeed: 1
-  _HP: 3
+  _HP: 20
   _RigidBody: {fileID: 4084654680422032276}
   _Renderer: {fileID: 0}
   _GlobalDataObject: {fileID: 0}
