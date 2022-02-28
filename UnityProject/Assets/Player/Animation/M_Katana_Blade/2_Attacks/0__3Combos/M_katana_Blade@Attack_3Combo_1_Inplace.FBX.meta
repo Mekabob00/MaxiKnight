@@ -488,10 +488,19 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0.29103574
+        functionName: AttackAnim_ColldierON
+        data: 
+        objectReferenceParameter: {fileID: 2293740046951642231, guid: 343eceb0462ebdb478274cde9d5e7058,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.6114892
         functionName: AttackAnimEnd
         data: 
-        objectReferenceParameter: {fileID: 2293740046951642231, guid: 343eceb0462ebdb478274cde9d5e7058, type: 3}
+        objectReferenceParameter: {fileID: 2293740046951642231, guid: 343eceb0462ebdb478274cde9d5e7058,
+          type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -1464,7 +1473,8 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 43992d4f16e57574fa5d16ef485c0cbd, type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 43992d4f16e57574fa5d16ef485c0cbd,
+    type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1

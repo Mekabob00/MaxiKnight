@@ -436,6 +436,11 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
         _HitBase.enabled = false;
     }
 
+    public void AttackAnim_ColldierON()
+    {
+        _SwordCollider.enabled = true;
+    }
+
     public void AttackAnimEnd()
     {
         _IsAttack = false;
@@ -455,8 +460,7 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
     {
         if (Input.GetKeyDown(KeyCode.Z) && !_SwordCollider.enabled)
         {
-            _SwordCollider.enabled = true;
-
+            
             PlayerAttackAnimator.SetTrigger("Attack");
 
             PlayerAttackAnimator.Play("Attack", 0, 0);
