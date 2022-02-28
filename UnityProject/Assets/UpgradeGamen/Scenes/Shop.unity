@@ -903,8 +903,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Katana: {fileID: 900914286}
-  Knife: {fileID: 1052450627}
-  Taiken: {fileID: 1645826355}
+  Knife: {fileID: 1645826355}
+  Taiken: {fileID: 1052450627}
 --- !u!1 &252020812
 GameObject:
   m_ObjectHideFlags: 0
@@ -2178,8 +2178,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 452.83508, y: -308.3492}
-  m_SizeDelta: {x: 1464.1929, y: 279}
+  m_AnchoredPosition: {x: 647.39087, y: -308.3492}
+  m_SizeDelta: {x: 2020.0664, y: 279}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &603937359
 MonoBehaviour:
@@ -3738,7 +3738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3957,6 +3957,7 @@ GameObject:
   - component: {fileID: 995853228}
   - component: {fileID: 995853230}
   - component: {fileID: 995853229}
+  - component: {fileID: 995853231}
   m_Layer: 5
   m_Name: turorialText
   m_TagString: Text
@@ -3980,8 +3981,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 443, y: -290.5}
-  m_SizeDelta: {x: 666.3126, y: 152.3667}
+  m_AnchoredPosition: {x: 687, y: -310}
+  m_SizeDelta: {x: 919.275, y: 152.3667}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &995853229
 MonoBehaviour:
@@ -4016,7 +4017,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.5
-  m_Text: "\u3000\u3042\uFF01\u304A\u5E30\u308A\uFF01\n\u3000\u4ECA\u56DE\u3082\u7121\u4E8B\u3067\u4F55\u3088\u308A\u3060\u3088\uFF01"
+  m_Text: "\u3042\uFF01\u304A\u5E30\u308A\uFF01\n\u4ECA\u56DE\u3082\u7121\u4E8B\u3067\u4F55\u3088\u308A\u3060\u3088\uFF01"
 --- !u!222 &995853230
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4025,6 +4026,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 995853227}
   m_CullTransparentMesh: 1
+--- !u!114 &995853231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995853227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79de4b1b4fd3f4c43a2d21be9bd8926d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txt: {fileID: 995853229}
 --- !u!1001 &1052450626
 PrefabInstance:
   m_ObjectHideFlags: 0

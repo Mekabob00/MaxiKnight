@@ -710,7 +710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1774,8 +1774,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Katana: {fileID: 528750909}
-  Knife: {fileID: 366840416}
-  Taiken: {fileID: 437393749}
+  Knife: {fileID: 437393749}
+  Taiken: {fileID: 366840416}
 --- !u!1 &437393749 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3520028799481328387, guid: ef296b329d4fb794aa39db01a42f07f8, type: 3}
