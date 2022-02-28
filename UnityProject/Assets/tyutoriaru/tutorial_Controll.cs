@@ -21,6 +21,10 @@ public class tutorial_Controll : MonoBehaviour
     private AudioClip TextSound;
     [SerializeField, Tooltip("TutoSuccess")]
     private AudioClip TutoSuccess;
+    [SerializeField, Tooltip("MainBGM")]
+    private GameObject MainBGM;
+    [SerializeField, Tooltip("ClearBGM")]
+    private GameObject ClearBGM;
     public Text text = null;
     public GameObject SkipSelect;
     public Rigidbody Enemy3Rigidbody;
@@ -39,6 +43,8 @@ public class tutorial_Controll : MonoBehaviour
     #region Unityfunction
     void Start()
     {
+        MainBGM.SetActive(true);
+        ClearBGM.SetActive(false);
         AttakConut = 0;
         Enemy3Rigidbody.constraints = RigidbodyConstraints.FreezePositionX;
         time = 0;
@@ -294,6 +300,8 @@ public class tutorial_Controll : MonoBehaviour
                     else
                     {
                         TutorialNum = 21;
+                        MainBGM.SetActive(false);
+                        ClearBGM.SetActive(true);
                     }
                 }
                 break;
