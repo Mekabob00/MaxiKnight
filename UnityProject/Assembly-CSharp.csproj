@@ -110,7 +110,6 @@
     <Compile Include="Assets\Test.cs" />
     <Compile Include="Assets\Player\PlayerScript\PlayerEffect.cs" />
     <Compile Include="Assets\Canon\Scripts\CanonBall\CanonBallGenerator.cs" />
-    <Compile Include="Assets\UpgradeGamen\Script\WeaponShowControl.cs" />
     <Compile Include="Assets\Item\Scripts\ItemBehavior.cs" />
     <Compile Include="Assets\UpgradeGamen\Script\AnimationControl.cs" />
     <Compile Include="Assets\Enemy01\Script\LastEnemy.cs" />
@@ -126,13 +125,13 @@
     <Compile Include="Assets\Enemy01\Expansion\RigidBodyExtensions.cs" />
     <Compile Include="Assets\UpgradeGamen\Script\AudioPlay.cs" />
     <Compile Include="Assets\Reinforcement Tutorial\ReinforcementTutorial.cs" />
-    <Compile Include="Assets\UpgradeGamen\Script\ShopHPUI.cs" />
     <Compile Include="Assets\GameOver_StageClear\GameOver.cs" />
     <Compile Include="Assets\Camera\Camela.cs" />
     <Compile Include="Assets\Player\PlayerScript\PlayerGrab.cs" />
     <Compile Include="Assets\GlobalFile\Scripts\DataManager.cs" />
     <Compile Include="Assets\Enemy01\Script\Enemy2BossBehaviour.cs" />
-    <Compile Include="Assets\Sounds\Totitle.cs" />
+    <Compile Include="Assets\UpgradeGamen\Script\ShopHPUI.cs" />
+    <Compile Include="Assets\UpgradeGamen\Script\WeaponShowControl.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\PostEffect\Blur.shader" />
