@@ -12,11 +12,15 @@ public class ResourceBehavior : MonoBehaviour
     private ParticleSystem _Effect;
     [SerializeField, Tooltip("ÉAÉCÉeÉÄ")]
     private GameObject Item;
+    [SerializeField, Tooltip("Audio Souce")]
+    private AudioSource audioSource;
+    public AudioClip SE;
+    public AudioSource castleAudioSource;
 
 
     void Start()
     {
-
+        castleAudioSource = GameObject.Find("Castle").GetComponent<AudioSource>();
     }
 
 
@@ -29,13 +33,7 @@ public class ResourceBehavior : MonoBehaviour
         if (other.tag == "Player")
         {
             Debug.Log("AAA");
-            //EffectÇÃçƒê∂
-           // if (_Effect != null)
-           // {
-             //   _Effect.Play();
-            //}
-
-         
+            castleAudioSource.PlayOneShot(SE);
             //éëåπÇÃälìæ
             DataManager.Instance._Resource += (int)_ResourceAmount;
             Destroy(Item);
