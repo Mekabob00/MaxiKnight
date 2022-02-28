@@ -183,6 +183,9 @@ public class Player_Controll : MonoBehaviour, IPlayerDamege
             transform.position = new Vector3(
             transform.position.x + dx, _LanePosYList[_NowLane], _LanePosZList[_NowLane]);
 
+            //バグ修正
+            _SwordCollider.enabled = false;
+
             //アニメーション再生
             if (dx != 0.0f)
             {
