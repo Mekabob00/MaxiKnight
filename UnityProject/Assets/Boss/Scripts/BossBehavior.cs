@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,26 +6,26 @@ public enum STATE { MOVE, ENTER, STANDBY, ATTACKPLAYER, CHARGE, ATTACKCASTLE, RE
 
 public class BossBehavior : MonoBehaviour, IPlayerDamege
 {
-    [Header("¶–½’l")]
+    [Header("ç”Ÿå‘½å€¤")]
     public int _Health;
 
-    [Header("ˆÚ“®‘¬“x")]
+    [Header("ç§»å‹•é€Ÿåº¦")]
     public float _MoveSpeed;
 
-    [Header("’†’fŒãˆÚ“®‘¬“x")]
+    [Header("ä¸­æ–­å¾Œç§»å‹•é€Ÿåº¦")]
     public float _BreakSpeed;
 
-    [Header("ƒ_ƒ[ƒW")]
+    [Header("ãƒ€ãƒ¡ãƒ¼ã‚¸")]
     public int _Damage;
 
-    [Header("UŒ‚”ÍˆÍ")]
+    [Header("æ”»æ’ƒç¯„å›²")]
     public float _Area;
 
-    [Header("ƒ`ƒƒ[ƒW")]
-    [Tooltip("ŠÔ")] public float _ChargeTime;
-    [Tooltip("’†’f‰ñ”")] public int _StopChargeCount;
+    [Header("ãƒãƒ£ãƒ¼ã‚¸")]
+    [Tooltip("æ™‚é–“")] public float _ChargeTime;
+    [Tooltip("ä¸­æ–­å›æ•°")] public int _StopChargeCount;
 
-    [Header("ƒIƒuƒWƒFƒNƒg")]
+    [Header("ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ")]
     public GameObject _Castle;
     public GameObject _Player;
     public GameObject _AttackArea;
@@ -37,21 +37,21 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
     public GameObject _DamageEffect;
     public GameObject _AttackFireEffect;
 
-    [Header("‹——£İ’è")]
-    [Tooltip("\‚¦")] public float _EnterDistance;
-    [Tooltip("UŒ‚")] public float _StandByDistance;
-    [Tooltip("ƒ`ƒƒ[ƒW")] public float _ChargeDistance;
+    [Header("è·é›¢è¨­å®š")]
+    [Tooltip("æ§‹ãˆ")] public float _EnterDistance;
+    [Tooltip("æ”»æ’ƒ")] public float _StandByDistance;
+    [Tooltip("ãƒãƒ£ãƒ¼ã‚¸")] public float _ChargeDistance;
 
-    [Header("Ÿ‚Ìó‘ÔˆÚs‚Ü‚Å‚Ì‘Ò‚¿ŠÔ")]
-    [Tooltip("\‚¦‚ÉˆÚs‘O")] public float _Move_To_Enter;
-    [Tooltip("ƒvƒŒƒCƒ„[‚ÖUŒ‚€”õ‚ÉˆÚs‘O")] public float _Move_To_StandBy;
-    [Tooltip("ƒvƒŒƒCƒ„[‚ÖUŒ‚‚ÉˆÚs‘O")] public float _StandBy_To_AttackPlayer;
-    [Tooltip("‹’“_‚ÖUŒ‚‚ÉˆÚs‘O")] public float _Charge_To_AttackCastle;
-    [Tooltip("ƒ`ƒƒ[ƒW’†’f‚ÉˆÚs‘O")]public float _Charge_To_StopCharge;
-    [Tooltip("ƒ_ƒEƒ“‚³‚ê‚é‘O")]public float _Down_To_StandUp;
-    [Tooltip("Ÿ‚ÌUŒ‚ƒ‹[ƒv‚ÉˆÚs‘O")] public float _NextAttackLoop;
+    [Header("æ¬¡ã®çŠ¶æ…‹ç§»è¡Œã¾ã§ã®å¾…ã¡æ™‚é–“")]
+    [Tooltip("æ§‹ãˆã«ç§»è¡Œå‰")] public float _Move_To_Enter;
+    [Tooltip("ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã¸æ”»æ’ƒæº–å‚™ã«ç§»è¡Œå‰")] public float _Move_To_StandBy;
+    [Tooltip("ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã¸æ”»æ’ƒã«ç§»è¡Œå‰")] public float _StandBy_To_AttackPlayer;
+    [Tooltip("æ‹ ç‚¹ã¸æ”»æ’ƒã«ç§»è¡Œå‰")] public float _Charge_To_AttackCastle;
+    [Tooltip("ãƒãƒ£ãƒ¼ã‚¸ä¸­æ–­ã«ç§»è¡Œå‰")] public float _Charge_To_StopCharge;
+    [Tooltip("ãƒ€ã‚¦ãƒ³ã•ã‚Œã‚‹å‰")] public float _Down_To_StandUp;
+    [Tooltip("æ¬¡ã®æ”»æ’ƒãƒ«ãƒ¼ãƒ—ã«ç§»è¡Œå‰")] public float _NextAttackLoop;
 
-    [Header("‰¹Œø")]
+    [Header("éŸ³åŠ¹")]
     public AudioClip _FireAttackSE;
     public AudioClip _DamageSE;
     public AudioClip _NapalmBombShotSE;
@@ -60,19 +60,19 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
     Animator m_animator;
     AudioSource m_audioSource;
     Vector3 m_breakChargePos;
-    [Header("ƒfƒoƒbƒO—p"), SerializeField, Tooltip("ó‘Ô")] STATE m_state;            //ƒXƒe[ƒ^ƒX
-    [SerializeField, Tooltip("‰ŠúˆÊ’u")] Vector3 m_startPoint;     //‰ŠúˆÊ’u
-    [SerializeField, Tooltip("ƒ`ƒƒ[ƒWó‘Ô‚Ì‰ğœ‰ñ”ŒvZ")] int m_currentHitCount;           //ƒ`ƒƒ[ƒWó‘Ô‚Ì‰ğœ‰ñ”ŒvZ
-    float m_castleDistance;   //é‚Æ‚Ì‹——£
-    float m_chargeTimeCount;  //ƒ`ƒƒ[ƒWŠÔŒvZ
+    [Header("ãƒ‡ãƒãƒƒã‚°ç”¨"), SerializeField, Tooltip("çŠ¶æ…‹")] STATE m_state;            //ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
+    [SerializeField, Tooltip("åˆæœŸä½ç½®")] Vector3 m_startPoint;     //åˆæœŸä½ç½®
+    [SerializeField, Tooltip("ãƒãƒ£ãƒ¼ã‚¸çŠ¶æ…‹ã®è§£é™¤å›æ•°è¨ˆç®—")] int m_currentHitCount;           //ãƒãƒ£ãƒ¼ã‚¸çŠ¶æ…‹ã®è§£é™¤å›æ•°è¨ˆç®—
+    float m_castleDistance;   //åŸã¨ã®è·é›¢
+    float m_chargeTimeCount;  //ãƒãƒ£ãƒ¼ã‚¸æ™‚é–“è¨ˆç®—
     float m_explosionCT = 0.6f;
-    float m_timer;            //ƒ^ƒCƒ}[
-    bool m_isWait;            //ó‘Ô‘JˆÚ‘Ò‚¿
-    bool m_isEnter;           //\‚¦ó‘Ô‹L˜^
-    bool m_isAttackedPlayer;  //ƒvƒŒƒCƒ„[‚ÉUŒ‚‹L˜^
-    bool m_isMove;            //ˆÚ“®(Anim—p)
-    bool m_isStandBy;         //UŒ‚—\(Anim—p)
-    bool m_isCharge;          //ƒ`ƒƒ[ƒWó‘Ô(Anim—p)
+    float m_timer;            //ã‚¿ã‚¤ãƒãƒ¼
+    bool m_isWait;            //çŠ¶æ…‹é·ç§»å¾…ã¡
+    bool m_isEnter;           //æ§‹ãˆçŠ¶æ…‹è¨˜éŒ²
+    bool m_isAttackedPlayer;  //ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã«æ”»æ’ƒè¨˜éŒ²
+    bool m_isMove;            //ç§»å‹•(Animç”¨)
+    bool m_isStandBy;         //æ”»æ’ƒäºˆå‘Š(Animç”¨)
+    bool m_isCharge;          //ãƒãƒ£ãƒ¼ã‚¸çŠ¶æ…‹(Animç”¨)
     bool m_isReturn;
 
     void Start()
@@ -92,7 +92,7 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
         }
 
         //Debug.Log(state);
-        //‹’“_‚Ì‹——£
+        //æ‹ ç‚¹ã®è·é›¢
         m_castleDistance = Vector3.Distance(transform.position, _Castle.transform.position);
 
         SetState();
@@ -138,16 +138,16 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
                 break;
         }
     }
-    //ˆÚ“®
+    //ç§»å‹•
     void StateUpdate_Move()
     {
         m_isMove = true;
-        //‹’“_‚ÖˆÚ“®‚·‚é
+        //æ‹ ç‚¹ã¸ç§»å‹•ã™ã‚‹
         if (!m_isWait)
             transform.position += new Vector3(-_MoveSpeed * Time.deltaTime, 0, 0);
 
-        //ó‘Ô‘JˆÚ
-        //‹’“_‚Ì‹——£‚É‚æ‚éó‘Ô‘JˆÚ
+        //çŠ¶æ…‹é·ç§»
+        //æ‹ ç‚¹ã®è·é›¢ã«ã‚ˆã‚‹çŠ¶æ…‹é·ç§»
         if (m_castleDistance <= _EnterDistance && !m_isEnter)
         {
             m_state = STATE.ENTER;
@@ -156,7 +156,7 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
         }
         else if (m_castleDistance <= _StandByDistance && !m_isAttackedPlayer)
         {
-            //UŒ‚—\ó‘Ô
+            //æ”»æ’ƒäºˆå‘ŠçŠ¶æ…‹
             m_state = STATE.STANDBY;
             StartCoroutine(WaitTime(_Move_To_StandBy));
         }
@@ -165,7 +165,7 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             m_state = STATE.CHARGE;
         }
     }
-    //\‚¦
+    //æ§‹ãˆ
     void StateUpdate_Enter()
     {
         m_isMove = false;
@@ -176,18 +176,18 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             m_state = STATE.MOVE;
         }
     }
-    //ƒvƒŒƒCƒ„[‚ÉUŒ‚€”õ
+    //ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã«æ”»æ’ƒæº–å‚™
     void StateUpdate_StandBy()
     {
         m_isMove = false;
         m_isStandBy = true;
 
-        //ó‘Ô‘JˆÚ
+        //çŠ¶æ…‹é·ç§»
         if (!m_isWait)
         {
             m_animator.SetTrigger("Attack");
             m_state = STATE.ATTACKPLAYER;
-            //UŒ‚¶¬
+            //æ”»æ’ƒç”Ÿæˆ
             for (int i = 0; i < 3; ++i)
             {
                 GameObject temp = Instantiate(_AttackArea, new Vector3(_Player.transform.position.x + ((-_Area - 2) + (_Area + 2) * i), _Player.transform.position.y + 0.15f, _Player.transform.position.z), Quaternion.identity);
@@ -200,46 +200,46 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             StartCoroutine(WaitTime(_StandBy_To_AttackPlayer));
         }
     }
-    //ƒvƒŒƒCƒ„[‚ÉUŒ‚‚·‚é
+    //ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã«æ”»æ’ƒã™ã‚‹
     void StateUpdate_AttackPlayer()
     {
         if (!m_isWait)
             if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
                 m_state = STATE.MOVE;
     }
-    //ƒ`ƒƒ[ƒW
+    //ãƒãƒ£ãƒ¼ã‚¸
     void StateUpdate_Charge()
     {
         m_isMove = false;
         m_isCharge = true;
         m_chargeTimeCount += Time.deltaTime;
 
-        //ƒ`ƒƒ[ƒWŠ®¬
+        //ãƒãƒ£ãƒ¼ã‚¸å®Œæˆ
         if (m_chargeTimeCount >= _ChargeTime)
         {
-            //‹’“_‚Éƒ_ƒ[ƒW‚ğ—^‚¦‚é
+            //æ‹ ç‚¹ã«ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’ä¸ãˆã‚‹
             m_state = STATE.ATTACKCASTLE;
             float percent = (_StopChargeCount - m_currentHitCount) * 1.0f / _StopChargeCount;
             _Castle.GetComponent<CastleBehavior>()._AddDamage((int)(_Damage * percent));
             m_isCharge = false;
             m_animator.SetTrigger("Attack");
 
-            //‰Î‰ŠƒGƒtƒFƒNƒg¶¬
+            //ç«ç‚ã‚¨ãƒ•ã‚§ã‚¯ãƒˆç”Ÿæˆ
             GameObject temp = Instantiate(_AttackFireEffect, new Vector3(0, 3, transform.position.z), _AttackFireEffect.transform.rotation);
             temp.SetActive(true);
             temp.transform.localScale = new Vector3(25, 10, 10);
 
-            //‰¹Œøİ’è
+            //éŸ³åŠ¹è¨­å®š
             m_audioSource.clip = _FireAttackSE;
             m_audioSource.Play();
 
-            //ƒ_ƒ[ƒWƒGƒŠƒA—LŒø‚·‚é
+            //ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚¨ãƒªã‚¢æœ‰åŠ¹ã™ã‚‹
             _Laser.GetComponent<LaserArea>()._Damage = (int)(_Damage * percent);
             _Laser.SetActive(true);
 
             StartCoroutine(WaitTime(_Charge_To_AttackCastle));
         }
-        //ƒ`ƒƒ[ƒW’†’f
+        //ãƒãƒ£ãƒ¼ã‚¸ä¸­æ–­
         if (m_currentHitCount >= _StopChargeCount)
         {
             m_state = STATE.DOWN;
@@ -249,25 +249,25 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             m_isCharge = false;
         }
     }
-    //‹’“_‚ÖUŒ‚‚·‚é
+    //æ‹ ç‚¹ã¸æ”»æ’ƒã™ã‚‹
     void StateUpdate_AttackCastle()
     {
-        //ŠJn’n“_‚É–ß‚é
+        //é–‹å§‹åœ°ç‚¹ã«æˆ»ã‚‹
         transform.position = Vector3.MoveTowards(transform.position, new Vector3(m_startPoint.x, transform.position.y, transform.position.z), 100 * Time.deltaTime);
 
         if (Mathf.Abs(transform.position.x - m_startPoint.x) <= 0.5)
         {
-            //ó‘ÔƒŠƒZƒbƒg
+            //çŠ¶æ…‹ãƒªã‚»ãƒƒãƒˆ
             StateReset();
             StartCoroutine(WaitTime(_NextAttackLoop));
         }
     }
-    //’†’fŒãŒ´ˆÊ’u‚É–ß‚·
+    //ä¸­æ–­å¾ŒåŸä½ç½®ã«æˆ»ã™
     void StateUpdate_Return()
     {
         transform.rotation = Quaternion.Euler(0, 90, 0);
 
-        //ŠJn’n“_‚É–ß‚é
+        //é–‹å§‹åœ°ç‚¹ã«æˆ»ã‚‹
         if (!m_isWait)
         {
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(m_startPoint.x, transform.position.y, transform.position.z), _BreakSpeed * Time.deltaTime);
@@ -275,20 +275,20 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
 
         if (Mathf.Abs(transform.position.x - m_startPoint.x) <= 0.5)
         {
-            //ó‘ÔƒŠƒZƒbƒg
+            //çŠ¶æ…‹ãƒªã‚»ãƒƒãƒˆ
             StateReset();
             StartCoroutine(WaitTime(_NextAttackLoop));
             transform.rotation = Quaternion.Euler(0, -90, 0);
         }
     }
-    //ƒ_ƒ[ƒW‚ğó‚¯‚½
+    //ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’å—ã‘ãŸ
     void StateUpdate_Damage()
     {
         m_isMove = false;
         if (!m_isWait)
             m_state = STATE.MOVE;
     }
-    //ƒ`ƒƒ[ƒW’†’f‚³‚ê‚½
+    //ãƒãƒ£ãƒ¼ã‚¸ä¸­æ–­ã•ã‚ŒãŸ
     void StateUpdate_Down()
     {
         if (!m_isWait)
@@ -297,7 +297,7 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             StartCoroutine(WaitTime(_Down_To_StandUp));
         }
     }
-    //—§‚Ä‚é
+    //ç«‹ã¦ã‚‹
     void StateUpdate_StandUp()
     {
         if (!m_isWait)
@@ -309,18 +309,18 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             m_isReturn = true;
         }
     }
-    //”j‰ó‚³‚ê‚½
+    //ç ´å£Šã•ã‚ŒãŸ
     void StateUpdate_Dead()
     {
         if (m_isWait) return;
 
         m_timer -= Time.deltaTime;
-        if(m_timer <= 0)
+        if (m_timer <= 0)
         {
             m_timer = m_explosionCT;
-            //”š”­ƒGƒtƒFƒNƒg¶¬
+            //çˆ†ç™ºã‚¨ãƒ•ã‚§ã‚¯ãƒˆç”Ÿæˆ
             int num = Random.Range(1, _ExplosionPos.Length / 2);
-            while(num > 0)
+            while (num > 0)
             {
                 GameObject obj = Instantiate(_Explosion, _ExplosionPos[Random.Range(0, _ExplosionPos.Length)]);
                 obj.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
@@ -351,7 +351,7 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
         m_isReturn = false;
     }
 
-    //ƒXƒe[ƒWƒNƒŠƒAŒã‚ÌƒV[ƒ“ˆ—
+    //ã‚¹ãƒ†ãƒ¼ã‚¸ã‚¯ãƒªã‚¢å¾Œã®ã‚·ãƒ¼ãƒ³å‡¦ç†
     IEnumerator StageClear()
     {
         yield return new WaitForSeconds(4.5f);
@@ -359,7 +359,7 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
         yield return new WaitForSeconds(2.5f);
         if (DataManager.Instance._Stage == DataManager.Instance._MaxStage)
         {
-            FadeManager.Instance.LoadScene("Clear0", 1.0f);
+            FadeManager.Instance.LoadScene("Credit", 1.0f);
         }
         else
         {
@@ -368,7 +368,7 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
         }
     }
 
-    //Ÿ‚Ìó‘Ô‚ğˆÚs‚Ü‚Å‚Ì‘Ò‚¿ŠÔ
+    //æ¬¡ã®çŠ¶æ…‹ã‚’ç§»è¡Œã¾ã§ã®å¾…ã¡æ™‚é–“
     IEnumerator WaitTime(float time)
     {
         m_isWait = true;
@@ -382,14 +382,14 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
         m_audioSource.Play();
     }
 
-    //ƒiƒp[ƒ€’e‚Ì”­Ë‰¹Œø
+    //ãƒŠãƒ‘ãƒ¼ãƒ å¼¾ã®ç™ºå°„éŸ³åŠ¹
     public void Animation_PlayShotSE()
     {
         m_audioSource.clip = _NapalmBombShotSE;
         m_audioSource.Play();
     }
 
-    //ƒ_ƒ[ƒW‚ğó‚¯‚é
+    //ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’å—ã‘ã‚‹
     public void _AddDamege(float _Damage)
     {
         if (_Health <= 0) return;
@@ -414,7 +414,8 @@ public class BossBehavior : MonoBehaviour, IPlayerDamege
             StartCoroutine(WaitTime(0.3f));
             m_animator.SetTrigger("Damage");
             m_state = STATE.DAMAGE;
-        }else if(m_state == STATE.CHARGE)
+        }
+        else if (m_state == STATE.CHARGE)
         {
             m_currentHitCount++;
             //chargeTimeCount -= 1.0f;
