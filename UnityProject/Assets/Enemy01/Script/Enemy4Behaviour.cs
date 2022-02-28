@@ -129,12 +129,6 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
     }
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Castle")
-        {
-            Instantiate(DidEffect, transform.position, transform.rotation);
-            EnemyAttackManeger.instance.PlaySE(DidSe);
-            Destroy(gameObject);
-        }
     }
     public void OnTriggerEnter(Collider other)
     {
@@ -146,6 +140,12 @@ public class Enemy4Behaviour : MonoBehaviour, IPlayerDamege
             this.transform.rotation = Quaternion.Euler(0, -90, 70);
             _IsMoveActive = false;
             _IsAttackFlag = true;
+        }
+        if (other.gameObject.tag == "Castle")
+        {
+            Instantiate(DidEffect, transform.position, transform.rotation);
+            EnemyAttackManeger.instance.PlaySE(DidSe);
+            Destroy(gameObject);
         }
     }
 
