@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/UpgradeGamen/Scenes/ShopTutorial.unity
+- path: Assets/Credit/Credit.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
