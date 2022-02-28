@@ -32,6 +32,10 @@ public class ReinforcementTutorial : MonoBehaviour
     private AudioClip TextSound;
     [SerializeField, Tooltip("TutoSuccess")]
     private AudioClip TutoSuccess;
+    [SerializeField, Tooltip("shop戻る")]
+    private Button ShopBack;
+    [SerializeField, Tooltip("武器変更戻る")]
+    private Button WeaponChangeBack;
     public Text text = null;
     public AudioSource audioSource = null;
     private int TutorialNum;
@@ -52,6 +56,7 @@ public class ReinforcementTutorial : MonoBehaviour
     void Start()
     {
         TutorialNum = 0;
+        nowDispCount = 0.0f;
         SkipObject.SetActive(true);
         DataManager.Instance._CastleHP = 9;
         //一旦全てのボタン無効化
@@ -63,6 +68,8 @@ public class ReinforcementTutorial : MonoBehaviour
         PlayerAttackBuff.interactable = false;
         ShortSowrd.interactable = false;
         buy.interactable = false;
+        ShopBack.interactable= false;
+        WeaponChangeBack.interactable= false;
         #region ボタンフラグ
         case5 = false;
         case8 = false;
@@ -237,7 +244,7 @@ public class ReinforcementTutorial : MonoBehaviour
             case 14:
                 buy.interactable = true;
                 PlayerAttackBuff.interactable = true;
-                maxDispStr = "機体を強化すると、機体の攻撃力があがって、敵を倒しやすくなるよ。やってみようか。\n強化ボタンをクリック→購入ボタンをクリック。";
+                maxDispStr = "機体を強化すると、機体の攻撃力があがって、敵を倒しやすくなるよ。やってみようか。\n機体強化ボタンをクリック→購入ボタンをクリック。";
                 if (DataManager.Instance._PlayerAttackBuff == 2)//DataManegerで管理
                 {
                     TutorialNum = 15;
@@ -248,12 +255,13 @@ public class ReinforcementTutorial : MonoBehaviour
             case 15:
                 maxDispStr = "機体が強くなったね！これで、みんな安心できるかな？\nショップでできる事の説明はこれで終わりだよ。\nそれじゃ、武器変更をしに行こう！\nメインの強化画面に戻ろう！";
                 buy.interactable = false;
+                ShopBack.interactable = true;
                 WeaponChange.interactable = true;
                 if (Input.GetKeyDown(KeyCode.Backspace) || case15)
                 {
                     TutorialNum = 16;
                     nowDispCount = 0.0f;
-                    SEPlay(TextSound);
+                    SEPlay(TutoSuccess);
                 }
                 break;
             case 16:
@@ -263,7 +271,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 {
                     TutorialNum = 17;
                     nowDispCount = 0.0f;
-                    SEPlay(TextSound);
+                    SEPlay(TutoSuccess);
                 }
                 break;
             case 17:
@@ -283,7 +291,7 @@ public class ReinforcementTutorial : MonoBehaviour
                 {
                     TutorialNum = 19;
                     nowDispCount = 0.0f;
-                    SEPlay(TextSound);
+                    SEPlay(TutoSuccess);
                 }
                 break;
             case 19:
@@ -297,11 +305,12 @@ public class ReinforcementTutorial : MonoBehaviour
                 break;
             case 20:
                 maxDispStr = "そろそろ次の目的地に向かおうよ。メインの強化画面に戻ろう！";
+                WeaponChangeBack.interactable = true;
                 if (case20)
                 {
                     TutorialNum = 21;
                     nowDispCount = 0.0f;
-                    SEPlay(TextSound);
+                    SEPlay(TutoSuccess);
                 }
                 break;
             case 21:
@@ -319,10 +328,9 @@ public class ReinforcementTutorial : MonoBehaviour
                 break;
             case 22:
                 maxDispStr = "これで強化画面の説明は終わり！\n後は、前に進むだけ。\n都市のみんなも、私も、きみを信じているよ。\nさあ、行こう！";
-                if (Input.GetKeyDown(KeyCode.Return) || case22)
+                if (Input.GetKeyDown(KeyCode.V) || case22)
                 {
                     FadeManager.Instance.LoadScene("Stage1", 1.5f);
-                    nowDispCount = 0.0f;
                     TutorialNum = 1000;
                 }
                 break;
