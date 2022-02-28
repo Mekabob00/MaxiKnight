@@ -28,8 +28,6 @@ public class SwordBehavia : MonoBehaviour
             int you = collision.GetComponent<JudgLaneMovement>().GetNowLane();
             int my = _Player.GetComponent<Player_Controll>().GetNowLane();
 
-            Debug.Log("EnemytoHit");
-
             if (you == my)
             {
                 //UŒ‚‚Ìƒf[ƒ^ˆ—
@@ -41,8 +39,9 @@ public class SwordBehavia : MonoBehaviour
                 Debug.Log(collision.name + ".HP=>-" + PlayerPower * _AttackPower);
             }
 
-
         }
+
+
     }
 
 }
