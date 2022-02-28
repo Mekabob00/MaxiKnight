@@ -11667,7 +11667,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8953753097484337706
 Transform:
   m_ObjectHideFlags: 0
@@ -11771,8 +11771,9 @@ MonoBehaviour:
   _Damage: 0
   Effect: {fileID: 6905903939417113979, guid: dedfb3139b45fd249bdca337ec6d05b7, type: 3}
   DidEffect: {fileID: 2886189059328443225, guid: 9a4438211fb2e4547b050c2457cafb2c, type: 3}
-  Item: {fileID: 8283514797142747799, guid: e63cedd4d3cfa8940927a294b0141954, type: 3}
+  Item: {fileID: 8283514797142747799, guid: 5dcbc9e6fa5cc6441ae14572e0d21e2b, type: 3}
   panel: {fileID: 0}
+  Aura: {fileID: 0}
   span: 3
   _IsMoveActive: 0
   castle: {fileID: 0}
@@ -12162,6 +12163,58 @@ PrefabInstance:
     - target: {fileID: 400006, guid: 53d818fe21816488e931816bd69d501e, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 53d818fe21816488e931816bd69d501e, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.08789873
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 53d818fe21816488e931816bd69d501e, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 53d818fe21816488e931816bd69d501e, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 53d818fe21816488e931816bd69d501e, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.009498596
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 53d818fe21816488e931816bd69d501e, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 53d818fe21816488e931816bd69d501e, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 53d818fe21816488e931816bd69d501e, type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 53d818fe21816488e931816bd69d501e, type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800004, guid: 53d818fe21816488e931816bd69d501e, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800004, guid: 53d818fe21816488e931816bd69d501e, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800004, guid: 53d818fe21816488e931816bd69d501e, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800004, guid: 53d818fe21816488e931816bd69d501e, type: 3}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800004, guid: 53d818fe21816488e931816bd69d501e, type: 3}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53d818fe21816488e931816bd69d501e, type: 3}
